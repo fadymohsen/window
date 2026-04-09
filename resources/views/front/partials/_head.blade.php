@@ -13,6 +13,13 @@
 <meta property="og:url" content="{{ url()->current() }}">
 <link rel="canonical" href="{{ url()->current() }}">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="{{ LaravelLocalization::getCurrentLocale() == 'ar' ? 'ar_SA' : 'en_US' }}">
+<meta property="og:locale:alternate" content="{{ LaravelLocalization::getCurrentLocale() == 'ar' ? 'en_US' : 'ar_SA' }}">
+
+<!-- Hreflang Tags -->
+<link rel="alternate" hreflang="ar" href="{{ LaravelLocalization::getLocalizedURL('ar') }}">
+<link rel="alternate" hreflang="en" href="{{ LaravelLocalization::getLocalizedURL('en') }}">
+<link rel="alternate" hreflang="x-default" href="{{ LaravelLocalization::getLocalizedURL('ar') }}">
 
 <meta name="keywords" content="@yield('keywords', $website_settings->keywords)">
 
