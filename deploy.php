@@ -9,5 +9,15 @@ if (!hash_equals('sha256=' . hash_hmac('sha256', $payload, $secret), $signature)
     die('Unauthorized');
 }
 
-$output = shell_exec('cd /home/u165969086 && git pull origin main && cp /home/u165969086/deploy.php /home/u165969086/domains/windowadv.com/public_html/deploy.php 2>&1');
+$commands = [
+    'cd /home/u165969086 && git pull origin main',
+    'cd /home/u165969086 && cp deploy.php domains/windowadv.com/public_html/deploy.php',
+    'cd /home/u165969086 && php artisan config:cache',
+    'cd /home/u165969086 && php artisan route:cache',
+    'cd /home/u165969086 && php artisan view:cache',
+];
+$output = '';
+foreach ($commands as $cmd) {
+    $output .= shell_exec($cmd . ' 2>&1') . "\n";
+}
 echo $output;
