@@ -40,7 +40,7 @@
             </div>
             <div class="row justify-content-center" style="min-height:35vh;">
                 <div class="col-lg-4 px-4 mt-2" style="position: relative;">
-                    <img class="d-none d-sm-block" src="{{ asset('front/images/muslim-man-browsing-smartphone-app-removebg-preview.png') }}" style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);height: 140%;max-width: 100%;">
+                    <img class="d-none d-sm-block" src="{{ asset('front/images/muslim-man-browsing-smartphone-app-removebg-preview.png') }}" alt="@lang('custom.contact-us') - {{ $website_settings->title }}" style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);height: 140%;max-width: 100%;">
                 </div>
                 <div class="col-lg-5 px-4 mt-2">
                     <form id="send-contacts" method="POST">

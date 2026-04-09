@@ -85,7 +85,7 @@
                 <div class="modal-content d-flex justify-content-center align-items-center" style="background: transparent;border: 0;">
                     <div class="modal-body position-relative" style="width: fit-content;">
                         <button class="bg-transparent border-0 text-white fw-bold position-absolute m-1 fs-3" type="button" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img class="rounded" src="" alt="" srcset="" style="width: auto;max-height: 90vh;max-width: 100%;">
+                        <img class="rounded" src="" alt="{{ $service->title }}" style="width: auto;max-height: 90vh;max-width: 100%;">
                     </div>
                 </div>
             </div>

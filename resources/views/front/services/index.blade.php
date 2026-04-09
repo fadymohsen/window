@@ -51,7 +51,7 @@
         <div class="container">
             <div class="row px-2">
                 <div class="col-lg-12 px-4 mt-2" style="z-index:1;position:relative;">
-                    <img src="{{ asset('front/images/car.png') }}" style="max-width: 100%;">
+                    <img src="{{ asset('front/images/car.png') }}" alt="@lang('custom.our-services') - {{ $website_settings->title }}" style="max-width: 100%;">
                 </div>
             </div>
         </div>

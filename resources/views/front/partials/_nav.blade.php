@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <div>
-            <a class="navbar-brand" href="/"><img src="{{ asset('front/images/window-final logo-1.png') }}" alt=""></a>
-            <a class="navbar-brand" href="/"><img src="{{ asset('front/images/sa-vision-2030.png') }}" alt=""></a>
+            <a class="navbar-brand" href="/"><img src="{{ asset('front/images/window-final logo-1.png') }}" alt="{{ $website_settings->title }} - @lang('custom.home')"></a>
+            <a class="navbar-brand" href="/"><img src="{{ asset('front/images/sa-vision-2030.png') }}" alt="Saudi Vision 2030"></a>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

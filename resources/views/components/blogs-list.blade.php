@@ -5,7 +5,7 @@
         <div class="col-lg-4 col-md-6 mb-3 mt-3">
             <a href="{{ route('front.blogs.show', $blog) }}" class="blogs-card-body">
                 <div class="blogs-card-image">
-                    <img loading="lazy" src="{{ $blog->display_image }}">
+                    <img loading="lazy" src="{{ $blog->display_image }}" alt="{{ $blog->title }}">
                 </div>
                 <div class="blogs-text px-2 py-2">
                     <h5>{{ $blog->title }}</h5>
