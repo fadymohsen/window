@@ -9,5 +9,5 @@ if (!hash_equals('sha256=' . hash_hmac('sha256', $payload, $secret), $signature)
     die('Unauthorized');
 }
 
-$output = shell_exec('cd /home/u165969086/public_html && git pull origin main 2>&1');
+$output = shell_exec('cd /home/u165969086 && git pull origin main 2>&1');
 echo $output;
