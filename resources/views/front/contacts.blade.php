@@ -5,6 +5,26 @@
 @section('description', __('custom.contacts-meta-description'))
 @section('keywords', __('custom.contacts-meta-keywords'))
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ __('custom.home') }}",
+        "item": "{{ url('/') }}"
+    }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ __('custom.contact') }}",
+        "item": "{{ route('front.contacts.index') }}"
+    }]
+}
+</script>
+@endsection
+
 @section('content')
 
     <section id="contact-form" class="py-4 mb-3">

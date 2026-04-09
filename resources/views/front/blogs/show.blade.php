@@ -6,6 +6,64 @@
 @section('keywords', $blog->keywords)
 @section('display_image', $blog->display_image)
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ __('custom.home') }}",
+        "item": "{{ url('/') }}"
+    }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ __('custom.blog') }}",
+        "item": "{{ route('front.blogs.index') }}"
+    }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ $blog->title }}",
+        "item": "{{ route('front.blogs.show', $blog->id) }}"
+    }]
+}
+</script>
+@endsection
+
+@section('page_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ $blog->title }}",
+    "description": "{{ $blog->meta_description ?: truncatePostAndRemoveImages($blog->description) }}",
+    "image": "{{ $blog->display_image }}",
+    "url": "{{ route('front.blogs.show', $blog->id) }}",
+    "datePublished": "{{ $blog->created_at->toIso8601String() }}",
+    "dateModified": "{{ $blog->updated_at->toIso8601String() }}",
+    "author": {
+        "@type": "Organization",
+        "name": "{{ $website_settings->title }}",
+        "url": "{{ url('/') }}"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ $website_settings->title }}",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ $website_settings->display_logo }}"
+        }
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ route('front.blogs.show', $blog->id) }}"
+    },
+    "inLanguage": "{{ LaravelLocalization::getCurrentLocale() }}"
+}
+</script>
+@endsection
+
 @section('content')
 
     <section id="blog-header" class="py-2 pb-0">

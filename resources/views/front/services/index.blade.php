@@ -5,6 +5,46 @@
 @section('description', __('custom.services-meta-description'))
 @section('keywords', __('custom.services-meta-keywords'))
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ __('custom.home') }}",
+        "item": "{{ url('/') }}"
+    }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ __('custom.services') }}",
+        "item": "{{ route('front.services.index') }}"
+    }]
+}
+</script>
+@endsection
+
+@section('page_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "{{ __('custom.our-services') }}",
+    "itemListElement": [
+        @foreach($services as $index => $service)
+        {
+            "@type": "ListItem",
+            "position": {{ $index + 1 }},
+            "name": "{{ $service->title }}",
+            "url": "{{ route('front.services.show', $service->id) }}"
+        }@if(!$loop->last),@endif
+        @endforeach
+    ]
+}
+</script>
+@endsection
+
 @section('content')
 
     <section id="services-header" class="py-2 pb-0 mb-4">

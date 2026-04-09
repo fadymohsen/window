@@ -5,6 +5,26 @@
 @section('description', __('custom.blogs-meta-description'))
 @section('keywords', __('custom.blogs-meta-keywords'))
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ __('custom.home') }}",
+        "item": "{{ url('/') }}"
+    }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ __('custom.blog') }}",
+        "item": "{{ route('front.blogs.index') }}"
+    }]
+}
+</script>
+@endsection
+
 @section('content')
 
     <section id="blog-header" class="py-2 pb-0">

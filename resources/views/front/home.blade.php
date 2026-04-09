@@ -5,6 +5,21 @@
 @section('description', __('custom.home-meta-description'))
 @section('keywords', __('custom.home-meta-keywords'))
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ __('custom.home') }}",
+        "item": "{{ url('/') }}"
+    }]
+}
+</script>
+@endsection
+
 @section('content')
 
     <header class="text-center">

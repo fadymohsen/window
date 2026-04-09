@@ -3,6 +3,8 @@
 
 <head>
     @include('front.partials._head')
+    @include('front.partials._structured-data')
+    @yield('page_schema')
 </head>
 
 <body class="min-vh-100 d-flex flex-column">

@@ -6,6 +6,53 @@
 @section('keywords', $service->meta_keywords ?: '')
 @section('display_image', $service->display_image)
 
+@section('breadcrumb_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ __('custom.home') }}",
+        "item": "{{ url('/') }}"
+    }, {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ __('custom.services') }}",
+        "item": "{{ route('front.services.index') }}"
+    }, {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ $service->title }}",
+        "item": "{{ route('front.services.show', $service->id) }}"
+    }]
+}
+</script>
+@endsection
+
+@section('page_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "{{ $service->title }}",
+    "description": "{{ $service->meta_description ?: $service->title }}",
+    "image": "{{ $service->display_image }}",
+    "url": "{{ route('front.services.show', $service->id) }}",
+    "provider": {
+        "@type": "AdvertisingAgency",
+        "name": "{{ $website_settings->title }}",
+        "url": "{{ url('/') }}"
+    },
+    "areaServed": {
+        "@type": "Country",
+        "name": "Saudi Arabia"
+    }
+}
+</script>
+@endsection
+
 @section('content')
 
     <div class="d-flex flex-column" style="min-height:100vh;">  
