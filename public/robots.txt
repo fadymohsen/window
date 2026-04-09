@@ -3,5 +3,8 @@ Allow: /
 Disallow: /dashboard/
 Disallow: /storage/
 Disallow: /_debugbar/
+Disallow: /*/services/*/portofoliols/
+Disallow: /*/blogs/*/*
+Disallow: /*/services/*/*
 
 Sitemap: https://windowadv.com/sitemap.xml

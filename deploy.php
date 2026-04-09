@@ -16,6 +16,7 @@ $commands = [
     'cd /home/u165969086 && php artisan config:cache',
     'cd /home/u165969086 && php artisan route:cache',
     'cd /home/u165969086 && php artisan view:cache',
+    'cd /home/u165969086 && php artisan sitemap:generate',
 ];
 $output = '';
 foreach ($commands as $cmd) {

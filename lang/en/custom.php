@@ -122,4 +122,22 @@ return [
     'services-meta-title' => 'Advertising & Exhibition Services | Window Advertising Agency Riyadh',
     'services-meta-description' => 'Window Advertising Agency — Advertising & Exhibition Services. Leading advertising agency in Riyadh with 25+ years of experience delivering premium advertising & branding solutions in Saudi Arabia.',
     'services-meta-keywords' => 'advertising & exhibition services, advertising & exhibition services riyadh, advertising & exhibition services saudi arabia, window advertising agency, advertising agency riyadh',
+
+    // FAQ
+    'faq' => 'Frequently Asked Questions',
+    'faq-q1' => 'What services does Window Advertising Agency offer?',
+    'faq-a1' => 'We offer comprehensive advertising solutions including graphic design, professional printing, digital marketing, brand identity design, exhibition booth design, signage, event management, promotional gifts, and website development.',
+    'faq-q2' => 'Where is Window Advertising Agency located?',
+    'faq-a2' => 'Window Advertising Agency is located in Riyadh, Saudi Arabia. We serve clients across the Kingdom with over 25 years of experience in the advertising industry.',
+    'faq-q3' => 'How can I request a quote from Window Advertising?',
+    'faq-a3' => 'You can request a quote by visiting our Contact Us page, calling us at 0592945557, or sending us a message through WhatsApp. We respond to all inquiries promptly.',
+    'faq-q4' => 'Does Window Advertising handle event management?',
+    'faq-a4' => 'Yes, we specialize in comprehensive event management including official graduations, corporate events, grand openings, conferences, and exhibition booth design and execution for all sectors.',
+    'faq-q5' => 'What makes Window Advertising different from other agencies?',
+    'faq-a5' => 'With over 25 years of experience, we blend traditional Arabic calligraphy artistry with modern design technologies. We have served 1000+ clients, completed 3000+ projects, and maintain 200+ VIP client relationships.',
+
+    // 404
+    '404-title' => 'Page Not Found',
+    '404-description' => 'Sorry, the page you are looking for does not exist or has been moved.',
+    '404-go-home' => 'Go to Homepage',
 ];

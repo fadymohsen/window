@@ -23,9 +23,11 @@
 
 <meta name="keywords" content="@yield('keywords', $website_settings->keywords)">
 
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="@yield('display_image', $website_settings->display_cover)">
 <meta property="og:image" content="@yield('display_image', $website_settings->display_cover)">
-<meta name="twitter:card" content="@yield('display_image', $website_settings->display_cover)">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 
 <link rel="shortcut icon" href="{{ $website_settings->display_logo }}" type="image/x-icon">

@@ -143,4 +143,52 @@
         </div>
     </section>
 
+    <section id="faq" class="py-4 bg-light">
+        <div class="container">
+            <div class="title mb-4 mx-auto">
+                <h2 class="text-center">@lang('custom.faq')</h2>
+                <div class="title-underline-container title-second">
+                    <div class="title-underline w-100"></div>
+                </div>
+            </div>
+            <div class="accordion" id="faqAccordion">
+                @for($i = 1; $i <= 5; $i++)
+                <div class="accordion-item border-0 mb-2">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button {{ $i > 1 ? 'collapsed' : '' }} fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq{{ $i }}">
+                            @lang("custom.faq-q{$i}")
+                        </button>
+                    </h3>
+                    <div id="faq{{ $i }}" class="accordion-collapse collapse {{ $i == 1 ? 'show' : '' }}" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            @lang("custom.faq-a{$i}")
+                        </div>
+                    </div>
+                </div>
+                @endfor
+            </div>
+        </div>
+    </section>
+
+@endsection
+
+@section('page_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        @for($i = 1; $i <= 5; $i++)
+        {
+            "@type": "Question",
+            "name": "{{ __("custom.faq-q{$i}") }}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{ __("custom.faq-a{$i}") }}"
+            }
+        }@if($i < 5),@endif
+        @endfor
+    ]
+}
+</script>
 @endsection
