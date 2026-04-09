@@ -100,6 +100,7 @@ return [
     'about' => 'مـن نـحـن',
     'services' => 'الـخـدمـات',
     'contact' => 'تـواصـل مـعـنـا',
+    'site-name' => 'وكالة ويندو للدعاية والإعلان',
     'contact-sent-response' => 'تم ارسال الرسالة بنجاح',
 
     // SEO Meta Data

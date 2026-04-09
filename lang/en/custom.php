@@ -100,6 +100,7 @@ return [
     'about' => 'About',
     'services' => 'Services',
     'contact' => 'Contact',
+    'site-name' => 'Window Advertising Agency',
     'contact-sent-response' => 'Your message has been sent successfully',
 
     // SEO Meta Data

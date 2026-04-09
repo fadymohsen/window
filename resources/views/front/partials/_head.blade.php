@@ -1,10 +1,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>@yield('meta_title', $website_settings->title . ' - ' . View::yieldContent('title'))</title>
-<meta property="og:title" content="@yield('meta_title', $website_settings->title . ' - ' . View::yieldContent('title'))">
-<meta name="twitter:title" content="@yield('meta_title', $website_settings->title . ' - ' . View::yieldContent('title'))">
-<meta property="og:site_name" content="{{ $website_settings->title }}">
+<title>@yield('meta_title', __('custom.site-name') . ' - ' . View::yieldContent('title'))</title>
+<meta property="og:title" content="@yield('meta_title', __('custom.site-name') . ' - ' . View::yieldContent('title'))">
+<meta name="twitter:title" content="@yield('meta_title', __('custom.site-name') . ' - ' . View::yieldContent('title'))">
+<meta property="og:site_name" content="{{ __('custom.site-name') }}">
 
 <meta name="description" content="@yield('description', $website_settings->description)">
 <meta property="og:description" content="@yield('description', $website_settings->description)">
