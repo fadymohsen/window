@@ -4,7 +4,8 @@
 @php
     $pageMetaTitle = View::yieldContent('meta_title');
     $pageTitle = View::yieldContent('title');
-    $siteName = __('custom.site-name');
+    $currentLocale = LaravelLocalization::getCurrentLocale();
+    $siteName = $currentLocale === 'en' ? 'Window Advertising Agency' : 'وكالة ويندو للدعاية والإعلان';
     $fullTitle = $pageMetaTitle ?: ($siteName . ' - ' . $pageTitle);
 @endphp
 
