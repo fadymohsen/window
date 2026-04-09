@@ -66,6 +66,12 @@
 
 @section('content')
 
+    <x-breadcrumb :items="[
+        ['label' => __('custom.home'), 'url' => url('/')],
+        ['label' => __('custom.blog'), 'url' => route('front.blogs.index')],
+        ['label' => $blog->title, 'url' => route('front.blogs.show', $blog->id)],
+    ]" />
+
     <section id="blog-header" class="py-2 pb-0">
         <div class="container">
             <div class="row">
@@ -87,6 +93,10 @@
             </div>
             <div class="blog-body mt-3">
                 {!! $blog->description !!}
+            </div>
+            <div class="text-center my-4 d-flex gap-3 justify-content-center flex-wrap">
+                <a href="{{ route('front.blogs.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.blog')</a>
+                <a href="{{ route('front.contacts.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
             </div>
         </div>
     </div>

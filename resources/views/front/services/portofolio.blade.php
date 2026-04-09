@@ -55,7 +55,13 @@
 
 @section('content')
 
-    <div class="d-flex flex-column" style="min-height:100vh;">  
+    <x-breadcrumb :items="[
+        ['label' => __('custom.home'), 'url' => url('/')],
+        ['label' => __('custom.services'), 'url' => route('front.services.index')],
+        ['label' => $service->title, 'url' => route('front.services.show', $service->id)],
+    ]" />
+
+    <div class="d-flex flex-column" style="min-height:100vh;">
         <section id="services-header" class="py-4 mb-4">
             <div class="container">
                 <div class="row">
@@ -77,6 +83,13 @@
                         <span class="loader"></span>
                     </div>
                 </div>
+        </section>
+
+        <section class="py-4 text-center">
+            <div class="container">
+                <p class="text-gr mb-3">@lang('custom.contact-us')</p>
+                <a href="{{ route('front.contacts.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
+            </div>
         </section>
 
         <!-- Image Model -->

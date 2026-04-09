@@ -27,6 +27,11 @@
 
 @section('content')
 
+    <x-breadcrumb :items="[
+        ['label' => __('custom.home'), 'url' => url('/')],
+        ['label' => __('custom.about'), 'url' => route('front.about')],
+    ]" />
+
     <section id="about" class="py-4 about2">
         <div class="container">
             <div class="row">
@@ -72,6 +77,9 @@
                 <p class="text-center">
                     @lang('custom.our-services-body')
                 </p>
+                <div class="text-center mt-2">
+                    <a href="{{ route('front.services.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.our-services')</a>
+                </div>
             </div>
         </div>
     </section>
@@ -128,6 +136,9 @@
                     </div>
                 </div>
                 @lang('custom.our-strategie-body')
+                <div class="text-center mt-3">
+                    <a href="{{ route('front.contacts.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
+                </div>
             </div>
         </div>
     </section>
