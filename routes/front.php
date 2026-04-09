@@ -36,8 +36,23 @@ Route::get('/services.php', function () {
 });
 Route::get('/blog.php', function () {
     $id = request('id');
-    return Redirect::to("/blogs/{$id}", 301);
+    $blog = \App\Models\Blog::find($id);
+    if ($blog && $blog->slug) {
+        return Redirect::to("/blogs/{$blog->slug}", 301);
+    }
+    return Redirect::to("/blogs", 301);
 });
+
+// Redirect old numeric blog URLs to slug URLs
+Route::get(LaravelLocalization::setLocale() . '/blogs/{id}', function ($id) {
+    if (is_numeric($id)) {
+        $blog = \App\Models\Blog::find($id);
+        if ($blog && $blog->slug) {
+            return Redirect::to(LaravelLocalization::getLocalizedURL(null, "/blogs/{$blog->slug}"), 301);
+        }
+        abort(404);
+    }
+})->where('id', '[0-9]+');
 Route::get('/portofolio.php', function () {
     $id = request('id');
     return Redirect::to("/services/{$id}", 301);

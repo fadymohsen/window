@@ -31,17 +31,25 @@
 <link rel="shortcut icon" href="{{ $website_settings->display_logo }}" type="image/x-icon">
 <link rel="icon" type="image/x-icon" href="{{ $website_settings->display_logo }}">
 
+<!-- Preload Critical Font -->
+<link rel="preload" href="{{ asset('front/fonts/Almarai-Regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ asset('front/fonts/Almarai-Bold.woff2') }}" as="font" type="font/woff2" crossorigin>
 <!-- Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preconnect to CDNs -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <!-- Bootstrap CSS -->
 <link href="{{ asset('front/libs/bootstrap/css/bootstrap'. (LaravelLocalization::getCurrentLocaleDirection() == 'rtl' ? '.rtl' : '') .'.min.css') }}" rel="stylesheet">
 <!-- Swiper Css -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<!-- Fonts Awesome -->
-<link rel="stylesheet" href="{{ asset('front/libs/fontawesome-free-6.5.2-web/css/all.min.css') }}">
+<!-- Fonts Awesome - defer non-critical -->
+<link rel="stylesheet" href="{{ asset('front/libs/fontawesome-free-6.5.2-web/css/all.min.css') }}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="{{ asset('front/libs/fontawesome-free-6.5.2-web/css/all.min.css') }}"></noscript>
 <!-- Sweet Alert2 -->
-<link rel="stylesheet" href="{{ asset('front/libs/sweetalert2/sweet.css') }}">
+<link rel="stylesheet" href="{{ asset('front/libs/sweetalert2/sweet.css') }}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="{{ asset('front/libs/sweetalert2/sweet.css') }}"></noscript>
 <link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.theme.default.min.css') }}">
 <!-- Custom CSS -->

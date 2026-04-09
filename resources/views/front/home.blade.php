@@ -55,7 +55,7 @@
         <div class="container d-flex flex-md-row flex-column justify-content-evenly align-items-center gap-4 text-gr">
             <div class="d-flex align-items-center gap-3">
                 <div>
-                    <img src="{{ asset('front/images/clients_icon.png') }}" height="70" alt="@lang('custom.clients')">
+                    <img src="{{ asset('front/images/clients_icon.png') }}" height="70" alt="@lang('custom.clients')" loading="lazy">
                 </div>
                 <div>
                     <p class="mb-0 fs-1"><span class="count-number">1000</span>+</p>
@@ -64,7 +64,7 @@
             </div>
             <div class="d-flex align-items-center gap-3">
                 <div>
-                    <img src="{{ asset('front/images/projects_icon.png') }}" height="70" alt="@lang('custom.our-projects')">
+                    <img src="{{ asset('front/images/projects_icon.png') }}" height="70" alt="@lang('custom.our-projects')" loading="lazy">
                 </div>
                 <div>
                     <p class="mb-0 fs-1"><span class="count-number">3000</span>+</p>
@@ -73,7 +73,7 @@
             </div>
             <div class="d-flex align-items-center gap-3">
                 <div>
-                    <img src="{{ asset('front/images/vip_icon.png') }}" height="70" alt="@lang('custom.vip-clients')">
+                    <img src="{{ asset('front/images/vip_icon.png') }}" height="70" alt="@lang('custom.vip-clients')" loading="lazy">
                 </div>
                 <div>
                     <p class="mb-0 fs-1"><span class="count-number">200</span>+</p>
@@ -100,7 +100,7 @@
                         <div class="col-lg-3 col-md-4 col-6 px-md-5">
                             <div class="item">
                                 <div>
-                                    <img src="{{ $service->display_image }}" alt="{{ $service->title }}" style="width:100%;">
+                                    <img src="{{ $service->display_image }}" alt="{{ $service->title }}" style="width:100%;" loading="lazy">
                                 </div>
                                 <div class="text-center text-white">
                                     <p class="fs-4 mt-2 text-gr">{{ $service->title }}</p>

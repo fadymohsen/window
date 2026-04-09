@@ -12,6 +12,7 @@ if (!hash_equals('sha256=' . hash_hmac('sha256', $payload, $secret), $signature)
 $commands = [
     'cd /home/u165969086 && git pull origin main',
     'cd /home/u165969086 && cp deploy.php domains/windowadv.com/public_html/deploy.php',
+    'cd /home/u165969086 && php artisan migrate --force',
     'cd /home/u165969086 && php artisan config:cache',
     'cd /home/u165969086 && php artisan route:cache',
     'cd /home/u165969086 && php artisan view:cache',
