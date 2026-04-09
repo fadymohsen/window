@@ -37,6 +37,7 @@ class PortofoliosManager {
             this.getingPortofolioLoader.insertAdjacentHTML('beforebegin', result.data.content)
             this.getingPortofolioLoader.style.display = "none"
             this.get_portofolios_working = false
+            if (window.portfolioLightbox) window.portfolioLightbox.reload()
         }
         else
         {

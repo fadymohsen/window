@@ -137,6 +137,17 @@ return [
     'faq-q5' => 'What makes Window Advertising different from other agencies?',
     'faq-a5' => 'With over 25 years of experience, we blend traditional Arabic calligraphy artistry with modern design technologies. We have served 1000+ clients, completed 3000+ projects, and maintain 200+ VIP client relationships.',
 
+    // Hero
+    'hero-tagline' => 'The Best Advertising Agency in Saudi Arabia',
+    'hero-subtitle' => 'Over 25 years of creative excellence in Riyadh',
+    'hero-cta' => 'Get a Free Consultation',
+
+    // Form Validation
+    'validation-required' => 'This field is required',
+    'validation-email' => 'Please enter a valid email address',
+    'validation-phone' => 'Please enter a valid phone number',
+    'validation-url' => 'Please enter a valid URL',
+
     // 404
     '404-title' => 'Page Not Found',
     '404-description' => 'Sorry, the page you are looking for does not exist or has been moved.',

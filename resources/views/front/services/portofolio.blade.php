@@ -92,17 +92,6 @@
             </div>
         </section>
 
-        <!-- Image Model -->
-        <div id="porto-modal" class="modal" tabindex="-1">
-            <div class="modal-dialog my-0 vh-100 d-flex align-items-center" style="max-width: 100%;">
-                <div class="modal-content d-flex justify-content-center align-items-center" style="background: transparent;border: 0;">
-                    <div class="modal-body position-relative" style="width: fit-content;">
-                        <button class="bg-transparent border-0 text-white fw-bold position-absolute m-1 fs-3" type="button" data-bs-dismiss="modal" aria-label="Close">X</button>
-                        <img class="rounded" src="" alt="{{ $service->title }}" style="width: auto;max-height: 90vh;max-width: 100%;">
-                    </div>
-                </div>
-            </div>
-        </div>
 
 @endsection
 

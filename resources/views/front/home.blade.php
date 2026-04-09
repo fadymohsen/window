@@ -22,13 +22,18 @@
 
 @section('content')
 
-    <header class="text-center">
+    <header class="text-center" id="hero">
         <video autoplay muted loop playsinline preload="auto">
             <source src="{{ asset('front/videos/window_header.mp4') }}" type="video/mp4">
         </video>
+        <div class="hero-overlay">
+            <h1 class="hero-fade-up">@lang('custom.hero-tagline')</h1>
+            <p class="hero-fade-up hero-subtitle">@lang('custom.hero-subtitle')</p>
+            <a href="{{ route('front.contacts.index') }}" class="cta-btn text-decoration-none text-dark hero-fade-up hero-cta-btn">@lang('custom.hero-cta')</a>
+        </div>
     </header>
 
-    <section id="about" class="py-5 text-white">
+    <section id="about" class="py-5 text-white" data-aos="fade-up">
         <div class="container py-4">
             <div class="row">
                 <div class="col-lg-7 mb-md-0 mb-5">
@@ -51,7 +56,7 @@
         </div>
     </section>
 
-    <section id="counter" class="py-5">
+    <section id="counter" class="py-5" data-aos="fade-up">
         <div class="container d-flex flex-md-row flex-column justify-content-evenly align-items-center gap-4 text-gr">
             <div class="d-flex align-items-center gap-3">
                 <div>
@@ -84,7 +89,7 @@
   </section>
 
   <!-- Services -->
-    <section id="services" class="py-5">
+    <section id="services" class="py-5" data-aos="fade-up">
         <div class="container">
             <div class="title mb-4 mx-auto">
                 <h2 class="text-center mb-0 text-white">@lang('custom.our-services')</h2>
@@ -117,7 +122,7 @@
     </section>
 
     {{-- Portfolio --}}
-    <section id="portfolio" class="py-5">
+    <section id="portfolio" class="py-5" data-aos="fade-up">
         <div class="container-fluid px-0 overflow-hidden">
             <div class="title mb-4 mx-auto">
                 <h2 class="text-center mb-1 text-white">@lang('custom.our-portofolio')</h2>
@@ -142,7 +147,7 @@
     </section>
 
     <!-- Top Customers -->
-    <section id="top-customers" class="py-5 px-2 bg-white">
+    <section id="top-customers" class="py-5 px-2 bg-white" data-aos="fade-up">
         <div class="container py-5">
             <div class="title mb-4 mx-auto">
                 <h2 class="mb-1 text-decoration-none">@lang('custom.top-customers')</h2>
@@ -168,7 +173,7 @@
     </section>
 
     <!-- Contact Us -->
-    <section id="contact" class="py-5">
+    <section id="contact" class="py-5" data-aos="fade-up">
         <div class="container my-0">
             <div class="header mb-4">
                 <div class="title mx-auto">
@@ -182,10 +187,10 @@
             <div class="row mt-5">
                 <div class="col-lg-5 px-4 mt-2">
                     <form id="send-contacts" method="POST">
-                        <input class="form-control mb-3" type="text" name="full_name" id="full_name" placeholder="@lang('custom.full-name')">
-                        <input class="form-control mb-3" type="text" name="email" id="email" placeholder="@lang('custom.email')">
-                        <input class="form-control mb-3" type="text" name="phone_number" id="phone_number" placeholder="@lang('custom.phone')">
-                        <input class="form-control mb-3" type="text" name="site_url" id="site_url" placeholder="@lang('custom.site')">
+                        <input class="form-control mb-3" type="text" name="full_name" id="full_name" placeholder="@lang('custom.full-name')" data-msg-required="@lang('custom.validation-required')">
+                        <input class="form-control mb-3" type="email" name="email" id="email" placeholder="@lang('custom.email')" data-msg-required="@lang('custom.validation-required')" data-msg-email="@lang('custom.validation-email')">
+                        <input class="form-control mb-3" type="tel" name="phone_number" id="phone_number" placeholder="@lang('custom.phone')" data-msg-required="@lang('custom.validation-required')" data-msg-phone="@lang('custom.validation-phone')">
+                        <input class="form-control mb-3" type="text" name="site_url" id="site_url" placeholder="@lang('custom.site')" data-msg-required="@lang('custom.validation-required')" data-msg-url="@lang('custom.validation-url')">
                         <button type="submit" class="cta-btn text-dark loader-btn">
                             <p class="mb-0">
                                 <i class="fa-solid fa-paper-plane"></i> @lang('custom.send')

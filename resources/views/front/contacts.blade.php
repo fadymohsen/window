@@ -32,7 +32,7 @@
         ['label' => __('custom.contact'), 'url' => route('front.contacts.index')],
     ]" />
 
-    <section id="contact-form" class="py-4 mb-3">
+    <section id="contact-form" class="py-4 mb-3" data-aos="fade-up">
         <div class="container">
             <div class="header mb-4">
                 <!-- <h2 class="text-center ">نـصـمـم ونـبـتـكـر كـل مـاهـو جـذاب</h2> -->
@@ -49,10 +49,10 @@
                 </div>
                 <div class="col-lg-5 px-4 mt-2">
                     <form id="send-contacts" method="POST">
-                        <input class="form-control mb-3" type="text" name="full_name" id="full_name" placeholder="@lang('custom.full-name')">
-                        <input class="form-control mb-3" type="text" name="email" id="email" placeholder="@lang('custom.email')">
-                        <input class="form-control mb-3" type="text" name="phone_number" id="phone_number" placeholder="@lang('custom.phone')">
-                        <input class="form-control mb-3" type="text" name="site_url" id="site_url" placeholder="@lang('custom.site')">
+                        <input class="form-control mb-3" type="text" name="full_name" id="full_name" placeholder="@lang('custom.full-name')" data-msg-required="@lang('custom.validation-required')">
+                        <input class="form-control mb-3" type="email" name="email" id="email" placeholder="@lang('custom.email')" data-msg-required="@lang('custom.validation-required')" data-msg-email="@lang('custom.validation-email')">
+                        <input class="form-control mb-3" type="tel" name="phone_number" id="phone_number" placeholder="@lang('custom.phone')" data-msg-required="@lang('custom.validation-required')" data-msg-phone="@lang('custom.validation-phone')">
+                        <input class="form-control mb-3" type="text" name="site_url" id="site_url" placeholder="@lang('custom.site')" data-msg-required="@lang('custom.validation-required')" data-msg-url="@lang('custom.validation-url')">
                         <button type="submit" class="cta-btn px-4 text-dark loader-btn" style="float:left;">
                             <p class="mb-0">
                                 <i class="fa-solid fa-paper-plane"></i> @lang('custom.send')

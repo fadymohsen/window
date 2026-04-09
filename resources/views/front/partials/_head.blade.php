@@ -33,6 +33,20 @@
 <link rel="shortcut icon" href="{{ $website_settings->display_logo }}" type="image/x-icon">
 <link rel="icon" type="image/x-icon" href="{{ $website_settings->display_logo }}">
 
+<!-- Preloader Critical CSS -->
+<style>
+#preloader{position:fixed;inset:0;z-index:9999;background:#1f1f1f;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:opacity .4s ease}
+#preloader.hide{opacity:0;pointer-events:none}
+.preloader-logo{width:120px;margin-bottom:20px;animation:pulse 1.5s ease-in-out infinite}
+.preloader-spinner{width:40px;height:40px;border:3px solid rgba(249,161,27,.3);border-top-color:#f9a11b;border-radius:50%;animation:rotation .8s linear infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+</style>
+<!-- AOS CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"></noscript>
+<!-- GLightbox CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"></noscript>
 <!-- Preload Critical Font -->
 <link rel="preload" href="{{ asset('front/fonts/Almarai-Regular.woff2') }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ asset('front/fonts/Almarai-Bold.woff2') }}" as="font" type="font/woff2" crossorigin>

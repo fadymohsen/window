@@ -1,5 +1,105 @@
 /* Custom styles here */
 
+/* Hero Overlay */
+#hero {
+  position: relative;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+  text-align: center;
+  padding: 0 20px;
+}
+.hero-overlay h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+}
+.hero-subtitle {
+  color: #cccccc;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+.hero-cta-btn {
+  font-size: 1.1rem;
+  padding: 12px 35px !important;
+}
+@media (max-width: 768px) {
+  .hero-overlay h1 { font-size: 1.5rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+  .hero-cta-btn { font-size: 0.95rem; padding: 10px 25px !important; }
+}
+
+/* Hero Fade-Up Animation */
+.hero-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+#hero.hero--loaded .hero-fade-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+#hero.hero--loaded .hero-fade-up:nth-child(1) { transition-delay: 0.2s; }
+#hero.hero--loaded .hero-fade-up:nth-child(2) { transition-delay: 0.5s; }
+#hero.hero--loaded .hero-fade-up:nth-child(3) { transition-delay: 0.8s; }
+
+/* Mobile Offcanvas Navigation */
+.offcanvas {
+  background-color: #1f1f1f !important;
+}
+.offcanvas-header {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.offcanvas-body .nav-link {
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+.offcanvas-body .nav-link:hover {
+  background-color: rgba(249,161,27,0.1);
+}
+@media (max-width: 991.98px) {
+  .offcanvas-body .click-to-contact-container {
+    margin: 15px 0 !important;
+  }
+  .offcanvas-body .navbar-nav {
+    margin-bottom: 15px;
+  }
+}
+
+/* Form Validation on dark backgrounds */
+#contact .is-invalid,
+#contact-form .is-invalid {
+  border-color: #f9a11b !important;
+}
+#contact .invalid-feedback,
+#contact-form .invalid-feedback {
+  color: #f9a11b;
+  margin-top: -8px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+#contact .is-valid,
+#contact-form .is-valid {
+  border-color: #28a745 !important;
+}
+
+/* Portfolio Lightbox Link */
+a.glightbox.porto-image {
+  display: flex;
+  cursor: zoom-in;
+}
+
 /* Breadcrumb Navigation */
 .breadcrumb-nav {
   background-color: rgba(0, 0, 0, 0.3);
