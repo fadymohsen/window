@@ -71,4 +71,8 @@
         'tiktok_url' => 'Tiktok Url',
         'slug' => 'الرابط المختصر (URL)',
         'slug_hint' => 'اتركه فارغاً للتوليد التلقائي من العنوان الإنجليزي',
+        'blog_meta_title' => 'عنوان الميتا (SEO)',
+        'blog_meta_description' => 'وصف الميتا (SEO)',
+        'blogs.create' => 'إضافة مقال',
+        'blogs.edit' => 'تعديل مقال',
     ];

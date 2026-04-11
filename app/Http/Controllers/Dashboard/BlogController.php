@@ -11,6 +11,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\Encoders\AutoEncoder;
 use Intervention\Image\ImageManager;
@@ -33,17 +34,17 @@ class BlogController extends Controller implements HasMiddleware
     {
         if($request->ajax())
         {
-            $blogs = Blog::get();
+            $blogs = Blog::withTranslation()->get();
             return datatables()::of($blogs)
             ->rawColumns(['action'])
             ->addColumn('action', function($row){
-                return 
+                return
                 "<div class='d-flex align-items-center justify-content-center gap-2'>"
                 .
                 (Auth::user()->hasPermissionTo('blogs_edit') ?
                 "<a class='remove_button text-success' data-id='".$row['id']."' href='" . route('dashboard.blogs.edit', $row['id']) . "'><i class='ri-pencil-line fs-4' type='submit'></i></a>"
                 :"")
-                .  
+                .
                 (Auth::user()->hasPermissionTo('blogs_delete') ?
                 "
                     <form data-id='".$row['id']."'>
@@ -59,6 +60,9 @@ class BlogController extends Controller implements HasMiddleware
             ->editColumn('cover', function(Blog $blog){
                 return "<div style='height: 100px;display: flex;justify-content: center;aspect-ratio: 1 / 0.45;overflow: hidden;'><img src='" . $blog->display_image ."' style='min-width: 100%;min-height: 100%;object-fit: cover;'></div>";
             })
+            ->addColumn('title', function(Blog $blog){
+                return $blog->title;
+            })
             ->rawColumns(['cover', 'action'])
             ->make(true);
         }
@@ -71,7 +75,7 @@ class BlogController extends Controller implements HasMiddleware
             'upload' => 'required|image|mimes:jpeg,png,jpg,gif|max:10240'
         ]);
 
-        
+
         $image = $request->file('upload');
         $imagePath = 'blogs/images/' . uniqid() . '.webp';
 
@@ -80,7 +84,7 @@ class BlogController extends Controller implements HasMiddleware
             ->scale(height: 350)
             ->encode(new AutoEncoder('webp', quality: 75))
             ->save('storage/' . $imagePath);
-            
+
         $url = Storage::url($imagePath);
 
         $blogImage = BlogImage::create([
@@ -103,13 +107,21 @@ class BlogController extends Controller implements HasMiddleware
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'ar.title' => 'required_without:en.title|nullable|string|max:255',
+            'ar.description' => 'nullable|string',
+            'ar.keywords' => 'nullable|string|max:500',
+            'ar.meta_title' => 'nullable|string|max:255',
+            'ar.meta_description' => 'nullable|string',
+            'en.title' => 'required_without:ar.title|nullable|string|max:255',
+            'en.description' => 'nullable|string',
+            'en.keywords' => 'nullable|string|max:500',
+            'en.meta_title' => 'nullable|string|max:255',
+            'en.meta_description' => 'nullable|string',
             'cover' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
-            'keywords' => 'nullable|string|max:255',
-            'images.*' => 'required|exists:blog_images,id',
+            'slug' => 'nullable|string|max:300',
+            'images.*' => 'nullable|exists:blog_images,id',
         ]);
-        
+
         $image = $request->file('cover');
         $imagePath = 'blogs/covers/' . uniqid() . '.webp';
 
@@ -119,13 +131,14 @@ class BlogController extends Controller implements HasMiddleware
             ->encode(new AutoEncoder('webp', quality: 75))
             ->save('storage/' . $imagePath);
 
-        $url = $imagePath;
-
-        $data['cover'] = $url;
-
+        $data['cover'] = $imagePath;
         $data['user_id'] = Auth::id();
-        
-        $blog = Blog::create($data);        
+
+        if (!empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['slug']);
+        }
+
+        $blog = Blog::create($data);
 
         if($request->images)
         {
@@ -160,7 +173,7 @@ class BlogController extends Controller implements HasMiddleware
      * Show the form for editing the specified resource.
      */
     public function edit(Blog $blog)
-    {  
+    {
         return view('dashboard.blogs.edit', compact('blog'));
     }
 
@@ -170,31 +183,41 @@ class BlogController extends Controller implements HasMiddleware
     public function update(Request $request, Blog $blog)
     {
         $data = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'ar.title' => 'required_without:en.title|nullable|string|max:255',
+            'ar.description' => 'nullable|string',
+            'ar.keywords' => 'nullable|string|max:500',
+            'ar.meta_title' => 'nullable|string|max:255',
+            'ar.meta_description' => 'nullable|string',
+            'en.title' => 'required_without:ar.title|nullable|string|max:255',
+            'en.description' => 'nullable|string',
+            'en.keywords' => 'nullable|string|max:500',
+            'en.meta_title' => 'nullable|string|max:255',
+            'en.meta_description' => 'nullable|string',
             'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
-            'keywords' => 'nullable|string|max:255',
-            'images.*' => 'required|exists:blog_images,id',
+            'slug' => 'nullable|string|max:300',
+            'images.*' => 'nullable|exists:blog_images,id',
         ]);
-        
+
         if($image = $request->file('cover'))
         {
             $image = $request->file('cover');
             $imagePath = 'blogs/covers/' . uniqid() . '.webp';
-        
+
             $manager = new ImageManager(new Driver());
             $manager->read($image)
                 ->scale(height: 450)
                 ->encode(new AutoEncoder('webp', quality: 75))
                 ->save('storage/' . $imagePath);
-                
-            $url = $imagePath;
-            
-            $data['cover'] = $url;
+
+            $data['cover'] = $imagePath;
         }
-        
-        $blog->update($data); 
-        
+
+        if (!empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['slug']);
+        }
+
+        $blog->update($data);
+
         $blog->images()->whereNotIn('id', $request->images ?? []);
         foreach ($blog->images as $image) {
             if(Storage::disk('public')->exists($image->path))
@@ -203,7 +226,7 @@ class BlogController extends Controller implements HasMiddleware
                 $image->delete();
             }
         }
-        
+
         if($request->images)
         {
             foreach ($request->images as $image) {

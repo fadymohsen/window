@@ -71,4 +71,8 @@
         'tiktok_url' => 'Tiktok Url',
         'slug' => 'Slug (URL)',
         'slug_hint' => 'Leave empty to auto-generate from English title',
+        'blog_meta_title' => 'Meta Title (SEO)',
+        'blog_meta_description' => 'Meta Description (SEO)',
+        'blogs.create' => 'Create Blog',
+        'blogs.edit' => 'Edit Blog',
     ];

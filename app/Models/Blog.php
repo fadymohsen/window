@@ -7,8 +7,11 @@ use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Blog extends Model
+class Blog extends Model implements TranslatableContract
 {
+    use Translatable;
+
+    public $translatedAttributes = ['title', 'description', 'keywords', 'meta_title', 'meta_description'];
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     protected $appends = ['display_image'];
@@ -20,15 +23,19 @@ class Blog extends Model
 
     protected static function booted()
     {
-        static::creating(function ($blog) {
+        static::created(function ($blog) {
             if (empty($blog->slug)) {
-                $blog->slug = static::generateUniqueSlug($blog->title);
+                $title = $blog->translate('en')?->title ?? $blog->translate('ar')?->title ?? 'blog';
+                $blog->slug = static::generateUniqueSlug($title, $blog->id);
+                $blog->saveQuietly();
             }
         });
 
-        static::updating(function ($blog) {
-            if ($blog->isDirty('title') && !$blog->isDirty('slug')) {
-                $blog->slug = static::generateUniqueSlug($blog->title, $blog->id);
+        static::updated(function ($blog) {
+            if (empty($blog->slug)) {
+                $title = $blog->translate('en')?->title ?? $blog->translate('ar')?->title ?? 'blog';
+                $blog->slug = static::generateUniqueSlug($title, $blog->id);
+                $blog->saveQuietly();
             }
         });
     }
