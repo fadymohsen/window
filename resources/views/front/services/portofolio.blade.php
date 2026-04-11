@@ -25,7 +25,7 @@
         "@type": "ListItem",
         "position": 3,
         "name": "{{ $service->title }}",
-        "item": "{{ route('front.services.show', $service->id) }}"
+        "item": "{{ route('front.services.show', $service) }}"
     }]
 }
 </script>
@@ -39,7 +39,7 @@
     "name": "{{ $service->title }}",
     "description": "{{ $service->meta_description ?: $service->title }}",
     "image": "{{ $service->display_image }}",
-    "url": "{{ route('front.services.show', $service->id) }}",
+    "url": "{{ route('front.services.show', $service) }}",
     "provider": {
         "@type": "AdvertisingAgency",
         "name": "{{ $website_settings->title }}",
@@ -58,7 +58,7 @@
     <x-breadcrumb :items="[
         ['label' => __('custom.home'), 'url' => url('/')],
         ['label' => __('custom.services'), 'url' => route('front.services.index')],
-        ['label' => $service->title, 'url' => route('front.services.show', $service->id)],
+        ['label' => $service->title, 'url' => route('front.services.show', $service)],
     ]" />
 
     <div class="d-flex flex-column" style="min-height:100vh;">

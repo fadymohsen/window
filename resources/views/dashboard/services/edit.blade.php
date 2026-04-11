@@ -50,6 +50,11 @@
                         <label for="title.en">@lang('dashboard.en.name')</label>
                         <input id="title.en" type="text" class="form-control" name="en[title]" value="{{ $service->getTranslation('en')->title }}">
                     </div>
+                    <div class="gap-2 mb-3 flex-fill">
+                        <label for="slug">@lang('dashboard.slug', ['default' => 'Slug (URL)'])</label>
+                        <input id="slug" type="text" class="form-control" name="slug" value="{{ $service->slug }}" placeholder="auto-generated-from-title" dir="ltr">
+                        <small class="text-muted">@lang('dashboard.slug_hint', ['default' => 'Leave empty to auto-generate from English title'])</small>
+                    </div>
                 </div>
             </div>
         </div>

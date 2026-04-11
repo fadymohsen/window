@@ -69,4 +69,6 @@
         'phone_number_2' => 'رقم الهاتف الثاني',
         'select.choose-option' => 'اختر',
         'tiktok_url' => 'Tiktok Url',
+        'slug' => 'الرابط المختصر (URL)',
+        'slug_hint' => 'اتركه فارغاً للتوليد التلقائي من العنوان الإنجليزي',
     ];

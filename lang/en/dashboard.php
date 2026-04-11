@@ -69,4 +69,6 @@
         'phone_number_2' => 'Phone Number 2',
         'select.choose-option' => 'Select Option',
         'tiktok_url' => 'Tiktok Url',
+        'slug' => 'Slug (URL)',
+        'slug_hint' => 'Leave empty to auto-generate from English title',
     ];
