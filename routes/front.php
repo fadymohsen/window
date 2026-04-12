@@ -15,8 +15,8 @@ Route::name('front.')
         Route::get('/', [MainController::class, 'home'])->name('home');
         Route::get('/about', [MainController::class, 'about'])->name('about');
         Route::resource('services', ServicesController::class)->only('index', 'show');
-        Route::get('services/{last_service_id}/{limit}', [ServicesController::class, 'getMoreServices'])->name('services.get')->where(['last_service_id' => '[0-9]+', 'limit' => '[0-9]+']);
-        Route::get('services/{service_id}/portofoliols/{last_service_id}/{limit}', [ServicesController::class, 'getMorePortofolios'])->name('portofolios.get')->where(['service_id' => '[0-9]+', 'last_service_id' => '[0-9]+', 'limit' => '[0-9]+']);
+        Route::get('services/{last_service_id}/{limit}', [ServicesController::class, 'getMoreServices'])->name('services.get');
+        Route::get('services/{service_id}/portofoliols/{last_service_id}/{limit}', [ServicesController::class, 'getMorePortofolios'])->name('portofolios.get');
         Route::resource('contacts', ContactController::class)->only('index', 'store');
         Route::resource('blogs', BlogController::class)->only('index', 'show');
         Route::get('blogs/{last_blog_id}/{limit}', [BlogController::class, 'getMoreBlogs'])->name('blogs.get');
@@ -36,39 +36,9 @@ Route::get('/services.php', function () {
 });
 Route::get('/blog.php', function () {
     $id = request('id');
-    $blog = \App\Models\Blog::find($id);
-    if ($blog && $blog->slug) {
-        return Redirect::to("/blogs/{$blog->slug}", 301);
-    }
-    return Redirect::to("/blogs", 301);
+    return Redirect::to("/blogs/{$id}", 301);
 });
-
-// Redirect old numeric blog URLs to slug URLs
-Route::get(LaravelLocalization::setLocale() . '/blogs/{id}', function ($id) {
-    if (is_numeric($id)) {
-        $blog = \App\Models\Blog::find($id);
-        if ($blog && $blog->slug) {
-            return Redirect::to(LaravelLocalization::getLocalizedURL(null, "/blogs/{$blog->slug}"), 301);
-        }
-        abort(404);
-    }
-})->where('id', '[0-9]+');
 Route::get('/portofolio.php', function () {
     $id = request('id');
-    $service = \App\Models\Service::find($id);
-    if ($service && $service->slug) {
-        return Redirect::to("/services/{$service->slug}", 301);
-    }
-    return Redirect::to("/services", 301);
+    return Redirect::to("/services/{$id}", 301);
 });
-
-// Redirect old numeric service URLs to slug URLs
-Route::get(LaravelLocalization::setLocale() . '/services/{id}', function ($id) {
-    if (is_numeric($id)) {
-        $service = \App\Models\Service::find($id);
-        if ($service && $service->slug) {
-            return Redirect::to(LaravelLocalization::getLocalizedURL(null, "/services/{$service->slug}"), 301);
-        }
-        abort(404);
-    }
-})->where('id', '[0-9]+');

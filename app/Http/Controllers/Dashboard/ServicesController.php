@@ -10,7 +10,6 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\Encoders\AutoEncoder;
 use Intervention\Image\ImageManager;
@@ -85,7 +84,6 @@ class ServicesController extends Controller implements HasMiddleware
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp|max:10240'],
             'ar.title' => ['required', 'string', 'max:300'],
             'en.title' => ['required', 'string', 'max:300'],
-            'slug' => ['nullable', 'string', 'max:300'],
         ]);
 
         if($request->hasFile('image')) {
@@ -99,10 +97,6 @@ class ServicesController extends Controller implements HasMiddleware
                     ->save('storage/' . $imagePath);
 
             $service_data['image'] = $imagePath;
-        }
-
-        if (!empty($service_data['slug'])) {
-            $service_data['slug'] = Str::slug($service_data['slug']);
         }
 
         $portofolio_data = $request->validate([
@@ -174,7 +168,6 @@ class ServicesController extends Controller implements HasMiddleware
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp|max:10240'],
             'ar.title' => ['required', 'string', 'max:300'],
             'en.title' => ['required', 'string', 'max:300'],
-            'slug' => ['nullable', 'string', 'max:300'],
         ]);
 
         if($request->hasFile('image')) {
@@ -188,10 +181,6 @@ class ServicesController extends Controller implements HasMiddleware
                     ->save('storage/' . $imagePath);
 
             $service_data['image'] = $imagePath;
-        }
-
-        if (!empty($service_data['slug'])) {
-            $service_data['slug'] = Str::slug($service_data['slug']);
         }
 
         $portofolio_data = $request->validate([

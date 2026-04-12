@@ -11,28 +11,8 @@ class BlogController {
         if(this.edit_form) {
             this.edit_form.addEventListener("submit", this.edit.bind(this))
         }
-
+        
         RemoveManager.addListener(this.remove.bind(this))
-    }
-
-    collectFormData(form) {
-        const formData = new FormData(form)
-
-        // Sync CKEditor content into FormData
-        if (window.ckEditorAr) {
-            formData.set('ar[description]', window.ckEditorAr.getData())
-        }
-        if (window.ckEditorEn) {
-            formData.set('en[description]', window.ckEditorEn.getData())
-        }
-
-        // Collect images from both editors
-        const allImages = [...(window.imagesAr || []), ...(window.imagesEn || [])]
-        allImages.forEach(image => {
-            formData.append("images[]", image.id)
-        });
-
-        return formData
     }
 
     async remove(id)
@@ -49,13 +29,17 @@ class BlogController {
     async create(e) {
         e.preventDefault()
         this.create_form.querySelector("button[type='submit']").setAttribute("disabled", "disabled")
+        
+        const formData = new FormData(this.create_form)
 
-        const formData = this.collectFormData(this.create_form)
+        images.forEach(image => {
+            formData.append("images[]", image.id)
+        });
 
         const response = await request('/dashboard/blogs', 'POST', formData)
         if(response.success) {
             this.show_success(response.data.message)
-
+            
             location.href = response.data.redirectUrl
         } else {
             this.show_error(response.message)
@@ -69,8 +53,12 @@ class BlogController {
         const id = this.edit_form.getAttribute("data-id")
 
         this.edit_form.querySelector("button[type='submit']").setAttribute("disabled", "disabled")
+        
+        const formData = new FormData(this.edit_form)
 
-        const formData = this.collectFormData(this.edit_form)
+        images.forEach(image => {
+            formData.append("images[]", image.id)
+        });
 
         const response = await request(`/dashboard/blogs/${id}`, 'PUT', formData)
 
@@ -87,7 +75,7 @@ class BlogController {
             title: "تم بنجاح",
             text: message,
             icon: "success"
-        });
+        });         
     }
 
     show_error(message) {
@@ -95,7 +83,7 @@ class BlogController {
             title: "حدث خطاْ",
             text: message,
             icon: "error"
-        });
+        });         
     }
 }
 
