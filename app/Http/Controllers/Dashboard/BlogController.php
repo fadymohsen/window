@@ -42,12 +42,12 @@ class BlogController extends Controller implements HasMiddleware
                 "<div class='d-flex align-items-center justify-content-center gap-2'>"
                 .
                 (Auth::user()->hasPermissionTo('blogs_edit') ?
-                "<a class='remove_button text-success' data-id='".$row['id']."' href='" . route('dashboard.blogs.edit', $row['id']) . "'><i class='ri-pencil-line fs-4' type='submit'></i></a>"
+                "<a class='remove_button text-success' data-id='".$row['slug']."' href='" . route('dashboard.blogs.edit', $row['slug']) . "'><i class='ri-pencil-line fs-4' type='submit'></i></a>"
                 :"")
                 .
                 (Auth::user()->hasPermissionTo('blogs_delete') ?
                 "
-                    <form data-id='".$row['id']."'>
+                    <form data-id='".$row['slug']."'>
                         <input type='hidden' name='_method' value='DELETE'>
                         <input type='hidden' name='_token' value='" . csrf_token() . "'>
                         <button class='remove_button remove_button_action' type='button'><i class='ri-delete-bin-5-line text-danger fs-4'></i></button>

@@ -13,7 +13,7 @@
         </div>
     </div>
 </div>
-<form id="edit-blogs-form" data-id="{{ $blog->id }}">
+<form id="edit-blogs-form" data-id="{{ $blog->slug }}">
     <div class="d-flex gap-4 flex-wrap">
         <div class="col-md-8">
             <!-- Language Tabs -->
