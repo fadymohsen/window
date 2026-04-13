@@ -2,7 +2,7 @@
 
 @section('title', $blog->title)
 @section('meta_title', $blog->meta_title ?: $blog->title)
-@section('description', $blog->meta_description ?: truncatePostAndRemoveImages($blog->description))
+@section('description', $blog->meta_description ?: truncatePostAndRemoveImages($blog->description ?? ''))
 @section('keywords', $blog->keywords)
 @section('display_image', $blog->display_image)
 
@@ -37,7 +37,7 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "{{ $blog->title }}",
-    "description": "{{ $blog->meta_description ?: truncatePostAndRemoveImages($blog->description) }}",
+    "description": "{{ $blog->meta_description ?: truncatePostAndRemoveImages($blog->description ?? '') }}",
     "image": "{{ $blog->display_image }}",
     "url": "{{ route('front.blogs.show', $blog->id) }}",
     "datePublished": "{{ $blog->created_at->toIso8601String() }}",
