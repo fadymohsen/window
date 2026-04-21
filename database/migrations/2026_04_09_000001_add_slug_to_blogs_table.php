@@ -10,9 +10,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('blogs', function (Blueprint $table) {
-            $table->string('slug')->nullable()->unique()->after('id');
-        });
+        if (!Schema::hasColumn('blogs', 'slug')) {
+            Schema::table('blogs', function (Blueprint $table) {
+                $table->string('slug')->nullable()->unique()->after('id');
+            });
+        }
 
         // Generate slugs for existing blogs using translations
         $blogs = DB::table('blogs')->get();

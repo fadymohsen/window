@@ -8,11 +8,13 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('service_translations', function (Blueprint $table) {
-            $table->string('meta_title')->nullable()->after('title');
-            $table->text('meta_description')->nullable()->after('meta_title');
-            $table->text('meta_keywords')->nullable()->after('meta_description');
-        });
+        if (!Schema::hasColumn('service_translations', 'meta_title')) {
+            Schema::table('service_translations', function (Blueprint $table) {
+                $table->string('meta_title')->nullable()->after('title');
+                $table->text('meta_description')->nullable()->after('meta_title');
+                $table->text('meta_keywords')->nullable()->after('meta_description');
+            });
+        }
     }
 
     public function down(): void

@@ -10,9 +10,11 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('services', function (Blueprint $table) {
-            $table->string('slug')->nullable()->unique()->after('image');
-        });
+        if (!Schema::hasColumn('services', 'slug')) {
+            Schema::table('services', function (Blueprint $table) {
+                $table->string('slug')->nullable()->unique()->after('image');
+            });
+        }
 
         // Generate slugs for existing services using English title
         foreach (Service::with('translations')->get() as $service) {
