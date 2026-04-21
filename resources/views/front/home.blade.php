@@ -27,7 +27,6 @@
             <source src="{{ asset('front/videos/window_header.mp4') }}" type="video/mp4">
         </video>
         <div class="hero-overlay">
-            <a href="{{ route('front.contacts.index') }}" class="cta-btn text-decoration-none text-dark hero-fade-up hero-cta-btn">@lang('custom.hero-cta')</a>
         </div>
     </header>
 
