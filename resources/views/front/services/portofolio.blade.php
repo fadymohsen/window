@@ -55,11 +55,6 @@
 
 @section('content')
 
-    <x-breadcrumb :items="[
-        ['label' => __('custom.home'), 'url' => url('/')],
-        ['label' => __('custom.services'), 'url' => route('front.services.index')],
-        ['label' => $service->title ?? '', 'url' => route('front.services.show', $service)],
-    ]" />
 
     <div class="d-flex flex-column" style="min-height:100vh;">
         <section id="services-header" class="py-4 mb-4">
