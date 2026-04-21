@@ -172,6 +172,7 @@
 
     <!-- Contact Us -->
     <section id="contact" class="py-5" data-aos="fade-up">
+        <img src="{{ asset('front/images/window-final logo-1.png') }}" alt="Window" class="contact-logo">
         <div class="container my-0">
             <div class="header mb-4">
                 <div class="title mx-auto">
@@ -183,21 +184,7 @@
             </div>
 
             <div class="row mt-5">
-                <div class="col-lg-5 px-4 mt-2">
-                    <form id="send-contacts" method="POST">
-                        <input class="form-control mb-3" type="text" name="full_name" id="full_name" placeholder="@lang('custom.full-name')" data-msg-required="@lang('custom.validation-required')">
-                        <input class="form-control mb-3" type="email" name="email" id="email" placeholder="@lang('custom.email')" data-msg-required="@lang('custom.validation-required')" data-msg-email="@lang('custom.validation-email')">
-                        <input class="form-control mb-3" type="tel" name="phone_number" id="phone_number" placeholder="@lang('custom.phone')" data-msg-required="@lang('custom.validation-required')" data-msg-phone="@lang('custom.validation-phone')">
-                        <input class="form-control mb-3" type="text" name="site_url" id="site_url" placeholder="@lang('custom.site')" data-msg-required="@lang('custom.validation-required')" data-msg-url="@lang('custom.validation-url')">
-                        <button type="submit" class="cta-btn text-dark loader-btn">
-                            <p class="mb-0">
-                                <i class="fa-solid fa-paper-plane"></i> @lang('custom.send')
-                            </p>
-                            <div class="loader"></div>
-                        </button>
-                    </form>
-                </div>
-                <div class="col-lg-7 px-5 mt-2">
+                <div class="col-lg-7 px-5 mt-2 order-lg-2">
                     <div class="row">
                         <div class="d-flex col-gap-5 flex-wrap my-2 justify-content-start">
                             <div class="d-flex mb-0 flex-wrap">
@@ -234,7 +221,7 @@
                             </li>
                             <li>
                                 <a href="{{ $website_settings->linkedin_url }}">
-                                    <i class="fab fa-linkedin text-white fs-1"></i>               
+                                    <i class="fab fa-linkedin text-white fs-1"></i>
                                 </a>
                             </li>
                             <li>
@@ -244,7 +231,7 @@
                             </li>
                             <li>
                                 <a href="{{ $website_settings->tiktok_url }}">
-                                    <i class="fab fa-tiktok bg-white fs-1 rounded-2" style="color: #1f1f1f;"></i>                
+                                    <i class="fab fa-tiktok bg-white fs-1 rounded-2" style="color: #1f1f1f;"></i>
                                 </a>
                             </li>
                             <li>
@@ -259,6 +246,20 @@
                             </li>
                         </ul>
                     </div>
+                </div>
+                <div class="col-lg-5 px-4 mt-2 order-lg-1">
+                    <form id="send-contacts" method="POST">
+                        <input class="form-control mb-3" type="text" name="full_name" id="full_name" placeholder="@lang('custom.full-name')" data-msg-required="@lang('custom.validation-required')">
+                        <input class="form-control mb-3" type="email" name="email" id="email" placeholder="@lang('custom.email')" data-msg-required="@lang('custom.validation-required')" data-msg-email="@lang('custom.validation-email')">
+                        <input class="form-control mb-3" type="tel" name="phone_number" id="phone_number" placeholder="@lang('custom.phone')" data-msg-required="@lang('custom.validation-required')" data-msg-phone="@lang('custom.validation-phone')">
+                        <input class="form-control mb-3" type="text" name="site_url" id="site_url" placeholder="@lang('custom.site')" data-msg-required="@lang('custom.validation-required')" data-msg-url="@lang('custom.validation-url')">
+                        <button type="submit" class="cta-btn text-dark loader-btn">
+                            <p class="mb-0">
+                                <i class="fa-solid fa-paper-plane"></i> @lang('custom.send')
+                            </p>
+                            <div class="loader"></div>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
