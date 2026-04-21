@@ -700,12 +700,8 @@ animation-direction: alternate;
   padding: 20px 0;
 }
 
-#portofolio #porto-data {
-  gap: 15px;
-}
-
 #portofolio #porto-data > div {
-  padding: 0;
+  padding: 8px;
 }
 
 #portofolio #porto-data > div > a {
