@@ -66,12 +66,6 @@
 
 @section('content')
 
-    <x-breadcrumb :items="[
-        ['label' => __('custom.home'), 'url' => url('/')],
-        ['label' => __('custom.blog'), 'url' => route('front.blogs.index')],
-        ['label' => $blog->title ?? '', 'url' => route('front.blogs.show', $blog)],
-    ]" />
-
     <section id="blog-header" class="py-2 pb-0">
         <div class="container">
             <div class="row">

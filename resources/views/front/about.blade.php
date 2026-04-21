@@ -27,11 +27,6 @@
 
 @section('content')
 
-    <x-breadcrumb :items="[
-        ['label' => __('custom.home'), 'url' => url('/')],
-        ['label' => __('custom.about'), 'url' => route('front.about')],
-    ]" />
-
     <section id="about" class="py-4 about2">
         <div class="container">
             <div class="row">
