@@ -44,11 +44,11 @@
                     </div>
                     <div class="gap-2 mb-3 flex-fill">
                         <label for="title.ar">@lang('dashboard.ar.name')</label>
-                        <input id="title.ar" type="text" class="form-control" name="ar[title]" value="{{ $service->getTranslation('ar')->title }}">
+                        <input id="title.ar" type="text" class="form-control" name="ar[title]" value="{{ $service->translate('ar')?->title }}">
                     </div>
                     <div class="gap-2 mb-3 flex-fill">
                         <label for="title.en">@lang('dashboard.en.name')</label>
-                        <input id="title.en" type="text" class="form-control" name="en[title]" value="{{ $service->getTranslation('en')->title }}">
+                        <input id="title.en" type="text" class="form-control" name="en[title]" value="{{ $service->translate('en')?->title }}">
                     </div>
                 </div>
             </div>

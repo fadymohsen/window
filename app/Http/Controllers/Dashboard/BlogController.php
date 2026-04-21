@@ -33,7 +33,7 @@ class BlogController extends Controller implements HasMiddleware
     {
         if($request->ajax())
         {
-            $blogs = Blog::get();
+            $blogs = Blog::withTranslation()->get();
             return datatables()::of($blogs)
             ->rawColumns(['action'])
             ->addColumn('action', function($row){
@@ -195,13 +195,13 @@ class BlogController extends Controller implements HasMiddleware
         
         $blog->update($data); 
         
-        $blog->images()->whereNotIn('id', $request->images ?? []);
-        foreach ($blog->images as $image) {
+        $imagesToDelete = $blog->images()->whereNotIn('id', $request->images ?? [])->get();
+        foreach ($imagesToDelete as $image) {
             if(Storage::disk('public')->exists($image->path))
             {
                 Storage::disk('public')->delete($image->path);
-                $image->delete();
             }
+            $image->delete();
         }
         
         if($request->images)

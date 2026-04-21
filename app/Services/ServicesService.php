@@ -9,7 +9,7 @@ class ServicesService
 {
     public function get_services($last_service_id = null, $limit = 20)
     {
-        $services = Service::orderBy('id')->when($last_service_id, function($query) use ($last_service_id) {
+        $services = Service::withTranslation()->orderBy('id')->when($last_service_id, function($query) use ($last_service_id) {
             return $query->where('id', '>', $last_service_id);
         })->limit($limit)->get();
 

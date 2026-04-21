@@ -36,7 +36,7 @@
         {
             "@type": "ListItem",
             "position": {{ $index + 1 }},
-            "name": "{{ $service->title }}",
+            "name": "{{ $service->title ?? '' }}",
             "url": "{{ route('front.services.show', $service) }}"
         }@if(!$loop->last),@endif
         @endforeach

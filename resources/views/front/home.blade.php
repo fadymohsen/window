@@ -105,10 +105,10 @@
                         <div class="col-lg-3 col-md-4 col-6 px-md-5">
                             <div class="item">
                                 <div>
-                                    <img src="{{ $service->display_image }}" alt="{{ $service->title }}" style="width:100%;" loading="lazy">
+                                    <img src="{{ $service->display_image }}" alt="{{ $service->title ?? '' }}" style="width:100%;" loading="lazy">
                                 </div>
                                 <div class="text-center text-white">
-                                    <p class="fs-4 mt-2 text-gr">{{ $service->title }}</p>
+                                    <p class="fs-4 mt-2 text-gr">{{ $service->title ?? '' }}</p>
                                 </div>
                             </div>
                         </div>

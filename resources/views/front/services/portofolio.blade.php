@@ -1,9 +1,9 @@
 @extends('front.layout.main')
 
-@section('title', $service->title)
-@section('meta_title', $service->meta_title ?: $service->title)
-@section('description', $service->meta_description ?: '')
-@section('keywords', $service->meta_keywords ?: '')
+@section('title', $service->title ?? '')
+@section('meta_title', $service->meta_title ?: ($service->title ?? ''))
+@section('description', $service->meta_description ?? '')
+@section('keywords', $service->meta_keywords ?? '')
 @section('display_image', $service->display_image)
 
 @section('breadcrumb_schema')
@@ -24,7 +24,7 @@
     }, {
         "@type": "ListItem",
         "position": 3,
-        "name": "{{ $service->title }}",
+        "name": "{{ $service->title ?? '' }}",
         "item": "{{ route('front.services.show', $service) }}"
     }]
 }
@@ -36,8 +36,8 @@
 {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "{{ $service->title }}",
-    "description": "{{ $service->meta_description ?: $service->title }}",
+    "name": "{{ $service->title ?? '' }}",
+    "description": "{{ $service->meta_description ?: ($service->title ?? '') }}",
     "image": "{{ $service->display_image }}",
     "url": "{{ route('front.services.show', $service) }}",
     "provider": {
@@ -58,7 +58,7 @@
     <x-breadcrumb :items="[
         ['label' => __('custom.home'), 'url' => url('/')],
         ['label' => __('custom.services'), 'url' => route('front.services.index')],
-        ['label' => $service->title, 'url' => route('front.services.show', $service)],
+        ['label' => $service->title ?? '', 'url' => route('front.services.show', $service)],
     ]" />
 
     <div class="d-flex flex-column" style="min-height:100vh;">
@@ -66,7 +66,7 @@
             <div class="container">
                 <div class="row">
                     <div class="title pt-3 mx-auto">
-                        <h1 class="mb-2">{{ $service->title }}</h1>
+                        <h1 class="mb-2">{{ $service->title ?? '' }}</h1>
                         <div class="title-underline-container">
                             <div class="title-underline w-100"></div>
                         </div>

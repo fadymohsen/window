@@ -32,7 +32,7 @@ class ServicesController extends Controller implements HasMiddleware
     {
         if($request->ajax())
         {
-            $service = Service::get();
+            $service = Service::withTranslation()->get();
             return datatables()::of($service)
             ->rawColumns(['action'])
             ->addColumn('action', function($row){
@@ -146,16 +146,17 @@ class ServicesController extends Controller implements HasMiddleware
     {
         $portofolios = collect();
         foreach ($service->portofolios as $portofolio) {
+            $filePath = $portofolio->image;
+            $fileSize = Storage::disk('public')->exists($filePath) ? Storage::disk('public')->size($filePath) : 0;
             $portofolios->push(
                 collect([
                     'id' => $portofolio->id,
                     'file_path' => $portofolio->display_image,
-                    'file_size' => Storage::disk('public')->size(str_replace('storage/', '', $portofolio->image)),
+                    'file_size' => $fileSize,
                     'file_name' => $portofolio->image
                 ])
             );
         }
-        // dd($attachments);
         return view('dashboard.services.edit', compact('service', 'portofolios'));
     }
 
@@ -225,12 +226,14 @@ class ServicesController extends Controller implements HasMiddleware
         
 
         $portofolios = collect();
-        foreach ($service->portofolios as $portofolio) {
+        foreach ($service->fresh()->portofolios as $portofolio) {
+            $filePath = $portofolio->image;
+            $fileSize = Storage::disk('public')->exists($filePath) ? Storage::disk('public')->size($filePath) : 0;
             $portofolios->push(
                 collect([
                     'id' => $portofolio->id,
                     'file_path' => $portofolio->display_image,
-                    'file_size' => Storage::disk('public')->size(str_replace('storage/', '', $portofolio->image)),
+                    'file_size' => $fileSize,
                     'file_name' => $portofolio->image
                 ])
             );

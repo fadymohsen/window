@@ -8,7 +8,7 @@
                     <img src="{{ $service->display_image }}">
                 </div>
                 <div class="text-center text-white">
-                    <a class="text-decoration-underline fs-5" href="{{ route('front.services.show', $service) }}">{{ $service->translate(app()->getLocale())->title }}</a>
+                    <a class="text-decoration-underline fs-5" href="{{ route('front.services.show', $service) }}">{{ $service->title ?? '' }}</a>
                 </div>
             </div>
         </div>

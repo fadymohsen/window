@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller {
     function home() {
-        $services = Service::inRandomOrder()->limit(8)->get();
+        $services = Service::withTranslation()->inRandomOrder()->limit(8)->get();
         $portofolios = Portofolio::inRandomOrder()->limit(15)->get();
         $top_customers = TopCustomer::all();
         return view('front.home', compact('services', 'portofolios', 'top_customers'));
