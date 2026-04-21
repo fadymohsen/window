@@ -171,7 +171,7 @@
 
     <!-- Contact Us -->
     <section id="contact" class="py-5" data-aos="fade-up">
-        <img src="{{ asset('front/images/window-final logo-1.png') }}" alt="Window" class="contact-logo">
+        <img src="{{ asset('front/images/w-logo-white.png') }}" alt="Window" class="contact-logo">
         <div class="container my-0">
             <div class="header mb-4">
                 <div class="title mx-auto">
