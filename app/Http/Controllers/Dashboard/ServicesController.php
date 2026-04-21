@@ -40,7 +40,7 @@ class ServicesController extends Controller implements HasMiddleware
                     "<div class='d-flex align-items-center justify-content-center gap-2'>"
                     .
                     (Auth::user()->hasPermissionTo('services_edit') ?
-                    "<a class='remove_button text-success' data-id='".$row['id']."' href='" . route('dashboard.services.edit', $row['id']) . "'><i class='ri-pencil-line fs-4' type='submit'></i></a>"
+                    "<a class='remove_button text-success' data-id='".$row['id']."' href='" . route('dashboard.services.edit', $row['slug']) . "'><i class='ri-pencil-line fs-4' type='submit'></i></a>"
                     :"")
                     .  
                     (Auth::user()->hasPermissionTo('services_delete') ?
@@ -127,7 +127,7 @@ class ServicesController extends Controller implements HasMiddleware
 
         return response()->json([
             'message' => __('response.service-createed'),
-            'redirectUrl' => route('dashboard.services.edit', $service->id),
+            'redirectUrl' => route('dashboard.services.edit', $service->slug),
         ]);
     }
 
@@ -142,9 +142,8 @@ class ServicesController extends Controller implements HasMiddleware
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $service)
+    public function edit(Service $service)
     {
-        $service = Service::findOrFail($service);
         $portofolios = collect();
         foreach ($service->portofolios as $portofolio) {
             $filePath = $portofolio->image;
@@ -164,9 +163,8 @@ class ServicesController extends Controller implements HasMiddleware
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $service)
+    public function update(Request $request, Service $service)
     {
-        $service = Service::findOrFail($service);
         $service_data = $request->validate([
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp|max:10240'],
             'ar.title' => ['required', 'string', 'max:300'],
@@ -250,9 +248,8 @@ class ServicesController extends Controller implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $service)
+    public function destroy(Service $service)
     {
-        $service = Service::findOrFail($service);
         foreach ($service->portofolios as $portofolio) {
             if($portofolio->image && Storage::disk('public')->exists($portofolio->image))
             {
