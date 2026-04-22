@@ -107,6 +107,8 @@ class BlogController extends Controller implements HasMiddleware
             'description' => 'required|string',
             'cover' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'keywords' => 'nullable|string|max:255',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string|max:500',
             'images.*' => 'required|exists:blog_images,id',
         ]);
         
@@ -176,6 +178,8 @@ class BlogController extends Controller implements HasMiddleware
             'description' => 'required|string',
             'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'keywords' => 'nullable|string|max:255',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string|max:500',
             'images.*' => 'required|exists:blog_images,id',
         ]);
         

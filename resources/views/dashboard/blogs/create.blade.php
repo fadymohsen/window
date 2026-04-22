@@ -74,6 +74,19 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="fw-semibold mb-3">SEO</h6>
+                    <div class="mb-3">
+                        <label for="meta_title">@lang('dashboard.blog_meta_title')</label>
+                        <input id="meta_title" type="text" class="form-control" name="meta_title" maxlength="255">
+                    </div>
+                    <div class="mb-3">
+                        <label for="meta_description">@lang('dashboard.blog_meta_description')</label>
+                        <textarea id="meta_description" class="form-control" name="meta_description" rows="3" maxlength="500"></textarea>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
