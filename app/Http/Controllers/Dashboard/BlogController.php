@@ -159,16 +159,18 @@ class BlogController extends Controller implements HasMiddleware
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
+        $blog = Blog::findOrFail($id);
         return view('dashboard.blogs.edit', compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, $id)
     {
+        $blog = Blog::findOrFail($id);
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -225,8 +227,9 @@ class BlogController extends Controller implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
+        $blog = Blog::findOrFail($id);
         foreach($blog->images as $image) {
             if(Storage::disk('public')->exists($image->path))
             {

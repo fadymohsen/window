@@ -142,8 +142,9 @@ class ServicesController extends Controller implements HasMiddleware
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
+        $service = Service::findOrFail($id);
         $portofolios = collect();
         foreach ($service->portofolios as $portofolio) {
             $filePath = $portofolio->image;
@@ -163,8 +164,9 @@ class ServicesController extends Controller implements HasMiddleware
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
+        $service = Service::findOrFail($id);
         $service_data = $request->validate([
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp|max:10240'],
             'ar.title' => ['required', 'string', 'max:300'],
@@ -248,8 +250,9 @@ class ServicesController extends Controller implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
+        $service = Service::findOrFail($id);
         foreach ($service->portofolios as $portofolio) {
             if($portofolio->image && Storage::disk('public')->exists($portofolio->image))
             {

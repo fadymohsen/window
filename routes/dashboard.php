@@ -25,13 +25,13 @@ Route::prefix(LaravelLocalization::setLocale())
 
             Route::resource('users', UsersController::class);
             Route::resource('roles', RolesController::class);
-            Route::resource('blogs', BlogController::class)->parameters(['blogs' => 'blog:id']);
+            Route::resource('blogs', BlogController::class);
             Route::resource('website_setting', WebsiteSettingsController::class);
             Route::resource('contact-us', ContactUsController::class);
             Route::put('contact-us/{contact_us}/approve', [ContactUsController::class, 'approve']);
             Route::put('contact-us/{contact_us}/declince', [ContactUsController::class, 'declince']);
             Route::resource('partners', PartnersController::class);
-            Route::resource('services', ServicesController::class)->parameters(['services' => 'service:id']);
+            Route::resource('services', ServicesController::class);
         });
     });
 });
