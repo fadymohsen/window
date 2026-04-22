@@ -50,6 +50,10 @@
                         <label for="title.en">@lang('dashboard.en.name')</label>
                         <input id="title.en" type="text" class="form-control" name="en[title]" value="{{ $service->translate('en')?->title }}">
                     </div>
+                    <div class="gap-2 mb-3 flex-fill">
+                        <label for="slug">@lang('dashboard.slug')</label>
+                        <input id="slug" type="text" class="form-control" name="slug" value="{{ $service->slug }}" maxlength="255" dir="ltr">
+                    </div>
                 </div>
             </div>
         </div>

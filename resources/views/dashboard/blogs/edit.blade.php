@@ -78,6 +78,10 @@
                 <div class="card-body">
                     <h6 class="fw-semibold mb-3">SEO</h6>
                     <div class="mb-3">
+                        <label for="slug">@lang('dashboard.slug')</label>
+                        <input id="slug" type="text" class="form-control" name="slug" value="{{ $blog->slug }}" maxlength="255" dir="ltr">
+                    </div>
+                    <div class="mb-3">
                         <label for="meta_title">@lang('dashboard.blog_meta_title')</label>
                         <input id="meta_title" type="text" class="form-control" name="meta_title" value="{{ $blog->meta_title }}" maxlength="255">
                     </div>

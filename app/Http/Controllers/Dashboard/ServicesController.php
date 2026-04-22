@@ -10,6 +10,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\Encoders\AutoEncoder;
 use Intervention\Image\ImageManager;
@@ -84,7 +85,15 @@ class ServicesController extends Controller implements HasMiddleware
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp|max:10240'],
             'ar.title' => ['required', 'string', 'max:300'],
             'en.title' => ['required', 'string', 'max:300'],
+            'slug' => ['nullable', 'string', 'max:255'],
         ]);
+
+        if (!empty($service_data['slug'])) {
+            $service_data['slug'] = Str::slug($service_data['slug']);
+            if (Service::where('slug', $service_data['slug'])->exists()) {
+                return response()->json(['errors' => ['slug' => [__('validation.unique', ['attribute' => 'slug'])]]], 422);
+            }
+        }
 
         if($request->hasFile('image')) {
             $image = $request->file('image');
@@ -171,7 +180,17 @@ class ServicesController extends Controller implements HasMiddleware
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp|max:10240'],
             'ar.title' => ['required', 'string', 'max:300'],
             'en.title' => ['required', 'string', 'max:300'],
+            'slug' => ['nullable', 'string', 'max:255'],
         ]);
+
+        if (!empty($service_data['slug'])) {
+            $service_data['slug'] = Str::slug($service_data['slug']);
+            if (Service::where('slug', $service_data['slug'])->where('id', '!=', $service->id)->exists()) {
+                return response()->json(['errors' => ['slug' => [__('validation.unique', ['attribute' => 'slug'])]]], 422);
+            }
+        } else {
+            unset($service_data['slug']);
+        }
 
         if($request->hasFile('image')) {
             $image = $request->file('image');

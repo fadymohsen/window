@@ -11,6 +11,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\Encoders\AutoEncoder;
 use Intervention\Image\ImageManager;
@@ -107,11 +108,19 @@ class BlogController extends Controller implements HasMiddleware
             'description' => 'required|string',
             'cover' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'keywords' => 'nullable|string|max:255',
+            'slug' => 'nullable|string|max:255',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
             'images.*' => 'required|exists:blog_images,id',
         ]);
-        
+
+        if (!empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['slug']);
+            if (Blog::where('slug', $data['slug'])->exists()) {
+                return response()->json(['errors' => ['slug' => [__('validation.unique', ['attribute' => 'slug'])]]], 422);
+            }
+        }
+
         $image = $request->file('cover');
         $imagePath = 'blogs/covers/' . uniqid() . '.webp';
 
@@ -126,7 +135,7 @@ class BlogController extends Controller implements HasMiddleware
         $data['cover'] = $url;
 
         $data['user_id'] = Auth::id();
-        
+
         $blog = Blog::create($data);        
 
         if($request->images)
@@ -178,10 +187,20 @@ class BlogController extends Controller implements HasMiddleware
             'description' => 'required|string',
             'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'keywords' => 'nullable|string|max:255',
+            'slug' => 'nullable|string|max:255',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
             'images.*' => 'required|exists:blog_images,id',
         ]);
+
+        if (!empty($data['slug'])) {
+            $data['slug'] = Str::slug($data['slug']);
+            if (Blog::where('slug', $data['slug'])->where('id', '!=', $blog->id)->exists()) {
+                return response()->json(['errors' => ['slug' => [__('validation.unique', ['attribute' => 'slug'])]]], 422);
+            }
+        } else {
+            unset($data['slug']);
+        }
         
         if($image = $request->file('cover'))
         {

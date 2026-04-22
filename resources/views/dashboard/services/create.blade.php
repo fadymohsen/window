@@ -50,6 +50,10 @@
                         <label for="title.en">@lang('dashboard.en.name')</label>
                         <input id="title.en" type="text" class="form-control" name="en[title]">
                     </div>
+                    <div class="gap-2 mb-3 flex-fill">
+                        <label for="slug">@lang('dashboard.slug')</label>
+                        <input id="slug" type="text" class="form-control" name="slug" maxlength="255" placeholder="@lang('dashboard.slug_hint')" dir="ltr">
+                    </div>
                 </div>
             </div>
         </div>

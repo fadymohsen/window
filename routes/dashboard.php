@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\PartnersController;
 use App\Http\Controllers\Dashboard\RolesController;
 use App\Http\Controllers\Dashboard\ServicesController;
+use App\Http\Controllers\Dashboard\SlugRedirectController;
 use App\Http\Controllers\Dashboard\UsersController;
 use App\Http\Controllers\Dashboard\WebsiteSettingsController;
 use App\Models\Blog;
@@ -32,6 +33,7 @@ Route::prefix(LaravelLocalization::setLocale())
             Route::put('contact-us/{contact_us}/declince', [ContactUsController::class, 'declince']);
             Route::resource('partners', PartnersController::class);
             Route::resource('services', ServicesController::class);
+            Route::resource('slug-redirects', SlugRedirectController::class)->except('show');
         });
     });
 });

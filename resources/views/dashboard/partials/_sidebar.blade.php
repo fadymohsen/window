@@ -85,12 +85,18 @@
                 @endif
 
                 @if (Auth::user()->hasPermissionTo('website_settings_show'))
-                    <li class="nav-item">               
+                    <li class="nav-item">
                         <a class="nav-link menu-link {{ Route::currentRouteName() == 'dashboard.website_setting.index' ? 'active' : ''}}" href="{{ route('dashboard.website_setting.index') }}" role="button">
                             <i class="ri-tools-fill"></i> <span>@lang('dashboard.website_settings')</span>
                         </a>
                     </li>
                 @endif
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ str_starts_with(Route::currentRouteName(), 'dashboard.slug-redirects') ? 'active' : ''}}" href="{{ route('dashboard.slug-redirects.index') }}" role="button">
+                        <i class="ri-links-fill"></i> <span>@lang('dashboard.slug_redirects')</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
