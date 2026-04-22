@@ -88,4 +88,5 @@
         'redirect_deleted' => 'Redirect deleted successfully',
         'redirect_same_slug' => 'Source and target slugs cannot be the same',
         'redirect_target_not_found' => 'Target slug does not exist',
+        'redirect_old_slug' => 'Redirect old slug to the new one (301)',
     ];

@@ -53,6 +53,10 @@
                     <div class="gap-2 mb-3 flex-fill">
                         <label for="slug">@lang('dashboard.slug')</label>
                         <input id="slug" type="text" class="form-control" name="slug" value="{{ $service->slug }}" maxlength="255" dir="ltr">
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" name="redirect_old_slug" id="redirect_old_slug" value="1" checked>
+                            <label class="form-check-label" for="redirect_old_slug">@lang('dashboard.redirect_old_slug')</label>
+                        </div>
                     </div>
                 </div>
             </div>

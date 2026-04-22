@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Portofolio;
 use App\Models\Service;
+use App\Models\SlugRedirect;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
@@ -181,7 +182,11 @@ class ServicesController extends Controller implements HasMiddleware
             'ar.title' => ['required', 'string', 'max:300'],
             'en.title' => ['required', 'string', 'max:300'],
             'slug' => ['nullable', 'string', 'max:255'],
+            'redirect_old_slug' => ['nullable'],
         ]);
+
+        $oldSlug = $service->slug;
+        $shouldRedirect = $request->has('redirect_old_slug');
 
         if (!empty($service_data['slug'])) {
             $service_data['slug'] = Str::slug($service_data['slug']);
@@ -191,6 +196,7 @@ class ServicesController extends Controller implements HasMiddleware
         } else {
             unset($service_data['slug']);
         }
+        unset($service_data['redirect_old_slug']);
 
         if($request->hasFile('image')) {
             $image = $request->file('image');
@@ -211,6 +217,13 @@ class ServicesController extends Controller implements HasMiddleware
         ]);
 
         $service->update($service_data);
+
+        if ($shouldRedirect && $oldSlug && $service->slug !== $oldSlug) {
+            SlugRedirect::updateOrCreate(
+                ['from_slug' => $oldSlug, 'type' => 'service'],
+                ['to_slug' => $service->slug]
+            );
+        }
 
         if ($request->existingFiles) {
             $deletedFiles = Portofolio::where('service_id', $service->id)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogImage;
+use App\Models\SlugRedirect;
 use App\Servces\SiteMapService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
@@ -188,10 +189,14 @@ class BlogController extends Controller implements HasMiddleware
             'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'keywords' => 'nullable|string|max:255',
             'slug' => 'nullable|string|max:255',
+            'redirect_old_slug' => 'nullable',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
             'images.*' => 'required|exists:blog_images,id',
         ]);
+
+        $oldSlug = $blog->slug;
+        $shouldRedirect = $request->has('redirect_old_slug');
 
         if (!empty($data['slug'])) {
             $data['slug'] = Str::slug($data['slug']);
@@ -201,7 +206,8 @@ class BlogController extends Controller implements HasMiddleware
         } else {
             unset($data['slug']);
         }
-        
+        unset($data['redirect_old_slug']);
+
         if($image = $request->file('cover'))
         {
             $image = $request->file('cover');
@@ -218,8 +224,15 @@ class BlogController extends Controller implements HasMiddleware
             $data['cover'] = $url;
         }
         
-        $blog->update($data); 
-        
+        $blog->update($data);
+
+        if ($shouldRedirect && $oldSlug && $blog->slug !== $oldSlug) {
+            SlugRedirect::updateOrCreate(
+                ['from_slug' => $oldSlug, 'type' => 'blog'],
+                ['to_slug' => $blog->slug]
+            );
+        }
+
         $imagesToDelete = $blog->images()->whereNotIn('id', $request->images ?? [])->get();
         foreach ($imagesToDelete as $image) {
             if(Storage::disk('public')->exists($image->path))
