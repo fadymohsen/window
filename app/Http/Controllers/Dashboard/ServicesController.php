@@ -40,7 +40,7 @@ class ServicesController extends Controller implements HasMiddleware
                     "<div class='d-flex align-items-center justify-content-center gap-2'>"
                     .
                     (Auth::user()->hasPermissionTo('services_edit') ?
-                    "<a class='remove_button text-success' data-id='".$row['id']."' href='" . route('dashboard.services.edit', $row['slug']) . "'><i class='ri-pencil-line fs-4' type='submit'></i></a>"
+                    "<a class='remove_button text-success' data-id='".$row['id']."' href='" . route('dashboard.services.edit', $row['id']) . "'><i class='ri-pencil-line fs-4' type='submit'></i></a>"
                     :"")
                     .  
                     (Auth::user()->hasPermissionTo('services_delete') ?
@@ -127,7 +127,7 @@ class ServicesController extends Controller implements HasMiddleware
 
         return response()->json([
             'message' => __('response.service-createed'),
-            'redirectUrl' => route('dashboard.services.edit', $service->slug),
+            'redirectUrl' => route('dashboard.services.edit', $service->id),
         ]);
     }
 
