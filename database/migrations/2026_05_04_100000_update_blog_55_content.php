@@ -9,11 +9,8 @@ return new class extends Migration
     {
         // ── Arabic Translation ──
         $arTitle = 'أهمية الألوان في الطباعة والدعاية والإعلان | دليل شامل';
-
         $arMetaTitle = 'أهمية الألوان في الطباعة والدعاية والإعلان | دليل شامل 2026 | Adv Window';
-
         $arMetaDescription = 'اكتشف كيف تؤثر الألوان على نجاح حملات الدعاية والإعلان والطباعة. دليل شامل من خبراء شركة دعاية واعلان الرياض يشرح سيكولوجية الألوان، نظام CMYK، وبناء الهوية البصرية للعلامات التجارية.';
-
         $arKeywords = 'شركة دعاية واعلان الرياض,تصميم اعلانات,تصميم دعاية واعلان,دعاية واعلان,الدعاية والاعلان,طباعة واعلان,شركات طباعة ودعاية واعلان,هوية بصرية,سيكولوجية الألوان';
 
         $arDescription = <<<'HTML'
@@ -230,7 +227,6 @@ return new class extends Migration
 <p>الاستعانة بوكالة متخصصة في الدعاية والاعلان لاختيار ألوان الحملة ضرورية لعدة أسباب: أولًا، الوكالات تمتلك أدوات تحليل متقدمة لاختبار تأثير الألوان على الجمهور المستهدف. ثانيًا، تمتلك خبرة تراكمية في السوق المحلي تُمكّنها من تجنّب الأخطاء الثقافية. ثالثًا، تضمن اتساق الألوان عبر جميع الوسائط من المطبوعات إلى الرقمي. رابعًا، تُراعي الجوانب التقنية مثل قابلية الطباعة ووضوح الألوان في الظروف المختلفة. وكالة مثل وندو للدعاية والإعلان في الرياض تجمع كل هذه العناصر مع فهم عميق لطبيعة السوق السعودي المبني على خبرة ميدانية لأكثر من ربع قرن.</p>
 HTML;
 
-        // Update Arabic translation
         DB::table('blog_translations')
             ->where('blog_id', 55)
             ->where('locale', 'ar')
@@ -244,11 +240,8 @@ HTML;
 
         // ── English Translation ──
         $enTitle = 'The Role of Colors in Printing & Advertising | A Complete Guide';
-
         $enMetaTitle = 'The Role of Colors in Printing & Advertising | Window Advertising Agency';
-
         $enMetaDescription = 'Discover how color psychology in marketing shapes purchasing decisions. Learn about the CMYK printing system, brand identity colors, and how the best advertising agency in Saudi Arabia uses color theory for powerful ad campaigns.';
-
         $enKeywords = 'advertising agency Riyadh,printing and advertising,color psychology in marketing,brand identity colors,CMYK printing system,visual branding Saudi Arabia,how colors affect purchasing decisions,color theory for advertising,best advertising agency in Saudi Arabia';
 
         $enDescription = <<<'HTML'
@@ -476,7 +469,7 @@ HTML;
             ]);
         }
 
-        // Update the slug on the blogs table
+        // Update the slug
         DB::table('blogs')
             ->where('id', 55)
             ->update([
