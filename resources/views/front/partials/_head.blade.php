@@ -60,7 +60,7 @@
 <link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.theme.default.min.css') }}">
 <!-- Custom CSS -->
-<link rel="stylesheet" href="{{ asset('front/css/main.css') }}">
+<link rel="stylesheet" href="{{ asset('front/css/main.css') }}?v={{ filemtime(public_path('front/css/main.css')) }}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Google Tag Manager -->
