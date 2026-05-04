@@ -7,6 +7,18 @@ return new class extends Migration
 {
     public function up(): void
     {
+        // Find the blog by its current slug (may vary by environment)
+        $blog = DB::table('blogs')
+            ->where('slug', 'httpswindowadvcomarblogscolors-in-printing-and-advertising')
+            ->orWhere('slug', 'colors-in-printing-and-advertising')
+            ->first();
+
+        if (!$blog) {
+            return;
+        }
+
+        $blogId = $blog->id;
+
         // ── Arabic Translation ──
         $arTitle = 'أهمية الألوان في الطباعة والدعاية والإعلان | دليل شامل';
         $arMetaTitle = 'أهمية الألوان في الطباعة والدعاية والإعلان | دليل شامل 2026 | Adv Window';
@@ -228,7 +240,7 @@ return new class extends Migration
 HTML;
 
         DB::table('blog_translations')
-            ->where('blog_id', 55)
+            ->where('blog_id', $blogId)
             ->where('locale', 'ar')
             ->update([
                 'title' => $arTitle,
@@ -442,13 +454,13 @@ HTML;
 
         // Update or insert English translation
         $exists = DB::table('blog_translations')
-            ->where('blog_id', 55)
+            ->where('blog_id', $blogId)
             ->where('locale', 'en')
             ->exists();
 
         if ($exists) {
             DB::table('blog_translations')
-                ->where('blog_id', 55)
+                ->where('blog_id', $blogId)
                 ->where('locale', 'en')
                 ->update([
                     'title' => $enTitle,
@@ -471,7 +483,7 @@ HTML;
 
         // Update the slug
         DB::table('blogs')
-            ->where('id', 55)
+            ->where('id', $blogId)
             ->update([
                 'slug' => 'colors-in-printing-and-advertising',
             ]);
