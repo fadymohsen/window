@@ -4,14 +4,13 @@ use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\MainController;
 use App\Http\Controllers\Front\ServicesController;
-use App\Http\Middleware\SlugRedirectMiddleware;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::name('front.')
     ->prefix(LaravelLocalization::setLocale())
-    ->middleware([ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', SlugRedirectMiddleware::class ])
+    ->middleware([ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ])
     ->group(function(){
         Route::get('/', [MainController::class, 'home'])->name('home');
         Route::get('/about', [MainController::class, 'about'])->name('about');
