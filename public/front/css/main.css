@@ -854,6 +854,36 @@ animation-direction: alternate;
   border-radius: 10px;
 }
 
+.blog-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.blog-body table thead th {
+  background-color: #f9a11b;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: start;
+}
+
+.blog-body table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.blog-body table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.blog-body table tbody tr:hover {
+  background-color: #fff7eb;
+}
+
 #top-customers
 {
   background-color: #4f4d4e;
