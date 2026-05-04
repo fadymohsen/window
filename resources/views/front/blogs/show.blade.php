@@ -80,11 +80,11 @@
     </section>
     <div class="container blog-container">
         <div class="row">
-            <div class="blog-header my-2 mb-3 blog-animate">
+            <div class="blog-header my-2 mb-3 blog-animate blog-visible">
                 <h2 class="text-center">{{ $blog->title ?? '' }}</h2>
                 <span class="date d-flex justify-content-center"><bdi class="fs-6">{{ $blog->created_at->format('y M D, H:i') }}</bdi></span>
             </div>
-            <div class="blog-image col-lg-6 mx-auto blog-animate">
+            <div class="blog-image col-lg-6 mx-auto blog-animate blog-visible">
                 <img loading="lazy" src="{{ $blog->display_image }}" alt="{{ $blog->title ?? '' }}">
             </div>
             <div class="blog-body mt-3">
