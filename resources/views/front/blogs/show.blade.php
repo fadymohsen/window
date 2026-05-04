@@ -66,6 +66,8 @@
 
 @section('content')
 
+    <div id="blog-progress" style="position:fixed;top:0;left:0;height:3px;width:0;background:#f9a11b;z-index:9999;transition:width 0.1s linear;"></div>
+
     <section id="blog-header" class="py-2 pb-0">
         <div class="container">
             <div class="row">
@@ -78,21 +80,57 @@
     </section>
     <div class="container blog-container">
         <div class="row">
-            <div class="blog-header my-2 mb-3">
+            <div class="blog-header my-2 mb-3 blog-animate">
                 <h2 class="text-center">{{ $blog->title ?? '' }}</h2>
                 <span class="date d-flex justify-content-center"><bdi class="fs-6">{{ $blog->created_at->format('y M D, H:i') }}</bdi></span>
             </div>
-            <div class="blog-image col-lg-6 mx-auto">
+            <div class="blog-image col-lg-6 mx-auto blog-animate">
                 <img loading="lazy" src="{{ $blog->display_image }}" alt="{{ $blog->title ?? '' }}">
             </div>
             <div class="blog-body mt-3">
                 {!! $blog->description !!}
             </div>
-            <div class="text-center my-4 d-flex gap-3 justify-content-center flex-wrap">
+            <div class="text-center my-4 d-flex gap-3 justify-content-center flex-wrap blog-animate">
                 <a href="{{ route('front.blogs.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.blog')</a>
                 <a href="{{ route('front.contacts.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
             </div>
         </div>
     </div>
 
+@endsection
+
+@section('custom-js')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Add blog-animate class to blog-body children for scroll animations
+    document.querySelectorAll('.blog-body > h2, .blog-body > h3, .blog-body > p, .blog-body > ul, .blog-body > ol, .blog-body > figure, .blog-body > blockquote, .blog-body > table').forEach(function (el) {
+        el.classList.add('blog-animate');
+    });
+
+    // Intersection Observer for scroll-triggered animations
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('blog-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.blog-animate').forEach(function (el) {
+        observer.observe(el);
+    });
+
+    // Animate reading progress bar
+    var progressBar = document.getElementById('blog-progress');
+    if (progressBar) {
+        window.addEventListener('scroll', function () {
+            var scrollTop = window.scrollY;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        });
+    }
+});
+</script>
 @endsection

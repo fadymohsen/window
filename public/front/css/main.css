@@ -971,6 +971,80 @@ animation-direction: alternate;
   background-color: #fff7eb;
 }
 
+/* Blog scroll animations */
+.blog-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.blog-animate.blog-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children delays */
+.blog-body > *:nth-child(even).blog-animate {
+  transition-delay: 0.05s;
+}
+
+/* Heading reveal with border animation */
+.blog-body h2.blog-animate {
+  border-bottom-color: transparent;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, border-bottom-color 0.4s ease-out 0.3s;
+}
+
+.blog-body h2.blog-animate.blog-visible {
+  border-bottom-color: #f9a11b;
+}
+
+/* Blockquote slide-in from side */
+.blog-body blockquote.blog-animate {
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[dir="rtl"] .blog-body blockquote.blog-animate {
+  transform: translateX(20px);
+}
+
+.blog-body blockquote.blog-animate.blog-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Table fade + scale */
+.blog-body figure.blog-animate,
+.blog-body table.blog-animate {
+  transform: translateY(20px) scale(0.98);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.blog-body figure.blog-animate.blog-visible,
+.blog-body table.blog-animate.blog-visible {
+  transform: translateY(0) scale(1);
+}
+
+/* CTA buttons hover animation */
+.blog-container .cta-btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blog-container .cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(249, 161, 27, 0.3);
+}
+
+/* Image hover effect */
+.blog-container .blog-image img {
+  transition: transform 0.4s ease;
+}
+
+.blog-container .blog-image img:hover {
+  transform: scale(1.02);
+}
+
 #top-customers
 {
   background-color: #4f4d4e;
