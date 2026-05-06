@@ -104,7 +104,7 @@ return [
     'contact-sent-response' => 'Your message has been sent successfully',
 
     // SEO Meta Data
-    'home-meta-title' => 'Advertising Agency in Riyadh | Window Advertising Agency Riyadh',
+    'home-meta-title' => 'Advertising in Riyadh | Window 25 Years of Advertising Experience',
     'home-meta-description' => 'Window Advertising Agency — Advertising Agency in Riyadh. Leading advertising agency in Riyadh with 25+ years of experience delivering premium advertising & branding solutions in Saudi Arabia.',
     'home-meta-keywords' => 'advertising agency in riyadh, advertising agency in riyadh riyadh, advertising agency in riyadh saudi arabia, window advertising agency, advertising agency riyadh',
 
