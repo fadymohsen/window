@@ -92,7 +92,7 @@
             </div>
             <div class="text-center my-4 d-flex gap-3 justify-content-center flex-wrap blog-animate">
                 <a href="{{ route('front.blogs.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.blog')</a>
-                <a href="{{ route('front.contacts.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
+                <a href="{{ route('front.contact.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
             </div>
         </div>
     </div>

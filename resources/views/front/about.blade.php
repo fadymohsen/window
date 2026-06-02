@@ -132,7 +132,7 @@
                 </div>
                 @lang('custom.our-strategie-body')
                 <div class="text-center mt-3">
-                    <a href="{{ route('front.contacts.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
+                    <a href="{{ route('front.contact.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
                 </div>
             </div>
         </div>

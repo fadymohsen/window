@@ -27,7 +27,7 @@
                         <a class="nav-link {{ Route::is('front.blogs.index') ? 'active' : '' }}" href="{{ route('front.blogs.index') }}"><i class="fa-brands fa-blogger-b"></i> @lang('custom.blog')</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('front.contacts.index') ? 'active' : '' }}" href="{{ route('front.contacts.index') }}"><i class="fa-solid fa-address-book"></i> @lang('custom.contact')</a>
+                        <a class="nav-link {{ Route::is('front.contact.index') ? 'active' : '' }}" href="{{ route('front.contact.index') }}"><i class="fa-solid fa-address-book"></i> @lang('custom.contact')</a>
                     </li>
                 </ul>
                 <div class="click-to-contact-container me-2 ms-auto">

@@ -12,7 +12,7 @@
             <div class="d-flex gap-3 justify-content-center flex-wrap">
                 <a href="{{ route('front.home') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.404-go-home')</a>
                 <a href="{{ route('front.services.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.services')</a>
-                <a href="{{ route('front.contacts.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact')</a>
+                <a href="{{ route('front.contact.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact')</a>
             </div>
         </div>
     </section>

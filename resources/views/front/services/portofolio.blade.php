@@ -83,7 +83,7 @@
         <section class="py-4 text-center">
             <div class="container">
                 <p class="text-gr mb-3">@lang('custom.contact-us')</p>
-                <a href="{{ route('front.contacts.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
+                <a href="{{ route('front.contact.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
             </div>
         </section>
 

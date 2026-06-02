@@ -18,7 +18,7 @@ class SiteMapService
             'front.home'           => ['changeFreq' => Url::CHANGE_FREQUENCY_WEEKLY,  'priority' => 1.0],
             'front.about'          => ['changeFreq' => Url::CHANGE_FREQUENCY_MONTHLY, 'priority' => 0.8],
             'front.services.index' => ['changeFreq' => Url::CHANGE_FREQUENCY_WEEKLY,  'priority' => 0.9],
-            'front.contacts.index' => ['changeFreq' => Url::CHANGE_FREQUENCY_MONTHLY, 'priority' => 0.7],
+            'front.contact.index' => ['changeFreq' => Url::CHANGE_FREQUENCY_MONTHLY, 'priority' => 0.7],
             'front.blogs.index'    => ['changeFreq' => Url::CHANGE_FREQUENCY_DAILY,   'priority' => 0.9],
         ];
 
@@ -81,7 +81,7 @@ class SiteMapService
             'front.about'          => "/{$locale}/about",
             'front.services.index' => "/{$locale}/services",
             'front.services.show'  => "/{$locale}/services/" . ($params[0] ?? ''),
-            'front.contacts.index' => "/{$locale}/contacts",
+            'front.contact.index' => "/{$locale}/contact",
             'front.blogs.index'    => "/{$locale}/blogs",
             'front.blogs.show'     => "/{$locale}/blogs/" . ($params[0] ?? ''),
             default                => "/{$locale}",

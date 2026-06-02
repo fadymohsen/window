@@ -19,7 +19,7 @@
         "@type": "ListItem",
         "position": 2,
         "name": "{{ __('custom.contact') }}",
-        "item": "{{ route('front.contacts.index') }}"
+        "item": "{{ route('front.contact.index') }}"
     }]
 }
 </script>

@@ -77,7 +77,7 @@ class ContactsController {
         this.send_contacts_button.setAttribute("disabled", "disabled")
         const formData = new FormData(this.send_contacts_form)
 
-        const response = await request(`/contacts`, 'POST', formData)
+        const response = await request(`/contact`, 'POST', formData)
         if(response.success) {
             this.show_success(response.data.message)
             this.send_contacts_form.querySelectorAll('input:not([type="submit"])').forEach(input => {
