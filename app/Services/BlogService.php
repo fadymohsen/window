@@ -14,4 +14,9 @@ class BlogService
 
         return $blogs;
     }
+
+    public function get_blogs_paginated($perPage = 12)
+    {
+        return Blog::withTranslation()->orderByDesc('id')->paginate($perPage);
+    }
 }

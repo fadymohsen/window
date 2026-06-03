@@ -14,7 +14,7 @@ class BlogController extends Controller
      */
     public function index(BlogService $blogService)
     {
-        $blogs = $blogService->get_blogs();
+        $blogs = $blogService->get_blogs_paginated(12);
         return view('front.blogs.index', compact('blogs'));
     }
 

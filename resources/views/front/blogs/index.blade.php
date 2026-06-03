@@ -40,18 +40,11 @@
         <div class="blogs-card">
             <div class="row">
                 <x-blogs-list :blogs="$blogs" />
-                <div class="BlogLoader justify-content-center w-100">
-                    <span class="loader"></span>
-                </div>
             </div>
+        </div>
+        <div class="d-flex justify-content-center mt-4 mb-4">
+            {{ $blogs->links() }}
         </div>
     </div>
 
-@endsection
-
-@section('js-after')
-    <script>
-        const lang = document.querySelector('html').getAttribute('lang')
-        let LastBlogId = {{ $blogs->last()?->id | null }}
-    </script>
 @endsection
