@@ -7,7 +7,7 @@ class BlogsManager {
         this.getingBlogsLoader = document.querySelector(".BlogLoader")
 
         this.blogs_container = document.querySelector(".blogs-card")
-        if(this.blogs_container)
+        if(this.blogs_container && this.getingBlogsLoader)
         {
             this.display_blogs()
         }
