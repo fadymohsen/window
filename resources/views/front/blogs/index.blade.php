@@ -42,7 +42,7 @@
                 <x-blogs-list :blogs="$blogs" />
             </div>
         </div>
-        <div class="d-flex justify-content-center mt-4 mb-4">
+        <div class="d-flex justify-content-center mt-5 mb-5">
             {{ $blogs->links() }}
         </div>
     </div>

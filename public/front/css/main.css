@@ -1148,3 +1148,29 @@ animation-direction: alternate;
     margin-top: 10px;
   }
 }
+
+/* Pagination */
+.pagination {
+  gap: 5px;
+}
+.pagination .page-link {
+  color: #333;
+  border-color: #ddd;
+  border-radius: 8px;
+  padding: 8px 14px;
+  transition: all 0.3s ease;
+}
+.pagination .page-link:hover {
+  background-color: #faa819;
+  border-color: #faa819;
+  color: #fff;
+}
+.pagination .page-item.active .page-link {
+  background-color: #f9a11b;
+  border-color: #f9a11b;
+  color: #fff;
+}
+.pagination .page-item.disabled .page-link {
+  color: #aaa;
+  background-color: #f8f9fa;
+}
