@@ -7,7 +7,7 @@ class ServicesManager {
         this.getingServiceLoader = document.querySelector(".ServiceLoader")
 
         this.service_container = document.querySelector(".service-container")
-        if(this.service_container)
+        if(this.service_container && this.getingServiceLoader)
         {
             this.display_services()
         }

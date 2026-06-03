@@ -15,7 +15,7 @@ class ServicesController extends Controller
      */
     public function index(ServicesService $servicesService)
     {
-        $services = $servicesService->get_services();
+        $services = $servicesService->get_services_paginated(12);
         return view('front.services.index', compact('services'));
     }
 

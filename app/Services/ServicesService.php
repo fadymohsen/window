@@ -16,6 +16,11 @@ class ServicesService
         return $services;
     }
 
+    public function get_services_paginated($perPage = 12)
+    {
+        return Service::withTranslation()->orderBy('id')->paginate($perPage);
+    }
+
     public function get_portofolios($service_id, $last_portofolio_id = null, $limit = 20)
     {
         $portofolios = Portofolio::orderByDesc('id')->where('service_id', $service_id)->when($last_portofolio_id, function($query) use ($last_portofolio_id) {

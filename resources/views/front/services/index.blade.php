@@ -32,10 +32,10 @@
     "@type": "ItemList",
     "name": "{{ __('custom.our-services') }}",
     "itemListElement": [
-        @foreach($services as $index => $service)
+        @foreach($services as $service)
         {
             "@type": "ListItem",
-            "position": {{ $index + 1 }},
+            "position": {{ $loop->iteration + ($services->currentPage() - 1) * $services->perPage() }},
             "name": "{{ $service->title ?? '' }}",
             "url": "{{ route('front.services.show', $service) }}"
         }@if(!$loop->last),@endif
@@ -65,16 +65,9 @@
         </div>
         <div class="service-container d-flex flex-wrap justify-content-evenly py-4">
             <x-services-list :services="$services" />
-            <div class="ServiceLoader justify-content-center w-100">
-                <span class="loader"></span>
-            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-5 mb-5">
+            {{ $services->links() }}
         </div>
     </div>
-@endsection
-
-@section('js-after')
-    <script>
-        const lang = document.querySelector('html').getAttribute('lang')
-        let LastServiceId = {{ $services->last()?->id | null }}
-    </script>
 @endsection
