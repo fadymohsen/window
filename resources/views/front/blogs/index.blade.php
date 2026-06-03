@@ -42,7 +42,7 @@
                 <x-blogs-list :blogs="$blogs" />
             </div>
         </div>
-        <div class="d-flex justify-content-center mt-5 mb-5">
+        <div class="pagination-wrapper mt-5 mb-5">
             {{ $blogs->links() }}
         </div>
     </div>

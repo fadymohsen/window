@@ -1150,6 +1150,24 @@ animation-direction: alternate;
 }
 
 /* Pagination */
+.pagination-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.pagination-wrapper > nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.pagination-wrapper > nav > div {
+  order: 2;
+}
+.pagination-wrapper > nav > div:last-child {
+  order: 1;
+}
 .pagination {
   gap: 5px;
 }
