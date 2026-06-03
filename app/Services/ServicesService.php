@@ -29,4 +29,9 @@ class ServicesService
 
         return $portofolios;
     }
+
+    public function get_portofolios_paginated($service_id, $perPage = 12)
+    {
+        return Portofolio::orderByDesc('id')->where('service_id', $service_id)->paginate($perPage);
+    }
 }

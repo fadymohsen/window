@@ -7,7 +7,7 @@ class PortofoliosManager {
         this.getingPortofolioLoader = document.querySelector(".PortofolioLoader")
 
         this.portofolio_container = document.querySelector("#porto-data")
-        if(this.portofolio_container)
+        if(this.portofolio_container && this.getingPortofolioLoader)
         {
             this.display_portofolios()
         }

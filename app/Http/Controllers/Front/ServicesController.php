@@ -82,7 +82,7 @@ class ServicesController extends Controller
      */
     public function show(Service $service, ServicesService $servicesService)
     {
-        $portofolios = $servicesService->get_portofolios($service->id);
+        $portofolios = $servicesService->get_portofolios_paginated($service->id, 12);
         return view('front.services.portofolio', compact('portofolios', 'service'));
     }
 

@@ -74,9 +74,9 @@
             <div class="container-fluid">
                 <div id="porto-data" class="row px-2 row-gap-2">
                     <x-portofolios-list :portofolios="$portofolios" />
-                    <div class="PortofolioLoader justify-content-center w-100">
-                        <span class="loader"></span>
-                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-5 mb-5">
+                    {{ $portofolios->links() }}
                 </div>
         </section>
 
@@ -88,12 +88,4 @@
         </section>
 
 
-@endsection
-
-@section('js-after')
-    <script>
-        const lang = document.querySelector('html').getAttribute('lang')
-        let LastPortofolioId = {{ $portofolios->last()?->id | null }}
-        const SERVICE_ID = {{ $service->id }}
-    </script>
 @endsection
