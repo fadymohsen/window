@@ -148,6 +148,12 @@ return [
     'validation-phone' => 'Please enter a valid phone number',
     'validation-url' => 'Please enter a valid URL',
 
+    // Pagination
+    'showing' => 'Showing',
+    'to' => 'to',
+    'of' => 'of',
+    'results' => 'results',
+
     // 404
     '404-title' => 'Page Not Found',
     '404-description' => 'Sorry, the page you are looking for does not exist or has been moved.',
