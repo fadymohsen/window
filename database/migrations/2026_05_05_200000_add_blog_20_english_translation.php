@@ -8,6 +8,9 @@ return new class extends Migration
     public function up(): void
     {
         $blogId = 20;
+        if (!DB::table('blogs')->where('id', $blogId)->exists()) {
+            return;
+        }
 
         $enTitle = 'Brand Identity Before Advertising: A Complete Guide to Building Unforgettable Brands';
         $enMetaTitle = 'Brand Identity Before Advertising | A Complete Guide to Building Unforgettable Brands | Window Advertising';

@@ -8,6 +8,9 @@ return new class extends Migration
     public function up(): void
     {
         $blogId = 61;
+        if (!DB::table('blogs')->where('id', $blogId)->exists()) {
+            return;
+        }
 
         $enTitle = 'Window Agency: Your Full-Service Executive Arm for Major Projects in 2026';
         $enMetaTitle = 'Window Agency: Your Full-Service Executive Arm for Major Projects in 2026 | Window Advertising';

@@ -8,6 +8,9 @@ return new class extends Migration
     public function up(): void
     {
         $blogId = 44;
+        if (!DB::table('blogs')->where('id', $blogId)->exists()) {
+            return;
+        }
         $oldSlug = 'alhday-aldaaayy-f-alsaaody';
         $newSlug = 'promotional-gifts-saudi-arabia';
 

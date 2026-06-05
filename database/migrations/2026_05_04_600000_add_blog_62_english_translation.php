@@ -8,6 +8,9 @@ return new class extends Migration
     public function up(): void
     {
         $blogId = 62;
+        if (!DB::table('blogs')->where('id', $blogId)->exists()) {
+            return;
+        }
 
         $enTitle = 'Eco-Friendly Materials in Advertising: The Future of Responsible Brand Building';
         $enMetaTitle = 'Eco-Friendly Materials in Advertising | Complete Guide 2026 | Window';
