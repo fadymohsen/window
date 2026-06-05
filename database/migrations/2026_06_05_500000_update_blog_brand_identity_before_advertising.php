@@ -10,20 +10,20 @@ return new class extends Migration
         $oldSlug = 'alhoy-kbl-alaaalan-sr-alaalamat-alty-la-tkhtf';
         $newSlug = 'brand-identity-before-advertising';
 
-        $blog = DB::table('blogs')->where('slug', $oldSlug)->first();
+        // Find the target blog — prefer the one with the new slug, fall back to old slug
+        $blog = DB::table('blogs')->where('slug', $newSlug)->first();
         if (!$blog) {
-            $blog = DB::table('blogs')->where('slug', $newSlug)->first();
-        }
-        if (!$blog) {
-            return;
+            $blog = DB::table('blogs')->where('slug', $oldSlug)->first();
+            if (!$blog) {
+                return;
+            }
+            // Only update slug if no other blog already owns the new slug
+            DB::table('blogs')->where('id', $blog->id)->update(['slug' => $newSlug]);
         }
 
         $blogId = $blog->id;
 
-        if ($blog->slug !== $newSlug) {
-            DB::table('blogs')->where('id', $blogId)->update(['slug' => $newSlug]);
-        }
-
+        // Add redirect if not already present
         if (!DB::table('slug_redirects')->where('from_slug', $oldSlug)->where('type', 'blog')->exists()) {
             DB::table('slug_redirects')->insert([
                 'from_slug' => $oldSlug,
