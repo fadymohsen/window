@@ -28,7 +28,12 @@ return new class extends Migration
             'updated_at' => now(),
         ]);
 
-        // Fix the blog slug
+        // Fix the blog slug — only if blog 55 exists
+        $blog = DB::table('blogs')->where('id', 55)->first();
+        if (!$blog) {
+            return;
+        }
+
         DB::table('blogs')
             ->where('id', 55)
             ->update(['slug' => 'colors-in-printing-and-advertising']);

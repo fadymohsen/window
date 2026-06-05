@@ -471,7 +471,7 @@ HTML;
                 ]);
         } else {
             DB::table('blog_translations')->insert([
-                'blog_id' => 55,
+                'blog_id' => $blogId,
                 'locale' => 'en',
                 'title' => $enTitle,
                 'description' => $enDescription,
