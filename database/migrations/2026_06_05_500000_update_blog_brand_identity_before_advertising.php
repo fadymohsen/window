@@ -12,21 +12,27 @@ return new class extends Migration
 
         $blog = DB::table('blogs')->where('slug', $oldSlug)->first();
         if (!$blog) {
+            $blog = DB::table('blogs')->where('slug', $newSlug)->first();
+        }
+        if (!$blog) {
             return;
         }
 
         $blogId = $blog->id;
 
-        DB::table('blogs')->where('id', $blogId)->update(['slug' => $newSlug]);
+        if ($blog->slug !== $newSlug) {
+            DB::table('blogs')->where('id', $blogId)->update(['slug' => $newSlug]);
+        }
 
-        DB::table('slug_redirects')->where('from_slug', $oldSlug)->where('type', 'blog')->delete();
-        DB::table('slug_redirects')->insert([
-            'from_slug' => $oldSlug,
-            'to_slug' => $newSlug,
-            'type' => 'blog',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        if (!DB::table('slug_redirects')->where('from_slug', $oldSlug)->where('type', 'blog')->exists()) {
+            DB::table('slug_redirects')->insert([
+                'from_slug' => $oldSlug,
+                'to_slug' => $newSlug,
+                'type' => 'blog',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
 
         $arTitle = 'الهوية قبل الإعلان: سر العلامات التجارية التي لا تختفي';
         $arMetaTitle = 'الهوية قبل الإعلان: سر العلامات التجارية التي لا تختفي | وكالة ويندو للدعاية والإعلان';

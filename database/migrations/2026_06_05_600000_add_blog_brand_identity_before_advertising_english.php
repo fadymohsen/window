@@ -15,14 +15,15 @@ return new class extends Migration
         $blogId = $blog->id;
 
         $oldEnSlug = 'alhoy-kbl-alaaalan-sr-alaalamat-alty-la-tkhtf';
-        DB::table('slug_redirects')->where('from_slug', $oldEnSlug)->where('type', 'blog')->delete();
-        DB::table('slug_redirects')->insert([
-            'from_slug' => $oldEnSlug,
-            'to_slug' => 'brand-identity-before-advertising',
-            'type' => 'blog',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        if (!DB::table('slug_redirects')->where('from_slug', $oldEnSlug)->where('type', 'blog')->exists()) {
+            DB::table('slug_redirects')->insert([
+                'from_slug' => $oldEnSlug,
+                'to_slug' => 'brand-identity-before-advertising',
+                'type' => 'blog',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
 
         $enTitle = 'Brand Identity Before Advertising: The Secret of Brands That Never Disappear';
         $enMetaTitle = 'Brand Identity Before Advertising: The Secret of Brands That Never Disappear | Window Advertising Agency';
