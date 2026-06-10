@@ -331,6 +331,11 @@ header video
   min-width: 100%;
   min-height: 100%;
 }
+@media screen and (max-width: 768px) {
+  header {
+    aspect-ratio: 1 / 0.9;
+  }
+}
 
 header h1 span:nth-child(1) {
   font-size: 4rem;
