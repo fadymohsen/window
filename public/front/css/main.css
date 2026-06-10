@@ -64,12 +64,14 @@
   padding: 10px 15px;
   border-radius: 8px;
   transition: background-color 0.2s ease;
-  color: #fff !important;
 }
 .offcanvas-body .nav-link:hover {
   background-color: rgba(249,161,27,0.1);
 }
 @media (max-width: 991.98px) {
+  .offcanvas-body .nav-link {
+    color: #fff !important;
+  }
   .offcanvas-body .click-to-contact-container {
     margin: 15px 0 !important;
   }
