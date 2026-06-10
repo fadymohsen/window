@@ -339,7 +339,7 @@ header video
 }
 @media screen and (max-width: 768px) {
   header {
-    aspect-ratio: 1 / 0.9;
+    aspect-ratio: 1 / 0.7;
   }
 }
 
