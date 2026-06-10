@@ -111,7 +111,7 @@
                         </div>
                     @endforeach
                     <div class="text-center mt-1">
-                        <a href="{{ route('front.services.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.see-all')</a>
+                        <a href="{{ route('front.services.index') }}" class="cta-btn text-decoration-none text-white">@lang('custom.see-all')</a>
                     </div>
                 @endif
             </div>
