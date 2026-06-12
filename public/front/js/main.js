@@ -89,15 +89,20 @@ var swiper = new Swiper(".categoriesSwiper", {
 });
 
 $('.protofolio-carousel').owlCarousel({
-  items: 2,
+  items: 1,
   rtl: true,
   nav: true,
+  dots: true,
   loop: true,
-  lazyLoad:true,
+  lazyLoad: true,
+  margin: 15,
+  autoplay: true,
+  autoplayTimeout: 3500,
+  autoplayHoverPause: true,
   responsive: {
-    576: { items: 3 },
-    768: { items: 5 },
-    1200: { items: 7 }
+    0:    { items: 1 },
+    768:  { items: 2 },
+    1200: { items: 3 }
   }
 });
 
