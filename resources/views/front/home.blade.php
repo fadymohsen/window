@@ -133,7 +133,7 @@
                 @else
                     <div class="protofolio-carousel owl-carousel owl-theme px-0" dir="ltr">
                         @foreach ($portofolios as $portofolio)
-                           <div class="item position-relative" style="width: 400px;aspect-ratio: 1 / 1.1;background-size: cover;background-position: center;background-repeat: no-repeat;background-image: url({{ $portofolio->display_image }});overflow:hidden">
+                           <div class="item position-relative" style="width: 100%;aspect-ratio: 1 / 1.1;background-size: cover;background-position: center;background-repeat: no-repeat;background-image: url({{ $portofolio->display_image }});overflow:hidden">
                                 <p class="mt-2 position-absolute" style="bottom: 0;right: 15px;color: white;font-weight: bold;font-size: 25px;text-shadow: -2px 1px 2px #636363;">{{ $portofolio->title }}</p>
                             </div> 
                         @endforeach
