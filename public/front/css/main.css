@@ -988,6 +988,12 @@ animation-direction: alternate;
   text-align: start;
 }
 
+.blog-body table tbody tr:first-child td {
+  background-color: #f9a11b;
+  color: #fff;
+  font-weight: 600;
+}
+
 .blog-body table tbody td {
   padding: 12px 16px;
   border-bottom: 1px solid #eee;
@@ -999,6 +1005,104 @@ animation-direction: alternate;
 
 .blog-body table tbody tr:hover {
   background-color: #fff7eb;
+}
+
+/* --- Blog table → mobile card carousel --- */
+.blog-table-carousel {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.blog-table-carousel .carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 14px;
+  padding: 4px 2px 16px;
+  scrollbar-width: none;
+}
+
+.blog-table-carousel .carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.blog-table-carousel .carousel-card {
+  flex: 0 0 85%;
+  max-width: 320px;
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.blog-table-carousel .carousel-card-header {
+  background: #f9a11b;
+  color: #fff;
+  font-weight: 700;
+  padding: 12px 16px;
+  font-size: 1.05rem;
+}
+
+.blog-table-carousel .carousel-card-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.95rem;
+  gap: 8px;
+}
+
+.blog-table-carousel .carousel-card-row:last-child {
+  border-bottom: none;
+}
+
+.blog-table-carousel .carousel-card-label {
+  font-weight: 600;
+  color: #555;
+  flex: 0 0 40%;
+}
+
+.blog-table-carousel .carousel-card-value {
+  color: #333;
+  text-align: end;
+  flex: 1;
+}
+
+.blog-table-carousel .carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.blog-table-carousel .carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.blog-table-carousel .carousel-dot.active {
+  background: #f9a11b;
+  transform: scale(1.3);
+}
+
+.blog-table-carousel .swipe-hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+/* Show carousel only on mobile, table on desktop */
+.blog-table-carousel { display: none; }
+
+@media (max-width: 767px) {
+  .blog-body table { display: none; }
+  .blog-table-carousel { display: block; }
 }
 
 /* Blog scroll animations */

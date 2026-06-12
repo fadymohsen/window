@@ -102,8 +102,80 @@
 @section('custom-js')
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+    // --- Convert tables to mobile card carousels ---
+    document.querySelectorAll('.blog-body table').forEach(function (table) {
+        var rows = table.querySelectorAll('tbody tr');
+        if (rows.length < 2) return;
+
+        var headers = [];
+        rows[0].querySelectorAll('td').forEach(function (td) {
+            headers.push(td.textContent.trim());
+        });
+        if (headers.length < 2) return;
+
+        var carousel = document.createElement('div');
+        carousel.className = 'blog-table-carousel blog-animate';
+        var track = document.createElement('div');
+        track.className = 'carousel-track';
+
+        for (var i = 1; i < rows.length; i++) {
+            var cells = rows[i].querySelectorAll('td');
+            if (cells.length === 0) continue;
+
+            var card = document.createElement('div');
+            card.className = 'carousel-card';
+
+            var cardHeader = document.createElement('div');
+            cardHeader.className = 'carousel-card-header';
+            cardHeader.innerHTML = cells[0].innerHTML;
+            card.appendChild(cardHeader);
+
+            for (var j = 1; j < cells.length; j++) {
+                var row = document.createElement('div');
+                row.className = 'carousel-card-row';
+                row.innerHTML =
+                    '<span class="carousel-card-label">' + (headers[j] || '') + '</span>' +
+                    '<span class="carousel-card-value">' + cells[j].innerHTML + '</span>';
+                card.appendChild(row);
+            }
+            track.appendChild(card);
+        }
+
+        carousel.appendChild(track);
+
+        // Dots
+        var dotsWrap = document.createElement('div');
+        dotsWrap.className = 'carousel-dots';
+        var cardCount = rows.length - 1;
+        for (var d = 0; d < cardCount; d++) {
+            var dot = document.createElement('span');
+            dot.className = 'carousel-dot' + (d === 0 ? ' active' : '');
+            dotsWrap.appendChild(dot);
+        }
+        carousel.appendChild(dotsWrap);
+
+        // Swipe hint
+        var hint = document.createElement('div');
+        hint.className = 'swipe-hint';
+        hint.textContent = '{{ app()->getLocale() === "ar" ? "← اسحب للتصفح →" : "← Swipe to browse →" }}';
+        carousel.appendChild(hint);
+
+        table.parentNode.insertBefore(carousel, table.nextSibling);
+
+        // Update dots on scroll
+        track.addEventListener('scroll', function () {
+            var dots = dotsWrap.querySelectorAll('.carousel-dot');
+            var scrollLeft = track.scrollLeft;
+            var cardWidth = track.querySelector('.carousel-card').offsetWidth + 14;
+            var idx = Math.round(scrollLeft / cardWidth);
+            dots.forEach(function (dot, i) {
+                dot.classList.toggle('active', i === idx);
+            });
+        });
+    });
+
     // Add blog-animate class to blog-body children for scroll animations
-    document.querySelectorAll('.blog-body > h2, .blog-body > h3, .blog-body > p, .blog-body > ul, .blog-body > ol, .blog-body > figure, .blog-body > blockquote, .blog-body > table').forEach(function (el) {
+    document.querySelectorAll('.blog-body > h2, .blog-body > h3, .blog-body > p, .blog-body > ul, .blog-body > ol, .blog-body > figure, .blog-body > blockquote, .blog-body > table, .blog-body > .blog-table-carousel').forEach(function (el) {
         el.classList.add('blog-animate');
     });
 
