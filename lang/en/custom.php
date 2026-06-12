@@ -17,6 +17,7 @@ return [
     'phone' => 'Phone',
     'email' => 'Email',
     'address' => 'Address',
+    'contact-address' => '7589 Harun Al Rashid Branch St, Al Fayha District - Riyadh',
     'social' => 'Follow Us On',
     'full-name' => 'Full Name',
     'site' => 'Website',
