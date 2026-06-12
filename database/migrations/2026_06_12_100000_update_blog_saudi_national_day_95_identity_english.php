@@ -84,7 +84,7 @@ return new class extends Migration
     {
         return <<<'HTML'
 <blockquote>
-<p>On August 4, 2025, Turki Al-Sheikh — Chairman of the General Entertainment Authority (GEA) — officially unveiled the visual identity for the 95th Saudi National Day under the slogan "Pride in Our Nature" (عزّنا بطبعنا). This identity is far more than a logo or a color scheme. It is a comprehensive visual system designed to unite the entire Kingdom under one cohesive look during the national celebration, linking the deep-rooted values of Saudi heritage — generosity, chivalry, and authenticity — with the forward-looking ambition of Vision 2030. In this article, we break down every component of the official identity and explain how Window Advertising Agency can help your business apply it professionally across designs, prints, and events.</p>
+<p>On August 4, 2025, Turki Al-Sheikh — Chairman of the General Entertainment Authority (GEA) — officially unveiled the visual identity for the 95th Saudi National Day under the slogan "Pride in Our Nature" (عزّنا بطبعنا). This identity is far more than a logo or a color scheme. It is a comprehensive visual system designed to unite the entire Kingdom under one cohesive look during the national celebration, linking the deep-rooted values of Saudi heritage — generosity, chivalry, and authenticity — with the forward-looking ambition of Vision 2030. In this article, we break down every component of the official identity and explain how <strong>Window Advertising Agency</strong> can help your business apply it professionally across designs, prints, and events.</p>
 </blockquote>
 
 <h2>What Is the Official Saudi National Day 95 Identity?</h2>
@@ -94,7 +94,7 @@ return new class extends Migration
 <p>The 95th Saudi National Day identity was announced by Turki Al-Sheikh through official GEA channels and is available for download from the dedicated portal at nd.gea.gov.sa. The identity package includes a verbal and visual logo, an official color palette derived from the national flag, approved Arabic typography, official hashtags, ready-made design templates, illustrations, and video production guidelines.</p>
 
 <blockquote>
-<p><strong>Official Source:</strong> The complete identity guide, including all assets and usage rules, is available for free download at nd.gea.gov.sa — the official Saudi National Day portal managed by the General Entertainment Authority.</p>
+<p><strong>Official source:</strong> The complete identity guide, including all assets and usage rules, is available for free download at nd.gea.gov.sa — the official Saudi National Day portal managed by the General Entertainment Authority.</p>
 </blockquote>
 
 <h2>The Slogan: "Pride in Our Nature" (عزّنا بطبعنا)</h2>
@@ -104,7 +104,7 @@ return new class extends Migration
 <p>The slogan connects past and present in a single expression. It honors the timeless values that have defined Saudi society — generosity toward guests, chivalry in conduct, loyalty to community, and resilience in the face of challenge — while simultaneously pointing toward the ambitious future the Kingdom is building under Vision 2030. It communicates that the same authentic spirit that shaped the nation's history is now driving its transformation into a global leader.</p>
 
 <blockquote>
-<p><strong>Official Hashtags:</strong> When posting content related to the 95th Saudi National Day, use the official hashtags #عزنا_بطبعنا and #اليوم_الوطني_السعودي_95 to align with the national conversation and maximize visibility.</p>
+<p><strong>Official hashtags:</strong> When posting content related to the 95th Saudi National Day, use the official hashtags #عزنا_بطبعنا and #اليوم_الوطني_السعودي_95 to align with the national conversation and maximize visibility.</p>
 </blockquote>
 
 <h3>Why the Slogan Matters for Businesses</h3>
@@ -115,23 +115,46 @@ return new class extends Migration
 
 <p>The 95th Saudi National Day identity is a comprehensive visual system with multiple components, each designed to work together and ensure visual consistency across all applications. Below is a breakdown of every element included in the official identity package.</p>
 
-<figure class="table">
 <table>
-<thead>
-<tr><th>Component</th><th>Description</th></tr>
-</thead>
 <tbody>
-<tr><td>Verbal Logo</td><td>The Arabic calligraphic rendering of the slogan "عزّنا بطبعنا" in the officially approved typographic style</td></tr>
-<tr><td>Visual Logo</td><td>The graphic symbol representing the 95th National Day, designed for use across all media and sizes</td></tr>
-<tr><td>Color Palette</td><td>Official colors derived from the Saudi national flag, with defined primary and secondary tones for consistent usage</td></tr>
-<tr><td>Arabic Fonts</td><td>Approved Arabic typefaces specified for all National Day materials, ensuring typographic unity</td></tr>
-<tr><td>Design Templates</td><td>Ready-made templates for social media, banners, posters, and other common formats</td></tr>
-<tr><td>Illustrations</td><td>Official illustrations and graphic elements that can be used in designs and decorations</td></tr>
-<tr><td>Video Guidelines</td><td>Production guidelines for video content, including motion graphics specifications and visual treatments</td></tr>
-<tr><td>Official Hashtags</td><td>#عزنا_بطبعنا and #اليوم_الوطني_السعودي_95</td></tr>
+<tr>
+<td>Component</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>Verbal Logo</td>
+<td>The Arabic calligraphic rendering of the slogan "عزّنا بطبعنا" in the officially approved typographic style</td>
+</tr>
+<tr>
+<td>Visual Logo</td>
+<td>The graphic symbol representing the 95th National Day, designed for use across all media and sizes</td>
+</tr>
+<tr>
+<td>Color Palette</td>
+<td>Official colors derived from the Saudi national flag, with defined primary and secondary tones for consistent usage</td>
+</tr>
+<tr>
+<td>Arabic Fonts</td>
+<td>Approved Arabic typefaces specified for all National Day materials, ensuring typographic unity</td>
+</tr>
+<tr>
+<td>Design Templates</td>
+<td>Ready-made templates for social media, banners, posters, and other common formats</td>
+</tr>
+<tr>
+<td>Illustrations</td>
+<td>Official illustrations and graphic elements that can be used in designs and decorations</td>
+</tr>
+<tr>
+<td>Video Guidelines</td>
+<td>Production guidelines for video content, including motion graphics specifications and visual treatments</td>
+</tr>
+<tr>
+<td>Official Hashtags</td>
+<td>#عزنا_بطبعنا and #اليوم_الوطني_السعودي_95</td>
+</tr>
 </tbody>
 </table>
-</figure>
 
 <h3>The Verbal and Visual Logo</h3>
 
@@ -142,7 +165,7 @@ return new class extends Migration
 <p>The color palette for the 95th National Day draws directly from the colors of the Saudi national flag — green and white — along with carefully selected complementary tones. Every shade has specific color values defined in the identity guide (CMYK for print, RGB and HEX for digital) to ensure exact reproduction across all media. Using the correct colors is one of the simplest yet most important steps in applying the identity properly.</p>
 
 <blockquote>
-<p><strong>Consistency Note:</strong> Using colors that merely look similar to the official palette is not sufficient. The identity guide provides exact color codes that must be followed to achieve visual unity. Even slight deviations can make materials look unofficial or inconsistent when placed alongside correctly branded content.</p>
+<p><strong>Consistency note:</strong> Using colors that merely look similar to the official palette is not sufficient. The identity guide provides exact color codes that must be followed to achieve visual unity. Even slight deviations can make materials look unofficial or inconsistent when placed alongside correctly branded content.</p>
 </blockquote>
 
 <h3>Approved Arabic Typography</h3>
@@ -174,7 +197,7 @@ return new class extends Migration
 <p>The 95th National Day identity deliberately bridges the past and the future. It honors the values that have defined Saudi Arabia for generations — including generosity, chivalry, courage, and community — while simultaneously expressing the Kingdom's ambition for the future under Vision 2030. This dual focus makes the identity relevant to all generations, from elders who carry living memory of the nation's founding era to young Saudis who are building its future.</p>
 
 <blockquote>
-<p><strong>Vision 2030 Connection:</strong> The identity is designed to reflect not only historical pride but also the Kingdom's forward momentum. Businesses that understand this balance — honoring the past while embracing innovation — will find their National Day marketing resonates more deeply with Saudi audiences.</p>
+<p><strong>Vision 2030 connection:</strong> The identity is designed to reflect not only historical pride but also the Kingdom's forward momentum. Businesses that understand this balance — honoring the past while embracing innovation — will find their National Day marketing resonates more deeply with Saudi audiences.</p>
 </blockquote>
 
 <h2>How to Download and Use the Official Identity</h2>
@@ -182,11 +205,11 @@ return new class extends Migration
 <p>The General Entertainment Authority has made the complete identity package freely available through the official Saudi National Day portal. Here is a step-by-step guide to accessing and using the official materials correctly.</p>
 
 <ol>
-<li><strong>Visit the official portal:</strong> Go to nd.gea.gov.sa, the dedicated website for the Saudi National Day identity managed by the GEA</li>
-<li><strong>Download the identity guide:</strong> The portal provides a comprehensive PDF guide that covers all usage rules, color specifications, typography guidelines, and clear space requirements</li>
-<li><strong>Download design assets:</strong> Access the logo files, templates, illustrations, and other design elements in various formats suitable for both print and digital applications</li>
-<li><strong>Review the usage rules:</strong> Before applying the identity, carefully read the usage guidelines to understand what is permitted and what must be avoided</li>
-<li><strong>Apply consistently:</strong> Use the official assets as provided, without modifying the logo, altering colors, or deviating from the approved typography</li>
+<li><strong>Visit the official portal:</strong> Go to nd.gea.gov.sa, the dedicated website for the Saudi National Day identity managed by the GEA.</li>
+<li><strong>Download the identity guide:</strong> The portal provides a comprehensive PDF guide that covers all usage rules, color specifications, typography guidelines, and clear space requirements.</li>
+<li><strong>Download design assets:</strong> Access the logo files, templates, illustrations, and other design elements in various formats suitable for both print and digital applications.</li>
+<li><strong>Review the usage rules:</strong> Before applying the identity, carefully read the usage guidelines to understand what is permitted and what must be avoided.</li>
+<li><strong>Apply consistently:</strong> Use the official assets as provided, without modifying the logo, altering colors, or deviating from the approved typography.</li>
 </ol>
 
 <blockquote>
@@ -195,43 +218,66 @@ return new class extends Migration
 
 <h2>Common Mistakes When Applying the National Day Identity</h2>
 
-<p>Despite the availability of clear guidelines, many businesses make errors when applying the official National Day identity. These mistakes can make your materials look unprofessional and out of alignment with the national celebration. Here are the most common issues to avoid.</p>
+<p>Despite the availability of clear guidelines, many businesses make errors when applying the official National Day identity. These mistakes can make your materials look unprofessional and out of alignment with the national celebration. Here are the most common issues to avoid:</p>
 
 <ul>
-<li><strong>Using approximate colors:</strong> Choosing green or white shades that look close to the official palette but do not match the exact color codes specified in the guide</li>
-<li><strong>Modifying the logo:</strong> Stretching, compressing, adding effects, or changing the proportions of the official logo</li>
-<li><strong>Using unauthorized fonts:</strong> Substituting the approved Arabic fonts with other typefaces, breaking the visual consistency</li>
-<li><strong>Ignoring clear space:</strong> Placing text, images, or other elements too close to the logo, violating the minimum clear space requirements</li>
-<li><strong>Mixing old and new identities:</strong> Using elements from previous years' National Day identities alongside the current 95th identity</li>
-<li><strong>Low-resolution assets:</strong> Using screenshots or low-quality versions of the logo instead of the official high-resolution files</li>
-<li><strong>Incorrect hashtags:</strong> Using variations of the official hashtags instead of the exact approved versions</li>
+<li><strong>Using approximate colors:</strong> Choosing green or white shades that look close to the official palette but do not match the exact color codes specified in the guide.</li>
+<li><strong>Modifying the logo:</strong> Stretching, compressing, adding effects, or changing the proportions of the official logo.</li>
+<li><strong>Using unauthorized fonts:</strong> Substituting the approved Arabic fonts with other typefaces, breaking the visual consistency.</li>
+<li><strong>Ignoring clear space:</strong> Placing text, images, or other elements too close to the logo, violating the minimum clear space requirements.</li>
+<li><strong>Mixing old and new identities:</strong> Using elements from previous years' National Day identities alongside the current 95th identity.</li>
+<li><strong>Low-resolution assets:</strong> Using screenshots or low-quality versions of the logo instead of the official high-resolution files.</li>
+<li><strong>Incorrect hashtags:</strong> Using variations of the official hashtags instead of the exact approved versions.</li>
 </ul>
 
 <blockquote>
-<p><strong>Professional Tip:</strong> When in doubt about any aspect of the identity application, refer back to the official guide at nd.gea.gov.sa. If your business needs expert help applying the identity correctly, Window Advertising Agency has extensive experience in implementing national identity guidelines across all media formats.</p>
+<p><strong>Professional tip:</strong> When in doubt about any aspect of the identity application, refer back to the official guide at nd.gea.gov.sa. If your business needs expert help applying the identity correctly, Window Advertising Agency has extensive experience in implementing national identity guidelines across all media formats.</p>
 </blockquote>
 
 <h2>Where to Apply the National Day 95 Identity</h2>
 
 <p>The official identity is designed for use across a wide range of applications. Businesses participating in the National Day celebration should consider applying the identity across all relevant touchpoints to create a comprehensive and impactful presence.</p>
 
-<figure class="table">
 <table>
-<thead>
-<tr><th>Application Area</th><th>Examples</th></tr>
-</thead>
 <tbody>
-<tr><td>Social Media</td><td>Profile images, cover photos, posts, stories, reels, and video content</td></tr>
-<tr><td>Print Materials</td><td>Brochures, flyers, posters, banners, roll-ups, and business cards</td></tr>
-<tr><td>Outdoor Advertising</td><td>Billboard designs, building wraps, street banners, and vehicle wraps</td></tr>
-<tr><td>Interior Decoration</td><td>Office decorations, reception areas, window displays, and retail spaces</td></tr>
-<tr><td>Events</td><td>Stage backdrops, signage, invitations, programs, and giveaway items</td></tr>
-<tr><td>Digital Platforms</td><td>Website banners, email signatures, digital ads, and app interfaces</td></tr>
-<tr><td>Corporate Materials</td><td>Presentations, internal communications, company profiles, and reports</td></tr>
-<tr><td>Packaging</td><td>Limited-edition product packaging, gift boxes, and promotional items</td></tr>
+<tr>
+<td>Application Area</td>
+<td>Examples</td>
+</tr>
+<tr>
+<td>Social Media</td>
+<td>Profile images, cover photos, posts, stories, reels, and video content</td>
+</tr>
+<tr>
+<td>Print Materials</td>
+<td>Brochures, flyers, posters, banners, roll-ups, and business cards</td>
+</tr>
+<tr>
+<td>Outdoor Advertising</td>
+<td>Billboard designs, building wraps, street banners, and vehicle wraps</td>
+</tr>
+<tr>
+<td>Interior Decoration</td>
+<td>Office decorations, reception areas, window displays, and retail spaces</td>
+</tr>
+<tr>
+<td>Events</td>
+<td>Stage backdrops, signage, invitations, programs, and giveaway items</td>
+</tr>
+<tr>
+<td>Digital Platforms</td>
+<td>Website banners, email signatures, digital ads, and app interfaces</td>
+</tr>
+<tr>
+<td>Corporate Materials</td>
+<td>Presentations, internal communications, company profiles, and reports</td>
+</tr>
+<tr>
+<td>Packaging</td>
+<td>Limited-edition product packaging, gift boxes, and promotional items</td>
+</tr>
 </tbody>
 </table>
-</figure>
 
 <h2>How Window Advertising Agency Helps You Apply the Identity</h2>
 
@@ -252,31 +298,48 @@ return new class extends Migration
 <p>If your business is hosting or participating in National Day events, Window provides complete event branding services. This includes stage design, signage, decorations, promotional materials, and giveaway items — all produced with the official identity applied correctly and consistently.</p>
 
 <blockquote>
-<p><strong>One-Stop Solution:</strong> Window Advertising Agency handles design, printing, and event production under one roof. This eliminates the coordination issues that arise when working with multiple vendors and ensures perfect consistency across all your National Day materials.</p>
+<p><strong>One-stop solution:</strong> Window Advertising Agency handles design, printing, and event production under one roof. This eliminates the coordination issues that arise when working with multiple vendors and ensures perfect consistency across all your National Day materials.</p>
 </blockquote>
 
 <h2>Planning Your National Day 95 Campaign: A Timeline</h2>
 
 <p>Successful National Day campaigns require planning. Here is a recommended timeline to help your business prepare and execute an effective celebration presence.</p>
 
-<figure class="table">
 <table>
-<thead>
-<tr><th>Timeframe</th><th>Action</th></tr>
-</thead>
 <tbody>
-<tr><td>6–8 Weeks Before</td><td>Download the official identity, review guidelines, and brief your design team or agency</td></tr>
-<tr><td>4–6 Weeks Before</td><td>Finalize design concepts, approve social media content calendar, and order print materials</td></tr>
-<tr><td>2–4 Weeks Before</td><td>Receive and install physical materials (banners, decorations), schedule social media posts</td></tr>
-<tr><td>1 Week Before</td><td>Final review of all materials, test digital assets, prepare event logistics</td></tr>
-<tr><td>National Day Week</td><td>Execute the campaign, engage on social media with official hashtags, host or participate in events</td></tr>
-<tr><td>Post–National Day</td><td>Share celebration highlights, thank your audience, and archive materials for future reference</td></tr>
+<tr>
+<td>Timeframe</td>
+<td>Action</td>
+</tr>
+<tr>
+<td>6–8 Weeks Before</td>
+<td>Download the official identity, review guidelines, and brief your design team or agency</td>
+</tr>
+<tr>
+<td>4–6 Weeks Before</td>
+<td>Finalize design concepts, approve social media content calendar, and order print materials</td>
+</tr>
+<tr>
+<td>2–4 Weeks Before</td>
+<td>Receive and install physical materials (banners, decorations), schedule social media posts</td>
+</tr>
+<tr>
+<td>1 Week Before</td>
+<td>Final review of all materials, test digital assets, prepare event logistics</td>
+</tr>
+<tr>
+<td>National Day Week</td>
+<td>Execute the campaign, engage on social media with official hashtags, host or participate in events</td>
+</tr>
+<tr>
+<td>Post–National Day</td>
+<td>Share celebration highlights, thank your audience, and archive materials for future reference</td>
+</tr>
 </tbody>
 </table>
-</figure>
 
 <blockquote>
-<p><strong>Plan Early:</strong> Print production takes time, especially during the National Day period when demand peaks across the Kingdom. Businesses that wait until the last minute often face production delays and limited material availability. Contact Window early to secure your production slot.</p>
+<p><strong>Plan early:</strong> Print production takes time, especially during the National Day period when demand peaks across the Kingdom. Businesses that wait until the last minute often face production delays and limited material availability. Contact Window early to secure your production slot.</p>
 </blockquote>
 
 <h2>The Significance of the National Day Identity in Saudi Culture</h2>
@@ -287,11 +350,7 @@ return new class extends Migration
 
 <p>Businesses that understand this cultural significance and apply the identity thoughtfully — rather than as a mere decorative exercise — create marketing materials that genuinely connect with Saudi audiences. The difference between compliance and connection lies in understanding why the identity matters, not just how it looks.</p>
 
-<p style="text-align:center;"><strong>Apply the Saudi National Day 95 Identity Professionally with Window Agency</strong></p>
-<p style="text-align:center;">From designs and prints to event branding — Window Advertising Agency helps your business celebrate the 95th National Day with the official identity applied correctly across every medium.</p>
-<p style="text-align:center;"><a href="https://windowadv.com/en/contact">Contact Us Today</a></p>
-
-<h2>Frequently Asked Questions About the Saudi National Day 95 Identity</h2>
+<h2>Frequently Asked Questions</h2>
 
 <h3>What is the official slogan of the 95th Saudi National Day?</h3>
 
@@ -320,6 +379,12 @@ return new class extends Migration
 <h3>When should I start preparing my National Day materials?</h3>
 
 <p>We recommend starting at least 6 to 8 weeks before the National Day. This allows time for design development, approvals, print production, and installation. Demand for print services peaks during this period, so early planning avoids delays.</p>
+
+<h2>Apply the Saudi National Day 95 Identity Professionally with Window Agency</h2>
+
+<p>From designs and prints to event branding — Window Advertising Agency helps your business celebrate the 95th National Day with the official identity applied correctly across every medium.</p>
+
+<p><a href="https://windowadv.com/en/contact">Contact Us Today</a></p>
 HTML;
     }
 
