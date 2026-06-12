@@ -109,7 +109,7 @@
                             </li>
                             <li>
                                 <a href="{{ $website_settings->tiktok_url }}">
-                                <i class="fab fa-tiktok bg-white fs-2 rounded-2" style="color: #1f1f1f;"></i>
+                                <i class="fab fa-tiktok bg-white rounded-2" style="font-size:1.8rem;color:#1f1f1f;"></i>
                                 </a>
                             </li>
                             <li>
