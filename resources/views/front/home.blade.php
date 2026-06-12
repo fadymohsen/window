@@ -202,45 +202,45 @@
                         </div>
                         <div class="d-flex flex-wrap mb-3">
                             <p class="ms-1 mb-0 fw-bold"><i class="fa-solid fa-location-dot ms-1"></i> @lang('custom.address')&nbsp;</p>
-                            <span class="text-gr">{{ $website_settings->location }}</span>
+                            <span class="text-gr">@lang('custom.contact-address')</span>
                         </div>
                     </div>
                     <div class="row d-inline-block">
                         <p class="ms-1 fw-bold"><i class="fa-solid fa-share-nodes ms-1"></i> @lang('custom.social') </p>
-                        <ul class="d-flex gap-4 flex-wrap justify-content-center" style="list-style: none;">
+                        <ul class="d-flex gap-3 flex-nowrap justify-content-start ps-0" style="list-style: none;">
                             <li>
                                 <a href="{{ $website_settings->facebook_url }}">
-                                    <i class="fa-brands fa-square-facebook text-white fs-1"></i>
+                                    <i class="fa-brands fa-square-facebook text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ $website_settings->instagram_url }}">
-                                    <i class="fa-brands fa-square-instagram text-white fs-1"></i>
+                                    <i class="fa-brands fa-square-instagram text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ $website_settings->linkedin_url }}">
-                                    <i class="fab fa-linkedin text-white fs-1"></i>
+                                    <i class="fab fa-linkedin text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ $website_settings->snapchat_url }}">
-                                    <i class="fab fa-snapchat-square fs-1 text-white"></i>
+                                    <i class="fab fa-snapchat-square text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ $website_settings->tiktok_url }}">
-                                    <i class="fab fa-tiktok bg-white fs-1 rounded-2" style="color: #1f1f1f;"></i>
+                                    <i class="fab fa-tiktok bg-white rounded-2" style="font-size:1.8rem;color:#1f1f1f;"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ $website_settings->twitter_url }}">
-                                    <i class="fa-brands fa-square-x-twitter text-white fs-1"></i>
+                                    <i class="fa-brands fa-square-x-twitter text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ $website_settings->youtube_url }}">
-                                    <i class="fa-brands fa-youtube text-white fs-1"></i>
+                                    <i class="fa-brands fa-youtube text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                         </ul>
