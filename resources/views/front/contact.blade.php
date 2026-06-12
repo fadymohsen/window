@@ -89,17 +89,17 @@
                         <ul class="d-flex gap-3 flex-nowrap justify-content-start ps-0" style="list-style: none;">
                             <li>
                                 <a href="{{ $website_settings->facebook_url }}">
-                                <i class="fa-brands fa-square-facebook text-white fs-4"></i>
+                                <i class="fa-brands fa-square-facebook text-white fs-2"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ $website_settings->instagram_url }}">
-                                <i class="fa-brands fa-square-instagram text-white fs-4"></i>
+                                <i class="fa-brands fa-square-instagram text-white fs-2"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ $website_settings->linkedin_url }}">
-                                <i class="fab fa-linkedin text-white fs-4"></i>
+                                <i class="fab fa-linkedin text-white fs-2"></i>
                                 </a>
                             </li>
                             <li>
@@ -114,12 +114,12 @@
                             </li>
                             <li>
                                 <a href="{{ $website_settings->twitter_url }}">
-                                <i class="fa-brands fa-square-x-twitter text-white fs-4"></i>
+                                <i class="fa-brands fa-square-x-twitter text-white fs-2"></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ $website_settings->youtube_url }}">
-                                <i class="fa-brands fa-youtube text-white fs-4"></i>
+                                <i class="fa-brands fa-youtube text-white fs-2"></i>
                                 </a>
                             </li>
                         </ul>
