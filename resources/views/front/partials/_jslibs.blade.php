@@ -17,6 +17,6 @@
 <!-- GLightbox -->
 <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js" defer></script>
 <!-- Custom JS -->
-<script src="{{ asset('front/js/main.js') }}" defer></script>
+<script src="{{ asset('front/js/main.js') }}?v={{ filemtime(public_path('front/js/main.js')) }}" defer></script>
 <script src="{{ asset('front/js/main-module.js') }}" type="module"></script>
 @yield('js-after')
