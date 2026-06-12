@@ -120,7 +120,7 @@
 
     {{-- Portfolio --}}
     <section id="portfolio" class="py-5" data-aos="fade-up">
-        <div class="container-fluid px-0 overflow-hidden">
+        <div class="container overflow-hidden">
             <div class="title mb-4 mx-auto">
                 <h2 class="text-center mb-1 text-white">@lang('custom.our-portofolio')</h2>
                 <div class="title-underline-container title-second">
@@ -133,7 +133,7 @@
                 @else
                     <div class="protofolio-carousel owl-carousel owl-theme px-0" dir="ltr">
                         @foreach ($portofolios as $portofolio)
-                           <div class="item position-relative" style="width: 100%;aspect-ratio: 1 / 1.1;background-size: cover;background-position: center;background-repeat: no-repeat;background-image: url({{ $portofolio->display_image }});overflow:hidden">
+                           <div class="item position-relative" style="width: 100%;aspect-ratio: 4 / 3;background-size: cover;background-position: center;background-repeat: no-repeat;background-image: url({{ $portofolio->display_image }});overflow:hidden;border-radius:10px">
                                 <p class="mt-2 position-absolute" style="bottom: 0;right: 15px;color: white;font-weight: bold;font-size: 25px;text-shadow: -2px 1px 2px #636363;">{{ $portofolio->title }}</p>
                             </div> 
                         @endforeach
