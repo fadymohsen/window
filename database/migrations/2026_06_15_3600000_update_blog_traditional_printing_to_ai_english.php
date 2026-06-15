@@ -7,15 +7,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        // Upsert English translation for Blog 37 (ID 31)
-        DB::table('blog_translations')->upsert([
-            [
-                'blog_id'          => 31,
-                'locale'           => 'en',
-                'title'            => 'From Traditional Printing to Artificial Intelligence: The Complete Evolution of Printing Technology',
-                'meta_title'       => 'From Traditional Printing to Artificial Intelligence: The Complete Evolution of Printing Technology | Window Advertising Agency',
-                'meta_description' => 'Explore the full journey of printing technology from stone engraving to AI-powered solutions. Learn how offset, digital, and 3D printing transformed the Saudi advertising market, and why Window Advertising Agency leads with the latest smart printing innovations.',
-                'description'          => '<p>Printing is one of the most transformative inventions in human history. From the earliest stone engravings that preserved knowledge across millennia to today\'s AI-powered systems that optimize every color, layout, and production variable in real time, printing technology has undergone a revolution that continues to reshape advertising, business communication, and visual culture. In the Saudi market, this evolution has accelerated dramatically — businesses now have access to everything from precision offset presses to 3D printers and holographic display systems. In this comprehensive guide, <strong>Window Advertising Agency</strong> traces the complete journey of printing technology through five distinct eras, examines how each stage transformed the advertising industry, and explains why smart printing powered by artificial intelligence represents the future that forward-thinking Saudi businesses must embrace today.</p>
+        $blogId  = 31;
+        $locale  = 'en';
+
+        $title            = 'From Traditional Printing to Artificial Intelligence: The Complete Evolution of Printing Technology';
+        $metaTitle        = 'From Traditional Printing to Artificial Intelligence: The Complete Evolution of Printing Technology | Window Advertising Agency';
+        $metaDescription  = 'Explore the full journey of printing technology from stone engraving to AI-powered solutions. Learn how offset, digital, and 3D printing transformed the Saudi advertising market, and why Window Advertising Agency leads with the latest smart printing innovations.';
+        $keywords         = 'traditional printing to AI, printing technology evolution, offset printing, digital printing Saudi Arabia, AI-powered printing, 3D printing advertising, signage solutions, smart printing, Window Advertising Agency, printing services Riyadh';
+
+        $description = '<blockquote><p>Printing is one of the most transformative inventions in human history. From the earliest stone engravings that preserved knowledge across millennia to today\'s AI-powered systems that optimize every color, layout, and production variable in real time, printing technology has undergone a revolution that continues to reshape advertising, business communication, and visual culture. In the Saudi market, this evolution has accelerated dramatically — businesses now have access to everything from precision offset presses to 3D printers and holographic display systems. In this comprehensive guide, <strong>Window Advertising Agency</strong> traces the complete journey of printing technology through five distinct eras, examines how each stage transformed the advertising industry, and explains why smart printing powered by artificial intelligence represents the future that forward-thinking Saudi businesses must embrace today.</p></blockquote>
 
 <h2>The Origins: Stone Printing and Manual Engraving</h2>
 <p>The story of printing begins thousands of years before mechanical presses existed. Ancient civilizations — from Mesopotamia to Egypt to China — developed techniques for reproducing text and images on durable surfaces. Stone engraving, clay tablet impressions, and woodblock carving were the earliest forms of "printing" — methods that allowed knowledge, laws, and artistic expression to be recorded and shared beyond the limitations of handwriting.</p>
@@ -194,18 +194,42 @@ return new class extends Migration
 <p>The future of printing lies in smart printing that combines digital technology with artificial intelligence. This includes fully automated print workflows, real-time quality monitoring, personalized mass production, sustainable eco-friendly inks and substrates, augmented reality integration, and IoT-connected printing systems that optimize production based on demand forecasting.</p>
 
 <h3>Why is Window Advertising Agency the best choice for printing services in Saudi Arabia?</h3>
-<p><strong>Window Advertising Agency</strong> offers integrated printing services that combine traditional expertise with the latest AI-powered technology. With over 25 years of experience, Window provides end-to-end solutions from design to production, maintains Saudi design and print quality standards, offers competitive pricing through efficient smart workflows, and delivers everything from business cards and catalogs to 3D signage and holographic displays.</p>',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ], ['blog_id', 'locale'], [
-            'title', 'meta_title', 'meta_description', 'description', 'updated_at',
-        ]);
+<p><strong>Window Advertising Agency</strong> offers integrated printing services that combine traditional expertise with the latest AI-powered technology. With over 25 years of experience, Window provides end-to-end solutions from design to production, maintains Saudi design and print quality standards, offers competitive pricing through efficient smart workflows, and delivers everything from business cards and catalogs to 3D signage and holographic displays.</p>';
+
+        $exists = DB::table('blog_translations')
+            ->where('blog_id', $blogId)
+            ->where('locale', $locale)
+            ->exists();
+
+        if ($exists) {
+            DB::table('blog_translations')
+                ->where('blog_id', $blogId)
+                ->where('locale', $locale)
+                ->update([
+                    'title'            => $title,
+                    'meta_title'       => $metaTitle,
+                    'meta_description' => $metaDescription,
+                    'keywords'         => $keywords,
+                    'description'      => $description,
+                    'updated_at'       => now(),
+                ]);
+        } else {
+            DB::table('blog_translations')->insert([
+                'blog_id'          => $blogId,
+                'locale'           => $locale,
+                'title'            => $title,
+                'meta_title'       => $metaTitle,
+                'meta_description' => $metaDescription,
+                'keywords'         => $keywords,
+                'description'      => $description,
+                'created_at'       => now(),
+                'updated_at'       => now(),
+            ]);
+        }
     }
 
     public function down(): void
     {
-        // Remove EN translation only
         DB::table('blog_translations')
             ->where('blog_id', 31)
             ->where('locale', 'en')
