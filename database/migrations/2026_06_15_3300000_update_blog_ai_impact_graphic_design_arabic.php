@@ -13,15 +13,15 @@ return new class extends Migration
         ]);
 
         // 2. Add 301 redirect
-        DB::table('redirects')->upsert([
-            [
-                'from_url'   => '/ar/blogs/tathyr-althkaaa-alastnaaay-aal-msmm-algrafyk',
-                'to_url'     => '/ar/blogs/ai-impact-graphic-designers',
-                'status_code' => 301,
+        if (!DB::table('slug_redirects')->where('from_slug', 'tathyr-althkaaa-alastnaaay-aal-msmm-algrafyk')->where('type', 'blog')->exists()) {
+            DB::table('slug_redirects')->insert([
+                'from_slug' => 'tathyr-althkaaa-alastnaaay-aal-msmm-algrafyk',
+                'to_slug'   => 'ai-impact-graphic-designers',
+                'type'      => 'blog',
                 'created_at' => now(),
                 'updated_at' => now(),
-            ],
-        ], ['from_url'], ['to_url', 'status_code', 'updated_at']);
+            ]);
+        }
 
         // 3. Upsert Arabic translation
         DB::table('blog_translations')->upsert([
@@ -31,7 +31,7 @@ return new class extends Migration
                 'title'            => 'تأثير الذكاء الاصطناعي على مصممي الجرافيك: هل سيحل الذكاء الاصطناعي محل الإبداع البشري؟',
                 'meta_title'       => 'تأثير الذكاء الاصطناعي على مصممي الجرافيك: هل سيحل الذكاء الاصطناعي محل الإبداع البشري؟ | وكالة ويندو للدعاية والإعلان',
                 'meta_description' => 'اكتشف كيف يُغيّر الذكاء الاصطناعي عالم التصميم الجرافيكي — من أتمتة المهام المتكررة إلى توليد التصاميم. تعرّف على الوظائف التي سيؤثر عليها الذكاء الاصطناعي، والتي ستبقى بشرية، ولماذا المستقبل للمصممين الذين يمزجون أدوات الذكاء الاصطناعي مع الإبداع البشري.',
-                'content'          => '<p>لم يعد الذكاء الاصطناعي مفهومًا مستقبليًا — إنه واقع يومي يُعيد تشكيل الصناعات حول العالم، والتصميم الجرافيكي ليس استثناءً. أدوات الذكاء الاصطناعي أصبحت قادرة الآن على توليد الصور واقتراح لوحات الألوان وإنشاء تنويعات التخطيط وحتى إنتاج تصاميم بصرية كاملة في ثوانٍ. بالنسبة لمصممي الجرافيك، يطرح هذا سؤالًا مُلحًّا: هل سيأتي الذكاء الاصطناعي ليأخذ وظائفهم؟ الجواب أكثر تعقيدًا بكثير مما توحي العناوين. في هذا الدليل الشامل، تفحص <strong>وكالة ويندو للدعاية والإعلان</strong> بدقة كيف يُغيّر الذكاء الاصطناعي التصميم الجرافيكي، وما المهام التي يستطيع التعامل معها، وما التي لا يستطيعها، ولماذا المستقبل ملك المصممين الذين يتبنّون الذكاء الاصطناعي كشريك قوي بدلًا من الخوف منه كبديل.</p>
+                'description'          => '<p>لم يعد الذكاء الاصطناعي مفهومًا مستقبليًا — إنه واقع يومي يُعيد تشكيل الصناعات حول العالم، والتصميم الجرافيكي ليس استثناءً. أدوات الذكاء الاصطناعي أصبحت قادرة الآن على توليد الصور واقتراح لوحات الألوان وإنشاء تنويعات التخطيط وحتى إنتاج تصاميم بصرية كاملة في ثوانٍ. بالنسبة لمصممي الجرافيك، يطرح هذا سؤالًا مُلحًّا: هل سيأتي الذكاء الاصطناعي ليأخذ وظائفهم؟ الجواب أكثر تعقيدًا بكثير مما توحي العناوين. في هذا الدليل الشامل، تفحص <strong>وكالة ويندو للدعاية والإعلان</strong> بدقة كيف يُغيّر الذكاء الاصطناعي التصميم الجرافيكي، وما المهام التي يستطيع التعامل معها، وما التي لا يستطيعها، ولماذا المستقبل ملك المصممين الذين يتبنّون الذكاء الاصطناعي كشريك قوي بدلًا من الخوف منه كبديل.</p>
 
 <h2>كيف يُستخدَم الذكاء الاصطناعي في التصميم الجرافيكي اليوم</h2>
 <p>الذكاء الاصطناعي في التصميم الجرافيكي ليس خيالًا علميًا. إنه مُدمَج بالفعل في الأدوات التي يستخدمها المصممون يوميًا. من محركات Adobe Firefly وSensei إلى منصات مستقلة مثل Midjourney وDALL-E وميزات الذكاء الاصطناعي في Canva، يُعيد الذكاء الاصطناعي تشكيل كيفية إنشاء المحتوى البصري وتحريره وتحسينه.</p>
@@ -198,7 +198,7 @@ return new class extends Migration
                 'updated_at' => now(),
             ],
         ], ['blog_id', 'locale'], [
-            'title', 'meta_title', 'meta_description', 'content', 'updated_at',
+            'title', 'meta_title', 'meta_description', 'description', 'updated_at',
         ]);
     }
 
@@ -211,8 +211,9 @@ return new class extends Migration
             ->delete();
 
         // Remove redirect
-        DB::table('redirects')
-            ->where('from_url', '/ar/blogs/tathyr-althkaaa-alastnaaay-aal-msmm-algrafyk')
+        DB::table('slug_redirects')
+            ->where('from_slug', 'tathyr-althkaaa-alastnaaay-aal-msmm-algrafyk')
+            ->where('type', 'blog')
             ->delete();
 
         // Restore old slug

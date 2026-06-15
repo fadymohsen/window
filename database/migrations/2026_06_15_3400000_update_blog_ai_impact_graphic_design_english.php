@@ -15,7 +15,7 @@ return new class extends Migration
                 'title'            => 'The Impact of AI on Graphic Designers: Will Artificial Intelligence Replace Human Creativity?',
                 'meta_title'       => 'The Impact of AI on Graphic Designers: Will Artificial Intelligence Replace Human Creativity? | Window Advertising Agency',
                 'meta_description' => 'Explore how AI is transforming graphic design — from automating repetitive tasks to generating visuals. Learn which design jobs AI will affect, which will remain human, and why the future belongs to designers who blend AI tools with human creativity. Window Advertising Agency explains.',
-                'content'          => '<p>Artificial intelligence is no longer a futuristic concept — it is a daily reality reshaping industries worldwide, and graphic design is no exception. AI-powered tools can now generate images, suggest color palettes, create layout variations, and even produce complete visual designs in seconds. For graphic designers, this raises an urgent question: is AI coming to take their jobs? The answer is far more nuanced than the headlines suggest. In this comprehensive guide, <strong>Window Advertising Agency</strong> examines exactly how AI is transforming graphic design, which tasks it can handle, which ones it cannot, and why the future belongs to designers who embrace AI as a powerful partner rather than fear it as a replacement.</p>
+                'description'          => '<p>Artificial intelligence is no longer a futuristic concept — it is a daily reality reshaping industries worldwide, and graphic design is no exception. AI-powered tools can now generate images, suggest color palettes, create layout variations, and even produce complete visual designs in seconds. For graphic designers, this raises an urgent question: is AI coming to take their jobs? The answer is far more nuanced than the headlines suggest. In this comprehensive guide, <strong>Window Advertising Agency</strong> examines exactly how AI is transforming graphic design, which tasks it can handle, which ones it cannot, and why the future belongs to designers who embrace AI as a powerful partner rather than fear it as a replacement.</p>
 
 <h2>How AI Is Being Used in Graphic Design Today</h2>
 <p>AI in graphic design is not science fiction. It is already embedded in the tools designers use every day. From Adobe\'s Firefly and Sensei engines to standalone platforms like Midjourney, DALL-E, and Canva\'s AI features, artificial intelligence is actively reshaping how visual content is created, edited, and optimized.</p>
@@ -182,7 +182,7 @@ return new class extends Migration
                 'updated_at' => now(),
             ],
         ], ['blog_id', 'locale'], [
-            'title', 'meta_title', 'meta_description', 'content', 'updated_at',
+            'title', 'meta_title', 'meta_description', 'description', 'updated_at',
         ]);
     }
 

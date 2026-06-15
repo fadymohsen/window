@@ -15,7 +15,7 @@ return new class extends Migration
                 'title'            => 'From Traditional Printing to Artificial Intelligence: The Complete Evolution of Printing Technology',
                 'meta_title'       => 'From Traditional Printing to Artificial Intelligence: The Complete Evolution of Printing Technology | Window Advertising Agency',
                 'meta_description' => 'Explore the full journey of printing technology from stone engraving to AI-powered solutions. Learn how offset, digital, and 3D printing transformed the Saudi advertising market, and why Window Advertising Agency leads with the latest smart printing innovations.',
-                'content'          => '<p>Printing is one of the most transformative inventions in human history. From the earliest stone engravings that preserved knowledge across millennia to today\'s AI-powered systems that optimize every color, layout, and production variable in real time, printing technology has undergone a revolution that continues to reshape advertising, business communication, and visual culture. In the Saudi market, this evolution has accelerated dramatically — businesses now have access to everything from precision offset presses to 3D printers and holographic display systems. In this comprehensive guide, <strong>Window Advertising Agency</strong> traces the complete journey of printing technology through five distinct eras, examines how each stage transformed the advertising industry, and explains why smart printing powered by artificial intelligence represents the future that forward-thinking Saudi businesses must embrace today.</p>
+                'description'          => '<p>Printing is one of the most transformative inventions in human history. From the earliest stone engravings that preserved knowledge across millennia to today\'s AI-powered systems that optimize every color, layout, and production variable in real time, printing technology has undergone a revolution that continues to reshape advertising, business communication, and visual culture. In the Saudi market, this evolution has accelerated dramatically — businesses now have access to everything from precision offset presses to 3D printers and holographic display systems. In this comprehensive guide, <strong>Window Advertising Agency</strong> traces the complete journey of printing technology through five distinct eras, examines how each stage transformed the advertising industry, and explains why smart printing powered by artificial intelligence represents the future that forward-thinking Saudi businesses must embrace today.</p>
 
 <h2>The Origins: Stone Printing and Manual Engraving</h2>
 <p>The story of printing begins thousands of years before mechanical presses existed. Ancient civilizations — from Mesopotamia to Egypt to China — developed techniques for reproducing text and images on durable surfaces. Stone engraving, clay tablet impressions, and woodblock carving were the earliest forms of "printing" — methods that allowed knowledge, laws, and artistic expression to be recorded and shared beyond the limitations of handwriting.</p>
@@ -199,7 +199,7 @@ return new class extends Migration
                 'updated_at' => now(),
             ],
         ], ['blog_id', 'locale'], [
-            'title', 'meta_title', 'meta_description', 'content', 'updated_at',
+            'title', 'meta_title', 'meta_description', 'description', 'updated_at',
         ]);
     }
 
