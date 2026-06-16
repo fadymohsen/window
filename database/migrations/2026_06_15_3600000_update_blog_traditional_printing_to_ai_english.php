@@ -211,7 +211,6 @@ return new class extends Migration
                     'meta_description' => $metaDescription,
                     'keywords'         => $keywords,
                     'description'      => $description,
-                    'updated_at'       => now(),
                 ]);
         } else {
             DB::table('blog_translations')->insert([
@@ -222,8 +221,6 @@ return new class extends Migration
                 'meta_description' => $metaDescription,
                 'keywords'         => $keywords,
                 'description'      => $description,
-                'created_at'       => now(),
-                'updated_at'       => now(),
             ]);
         }
     }

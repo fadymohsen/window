@@ -29,7 +29,6 @@ return new class extends Migration
                     'keywords'         => $enKeywords,
                     'meta_title'       => $enMetaTitle,
                     'meta_description' => $enMetaDescription,
-                    'updated_at'       => now(),
                 ]);
         } else {
             DB::table('blog_translations')->insert([
@@ -40,8 +39,6 @@ return new class extends Migration
                 'keywords'         => $enKeywords,
                 'meta_title'       => $enMetaTitle,
                 'meta_description' => $enMetaDescription,
-                'created_at'       => now(),
-                'updated_at'       => now(),
             ]);
         }
     }
