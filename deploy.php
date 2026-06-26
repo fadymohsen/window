@@ -9,6 +9,10 @@ if (!hash_equals('sha256=' . hash_hmac('sha256', $payload, $secret), $signature)
     die('Unauthorized');
 }
 
+if (function_exists('opcache_reset')) {
+    opcache_reset();
+}
+
 $commands = [
     'cd /home/u165969086 && git pull origin main',
     'cd /home/u165969086 && cp deploy.php domains/windowadv.com/public_html/deploy.php',
