@@ -7,7 +7,12 @@ return new class extends Migration
 {
     public function up(): void
     {
-        $blogId  = 31;
+        $blog = DB::table('blogs')->where('slug', 'traditional-printing-to-ai')->first();
+        if (!$blog) {
+            $blog = DB::table('blogs')->where('id', 31)->first();
+        }
+        if (!$blog) { return; }
+        $blogId = $blog->id;
         $locale  = 'en';
 
         $title            = 'From Traditional Printing to Artificial Intelligence: The Complete Evolution of Printing Technology';
