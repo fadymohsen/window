@@ -92,7 +92,6 @@
             </div>
         </section>
 
-        <!-- DEBUG:VIEW_V2 -->
         @if($service->content)
         <section id="service-content" class="py-4">
             <div class="container">
