@@ -1179,6 +1179,216 @@ animation-direction: alternate;
   transform: scale(1.02);
 }
 
+/* ========== Service Page Content ========== */
+.service-body {
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: #333;
+}
+
+.service-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #f9a11b;
+}
+
+.service-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.service-body p {
+  margin-bottom: 1.2rem;
+}
+
+.service-body ul,
+.service-body ol {
+  margin-bottom: 1.5rem;
+  padding-inline-start: 1.5rem;
+}
+
+.service-body li {
+  margin-bottom: 0.6rem;
+}
+
+.service-body blockquote {
+  border-inline-start: 4px solid #f9a11b;
+  background: #fff8ee;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: normal;
+  color: #444;
+}
+
+.service-body blockquote p {
+  margin-bottom: 0;
+}
+
+.service-body a {
+  color: #f9a11b;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.service-body a:hover {
+  color: #d4840e;
+}
+
+.service-body strong {
+  color: #2c2c2c;
+}
+
+.service-body figure.table {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.service-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.service-body table thead th {
+  background-color: #f9a11b;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: start;
+}
+
+.service-body table tbody tr:first-child td {
+  background-color: #f9a11b;
+  color: #fff;
+  font-weight: 600;
+}
+
+.service-body table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.service-body table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.service-body table tbody tr:hover {
+  background-color: #fff7eb;
+}
+
+/* Service scroll animations */
+.svc-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.svc-animate.svc-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-body > *:nth-child(even).svc-animate {
+  transition-delay: 0.05s;
+}
+
+.service-body h2.svc-animate {
+  border-bottom-color: transparent;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, border-bottom-color 0.4s ease-out 0.3s;
+}
+
+.service-body h2.svc-animate.svc-visible {
+  border-bottom-color: #f9a11b;
+}
+
+.service-body blockquote.svc-animate {
+  transform: translateX(-20px);
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[dir="rtl"] .service-body blockquote.svc-animate {
+  transform: translateX(20px);
+}
+
+.service-body blockquote.svc-animate.svc-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.service-body figure.svc-animate,
+.service-body table.svc-animate {
+  transform: translateY(20px) scale(0.98);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.service-body figure.svc-animate.svc-visible,
+.service-body table.svc-animate.svc-visible {
+  transform: translateY(0) scale(1);
+}
+
+/* Service FAQ section */
+.service-body h3 + p {
+  padding-inline-start: 0.5rem;
+}
+
+/* Service hero image */
+.service-hero-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* Service CTA section */
+.service-cta-section {
+  background: linear-gradient(135deg, #4c4a4c 0%, #2c2c2c 100%);
+  border-radius: 12px;
+  padding: 3rem 2rem;
+}
+
+/* Related services cards */
+#related-services .card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#related-services .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+#related-services .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Service page reading progress */
+#service-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: #f9a11b;
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
 #top-customers
 {
   background-color: #4f4d4e;
