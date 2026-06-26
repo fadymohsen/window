@@ -95,10 +95,6 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <div class="mb-4 svc-animate svc-visible">
-                    <img src="{{ $service->display_image }}" alt="{{ $service->title ?? '' }}" class="service-hero-img" loading="lazy">
-                </div>
-
                 <div class="service-body mt-3">
                     {!! $service->content !!}
                 </div>
