@@ -58,6 +58,45 @@
                             <label class="form-check-label" for="redirect_old_slug">@lang('dashboard.redirect_old_slug')</label>
                         </div>
                     </div>
+                    <div class="gap-2 mb-3 flex-fill">
+                        <label for="content_ar">@lang('dashboard.ar.content')</label>
+                        <textarea id="content_ar" name="ar[content]" class="form-control ck-editor-field" dir="rtl">{{ $service->translate('ar')?->content }}</textarea>
+                    </div>
+                    <div class="gap-2 mb-3 flex-fill">
+                        <label for="content_en">@lang('dashboard.en.content')</label>
+                        <textarea id="content_en" name="en[content]" class="form-control ck-editor-field">{{ $service->translate('en')?->content }}</textarea>
+                    </div>
+                    <h6 class="fw-semibold mb-3 mt-4">SEO</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="gap-2 mb-3 flex-fill">
+                                <label for="meta_title_ar">@lang('dashboard.ar.meta_title')</label>
+                                <input id="meta_title_ar" type="text" class="form-control" name="ar[meta_title]" value="{{ $service->translate('ar')?->meta_title }}" maxlength="255" dir="rtl">
+                            </div>
+                            <div class="gap-2 mb-3 flex-fill">
+                                <label for="meta_description_ar">@lang('dashboard.ar.meta_description')</label>
+                                <textarea id="meta_description_ar" class="form-control" name="ar[meta_description]" rows="3" maxlength="500" dir="rtl">{{ $service->translate('ar')?->meta_description }}</textarea>
+                            </div>
+                            <div class="gap-2 mb-3 flex-fill">
+                                <label for="meta_keywords_ar">@lang('dashboard.ar.meta_keywords')</label>
+                                <input id="meta_keywords_ar" type="text" class="form-control" name="ar[meta_keywords]" value="{{ $service->translate('ar')?->meta_keywords }}" maxlength="500" dir="rtl">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="gap-2 mb-3 flex-fill">
+                                <label for="meta_title_en">@lang('dashboard.en.meta_title')</label>
+                                <input id="meta_title_en" type="text" class="form-control" name="en[meta_title]" value="{{ $service->translate('en')?->meta_title }}" maxlength="255">
+                            </div>
+                            <div class="gap-2 mb-3 flex-fill">
+                                <label for="meta_description_en">@lang('dashboard.en.meta_description')</label>
+                                <textarea id="meta_description_en" class="form-control" name="en[meta_description]" rows="3" maxlength="500">{{ $service->translate('en')?->meta_description }}</textarea>
+                            </div>
+                            <div class="gap-2 mb-3 flex-fill">
+                                <label for="meta_keywords_en">@lang('dashboard.en.meta_keywords')</label>
+                                <input id="meta_keywords_en" type="text" class="form-control" name="en[meta_keywords]" value="{{ $service->translate('en')?->meta_keywords }}" maxlength="500">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,6 +164,14 @@
 @section('custom-js')
     <script src="{{ asset('back/js/services-module.js') }}" type="module"></script>
     <script>
+        document.querySelectorAll('.ck-editor-field').forEach(function(el) {
+            ClassicEditor.create(el, {
+                ckfinder: {
+                    uploadUrl: '/dashboard/ckEditorUploadImage?command=QuickUpload&type=Images&responseType=json'
+                }
+            }).catch(error => console.error(error));
+        });
+
         let existingFiles = @json($portofolios);
 
         let dropzonePreviewNode = document.querySelector("#dropzone-preview-list");

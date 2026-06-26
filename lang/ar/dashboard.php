@@ -89,4 +89,12 @@
         'redirect_same_slug' => 'لا يمكن أن يكون الرابط المصدر والهدف متطابقين',
         'redirect_target_not_found' => 'الرابط الهدف غير موجود',
         'redirect_old_slug' => 'إعادة توجيه الرابط القديم إلى الجديد (301)',
+        'ar.content' => 'المحتوى بالعربية',
+        'en.content' => 'المحتوى بالإنجليزية',
+        'ar.meta_title' => 'عنوان الميتا بالعربية (SEO)',
+        'en.meta_title' => 'عنوان الميتا بالإنجليزية (SEO)',
+        'ar.meta_description' => 'وصف الميتا بالعربية (SEO)',
+        'en.meta_description' => 'وصف الميتا بالإنجليزية (SEO)',
+        'ar.meta_keywords' => 'كلمات الميتا بالعربية (SEO)',
+        'en.meta_keywords' => 'كلمات الميتا بالإنجليزية (SEO)',
     ];

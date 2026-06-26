@@ -12,6 +12,9 @@
 
 <meta property="og:url" content="{{ url()->current() }}">
 <link rel="canonical" href="{{ url()->current() }}">
+@hasSection('hreflang')
+    @yield('hreflang')
+@endif
 <meta property="og:type" content="website">
 
 <meta name="keywords" content="@yield('keywords', $website_settings->keywords)">

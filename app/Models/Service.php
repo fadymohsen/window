@@ -11,7 +11,7 @@ class Service extends Model implements ContractsTranslatable
 {
     use Translatable;
 
-    public $translatedAttributes = ['title', 'meta_title', 'meta_description', 'meta_keywords'];
+    public $translatedAttributes = ['title', 'content', 'meta_title', 'meta_description', 'meta_keywords'];
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     protected $appends = ['display_image'];

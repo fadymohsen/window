@@ -83,7 +83,12 @@ class ServicesController extends Controller
     public function show(Service $service, ServicesService $servicesService)
     {
         $portofolios = $servicesService->get_portofolios_paginated($service->id, 12);
-        return view('front.services.portofolio', compact('portofolios', 'service'));
+        $relatedServices = Service::withTranslation()
+            ->where('id', '!=', $service->id)
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+        return view('front.services.portofolio', compact('portofolios', 'service', 'relatedServices'));
     }
 
     /**

@@ -89,4 +89,12 @@
         'redirect_same_slug' => 'Source and target slugs cannot be the same',
         'redirect_target_not_found' => 'Target slug does not exist',
         'redirect_old_slug' => 'Redirect old slug to the new one (301)',
+        'ar.content' => 'Arabic Content',
+        'en.content' => 'English Content',
+        'ar.meta_title' => 'Arabic Meta Title (SEO)',
+        'en.meta_title' => 'English Meta Title (SEO)',
+        'ar.meta_description' => 'Arabic Meta Description (SEO)',
+        'en.meta_description' => 'English Meta Description (SEO)',
+        'ar.meta_keywords' => 'Arabic Meta Keywords (SEO)',
+        'en.meta_keywords' => 'English Meta Keywords (SEO)',
     ];
