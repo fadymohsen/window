@@ -7,7 +7,12 @@ return new class extends Migration
 {
     public function up(): void
     {
-        $blogId = 30;
+        $blog = DB::table('blogs')->where('slug', 'ai-impact-graphic-designers')->first();
+        if (!$blog) {
+            $blog = DB::table('blogs')->where('id', 30)->first();
+        }
+        if (!$blog) { return; }
+        $blogId = $blog->id;
 
         $enTitle           = 'The Impact of AI on Graphic Designers: Will Artificial Intelligence Replace Human Creativity?';
         $enMetaTitle       = 'The Impact of AI on Graphic Designers: Will Artificial Intelligence Replace Human Creativity? | Window Advertising Agency';
