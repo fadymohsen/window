@@ -93,6 +93,24 @@ class ServicesController extends Controller
             'portfolioHeading_en' => 'Event Management Portfolio — Riyadh',
             'portfolioHeading_ar' => 'أعمالنا في إدارة الفعاليات بالرياض',
         ],
+        'embossed-letters' => [
+            'parentBreadcrumb' => ['name_en' => 'Signage & Signs', 'name_ar' => 'اللافتات واللوحات', 'slug' => 'signage'],
+            'relatedSlugs' => ['project-signboards-walls', 'directional-signage', '3d-fabrication'],
+            'portfolioHeading_en' => 'Embossed Letters Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في الأحرف البارزة بالرياض',
+        ],
+        'exhibition-booth-execution' => [
+            'parentBreadcrumb' => ['name_en' => 'Events & Exhibitions', 'name_ar' => 'الفعاليات والمعارض', 'slug' => 'events-exhibitions'],
+            'relatedSlugs' => ['event-management', 'events-conferences', '3d-fabrication'],
+            'portfolioHeading_en' => 'Exhibition Booth Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في أجنحة المعارض بالرياض',
+        ],
+        'project-signboards-walls' => [
+            'parentBreadcrumb' => ['name_en' => 'Signage & Signs', 'name_ar' => 'اللافتات واللوحات', 'slug' => 'signage'],
+            'relatedSlugs' => ['embossed-letters', 'directional-signage', 'banner-printing-installation'],
+            'portfolioHeading_en' => 'Project Signboards Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في لوحات المشاريع بالرياض',
+        ],
     ];
 
     public function show(Service $service, ServicesService $servicesService)
