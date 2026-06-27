@@ -27,12 +27,28 @@
         "position": 2,
         "name": "{{ __('custom.services') }}",
         "item": "{{ route('front.services.index') }}"
+    },
+    @if(isset($parentBreadcrumb))
+    {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ $parentBreadcrumb['name'] }}",
+        "item": "{{ $parentBreadcrumb['url'] }}"
     }, {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "{{ $service->title ?? '' }}",
+        "item": "{{ route('front.services.show', $service) }}"
+    }
+    @else
+    {
         "@type": "ListItem",
         "position": 3,
         "name": "{{ $service->title ?? '' }}",
         "item": "{{ route('front.services.show', $service) }}"
-    }]
+    }
+    @endif
+    ]
 }
 </script>
 @endsection
@@ -107,7 +123,7 @@
     <section id="portofolio" class="py-4 pt-5 bg-light">
         <div class="container">
             <div class="title mx-auto mb-4">
-                <h2 class="mb-2">{{ app()->getLocale() === 'ar' ? 'أعمالنا' : 'Our Portfolio' }}</h2>
+                <h2 class="mb-2">{{ $portfolioHeading ?? (app()->getLocale() === 'ar' ? 'أعمالنا' : 'Our Portfolio') }}</h2>
                 <div class="title-underline-container">
                     <div class="title-underline w-100"></div>
                 </div>

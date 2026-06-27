@@ -78,17 +78,64 @@ class ServicesController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Per-service SEO config: parent breadcrumb, related services, portfolio heading.
      */
+    private const SERVICE_CONFIG = [
+        'events-conferences' => [
+            'parentBreadcrumb' => ['name_en' => 'Events & Exhibitions', 'name_ar' => 'الفعاليات والمعارض', 'slug' => 'events-exhibitions'],
+            'relatedSlugs' => ['event-management', 'exhibition-booth-execution', 'backdrop'],
+            'portfolioHeading_en' => 'Events & Conferences Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في الفعاليات والمؤتمرات بالرياض',
+        ],
+        'event-management' => [
+            'parentBreadcrumb' => ['name_en' => 'Events & Exhibitions', 'name_ar' => 'الفعاليات والمعارض', 'slug' => 'events-exhibitions'],
+            'relatedSlugs' => ['events-conferences', 'exhibition-booth-execution', 'backdrop'],
+            'portfolioHeading_en' => 'Event Management Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في إدارة الفعاليات بالرياض',
+        ],
+    ];
+
     public function show(Service $service, ServicesService $servicesService)
     {
         $portofolios = $servicesService->get_portofolios_paginated($service->id, 12);
-        $relatedServices = Service::withTranslation()
-            ->where('id', '!=', $service->id)
-            ->inRandomOrder()
-            ->limit(3)
-            ->get();
-        return view('front.services.portofolio', compact('portofolios', 'service', 'relatedServices'));
+
+        $config = self::SERVICE_CONFIG[$service->slug] ?? null;
+
+        // Related services: use specific slugs if configured, otherwise random
+        if ($config && !empty($config['relatedSlugs'])) {
+            $relatedServices = Service::withTranslation()
+                ->whereIn('slug', $config['relatedSlugs'])
+                ->limit(3)
+                ->get();
+        } else {
+            $relatedServices = Service::withTranslation()
+                ->where('id', '!=', $service->id)
+                ->inRandomOrder()
+                ->limit(3)
+                ->get();
+        }
+
+        // Parent breadcrumb for 4-level schema
+        $parentBreadcrumb = null;
+        if ($config && !empty($config['parentBreadcrumb'])) {
+            $pb = $config['parentBreadcrumb'];
+            $locale = app()->getLocale();
+            $parentBreadcrumb = [
+                'name' => $locale === 'ar' ? $pb['name_ar'] : $pb['name_en'],
+                'url' => url($locale . '/services/' . $pb['slug']),
+            ];
+        }
+
+        // Custom portfolio heading
+        $portfolioHeading = null;
+        if ($config) {
+            $locale = app()->getLocale();
+            $portfolioHeading = $locale === 'ar'
+                ? ($config['portfolioHeading_ar'] ?? null)
+                : ($config['portfolioHeading_en'] ?? null);
+        }
+
+        return view('front.services.portofolio', compact('portofolios', 'service', 'relatedServices', 'parentBreadcrumb', 'portfolioHeading'));
     }
 
     /**
