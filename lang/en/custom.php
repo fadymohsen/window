@@ -105,9 +105,9 @@ return [
     'contact-sent-response' => 'Your message has been sent successfully',
 
     // SEO Meta Data
-    'home-meta-title' => 'Advertising in Riyadh | Window 25 Years of Advertising Experience',
-    'home-meta-description' => 'Window Advertising Agency — Advertising Agency in Riyadh. Leading advertising agency in Riyadh with 25+ years of experience delivering premium advertising & branding solutions in Saudi Arabia.',
-    'home-meta-keywords' => 'advertising agency in riyadh, advertising agency in riyadh riyadh, advertising agency in riyadh saudi arabia, window advertising agency, advertising agency riyadh',
+    'home-meta-title' => 'Window Advertising | Advertising Agency in Riyadh, Saudi Arabia',
+    'home-meta-description' => 'Window Advertising — full-service advertising agency in Riyadh with 25+ years of experience. Events, exhibitions, signage, printing, and branding solutions across Saudi Arabia. Get a free quote today.',
+    'home-meta-keywords' => 'advertising agency Riyadh, advertising company Saudi Arabia, Window Advertising, events exhibitions Riyadh, signage company Riyadh, printing services Riyadh, branding agency Saudi Arabia',
 
     'about-meta-title' => 'About Window Advertising Agency | Window Advertising Agency Riyadh',
     'about-meta-description' => 'Window Advertising Agency — About Window Advertising Agency. Leading advertising agency in Riyadh with 25+ years of experience delivering premium advertising & branding solutions in Saudi Arabia.',

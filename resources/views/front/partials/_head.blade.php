@@ -21,11 +21,16 @@
 
 <meta name="twitter:image" content="@yield('display_image', $website_settings->display_cover)">
 <meta property="og:image" content="@yield('display_image', $website_settings->display_cover)">
-<meta name="twitter:card" content="@yield('display_image', $website_settings->display_cover)">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="{{ app()->getLocale() === 'ar' ? 'ar_SA' : 'en_US' }}">
+<meta property="og:locale:alternate" content="{{ app()->getLocale() === 'ar' ? 'en_US' : 'ar_SA' }}">
+<meta name="robots" content="index, follow">
 
-
-<link rel="shortcut icon" href="{{ $website_settings->display_logo }}" type="image/x-icon">
-<link rel="icon" type="image/x-icon" href="{{ $website_settings->display_logo }}">
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+<link rel="manifest" href="{{ asset('site.webmanifest') }}">
 
 <!-- Preloader Critical CSS -->
 <style>
