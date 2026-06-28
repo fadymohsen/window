@@ -17,8 +17,8 @@ $projectDir = '/home/u165969086/domains/windowadv.com/public_html';
 $commands = [
     "cd {$projectDir} && git pull origin main",
     "cd {$projectDir} && php artisan migrate --force",
+    "cd {$projectDir} && php artisan optimize:clear",
     "cd {$projectDir} && php artisan config:cache",
-    "cd {$projectDir} && php artisan route:cache",
     "cd {$projectDir} && php artisan view:cache",
     "cd {$projectDir} && php artisan sitemap:generate",
 ];
