@@ -295,6 +295,24 @@ html[dir='rtl'] .navbar ul.navbar-nav {
   transition: background-color 0.3s;
 }
 
+.whatsapp-cta-form input::placeholder,
+.whatsapp-cta-form textarea::placeholder,
+.whatsapp-cta-form select option[disabled] {
+  color: rgba(255,255,255,0.5);
+}
+.whatsapp-cta-form select option {
+  background: #2c2c2c;
+  color: #fff;
+}
+.whatsapp-cta-form input:focus,
+.whatsapp-cta-form textarea:focus,
+.whatsapp-cta-form select:focus {
+  border-color: #f9a11b;
+  box-shadow: 0 0 0 0.15rem rgba(249,161,27,0.25);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
 .cta-btn.cta-orange {
   background-color: #f9a11b;
 }
