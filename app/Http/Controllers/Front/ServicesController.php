@@ -111,6 +111,66 @@ class ServicesController extends Controller
             'portfolioHeading_en' => 'Project Signboards Portfolio — Riyadh',
             'portfolioHeading_ar' => 'أعمالنا في لوحات المشاريع بالرياض',
         ],
+        'display-stands' => [
+            'parentBreadcrumb' => ['name_en' => 'Display Systems', 'name_ar' => 'أنظمة العرض', 'slug' => 'display-systems'],
+            'relatedSlugs' => ['roll-up', 'pop-up', 'exhibition-booth-execution'],
+            'portfolioHeading_en' => 'Display Stands Portfolio',
+            'portfolioHeading_ar' => 'أعمالنا في الاستندات الدعائية',
+        ],
+        'promotional-gifts' => [
+            'parentBreadcrumb' => ['name_en' => 'Promotional Items', 'name_ar' => 'المواد الترويجية', 'slug' => 'promotional-items'],
+            'relatedSlugs' => ['employee-gift-boxes', 'honor-shields', 'promotional-bags'],
+            'portfolioHeading_en' => 'Promotional Gifts Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في الهدايا الدعائية بالرياض',
+        ],
+        'employee-gift-boxes' => [
+            'parentBreadcrumb' => ['name_en' => 'Promotional Items', 'name_ar' => 'المواد الترويجية', 'slug' => 'promotional-items'],
+            'relatedSlugs' => ['promotional-gifts', 'honor-shields', 'national-day-celebrations'],
+            'portfolioHeading_en' => 'Employee Gift Boxes Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في بوكس هدايا الموظفين بالرياض',
+        ],
+        'business-prints' => [
+            'parentBreadcrumb' => ['name_en' => 'Printing & Publications', 'name_ar' => 'الطباعة والمطبوعات', 'slug' => 'printing'],
+            'relatedSlugs' => ['profile-design-printing', 'business-cards', 'corporate-visual-identity-design'],
+            'portfolioHeading_en' => 'Business Prints Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في المطبوعات التجارية بالرياض',
+        ],
+        'car-stickers' => [
+            'parentBreadcrumb' => ['name_en' => 'Signage & Signs', 'name_ar' => 'اللافتات واللوحات', 'slug' => 'signage'],
+            'relatedSlugs' => ['wall-stickers', 'banner-printing-installation', 'project-signboards-walls'],
+            'portfolioHeading_en' => 'Car Stickers Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في استيكرات السيارات بالرياض',
+        ],
+        'banner-printing-installation' => [
+            'parentBreadcrumb' => ['name_en' => 'Printing & Publications', 'name_ar' => 'الطباعة والمطبوعات', 'slug' => 'printing'],
+            'relatedSlugs' => ['backdrop', 'project-signboards-walls', 'display-stands'],
+            'portfolioHeading_en' => 'Banner Printing Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في طباعة البنرات بالرياض',
+        ],
+        'backdrop' => [
+            'parentBreadcrumb' => ['name_en' => 'Printing & Publications', 'name_ar' => 'الطباعة والمطبوعات', 'slug' => 'printing'],
+            'relatedSlugs' => ['banner-printing-installation', 'events-conferences', 'roll-up'],
+            'portfolioHeading_en' => 'Backdrop Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في الباك دروب بالرياض',
+        ],
+        'flags' => [
+            'parentBreadcrumb' => ['name_en' => 'Apparel & Flags', 'name_ar' => 'الملابس والأعلام', 'slug' => 'apparel-flags'],
+            'relatedSlugs' => ['banner-printing-installation', 'display-stands', 'national-day-celebrations'],
+            'portfolioHeading_en' => 'Flags Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في الأعلام بالرياض',
+        ],
+        'cup-printing' => [
+            'parentBreadcrumb' => ['name_en' => 'Promotional Items', 'name_ar' => 'المواد الترويجية', 'slug' => 'promotional-items'],
+            'relatedSlugs' => ['promotional-gifts', 'employee-gift-boxes', 'honor-shields'],
+            'portfolioHeading_en' => 'Cup Printing Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في طباعة الأكواب بالرياض',
+        ],
+        'pop-up' => [
+            'parentBreadcrumb' => ['name_en' => 'Display Systems', 'name_ar' => 'أنظمة العرض', 'slug' => 'display-systems'],
+            'relatedSlugs' => ['roll-up', 'display-stands', 'backdrop'],
+            'portfolioHeading_en' => 'Pop-up Display Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في بوب أب بالرياض',
+        ],
     ];
 
     public function show(Service $service, ServicesService $servicesService)
