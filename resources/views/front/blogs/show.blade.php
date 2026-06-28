@@ -6,6 +6,12 @@
 @section('keywords', $blog->keywords ?? '')
 @section('display_image', $blog->display_image)
 
+@section('hreflang')
+<link rel="alternate" hreflang="en" href="{{ LaravelLocalization::getLocalizedURL('en', route('front.blogs.show', $blog)) }}" />
+<link rel="alternate" hreflang="ar" href="{{ LaravelLocalization::getLocalizedURL('ar', route('front.blogs.show', $blog)) }}" />
+<link rel="alternate" hreflang="x-default" href="{{ LaravelLocalization::getLocalizedURL('en', route('front.blogs.show', $blog)) }}" />
+@endsection
+
 @section('breadcrumb_schema')
 <script type="application/ld+json">
 {

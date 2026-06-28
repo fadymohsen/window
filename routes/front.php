@@ -45,3 +45,6 @@ Route::get('/portofolio.php', function () {
     $id = request('id');
     return Redirect::to("/services/{$id}", 301);
 });
+Route::get('{locale}/services/founfing-day-prints', function ($locale) {
+    return Redirect::to("/{$locale}/services/founding-day-prints", 301);
+})->where('locale', 'ar|en');
