@@ -202,6 +202,9 @@
 @section('custom-js')
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+    var els = document.querySelectorAll('.about-animate');
+    els.forEach(function (el) { el.classList.add('about-init'); });
+
     var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
             if (entry.isIntersecting) {
@@ -211,9 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.about-animate').forEach(function (el) {
-        observer.observe(el);
-    });
+    els.forEach(function (el) { observer.observe(el); });
 });
 </script>
 @endsection
