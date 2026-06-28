@@ -8,20 +8,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            cd ~/domains/windowadv.com/public_html
-            git pull origin main
-            php artisan migrate --force
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
-            php artisan sitemap:generate
-            php -r "if(function_exists('opcache_reset')){opcache_reset();}"
-            echo "Deployed successfully"
+      - name: Trigger deploy webhook
+        run: |
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+            -H "Content-Type: application/json" \
+            -H "X-Hub-Signature-256: sha256=$(echo -n '{}' | openssl dgst -sha256 -hmac '${{ secrets.DEPLOY_SECRET }}' | awk '{print $2}')" \
+            -d '{}' \
+            https://windowadv.com/deploy.php)
+          echo "Response: $RESPONSE"
+          if [ "$RESPONSE" = "200" ]; then
+            echo "Deploy triggered successfully"
+          else
+            echo "Deploy failed with status $RESPONSE"
+            exit 1
+          fi
