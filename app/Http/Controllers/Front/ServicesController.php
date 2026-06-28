@@ -261,6 +261,96 @@ class ServicesController extends Controller
             'portfolioHeading_en' => 'Display Screens Portfolio — Riyadh',
             'portfolioHeading_ar' => 'أعمالنا في شاشات العرض بالرياض',
         ],
+        'scarf-printing' => [
+            'parentBreadcrumb' => ['name_en' => 'Apparel & Flags', 'name_ar' => 'الملابس والأعلام', 'slug' => 'apparel-flags'],
+            'relatedSlugs' => ['promotional-gifts', 'employee-gift-boxes', 't-shirt-design-printing'],
+            'portfolioHeading_en' => 'Scarf Printing Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في طباعة الأوشحة بالرياض',
+        ],
+        'business-cards' => [
+            'parentBreadcrumb' => ['name_en' => 'Printing & Publications', 'name_ar' => 'الطباعة والمطبوعات', 'slug' => 'printing'],
+            'relatedSlugs' => ['corporate-visual-identity-design', 'profile-design-printing', 'business-prints'],
+            'portfolioHeading_en' => 'Business Cards Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في بطاقات الأعمال بالرياض',
+        ],
+        'national-day-celebrations' => [
+            'parentBreadcrumb' => ['name_en' => 'Events & Exhibitions', 'name_ar' => 'الفعاليات والمعارض', 'slug' => 'events-exhibitions'],
+            'relatedSlugs' => ['national-day-prints', 'employee-gift-boxes', 'flags'],
+            'portfolioHeading_en' => 'National Day Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في احتفالات اليوم الوطني بالرياض',
+        ],
+        'national-day-prints' => [
+            'parentBreadcrumb' => ['name_en' => 'Apparel & Flags', 'name_ar' => 'الملابس والأعلام', 'slug' => 'apparel-flags'],
+            'relatedSlugs' => ['national-day-celebrations', 'flags', 'wall-stickers'],
+            'portfolioHeading_en' => 'National Day Prints Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في مطبوعات اليوم الوطني بالرياض',
+        ],
+        'founding-day-celebrations' => [
+            'parentBreadcrumb' => ['name_en' => 'Events & Exhibitions', 'name_ar' => 'الفعاليات والمعارض', 'slug' => 'events-exhibitions'],
+            'relatedSlugs' => ['founding-day-prints', 'national-day-celebrations', 'employee-gift-boxes'],
+            'portfolioHeading_en' => 'Founding Day Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في احتفالات يوم التأسيس بالرياض',
+        ],
+        'founding-day-prints' => [
+            'parentBreadcrumb' => ['name_en' => 'Apparel & Flags', 'name_ar' => 'الملابس والأعلام', 'slug' => 'apparel-flags'],
+            'relatedSlugs' => ['founding-day-celebrations', 'national-day-prints', 'flags'],
+            'portfolioHeading_en' => 'Founding Day Prints Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في مطبوعات يوم التأسيس بالرياض',
+        ],
+        'corporate-visual-identity-design' => [
+            'parentBreadcrumb' => ['name_en' => 'Printing & Publications', 'name_ar' => 'الطباعة والمطبوعات', 'slug' => 'printing'],
+            'relatedSlugs' => ['profile-design-printing', 'business-cards', '3d-designs'],
+            'portfolioHeading_en' => 'Corporate Identity Design Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في تصميم الهوية بالرياض',
+        ],
+        '3d-fabrication' => [
+            'parentBreadcrumb' => ['name_en' => 'Signage & Signs', 'name_ar' => 'اللافتات واللوحات', 'slug' => 'signage'],
+            'relatedSlugs' => ['3d-designs', 'exhibition-booth-execution', 'directional-signage'],
+            'portfolioHeading_en' => '3D Fabrication Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في التصنيع ثلاثي الأبعاد بالرياض',
+        ],
+        '3d-designs' => [
+            'parentBreadcrumb' => ['name_en' => 'Printing & Publications', 'name_ar' => 'الطباعة والمطبوعات', 'slug' => 'printing'],
+            'relatedSlugs' => ['3d-fabrication', 'exhibition-booth-execution', 'corporate-visual-identity-design'],
+            'portfolioHeading_en' => '3D Design Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في التصميم ثلاثي الأبعاد بالرياض',
+        ],
+        'promotional-bags' => [
+            'parentBreadcrumb' => ['name_en' => 'Promotional Items', 'name_ar' => 'المواد الترويجية', 'slug' => 'promotional-items'],
+            'relatedSlugs' => ['promotional-gifts', 'employee-gift-boxes', 'promotional-dangler'],
+            'portfolioHeading_en' => 'Promotional Bags Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في الشنط الدعائية بالرياض',
+        ],
+        'promotional-dangler' => [
+            'parentBreadcrumb' => ['name_en' => 'Promotional Items', 'name_ar' => 'المواد الترويجية', 'slug' => 'promotional-items'],
+            'relatedSlugs' => ['promotional-bags', 'wall-stickers', 'assorted-stamps'],
+            'portfolioHeading_en' => 'Danglers Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في الدانقلرات الدعائية بالرياض',
+        ],
+        'thermal-delivery-box' => [
+            'parentBreadcrumb' => ['name_en' => 'Promotional Items', 'name_ar' => 'المواد الترويجية', 'slug' => 'promotional-items'],
+            'relatedSlugs' => ['employee-gift-boxes', 'promotional-bags', 'promotional-gifts'],
+            'portfolioHeading_en' => 'Thermal Delivery Box Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في صناديق التوصيل الحرارية بالرياض',
+        ],
+        'pvc-file-with-clip-manufacturing' => [
+            'parentBreadcrumb' => ['name_en' => 'Promotional Items', 'name_ar' => 'المواد الترويجية', 'slug' => 'promotional-items'],
+            'relatedSlugs' => ['medical-files', 'promotional-gifts', 'business-cards'],
+            'portfolioHeading_en' => 'PVC File Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في ملفات PVC بالرياض',
+        ],
+        'medical-files' => [
+            'parentBreadcrumb' => ['name_en' => 'Promotional Items', 'name_ar' => 'المواد الترويجية', 'slug' => 'promotional-items'],
+            'relatedSlugs' => ['pvc-file-with-clip-manufacturing', 'business-cards', 'corporate-visual-identity-design'],
+            'portfolioHeading_en' => 'Medical Files Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في الملفات الطبية بالرياض',
+        ],
+        'smart-glass-smart-film' => [
+            'parentBreadcrumb' => ['name_en' => 'Signage & Signs', 'name_ar' => 'اللافتات واللوحات', 'slug' => 'signage'],
+            'relatedSlugs' => ['directional-signage', 'wall-stickers', 'display-screens'],
+            'portfolioHeading_en' => 'Smart Glass Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في الزجاج الذكي بالرياض',
+        ],
     ];
 
     public function show(Service $service, ServicesService $servicesService)
