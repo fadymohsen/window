@@ -521,6 +521,53 @@ div.title .title-second {
   border-radius: 100%;
 }
 
+/* About page enhancements */
+.about-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.about-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.about-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+.about-card-highlight {
+  border-top: 3px solid #f9a11b;
+}
+.about-card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(249,161,27,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f9a11b;
+  font-size: 1.4rem;
+}
+#faq .accordion-button:not(.collapsed) {
+  background-color: rgba(249,161,27,0.08);
+  color: #333;
+  box-shadow: none;
+}
+#faq .accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(249,161,27,0.3);
+}
+#faq .accordion-button::after {
+  filter: none;
+}
+
 html[dir="rtl"] .form-control {
   text-align: right;
 }
