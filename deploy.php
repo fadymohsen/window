@@ -14,16 +14,9 @@ if (function_exists('opcache_reset')) {
 }
 
 $projectDir = '/home/u165969086/domains/windowadv.com/public_html';
-$commands = [
-    "cd {$projectDir} && git pull origin main",
-    "cd {$projectDir} && php artisan migrate --force",
-    "cd {$projectDir} && php artisan optimize:clear",
-    "cd {$projectDir} && php artisan config:cache",
-    "cd {$projectDir} && php artisan view:cache",
-    "cd {$projectDir} && php artisan sitemap:generate",
-];
-$output = '';
-foreach ($commands as $cmd) {
-    $output .= shell_exec($cmd . ' 2>&1') . "\n";
-}
-echo $output;
+$logFile = $projectDir . '/storage/logs/deploy.log';
+$script = "cd {$projectDir} && git pull origin main >> {$logFile} 2>&1 && php artisan migrate --force >> {$logFile} 2>&1 && php artisan optimize:clear >> {$logFile} 2>&1 && php artisan config:cache >> {$logFile} 2>&1 && php artisan view:cache >> {$logFile} 2>&1 && php artisan sitemap:generate >> {$logFile} 2>&1";
+
+file_put_contents($logFile, date('Y-m-d H:i:s') . " Deploy started\n");
+shell_exec("nohup bash -c '{$script}' > /dev/null 2>&1 &");
+echo "Deploy triggered";
