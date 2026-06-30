@@ -90,6 +90,38 @@
     }
 }
 </script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "{{ app()->getLocale() === 'ar' ? 'ما هي خدمة ' . ($service->title ?? '') . '؟' : 'What is the ' . ($service->title ?? '') . ' service?' }}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{ app()->getLocale() === 'ar' ? 'خدمة ' . ($service->title ?? '') . ' من ويندو للدعاية والاعلان تقدم حلولاً احترافية ومبتكرة تناسب احتياجات عملك. نعمل مع فريق متخصص بخبرة تفوق 25 عاماً لتقديم أفضل النتائج في الرياض والسعودية.' : 'The ' . ($service->title ?? '') . ' service from Window Advertising offers professional and innovative solutions tailored to your business needs. Our specialized team with 25+ years of experience delivers the best results in Riyadh and Saudi Arabia.' }}"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "{{ app()->getLocale() === 'ar' ? 'كم تكلفة خدمة ' . ($service->title ?? '') . '؟' : 'How much does ' . ($service->title ?? '') . ' cost?' }}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{ app()->getLocale() === 'ar' ? 'تختلف تكلفة خدمة ' . ($service->title ?? '') . ' حسب متطلبات المشروع وحجمه. نقدم عروض أسعار مجانية ومخصصة لكل عميل. تواصل معنا للحصول على عرض سعر مناسب لميزانيتك.' : 'The cost of ' . ($service->title ?? '') . ' varies depending on project requirements and scope. We provide free, customized quotes for each client. Contact us to get a quote that fits your budget.' }}"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "{{ app()->getLocale() === 'ar' ? 'لماذا أختار ويندو للدعاية والاعلان لخدمة ' . ($service->title ?? '') . '؟' : 'Why choose Window Advertising for ' . ($service->title ?? '') . '?' }}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان شركة رائدة في الرياض بخبرة تفوق 25 عاماً وأكثر من 1000 عميل و3000 مشروع منجز. نتميز بالجودة العالية والالتزام بالمواعيد وأسعار تنافسية في السعودية.' : 'Window Advertising is a leading agency in Riyadh with 25+ years of experience, 1000+ clients, and 3000+ completed projects. We stand out for high quality, on-time delivery, and competitive pricing in Saudi Arabia.' }}"
+            }
+        }
+    ]
+}
+</script>
 @endsection
 
 @section('content')
@@ -166,6 +198,59 @@
         </div>
     </section>
     @endif
+
+    <section id="service-faq" class="py-5 bg-light">
+        <div class="container">
+            <div class="title mb-4 mx-auto">
+                <h2 class="text-center mb-2">{{ app()->getLocale() === 'ar' ? 'الأسئلة الشائعة' : 'FAQ' }}</h2>
+                <div class="title-underline-container title-second">
+                    <div class="title-underline w-100"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion svc-animate" id="serviceFaqAccordion">
+                        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden" style="box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sfaq1">
+                                    {{ app()->getLocale() === 'ar' ? 'ما هي خدمة ' . ($service->title ?? '') . '؟' : 'What is the ' . ($service->title ?? '') . ' service?' }}
+                                </button>
+                            </h3>
+                            <div id="sfaq1" class="accordion-collapse collapse show" data-bs-parent="#serviceFaqAccordion">
+                                <div class="accordion-body">
+                                    {{ app()->getLocale() === 'ar' ? 'خدمة ' . ($service->title ?? '') . ' من ويندو للدعاية والاعلان تقدم حلولاً احترافية ومبتكرة تناسب احتياجات عملك. نعمل مع فريق متخصص بخبرة تفوق 25 عاماً لتقديم أفضل النتائج في الرياض والسعودية.' : 'The ' . ($service->title ?? '') . ' service from Window Advertising offers professional and innovative solutions tailored to your business needs. Our specialized team with 25+ years of experience delivers the best results in Riyadh and Saudi Arabia.' }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden" style="box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sfaq2">
+                                    {{ app()->getLocale() === 'ar' ? 'كم تكلفة خدمة ' . ($service->title ?? '') . '؟' : 'How much does ' . ($service->title ?? '') . ' cost?' }}
+                                </button>
+                            </h3>
+                            <div id="sfaq2" class="accordion-collapse collapse" data-bs-parent="#serviceFaqAccordion">
+                                <div class="accordion-body">
+                                    {{ app()->getLocale() === 'ar' ? 'تختلف تكلفة خدمة ' . ($service->title ?? '') . ' حسب متطلبات المشروع وحجمه. نقدم عروض أسعار مجانية ومخصصة لكل عميل. تواصل معنا للحصول على عرض سعر مناسب لميزانيتك.' : 'The cost of ' . ($service->title ?? '') . ' varies depending on project requirements and scope. We provide free, customized quotes for each client. Contact us to get a quote that fits your budget.' }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden" style="box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sfaq3">
+                                    {{ app()->getLocale() === 'ar' ? 'لماذا أختار ويندو للدعاية والاعلان لخدمة ' . ($service->title ?? '') . '؟' : 'Why choose Window Advertising for ' . ($service->title ?? '') . '?' }}
+                                </button>
+                            </h3>
+                            <div id="sfaq3" class="accordion-collapse collapse" data-bs-parent="#serviceFaqAccordion">
+                                <div class="accordion-body">
+                                    {{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان شركة رائدة في الرياض بخبرة تفوق 25 عاماً وأكثر من 1000 عميل و3000 مشروع منجز. نتميز بالجودة العالية والالتزام بالمواعيد وأسعار تنافسية في السعودية.' : 'Window Advertising is a leading agency in Riyadh with 25+ years of experience, 1000+ clients, and 3000+ completed projects. We stand out for high quality, on-time delivery, and competitive pricing in Saudi Arabia.' }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="py-5">
         <div class="container">

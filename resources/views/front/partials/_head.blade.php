@@ -22,6 +22,8 @@
 <meta name="twitter:image" content="@yield('display_image', $website_settings->display_cover)">
 <meta property="og:image" content="@yield('display_image', $website_settings->display_cover)">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="{{ app()->getLocale() === 'ar' ? 'ar_SA' : 'en_US' }}">
 <meta property="og:locale:alternate" content="{{ app()->getLocale() === 'ar' ? 'en_US' : 'ar_SA' }}">
 <meta name="robots" content="index, follow">
@@ -52,13 +54,17 @@
 <!-- Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Preconnect to CDNs -->
+<!-- Preconnect & DNS Prefetch to CDNs -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <!-- Bootstrap CSS -->
 <link href="{{ asset('front/libs/bootstrap/css/bootstrap'. (LaravelLocalization::getCurrentLocaleDirection() == 'rtl' ? '.rtl' : '') .'.min.css') }}" rel="stylesheet">
-<!-- Swiper Css -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<!-- Swiper Css - deferred -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
 <!-- Fonts Awesome - defer non-critical -->
 <link rel="stylesheet" href="{{ asset('front/libs/fontawesome-free-6.5.2-web/css/all.min.css') }}" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="{{ asset('front/libs/fontawesome-free-6.5.2-web/css/all.min.css') }}"></noscript>

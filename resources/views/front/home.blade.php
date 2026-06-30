@@ -24,15 +24,37 @@
     }]
 }
 </script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "{{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان - شركة دعاية واعلان الرياض' : 'Window Advertising Agency - Riyadh Saudi Arabia' }}",
+    "description": "{{ app()->getLocale() === 'ar' ? 'فيديو تعريفي عن شركة ويندو للدعاية والاعلان في الرياض - خدمات دعاية واعلان، تنظيم حفلات ومؤتمرات، بوثات معارض، تصميم هويه بصرية' : 'Introduction video of Window Advertising Agency in Riyadh - advertising services, event planning, exhibitions, branding' }}",
+    "thumbnailUrl": "{{ $website_settings->display_cover }}",
+    "uploadDate": "2024-01-01T00:00:00+03:00",
+    "contentUrl": "{{ asset('front/videos/window_header.mp4') }}",
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ $website_settings->title }}",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ asset('android-chrome-512x512.png') }}"
+        }
+    }
+}
+</script>
 @endsection
 
 @section('content')
 
     <header class="text-center" id="hero">
-        <video autoplay muted loop playsinline preload="auto">
+        <video autoplay muted loop playsinline preload="metadata">
             <source src="{{ asset('front/videos/window_header.mp4') }}" type="video/mp4">
         </video>
         <div class="hero-overlay">
+            <h1 class="hero-h1">
+                {{ app()->getLocale() === 'ar' ? 'شركة دعاية واعلان في الرياض - تنظيم حفلات ومؤتمرات ومعارض' : 'Advertising Agency in Riyadh - Events, Conferences & Exhibitions' }}
+            </h1>
         </div>
     </header>
 

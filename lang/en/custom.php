@@ -105,9 +105,9 @@ return [
     'contact-sent-response' => 'Your message has been sent successfully',
 
     // SEO Meta Data
-    'home-meta-title' => 'Window Advertising | Advertising Agency in Riyadh, Saudi Arabia',
-    'home-meta-description' => 'Window Advertising — full-service advertising agency in Riyadh with 25+ years of experience. Events, exhibitions, signage, printing, and branding solutions across Saudi Arabia. Get a free quote today.',
-    'home-meta-keywords' => 'advertising agency Riyadh, advertising company Saudi Arabia, Window Advertising, events exhibitions Riyadh, signage company Riyadh, printing services Riyadh, branding agency Saudi Arabia',
+    'home-meta-title' => 'Window Advertising Agency Riyadh | Events, Exhibitions & Branding in Saudi Arabia',
+    'home-meta-description' => 'Window Advertising — leading advertising agency in Riyadh, Saudi Arabia with 25+ years of experience. Event planning, conference organization, exhibition booths, project fences, promotional gifts, stickers, profile design, catalog design, identity design & video production. Get a free quote.',
+    'home-meta-keywords' => 'advertising agency Riyadh, advertising company Saudi Arabia, event planning Riyadh, conference organization, exhibition booths, project fences, promotional gifts, stickers printing, profile design, report design, catalog design, identity design, video production, Window Advertising',
 
     'about-meta-title' => 'About Window Advertising Agency | Window Advertising Agency Riyadh',
     'about-meta-description' => 'Window Advertising Agency — About Window Advertising Agency. Leading advertising agency in Riyadh with 25+ years of experience delivering premium advertising & branding solutions in Saudi Arabia.',
@@ -121,9 +121,9 @@ return [
     'blogs-meta-description' => 'Window Advertising Agency — Window Advertising Blog. Leading advertising agency in Riyadh with 25+ years of experience delivering premium advertising & branding solutions in Saudi Arabia.',
     'blogs-meta-keywords' => 'window advertising blog, window advertising blog riyadh, window advertising blog saudi arabia, window advertising agency, advertising agency riyadh',
 
-    'services-meta-title' => 'Advertising & Exhibition Services | Window Advertising Agency Riyadh',
-    'services-meta-description' => 'Window Advertising Agency — Advertising & Exhibition Services. Leading advertising agency in Riyadh with 25+ years of experience delivering premium advertising & branding solutions in Saudi Arabia.',
-    'services-meta-keywords' => 'advertising & exhibition services, advertising & exhibition services riyadh, advertising & exhibition services saudi arabia, window advertising agency, advertising agency riyadh',
+    'services-meta-title' => 'Advertising Services Riyadh | Events, Exhibitions, Branding & Design | Window',
+    'services-meta-description' => 'Full-service advertising solutions from Window Riyadh: event planning, conference organization, exhibition booths, project fences, promotional gifts, stickers, profile design, report design, catalog design, identity design & video production. Request a quote now.',
+    'services-meta-keywords' => 'advertising services Riyadh, event planning, conference organization, exhibition booths, project fences, promotional gifts, stickers, profile design, report design, catalog design, identity design, video production',
 
     // FAQ
     'faq' => 'Frequently Asked Questions',

@@ -3,7 +3,7 @@ Allow: /
 Disallow: /dashboard/
 Disallow: /storage/
 Disallow: /_debugbar/
-Disallow: /*/services/*/portofoliols/
+Disallow: /*/services/*/portofolios/
 Disallow: /*/blogs/*/*
 Disallow: /*/services/*/*
 

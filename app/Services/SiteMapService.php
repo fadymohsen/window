@@ -14,6 +14,16 @@ class SiteMapService
         $locales = array_keys(config('laravellocalization.supportedLocales'));
         $sitemap = Sitemap::create();
 
+        // Add root URL
+        $baseUrl = rtrim(config('app.url'), '/');
+        $rootUrl = Url::create($baseUrl . '/')
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+            ->setPriority(1.0);
+        foreach ($locales as $altLocale) {
+            $rootUrl->addAlternate($baseUrl . "/{$altLocale}", $altLocale);
+        }
+        $sitemap->add($rootUrl);
+
         $staticRoutes = [
             'front.home'           => ['changeFreq' => Url::CHANGE_FREQUENCY_WEEKLY,  'priority' => 1.0],
             'front.about'          => ['changeFreq' => Url::CHANGE_FREQUENCY_MONTHLY, 'priority' => 0.8],

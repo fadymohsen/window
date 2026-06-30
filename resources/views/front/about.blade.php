@@ -48,7 +48,7 @@
                     </p>
                 </div>
                 <div class="col-lg-5 px-5 about-animate">
-                    <video autoplay muted loop playsinline preload="auto">
+                    <video autoplay muted loop playsinline preload="metadata">
                         <source src="{{ asset('front/videos/window_about.mp4') }}" type="video/mp4">
                     </video>
                 </div>
@@ -179,6 +179,25 @@
 @endsection
 
 @section('page_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "{{ app()->getLocale() === 'ar' ? 'قصة ويندو للدعاية والاعلان' : 'Window Advertising Story' }}",
+    "description": "{{ app()->getLocale() === 'ar' ? 'تعرف على قصة ويندو للدعاية والاعلان - شركة دعاية واعلان رائدة في الرياض بخبرة 25+ عاماً' : 'Learn about Window Advertising Agency - leading advertising company in Riyadh with 25+ years of experience' }}",
+    "thumbnailUrl": "{{ $website_settings->display_cover }}",
+    "uploadDate": "2024-01-01T00:00:00+03:00",
+    "contentUrl": "{{ asset('front/videos/window_about.mp4') }}",
+    "publisher": {
+        "@type": "Organization",
+        "name": "{{ $website_settings->title }}",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ asset('android-chrome-512x512.png') }}"
+        }
+    }
+}
+</script>
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
