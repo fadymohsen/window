@@ -60,7 +60,13 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        return view('front.blogs.show', compact('blog'));
+        $relatedBlogs = Blog::withTranslation()
+            ->where('id', '!=', $blog->id)
+            ->latest()
+            ->limit(3)
+            ->get();
+
+        return view('front.blogs.show', compact('blog', 'relatedBlogs'));
     }
 
     /**

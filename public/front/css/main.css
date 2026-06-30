@@ -576,9 +576,17 @@ html[dir="ltr"] .form-control {
   text-align: left;
 }
 
-footer {
+footer.site-footer {
   border-top: 3px solid #faa819;
-  background-color: rgb(250 168 25) !important;
+  background-color: #1a1a1a !important;
+}
+.footer-link {
+  transition: color 0.2s ease, padding-inline-start 0.2s ease;
+  font-size: 0.9rem;
+}
+.footer-link:hover {
+  color: #f9a11b !important;
+  padding-inline-start: 5px;
 }
 
 #services-header, #blog-header

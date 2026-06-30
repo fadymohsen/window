@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Service;
 use App\Models\WebsiteSetting;
 use Exception;
 use Illuminate\Support\Facades\View;
@@ -41,7 +42,15 @@ class AppServiceProvider extends ServiceProvider
         }
         catch(Exception $e)
         {
-            
+
         }
+
+        View::composer('front.partials._footer', function ($view) {
+            try {
+                $view->with('footer_services', Service::withTranslation()->limit(8)->get());
+            } catch (Exception $e) {
+                $view->with('footer_services', collect());
+            }
+        });
     }
 }

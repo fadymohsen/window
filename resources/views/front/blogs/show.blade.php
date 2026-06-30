@@ -103,6 +103,34 @@
         </div>
     </div>
 
+    @if(isset($relatedBlogs) && $relatedBlogs->count() > 0)
+    <section id="related-blogs" class="py-5 bg-light">
+        <div class="container">
+            <div class="title mx-auto mb-4">
+                <h2 class="mb-2">{{ app()->getLocale() === 'ar' ? 'مقالات ذات صلة' : 'Related Articles' }}</h2>
+                <div class="title-underline-container">
+                    <div class="title-underline w-100"></div>
+                </div>
+            </div>
+            <div class="row g-4">
+                @foreach($relatedBlogs as $related)
+                <div class="col-md-4">
+                    <a href="{{ route('front.blogs.show', $related) }}" class="text-decoration-none">
+                        <div class="card h-100 border-0" style="box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-radius: 10px; overflow: hidden;">
+                            <img src="{{ $related->display_image }}" class="card-img-top" alt="{{ $related->title ?? '' }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h3 class="card-title fs-6 fw-bold text-dark">{{ $related->title ?? '' }}</h3>
+                                <span class="text-muted" style="font-size: 0.8rem;"><bdi>{{ $related->created_at->format('Y M d') }}</bdi></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
+
 @endsection
 
 @section('custom-js')
