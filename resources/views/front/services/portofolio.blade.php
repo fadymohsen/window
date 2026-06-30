@@ -209,7 +209,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="accordion svc-animate" id="serviceFaqAccordion">
+                    <div class="accordion" id="serviceFaqAccordion">
                         <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden" style="box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                             <h3 class="accordion-header">
                                 <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#sfaq1">
@@ -254,7 +254,7 @@
 
     <section class="py-5">
         <div class="container">
-            <div class="service-cta-section text-center svc-animate">
+            <div class="service-cta-section text-center">
                 <h2 class="text-white mb-3 border-0" style="border:none;">@lang('custom.contact-us')</h2>
                 <a href="{{ route('front.contact.index') }}" class="cta-btn text-decoration-none text-dark d-inline-block mt-2">@lang('custom.contact-us')</a>
             </div>
