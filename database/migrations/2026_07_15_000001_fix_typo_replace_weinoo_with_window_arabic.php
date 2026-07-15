@@ -10,20 +10,15 @@ return new class extends Migration
         // Fix "وينوو" typo to "ويندو" in all Arabic service translations
         DB::table('service_translations')
             ->where('locale', 'ar')
-            ->where('content', 'like', '%وينوو%')
-            ->orWhere(function ($query) {
-                $query->where('locale', 'ar')
-                      ->where('title', 'like', '%وينوو%');
-            })
-            ->orWhere(function ($query) {
-                $query->where('locale', 'ar')
-                      ->where('description', 'like', '%وينوو%');
+            ->where(function ($query) {
+                $query->where('content', 'like', '%وينوو%')
+                      ->orWhere('title', 'like', '%وينوو%');
             })
             ->get()
             ->each(function ($row) {
                 $updates = [];
-                foreach (['title', 'description', 'content'] as $col) {
-                    if (!empty($row->$col) && str_contains($row->$col, 'وينوو')) {
+                foreach (['title', 'content'] as $col) {
+                    if (isset($row->$col) && str_contains($row->$col, 'وينوو')) {
                         $updates[$col] = str_replace('وينوو', 'ويندو', $row->$col);
                     }
                 }
