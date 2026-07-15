@@ -83,11 +83,11 @@
                         </div>
                         <div class="d-flex justify-content-start flex-wrap mb-3">
                             <p class="mb-0 fw-bold"><i class="fa-solid fa-envelope"></i> @lang('custom.email')&nbsp;</p>
-                            <span class="text-gr">{{ $website_settings->email }}</span>
+                            <a href="mailto:{{ $website_settings->email }}" class="text-gr text-decoration-none">{{ $website_settings->email }}</a>
                         </div>
                         <div class="d-flex justify-content-start flex-wrap mb-2">
                             <p class="ms-1 mb-0 fw-bold"><i class="fa-solid fa-location-dot"></i> @lang('custom.address')&nbsp;</p>
-                            <span class="text-gr">@lang('custom.contact-address')</span>
+                            <a href="https://maps.app.goo.gl/hJBnz8GRZqQd86rq7" target="_blank" rel="noopener" class="text-gr text-decoration-none">@lang('custom.contact-address')</a>
                         </div>
                     </div>
                     <div class="row mt-3 d-flex justify-content-start flex-wrap">

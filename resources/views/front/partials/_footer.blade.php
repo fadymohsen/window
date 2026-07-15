@@ -67,8 +67,8 @@
                 <h3 class="footer-heading mb-3" style="color: #f9a11b; font-size: 1.1rem; font-weight: 700;">{{ app()->getLocale() === 'ar' ? 'تواصل معنا' : 'Contact Us' }}</h3>
                 <ul class="list-unstyled footer-links">
                     <li class="mb-2 text-gr"><i class="fa-solid fa-phone" style="color: #f9a11b;"></i> <a href="tel:+966592945557" class="text-gr text-decoration-none"><bdi>{{ $website_settings->phone_number }}</bdi></a></li>
-                    <li class="mb-2 text-gr"><i class="fa-solid fa-envelope" style="color: #f9a11b;"></i> {{ $website_settings->email }}</li>
-                    <li class="mb-2 text-gr"><i class="fa-solid fa-location-dot" style="color: #f9a11b;"></i> @lang('custom.contact-address')</li>
+                    <li class="mb-2 text-gr"><i class="fa-solid fa-envelope" style="color: #f9a11b;"></i> <a href="mailto:{{ $website_settings->email }}" class="text-gr text-decoration-none">{{ $website_settings->email }}</a></li>
+                    <li class="mb-2 text-gr"><i class="fa-solid fa-location-dot" style="color: #f9a11b;"></i> <a href="https://maps.app.goo.gl/hJBnz8GRZqQd86rq7" target="_blank" rel="noopener" class="text-gr text-decoration-none">@lang('custom.contact-address')</a></li>
                 </ul>
 
                 <div class="d-flex gap-3 mt-3">
