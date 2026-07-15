@@ -494,6 +494,16 @@ div.title .title-second {
   background-color: #4c4a4d;
 }
 
+@media (min-width: 992px) {
+  #about .header_about_warning {
+    font-size: 1.6rem;
+  }
+  #about .text-gr {
+    font-size: 1.25rem;
+    line-height: 2.4;
+  }
+}
+
 #about video {
   width: 100%;
   border-radius: 7px;
