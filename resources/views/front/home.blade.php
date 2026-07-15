@@ -52,11 +52,9 @@
         <video autoplay muted loop playsinline preload="metadata">
             <source src="{{ asset('front/videos/window_header.mp4') }}" type="video/mp4">
         </video>
-        <div class="hero-overlay">
-            <h1 class="hero-h1">
-                {{ app()->getLocale() === 'ar' ? 'شركة دعاية واعلان في الرياض - تنظيم حفلات ومؤتمرات ومعارض' : 'Advertising Agency in Riyadh - Events, Conferences & Exhibitions' }}
-            </h1>
-        </div>
+        <h1 class="visually-hidden">
+            {{ app()->getLocale() === 'ar' ? 'شركة دعاية واعلان في الرياض - تنظيم حفلات ومؤتمرات ومعارض' : 'Advertising Agency in Riyadh - Events, Conferences & Exhibitions' }}
+        </h1>
     </header>
 
     <section id="about" class="py-5 text-white" data-aos="fade-up">
@@ -274,11 +272,11 @@
                         </div>
                         <div class="d-flex flex-wrap mb-3">
                             <p class="mb-0 fw-bold"><i class="fa-solid fa-envelope ms-1"></i> @lang('custom.email')&nbsp;</p>
-                            <span class="text-gr">{{ $website_settings->email }}</span>
+                            <a href="mailto:{{ $website_settings->email }}" class="text-gr text-decoration-none">{{ $website_settings->email }}</a>
                         </div>
                         <div class="d-flex flex-wrap mb-3">
                             <p class="ms-1 mb-0 fw-bold"><i class="fa-solid fa-location-dot ms-1"></i> @lang('custom.address')&nbsp;</p>
-                            <span class="text-gr">@lang('custom.contact-address')</span>
+                            <a href="https://maps.app.goo.gl/hJBnz8GRZqQd86rq7" target="_blank" rel="noopener" class="text-gr text-decoration-none">@lang('custom.contact-address')</a>
                         </div>
                     </div>
                     <div class="row d-inline-block">
