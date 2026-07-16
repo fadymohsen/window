@@ -10,8 +10,8 @@
 <meta property="og:description" content="@yield('description', $website_settings->description)">
 <meta name="twitter:description" content="@yield('description', $website_settings->description)">
 
-<meta property="og:url" content="{{ url()->current() }}">
-<link rel="canonical" href="{{ url()->current() }}">
+<meta property="og:url" content="{{ request()->fullUrl() }}">
+<link rel="canonical" href="{{ request()->fullUrl() }}">
 @hasSection('hreflang')
     @yield('hreflang')
 @endif

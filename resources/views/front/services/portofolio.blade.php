@@ -7,9 +7,9 @@
 @section('display_image', $service->display_image)
 
 @section('hreflang')
-<link rel="alternate" hreflang="en" href="{{ LaravelLocalization::getLocalizedURL('en', route('front.services.show', $service)) }}" />
-<link rel="alternate" hreflang="ar" href="{{ LaravelLocalization::getLocalizedURL('ar', route('front.services.show', $service)) }}" />
-<link rel="alternate" hreflang="x-default" href="{{ LaravelLocalization::getLocalizedURL('en', route('front.services.show', $service)) }}" />
+<link rel="alternate" hreflang="en" href="{{ LaravelLocalization::getLocalizedURL('en') }}" />
+<link rel="alternate" hreflang="ar" href="{{ LaravelLocalization::getLocalizedURL('ar') }}" />
+<link rel="alternate" hreflang="x-default" href="{{ LaravelLocalization::getLocalizedURL('en') }}" />
 @endsection
 
 @section('breadcrumb_schema')
