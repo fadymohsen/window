@@ -1,9 +1,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>@yield('meta_title', $website_settings->title . ' - ' . View::yieldContent('title'))</title>
-<meta property="og:title" content="@yield('meta_title', $website_settings->title . ' - ' . View::yieldContent('title'))">
-<meta name="twitter:title" content="@yield('meta_title', $website_settings->title . ' - ' . View::yieldContent('title'))">
+@php
+    $pageTitle = View::yieldContent('meta_title') ?: ($website_settings->title . ' - ' . View::yieldContent('title'));
+    if (request()->has('page') && request()->get('page') > 1) {
+        $pageTitle .= ' - ' . (app()->getLocale() === 'ar' ? 'صفحة ' : 'Page ') . request()->get('page');
+    }
+@endphp
+<title>{{ $pageTitle }}</title>
+<meta property="og:title" content="{{ $pageTitle }}">
+<meta name="twitter:title" content="{{ $pageTitle }}">
 <meta property="og:site_name" content="{{ $website_settings->title }}">
 
 <meta name="description" content="@yield('description', $website_settings->description)">
@@ -12,6 +18,9 @@
 
 <meta property="og:url" content="{{ request()->fullUrl() }}">
 <link rel="canonical" href="{{ request()->fullUrl() }}">
+@if(request()->has('page') && request()->get('page') > 1)
+<link rel="prev" href="{{ request()->fullUrlWithQuery(['page' => request()->get('page') - 1 == 1 ? null : request()->get('page') - 1]) }}">
+@endif
 @hasSection('hreflang')
     @yield('hreflang')
 @endif
