@@ -33,6 +33,7 @@
 
 @section('content')
 
+    <h1 class="visually-hidden">@lang('custom.about-meta-title')</h1>
     <section id="about" class="py-4 about2">
         <div class="container">
             <div class="row align-items-center">

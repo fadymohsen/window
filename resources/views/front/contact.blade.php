@@ -38,7 +38,7 @@
             <div class="header mb-4">
                 <!-- <h2 class="text-center ">نـصـمـم ونـبـتـكـر كـل مـاهـو جـذاب</h2> -->
                 <div class="title mb-4 mx-auto">
-                    <h2 class="text-center mb-2">@lang('custom.contact-us')</h2>
+                    <h1 class="text-center mb-2" style="font-size: 1.75rem;">@lang('custom.contact-us')</h1>
                     <div class="title-underline-container title-second">
                         <div class="title-underline w-100"></div>
                     </div>
