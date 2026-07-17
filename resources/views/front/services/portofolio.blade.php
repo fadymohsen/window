@@ -147,16 +147,20 @@
     </section>
 
     @if($service->content)
+    @php
+        $fullContent = addAltToImages($service->content, $service->title ?? '');
+        [$contentTop, $contentBottom] = splitContentAfterBlocks($fullContent, 2);
+    @endphp
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="service-body mt-3">
-                    {!! addAltToImages($service->content, $service->title ?? '') !!}
+                    {!! $contentTop !!}
                 </div>
             </div>
         </div>
     </div>
-    @endif
 
     @if($portofolios->count() > 0)
     <section id="portofolio" class="py-4 pt-5 bg-light">
@@ -177,6 +181,43 @@
             </div>
         </div>
     </section>
+    @endif
+
+    @if($contentBottom)
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="service-body mt-3">
+                    {!! $contentBottom !!}
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    @else
+
+    @if($portofolios->count() > 0)
+    <section id="portofolio" class="py-4 pt-5 bg-light">
+        <div class="container">
+            <div class="title mx-auto mb-4">
+                <h2 class="mb-2">{{ $portfolioHeading ?? (app()->getLocale() === 'ar' ? 'أعمالنا' : 'Our Portfolio') }}</h2>
+                <div class="title-underline-container">
+                    <div class="title-underline w-100"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div id="porto-data" class="row px-2 row-gap-2">
+                <x-portofolios-list :portofolios="$portofolios" />
+            </div>
+            <div class="d-flex justify-content-center mt-5 mb-5">
+                {{ $portofolios->links() }}
+            </div>
+        </div>
+    </section>
+    @endif
+
     @endif
 
     @if(isset($relatedServices) && $relatedServices->count() > 0)

@@ -55,6 +55,26 @@ function extractImagesSrc(string $content) : array
     return $imageUrls;
 }
 
+function splitContentAfterBlocks(string $html, int $splitAfter = 2): array
+{
+    $blockTags = 'h1|h2|h3|h4|h5|h6|p|ul|ol|figure|table|blockquote|div';
+    $pattern = '/(<(?:' . $blockTags . ')[\s>](?:(?!<(?:' . $blockTags . ')[\s>]).)*<\/(?:' . $blockTags . ')>)/is';
+
+    preg_match_all($pattern, $html, $matches, PREG_OFFSET_CAPTURE);
+
+    if (empty($matches[0]) || count($matches[0]) <= $splitAfter) {
+        return [$html, ''];
+    }
+
+    $lastMatch = $matches[0][$splitAfter - 1];
+    $splitPos = $lastMatch[1] + strlen($lastMatch[0]);
+
+    $firstPart = substr($html, 0, $splitPos);
+    $secondPart = substr($html, $splitPos);
+
+    return [trim($firstPart), trim($secondPart)];
+}
+
 function addAltToImages(string $html, string $fallbackAlt): string
 {
     return preg_replace_callback('/<img\b([^>]*?)(\s*\/?>)/i', function ($matches) use ($fallbackAlt) {
