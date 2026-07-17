@@ -55,19 +55,18 @@ function extractImagesSrc(string $content) : array
     return $imageUrls;
 }
 
-function splitContentAfterBlocks(string $html, int $splitAfter = 2): array
+function splitContentAfterFirstSection(string $html): array
 {
-    $blockTags = 'h1|h2|h3|h4|h5|h6|p|ul|ol|figure|table|blockquote|div';
-    $pattern = '/(<(?:' . $blockTags . ')[\s>](?:(?!<(?:' . $blockTags . ')[\s>]).)*<\/(?:' . $blockTags . ')>)/is';
+    // Find all h2/h3 headings positions
+    preg_match_all('/<h[23][\s>]/i', $html, $matches, PREG_OFFSET_CAPTURE);
 
-    preg_match_all($pattern, $html, $matches, PREG_OFFSET_CAPTURE);
-
-    if (empty($matches[0]) || count($matches[0]) <= $splitAfter) {
+    // Need at least 2 headings to split (first section = heading1 + content, then heading2 starts next section)
+    if (count($matches[0]) < 2) {
         return [$html, ''];
     }
 
-    $lastMatch = $matches[0][$splitAfter - 1];
-    $splitPos = $lastMatch[1] + strlen($lastMatch[0]);
+    // Split right before the second heading
+    $splitPos = $matches[0][1][1];
 
     $firstPart = substr($html, 0, $splitPos);
     $secondPart = substr($html, $splitPos);

@@ -149,7 +149,7 @@
     @if($service->content)
     @php
         $fullContent = addAltToImages($service->content, $service->title ?? '');
-        [$contentTop, $contentBottom] = splitContentAfterBlocks($fullContent, 2);
+        [$contentTop, $contentBottom] = splitContentAfterFirstSection($fullContent);
     @endphp
 
     <div class="container">
