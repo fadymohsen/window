@@ -46,7 +46,7 @@ class SiteMapService
             }
         }
 
-        Blog::chunk(100, function ($blogs) use (&$sitemap, $locales) {
+        Blog::whereNotNull('slug')->where('slug', '!=', '')->chunk(100, function ($blogs) use (&$sitemap, $locales) {
             foreach ($blogs as $blog) {
                 foreach ($locales as $locale) {
                     $url = Url::create(self::localizedRoute('front.blogs.show', [$blog->slug], $locale))
@@ -63,7 +63,7 @@ class SiteMapService
             }
         });
 
-        Service::chunk(100, function ($services) use (&$sitemap, $locales) {
+        Service::whereNotNull('slug')->where('slug', '!=', '')->chunk(100, function ($services) use (&$sitemap, $locales) {
             foreach ($services as $service) {
                 foreach ($locales as $locale) {
                     $url = Url::create(self::localizedRoute('front.services.show', [$service->slug], $locale))

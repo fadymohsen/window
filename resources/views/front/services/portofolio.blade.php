@@ -126,6 +126,13 @@
 
 @section('content')
 
+    <x-breadcrumb :items="array_filter([
+        ['label' => __('custom.home'), 'url' => route('front.home')],
+        ['label' => __('custom.services'), 'url' => route('front.services.index')],
+        isset($parentBreadcrumb) ? ['label' => $parentBreadcrumb['name'], 'url' => $parentBreadcrumb['url']] : null,
+        ['label' => $service->title ?? ''],
+    ])" />
+
     <div id="service-progress"></div>
 
     <section id="services-header" class="py-4 mb-4">
@@ -144,7 +151,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="service-body mt-3">
-                    {!! $service->content !!}
+                    {!! addAltToImages($service->content, $service->title ?? '') !!}
                 </div>
             </div>
         </div>
@@ -251,6 +258,36 @@
             </div>
         </div>
     </section>
+
+    @if(isset($latestBlogs) && $latestBlogs->count() > 0)
+    <section id="latest-blogs" class="py-5">
+        <div class="container">
+            <div class="title mx-auto mb-4">
+                <h2 class="mb-2">{{ app()->getLocale() === 'ar' ? 'أحدث المقالات' : 'Latest Articles' }}</h2>
+                <div class="title-underline-container">
+                    <div class="title-underline w-100"></div>
+                </div>
+            </div>
+            <div class="row g-4">
+                @foreach($latestBlogs as $latestBlog)
+                <div class="col-md-4">
+                    <a href="{{ route('front.blogs.show', $latestBlog) }}" class="text-decoration-none">
+                        <div class="card h-100 border-0" style="box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-radius: 10px; overflow: hidden;">
+                            <img src="{{ $latestBlog->display_image }}" class="card-img-top" alt="{{ $latestBlog->title ?? '' }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                            <div class="card-body">
+                                <h3 class="card-title fs-6 fw-bold text-dark">{{ $latestBlog->title ?? '' }}</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{ route('front.blogs.index') }}" class="cta-btn text-decoration-none text-dark">{{ app()->getLocale() === 'ar' ? 'جميع المقالات' : 'All Articles' }}</a>
+            </div>
+        </div>
+    </section>
+    @endif
 
     <section class="py-5">
         <div class="container">

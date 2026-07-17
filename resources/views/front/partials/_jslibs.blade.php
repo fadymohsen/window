@@ -11,9 +11,13 @@
 <!-- Sweet Alert2 -->
 <script src="{{ asset('front/libs/sweetalert2/sweet.js') }}" defer></script>
 <script src="{{ asset('front/libs/OwlCarousel2-2.3.4/owl.carousel.min.js') }}" defer></script>
+@if(app()->environment('production') && file_exists(public_path('front/js/top-partners-options.min.js')))
+<script src="{{ asset('front/js/top-partners-options.min.js') }}?v={{ filemtime(public_path('front/js/top-partners-options.min.js')) }}" defer></script>
+@else
 <script src="{{ asset('front/js/top-partners-options.js') }}" defer></script>
+@endif
 <!-- AOS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js" defer></script>
 <!-- GLightbox -->
 <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js" defer></script>
 <!-- Custom JS -->
@@ -23,4 +27,5 @@
 <script src="{{ asset('front/js/main.js') }}?v={{ filemtime(public_path('front/js/main.js')) }}" defer></script>
 @endif
 <script src="{{ asset('front/js/main-module.js') }}" type="module"></script>
+@yield('custom-js')
 @yield('js-after')

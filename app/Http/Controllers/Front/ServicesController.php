@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Portofolio;
 use App\Models\Service;
 use App\Services\ServicesService;
@@ -393,7 +394,9 @@ class ServicesController extends Controller
                 : ($config['portfolioHeading_en'] ?? null);
         }
 
-        return view('front.services.portofolio', compact('portofolios', 'service', 'relatedServices', 'parentBreadcrumb', 'portfolioHeading'));
+        $latestBlogs = Blog::withTranslation()->latest()->limit(3)->get();
+
+        return view('front.services.portofolio', compact('portofolios', 'service', 'relatedServices', 'parentBreadcrumb', 'portfolioHeading', 'latestBlogs'));
     }
 
     /**

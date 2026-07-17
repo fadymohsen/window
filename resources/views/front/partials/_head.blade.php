@@ -6,14 +6,16 @@
     $isPaginated = $currentPage > 1;
     $pageSuffix = $isPaginated ? ' - ' . (app()->getLocale() === 'ar' ? 'صفحة ' : 'Page ') . $currentPage : '';
 
-    $pageTitle = View::yieldContent('meta_title') ?: ($website_settings->title . ' - ' . View::yieldContent('title'));
-    $pageTitle .= $pageSuffix;
+    $rawTitle = View::yieldContent('meta_title') ?: ($website_settings->title . ' - ' . View::yieldContent('title'));
+    $pageTitle = mb_strlen($rawTitle . $pageSuffix) > 65 ? mb_substr($rawTitle, 0, 62 - mb_strlen($pageSuffix)) . '...' . $pageSuffix : $rawTitle . $pageSuffix;
 
     $baseDescription = View::yieldContent('description') ?: $website_settings->description;
-    $pageDescription = $isPaginated ? $baseDescription . $pageSuffix : $baseDescription;
+    $pageDescription = $isPaginated ? mb_substr($baseDescription, 0, 140) . $pageSuffix : $baseDescription;
 
-    // Canonical always points to the base URL (page 1) without ?page= parameter
-    $canonicalUrl = rtrim(request()->fullUrlWithQuery(['page' => null]), '?');
+    // Paginated pages get self-referencing canonical; page 1 strips ?page= param
+    $canonicalUrl = $isPaginated
+        ? request()->fullUrlWithQuery(['page' => $currentPage])
+        : rtrim(request()->fullUrlWithQuery(['page' => null]), '?');
 @endphp
 <title>{{ $pageTitle }}</title>
 <meta property="og:title" content="{{ $pageTitle }}">

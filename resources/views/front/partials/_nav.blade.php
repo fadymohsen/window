@@ -31,7 +31,7 @@
                     </li>
                 </ul>
                 <div class="click-to-contact-container me-2 ms-auto">
-                    <a href="tel:+966592945557" class="rounded-5 px-3 py-1 background-secondary-color d-inline-block d-flex align-items-center text-white text-decoration-none">
+                    <a href="tel:+966592945557" class="rounded-5 px-3 py-1 background-secondary-color d-inline-block d-flex align-items-center text-white text-decoration-none" aria-label="@lang('custom.click-for-fast-contact') +966592945557">
                         <i class="fas fa-headset text-orange-color fs-5 me-1"></i>
                         <div class="content me-2 d-flex flex-column justify-content-center">
                             <span class="fs-9">@lang('custom.click-for-fast-contact')</span>

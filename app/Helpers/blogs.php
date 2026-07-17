@@ -54,3 +54,18 @@ function extractImagesSrc(string $content) : array
 
     return $imageUrls;
 }
+
+function addAltToImages(string $html, string $fallbackAlt): string
+{
+    return preg_replace_callback('/<img\b([^>]*?)(\s*\/?>)/i', function ($matches) use ($fallbackAlt) {
+        $attrs = $matches[1];
+        $close = $matches[2];
+        if (preg_match('/\balt\s*=/i', $attrs)) {
+            if (preg_match('/\balt\s*=\s*(["\'])\s*\1/i', $attrs)) {
+                return '<img' . preg_replace('/\balt\s*=\s*(["\'])\s*\1/i', 'alt="' . e($fallbackAlt) . '"', $attrs) . $close;
+            }
+            return '<img' . $attrs . $close;
+        }
+        return '<img' . $attrs . ' alt="' . e($fallbackAlt) . '"' . $close;
+    }, $html);
+}

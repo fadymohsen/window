@@ -2,9 +2,10 @@ User-agent: *
 Allow: /
 Disallow: /dashboard/
 Disallow: /_debugbar/
-Disallow: /*/services/*/portofolios/
-Disallow: /*/blogs/*/*
-Disallow: /*/services/*/*
+
+# Block only AJAX load-more endpoints, not content pages
+Disallow: /*/services/*/portofoliols/
+Disallow: /*/blogs/*/*/
 
 # Allow crawlers to access CSS, JS, and image files
 Allow: /front/css/

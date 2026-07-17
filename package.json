@@ -4,7 +4,7 @@
     "scripts": {
         "build": "vite build && npm run minify:assets",
         "dev": "vite",
-        "minify:assets": "node -e \"const{buildSync}=require('esbuild');buildSync({entryPoints:['public/front/css/main.css'],outfile:'public/front/css/main.min.css',minify:true});buildSync({entryPoints:['public/front/js/main.js'],outfile:'public/front/js/main.min.js',minify:true});console.log('Assets minified.');\""
+        "minify:assets": "node -e \"const{buildSync}=require('esbuild');['main'].forEach(f=>{buildSync({entryPoints:['public/front/css/'+f+'.css'],outfile:'public/front/css/'+f+'.min.css',minify:true})});['main','top-partners-options'].forEach(f=>{buildSync({entryPoints:['public/front/js/'+f+'.js'],outfile:'public/front/js/'+f+'.min.js',minify:true})});console.log('Assets minified.');\""
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",

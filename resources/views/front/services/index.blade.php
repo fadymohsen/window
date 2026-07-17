@@ -53,6 +53,11 @@
 
 @section('content')
 
+    <x-breadcrumb :items="[
+        ['label' => __('custom.home'), 'url' => route('front.home')],
+        ['label' => __('custom.services')],
+    ]" />
+
     <section id="services-header" class="py-2 pb-0 mb-4">
         <div class="container">
             <div class="row px-2">

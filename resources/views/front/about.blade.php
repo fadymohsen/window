@@ -33,6 +33,11 @@
 
 @section('content')
 
+    <x-breadcrumb :items="[
+        ['label' => __('custom.home'), 'url' => route('front.home')],
+        ['label' => __('custom.about')],
+    ]" />
+
     <h1 class="visually-hidden">@lang('custom.about-meta-title')</h1>
     <section id="about" class="py-4 about2">
         <div class="container">

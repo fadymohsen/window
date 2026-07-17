@@ -177,14 +177,16 @@
                 @else
                     @foreach ($services as $service)
                         <div class="col-lg-3 col-md-4 col-6 px-md-5">
-                            <div class="item">
-                                <div>
-                                    <img src="{{ $service->display_image }}" alt="{{ $service->title ?? '' }}" style="width:100%;" loading="lazy">
+                            <a href="{{ route('front.services.show', $service) }}" class="text-decoration-none">
+                                <div class="item">
+                                    <div>
+                                        <img src="{{ $service->display_image }}" alt="{{ $service->title ?? '' }}" style="width:100%;" loading="lazy">
+                                    </div>
+                                    <div class="text-center text-white">
+                                        <p class="fs-4 mt-2 text-gr">{{ $service->title ?? '' }}</p>
+                                    </div>
                                 </div>
-                                <div class="text-center text-white">
-                                    <p class="fs-4 mt-2 text-gr">{{ $service->title ?? '' }}</p>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
                 @endif

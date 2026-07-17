@@ -33,6 +33,11 @@
 
 @section('content')
 
+    <x-breadcrumb :items="[
+        ['label' => __('custom.home'), 'url' => route('front.home')],
+        ['label' => __('custom.contact')],
+    ]" />
+
     <section id="contact-form" class="py-4 mb-3" data-aos="fade-up">
         <div class="container">
             <div class="header mb-4">

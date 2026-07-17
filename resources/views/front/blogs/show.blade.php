@@ -72,13 +72,19 @@
 
 @section('content')
 
+    <x-breadcrumb :items="[
+        ['label' => __('custom.home'), 'url' => route('front.home')],
+        ['label' => __('custom.blog'), 'url' => route('front.blogs.index')],
+        ['label' => $blog->title ?? ''],
+    ]" />
+
     <div id="blog-progress" style="position:fixed;top:0;left:0;height:3px;width:0;background:#f9a11b;z-index:9999;transition:width 0.1s linear;"></div>
 
     <section id="blog-header" class="py-2 pb-0">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 px-4 mt-4 my-2 d-flex flex-column align-items-center" style="z-index: 99;">
-                    <h1 class="text-center">@lang('custom.blog')</h1>
+                    <h1 class="text-center">{{ $blog->title ?? '' }}</h1>
                     <a href="{{ route('front.blogs.index') }}" style="color: #f9a11b;">@lang('custom.return')</a>
                 </div>
             </div>
@@ -87,17 +93,18 @@
     <div class="container blog-container">
         <div class="row">
             <div class="blog-header my-2 mb-3 blog-animate blog-visible">
-                <h2 class="text-center">{{ $blog->title ?? '' }}</h2>
+                <h2 class="text-center">{{ $blog->meta_title ?: ($blog->title ?? '') }}</h2>
                 <span class="date d-flex justify-content-center"><bdi class="fs-6">{{ $blog->created_at->format('y M D, H:i') }}</bdi></span>
             </div>
             <div class="blog-image col-lg-6 mx-auto blog-animate blog-visible">
                 <img loading="lazy" src="{{ $blog->display_image }}" alt="{{ $blog->title ?? '' }}">
             </div>
             <div class="blog-body mt-3">
-                {!! $blog->description !!}
+                {!! addAltToImages($blog->description, $blog->title ?? '') !!}
             </div>
             <div class="text-center my-4 d-flex gap-3 justify-content-center flex-wrap blog-animate">
                 <a href="{{ route('front.blogs.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.blog')</a>
+                <a href="{{ route('front.services.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.services')</a>
                 <a href="{{ route('front.contact.index') }}" class="cta-btn text-decoration-none text-dark">@lang('custom.contact-us')</a>
             </div>
         </div>

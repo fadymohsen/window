@@ -93,7 +93,7 @@
     <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top"><i class="fa-solid fa-angles-up"></i></button>
     <!-- Whatssapp floating icon -->
     <div class="d-flex gap-2">
-        <a class="whatsapp-floating-icon" href="https://wa.me/966592945557" target="_blank" rel="noopener" aria-label="{{ app()->getLocale() === 'ar' ? 'تواصل معنا عبر واتساب' : 'Contact us on WhatsApp' }}"><span class="visually-hidden">{{ app()->getLocale() === 'ar' ? 'واتساب' : 'WhatsApp' }}</span></a>
-        <a class="calling-icon" href="tel:+966592945557" target="_blank" rel="noopener" aria-label="{{ app()->getLocale() === 'ar' ? 'اتصل بنا' : 'Call us' }}"><span class="visually-hidden">{{ app()->getLocale() === 'ar' ? 'اتصل بنا' : 'Call us' }}</span></a>
+        <a class="whatsapp-floating-icon" href="https://wa.me/966592945557" target="_blank" rel="noopener nofollow" aria-label="{{ app()->getLocale() === 'ar' ? 'تواصل معنا عبر واتساب' : 'Contact us on WhatsApp' }}"><span class="visually-hidden">{{ app()->getLocale() === 'ar' ? 'واتساب' : 'WhatsApp' }}</span></a>
+        <a class="calling-icon" href="tel:+966592945557" target="_blank" rel="noopener nofollow" aria-label="{{ app()->getLocale() === 'ar' ? 'اتصل بنا' : 'Call us' }}"><span class="visually-hidden">{{ app()->getLocale() === 'ar' ? 'اتصل بنا' : 'Call us' }}</span></a>
     </div>
 </div>
