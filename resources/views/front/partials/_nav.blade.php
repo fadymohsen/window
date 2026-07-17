@@ -41,12 +41,12 @@
                 </div>
                 <div>
                     @if (LaravelLocalization::getCurrentLocale() == 'ar')
-                        <a class="text-decoration-none" href="{{ LaravelLocalization::getLocalizedURL('en') }}">
-                            <img id="lang-image" src="{{ asset('front/images/English_language.png')}}" width="60" class="rounded-2" alt="En">
+                        <a class="text-decoration-none" href="{{ LaravelLocalization::getLocalizedURL('en') }}" aria-label="Switch to English">
+                            <img id="lang-image" src="{{ asset('front/images/English_language.png')}}" width="60" class="rounded-2" alt="Switch to English">
                         </a>
                         @else
-                        <a class="text-decoration-none" href="{{ LaravelLocalization::getLocalizedURL('ar') }}">
-                            <img id="lang-image" src="{{ asset('front/images/saudi.webp')}}" width="60" class="rounded-2" alt="Ar">
+                        <a class="text-decoration-none" href="{{ LaravelLocalization::getLocalizedURL('ar') }}" aria-label="التبديل إلى العربية">
+                            <img id="lang-image" src="{{ asset('front/images/saudi.webp')}}" width="60" class="rounded-2" alt="التبديل إلى العربية">
                         </a>
                     @endif
                 </div>

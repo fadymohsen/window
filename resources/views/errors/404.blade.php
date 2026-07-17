@@ -2,6 +2,7 @@
 
 @section('title', __('custom.404-title'))
 @section('meta_title', __('custom.404-title'))
+@section('description', app()->getLocale() === 'ar' ? 'الصفحة التي تبحث عنها غير موجودة. يمكنك العودة للصفحة الرئيسية أو تصفح خدماتنا.' : 'The page you are looking for was not found. You can return to the homepage or browse our services.')
 
 @section('content')
     <section class="py-5 d-flex align-items-center justify-content-center" style="min-height: 60vh;">

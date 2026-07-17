@@ -94,37 +94,37 @@
                         <p class="ms-1 mb-1 fw-bold">@lang('custom.social')</p>
                         <ul class="d-flex gap-3 flex-nowrap justify-content-start ps-0" style="list-style: none;">
                             <li>
-                                <a href="{{ $website_settings->facebook_url }}">
+                                <a href="{{ $website_settings->facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook">
                                 <i class="fa-brands fa-square-facebook text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->instagram_url }}">
+                                <a href="{{ $website_settings->instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram">
                                 <i class="fa-brands fa-square-instagram text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->linkedin_url }}">
+                                <a href="{{ $website_settings->linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->snapchat_url }}">
+                                <a href="{{ $website_settings->snapchat_url }}" target="_blank" rel="noopener" aria-label="Snapchat">
                                 <i class="fab fa-snapchat-square fs-4 text-white"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->tiktok_url }}">
+                                <a href="{{ $website_settings->tiktok_url }}" target="_blank" rel="noopener" aria-label="TikTok">
                                 <i class="fab fa-tiktok bg-white rounded-2" style="font-size:1.8rem;color:#1f1f1f;"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->twitter_url }}">
+                                <a href="{{ $website_settings->twitter_url }}" target="_blank" rel="noopener" aria-label="X">
                                 <i class="fa-brands fa-square-x-twitter text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->youtube_url }}">
+                                <a href="{{ $website_settings->youtube_url }}" target="_blank" rel="noopener" aria-label="YouTube">
                                 <i class="fa-brands fa-youtube text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>

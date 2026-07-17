@@ -207,9 +207,10 @@
                 @else
                     <div class="protofolio-carousel owl-carousel owl-theme px-0" dir="ltr">
                         @foreach ($portofolios as $portofolio)
-                           <div class="item position-relative" style="width: 100%;aspect-ratio: 4 / 3;background-size: cover;background-position: center;background-repeat: no-repeat;background-image: url({{ $portofolio->display_image }});overflow:hidden;border-radius:10px">
+                           <div class="item position-relative" style="width: 100%;aspect-ratio: 4 / 3;overflow:hidden;border-radius:10px">
+                                <img src="{{ $portofolio->display_image }}" alt="{{ $portofolio->title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
                                 <p class="mt-2 position-absolute" style="bottom: 0;right: 15px;color: white;font-weight: bold;font-size: 25px;text-shadow: -2px 1px 2px #636363;">{{ $portofolio->title }}</p>
-                            </div> 
+                            </div>
                         @endforeach
                     </div>
                 @endif
@@ -283,37 +284,37 @@
                         <p class="ms-1 fw-bold"><i class="fa-solid fa-share-nodes ms-1"></i> @lang('custom.social') </p>
                         <ul class="d-flex gap-3 flex-nowrap justify-content-start ps-0" style="list-style: none;">
                             <li>
-                                <a href="{{ $website_settings->facebook_url }}">
+                                <a href="{{ $website_settings->facebook_url }}" target="_blank" rel="noopener" aria-label="Facebook">
                                     <i class="fa-brands fa-square-facebook text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->instagram_url }}">
+                                <a href="{{ $website_settings->instagram_url }}" target="_blank" rel="noopener" aria-label="Instagram">
                                     <i class="fa-brands fa-square-instagram text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->linkedin_url }}">
+                                <a href="{{ $website_settings->linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn">
                                     <i class="fab fa-linkedin text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->snapchat_url }}">
+                                <a href="{{ $website_settings->snapchat_url }}" target="_blank" rel="noopener" aria-label="Snapchat">
                                     <i class="fab fa-snapchat-square text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->tiktok_url }}">
+                                <a href="{{ $website_settings->tiktok_url }}" target="_blank" rel="noopener" aria-label="TikTok">
                                     <i class="fab fa-tiktok bg-white rounded-2" style="font-size:1.8rem;color:#1f1f1f;"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->twitter_url }}">
+                                <a href="{{ $website_settings->twitter_url }}" target="_blank" rel="noopener" aria-label="X">
                                     <i class="fa-brands fa-square-x-twitter text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $website_settings->youtube_url }}">
+                                <a href="{{ $website_settings->youtube_url }}" target="_blank" rel="noopener" aria-label="YouTube">
                                     <i class="fa-brands fa-youtube text-white" style="font-size:1.8rem"></i>
                                 </a>
                             </li>
