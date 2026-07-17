@@ -13,7 +13,7 @@
     $pageDescription = $isPaginated ? $baseDescription . $pageSuffix : $baseDescription;
 
     // Canonical always points to the base URL (page 1) without ?page= parameter
-    $canonicalUrl = request()->fullUrlWithQuery(['page' => null]);
+    $canonicalUrl = rtrim(request()->fullUrlWithQuery(['page' => null]), '?');
 @endphp
 <title>{{ $pageTitle }}</title>
 <meta property="og:title" content="{{ $pageTitle }}">
@@ -27,7 +27,7 @@
 <meta property="og:url" content="{{ $canonicalUrl }}">
 <link rel="canonical" href="{{ $canonicalUrl }}">
 @if($isPaginated)
-<link rel="prev" href="{{ request()->fullUrlWithQuery(['page' => $currentPage - 1 == 1 ? null : $currentPage - 1]) }}">
+<link rel="prev" href="{{ rtrim(request()->fullUrlWithQuery(['page' => $currentPage - 1 == 1 ? null : $currentPage - 1]), '?') }}">
 @endif
 @if(isset($services) && method_exists($services, 'hasMorePages') && $services->hasMorePages() || isset($blogs) && method_exists($blogs, 'hasMorePages') && $blogs->hasMorePages() || isset($portofolios) && method_exists($portofolios, 'hasMorePages') && $portofolios->hasMorePages())
 <link rel="next" href="{{ request()->fullUrlWithQuery(['page' => $currentPage + 1]) }}">
