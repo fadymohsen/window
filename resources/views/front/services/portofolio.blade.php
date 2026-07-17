@@ -163,7 +163,7 @@
     </div>
 
     @if($portofolios->count() > 0)
-    <section id="portofolio" class="py-4 pt-5 bg-light">
+    <section id="portofolio" class="py-4 pt-5">
         <div class="container">
             <div class="title mx-auto mb-4">
                 <h2 class="mb-2">{{ $portfolioHeading ?? (app()->getLocale() === 'ar' ? 'أعمالنا' : 'Our Portfolio') }}</h2>
@@ -198,7 +198,7 @@
     @else
 
     @if($portofolios->count() > 0)
-    <section id="portofolio" class="py-4 pt-5 bg-light">
+    <section id="portofolio" class="py-4 pt-5">
         <div class="container">
             <div class="title mx-auto mb-4">
                 <h2 class="mb-2">{{ $portfolioHeading ?? (app()->getLocale() === 'ar' ? 'أعمالنا' : 'Our Portfolio') }}</h2>
