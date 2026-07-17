@@ -6,4 +6,12 @@ Disallow: /*/services/*/portofolios/
 Disallow: /*/blogs/*/*
 Disallow: /*/services/*/*
 
+# Allow crawlers to access CSS, JS, and image files
+Allow: /front/css/
+Allow: /front/js/
+Allow: /front/libs/
+Allow: /front/images/
+Allow: /front/fonts/
+Allow: /storage/
+
 Sitemap: https://windowadv.com/sitemap.xml

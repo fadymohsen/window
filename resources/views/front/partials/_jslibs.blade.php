@@ -17,6 +17,10 @@
 <!-- GLightbox -->
 <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js" defer></script>
 <!-- Custom JS -->
+@if(app()->environment('production') && file_exists(public_path('front/js/main.min.js')))
+<script src="{{ asset('front/js/main.min.js') }}?v={{ filemtime(public_path('front/js/main.min.js')) }}" defer></script>
+@else
 <script src="{{ asset('front/js/main.js') }}?v={{ filemtime(public_path('front/js/main.js')) }}" defer></script>
+@endif
 <script src="{{ asset('front/js/main-module.js') }}" type="module"></script>
 @yield('js-after')

@@ -2,24 +2,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 @php
+    $currentPage = (int) request()->get('page', 1);
+    $isPaginated = $currentPage > 1;
+    $pageSuffix = $isPaginated ? ' - ' . (app()->getLocale() === 'ar' ? 'صفحة ' : 'Page ') . $currentPage : '';
+
     $pageTitle = View::yieldContent('meta_title') ?: ($website_settings->title . ' - ' . View::yieldContent('title'));
-    if (request()->has('page') && request()->get('page') > 1) {
-        $pageTitle .= ' - ' . (app()->getLocale() === 'ar' ? 'صفحة ' : 'Page ') . request()->get('page');
-    }
+    $pageTitle .= $pageSuffix;
+
+    $baseDescription = View::yieldContent('description') ?: $website_settings->description;
+    $pageDescription = $isPaginated ? $baseDescription . $pageSuffix : $baseDescription;
+
+    // Canonical always points to the base URL (page 1) without ?page= parameter
+    $canonicalUrl = request()->fullUrlWithQuery(['page' => null]);
 @endphp
 <title>{{ $pageTitle }}</title>
 <meta property="og:title" content="{{ $pageTitle }}">
 <meta name="twitter:title" content="{{ $pageTitle }}">
 <meta property="og:site_name" content="{{ $website_settings->title }}">
 
-<meta name="description" content="@yield('description', $website_settings->description)">
-<meta property="og:description" content="@yield('description', $website_settings->description)">
-<meta name="twitter:description" content="@yield('description', $website_settings->description)">
+<meta name="description" content="{{ $pageDescription }}">
+<meta property="og:description" content="{{ $pageDescription }}">
+<meta name="twitter:description" content="{{ $pageDescription }}">
 
-<meta property="og:url" content="{{ request()->fullUrl() }}">
-<link rel="canonical" href="{{ request()->fullUrl() }}">
-@if(request()->has('page') && request()->get('page') > 1)
-<link rel="prev" href="{{ request()->fullUrlWithQuery(['page' => request()->get('page') - 1 == 1 ? null : request()->get('page') - 1]) }}">
+<meta property="og:url" content="{{ $canonicalUrl }}">
+<link rel="canonical" href="{{ $canonicalUrl }}">
+@if($isPaginated)
+<link rel="prev" href="{{ request()->fullUrlWithQuery(['page' => $currentPage - 1 == 1 ? null : $currentPage - 1]) }}">
+@endif
+@if(isset($services) && method_exists($services, 'hasMorePages') && $services->hasMorePages() || isset($blogs) && method_exists($blogs, 'hasMorePages') && $blogs->hasMorePages() || isset($portofolios) && method_exists($portofolios, 'hasMorePages') && $portofolios->hasMorePages())
+<link rel="next" href="{{ request()->fullUrlWithQuery(['page' => $currentPage + 1]) }}">
 @endif
 @hasSection('hreflang')
     @yield('hreflang')
@@ -35,7 +46,11 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="{{ app()->getLocale() === 'ar' ? 'ar_SA' : 'en_US' }}">
 <meta property="og:locale:alternate" content="{{ app()->getLocale() === 'ar' ? 'en_US' : 'ar_SA' }}">
+@if($isPaginated)
+<meta name="robots" content="noindex, follow">
+@else
 <meta name="robots" content="index, follow">
+@endif
 
 <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
@@ -83,7 +98,11 @@
 <link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.theme.default.min.css') }}">
 <!-- Custom CSS -->
+@if(app()->environment('production') && file_exists(public_path('front/css/main.min.css')))
+<link rel="stylesheet" href="{{ asset('front/css/main.min.css') }}?v={{ filemtime(public_path('front/css/main.min.css')) }}">
+@else
 <link rel="stylesheet" href="{{ asset('front/css/main.css') }}?v={{ filemtime(public_path('front/css/main.css')) }}">
+@endif
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Google Tag Manager -->
