@@ -48,7 +48,7 @@
 @section('content')
 
     <header class="text-center" id="hero">
-        <img src="{{ asset('front/images/og-image.png') }}" alt="{{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان - شركة دعاية واعلان الرياض' : 'Window Advertising Agency Riyadh' }}" class="d-none" width="1200" height="630">
+        <img src="{{ asset('front/images/og-image.jpeg') }}" alt="{{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان - شركة دعاية واعلان الرياض' : 'Window Advertising Agency Riyadh' }}" class="d-none" width="1200" height="630">
         <video autoplay muted loop playsinline preload="metadata">
             <source src="{{ asset('front/videos/window_header.mp4') }}" type="video/mp4">
         </video>
