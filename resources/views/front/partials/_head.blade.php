@@ -41,8 +41,8 @@
 
 <meta name="keywords" content="@yield('keywords', $website_settings->keywords)">
 
-<meta name="twitter:image" content="@yield('display_image', asset('front/images/og-image.jpeg'))">
-<meta property="og:image" content="@yield('display_image', asset('front/images/og-image.jpeg'))">
+<meta name="twitter:image" content="@yield('display_image', asset('front/images/og-image.jpeg') . '?v=2')">
+<meta property="og:image" content="@yield('display_image', asset('front/images/og-image.jpeg') . '?v=2')">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
