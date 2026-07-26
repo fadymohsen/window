@@ -336,15 +336,9 @@ class ServicesController extends Controller
         ],
         'pvc-file-with-clip-manufacturing' => [
             'parentBreadcrumb' => ['name_en' => 'Promotional Items', 'name_ar' => 'المواد الترويجية', 'slug' => 'promotional-items'],
-            'relatedSlugs' => ['medical-files', 'promotional-gifts', 'business-cards'],
+            'relatedSlugs' => ['promotional-gifts', 'business-cards', 'promotional-bags'],
             'portfolioHeading_en' => 'PVC File Portfolio — Riyadh',
             'portfolioHeading_ar' => 'أعمالنا في ملفات PVC بالرياض',
-        ],
-        'medical-files' => [
-            'parentBreadcrumb' => ['name_en' => 'Promotional Items', 'name_ar' => 'المواد الترويجية', 'slug' => 'promotional-items'],
-            'relatedSlugs' => ['pvc-file-with-clip-manufacturing', 'business-cards', 'corporate-visual-identity-design'],
-            'portfolioHeading_en' => 'Medical Files Portfolio — Riyadh',
-            'portfolioHeading_ar' => 'أعمالنا في الملفات الطبية بالرياض',
         ],
         'smart-glass-smart-film' => [
             'parentBreadcrumb' => ['name_en' => 'Signage & Signs', 'name_ar' => 'اللافتات واللوحات', 'slug' => 'signage'],
