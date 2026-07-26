@@ -346,6 +346,12 @@ class ServicesController extends Controller
             'portfolioHeading_en' => 'Medical Files Portfolio — Riyadh',
             'portfolioHeading_ar' => 'أعمالنا في الملفات الطبية بالرياض',
         ],
+        'smart-glass-smart-film' => [
+            'parentBreadcrumb' => ['name_en' => 'Signage & Signs', 'name_ar' => 'اللافتات واللوحات', 'slug' => 'signage'],
+            'relatedSlugs' => ['directional-signage', 'wall-stickers', 'display-screens'],
+            'portfolioHeading_en' => 'Smart Glass Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في الزجاج الذكي بالرياض',
+        ],
     ];
 
     public function show(Service $service, ServicesService $servicesService)
