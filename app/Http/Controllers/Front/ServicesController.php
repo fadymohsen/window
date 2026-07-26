@@ -288,15 +288,9 @@ class ServicesController extends Controller
         ],
         'founding-day-celebrations' => [
             'parentBreadcrumb' => ['name_en' => 'Events & Exhibitions', 'name_ar' => 'الفعاليات والمعارض', 'slug' => 'events-exhibitions'],
-            'relatedSlugs' => ['founding-day-prints', 'national-day-celebrations', 'employee-gift-boxes'],
+            'relatedSlugs' => ['national-day-celebrations', 'employee-gift-boxes', 'flags'],
             'portfolioHeading_en' => 'Founding Day Portfolio — Riyadh',
             'portfolioHeading_ar' => 'أعمالنا في احتفالات يوم التأسيس بالرياض',
-        ],
-        'founding-day-prints' => [
-            'parentBreadcrumb' => ['name_en' => 'Apparel & Flags', 'name_ar' => 'الملابس والأعلام', 'slug' => 'apparel-flags'],
-            'relatedSlugs' => ['founding-day-celebrations', 'national-day-prints', 'flags'],
-            'portfolioHeading_en' => 'Founding Day Prints Portfolio — Riyadh',
-            'portfolioHeading_ar' => 'أعمالنا في مطبوعات يوم التأسيس بالرياض',
         ],
         'corporate-visual-identity-design' => [
             'parentBreadcrumb' => ['name_en' => 'Printing & Publications', 'name_ar' => 'الطباعة والمطبوعات', 'slug' => 'printing'],
