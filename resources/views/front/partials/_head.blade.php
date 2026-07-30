@@ -12,10 +12,19 @@
     $baseDescription = View::yieldContent('description') ?: $website_settings->description;
     $pageDescription = $isPaginated ? mb_substr($baseDescription, 0, 140) . $pageSuffix : $baseDescription;
 
-    // Paginated pages get self-referencing canonical; page 1 strips ?page= param
-    $canonicalUrl = $isPaginated
-        ? request()->fullUrlWithQuery(['page' => $currentPage])
-        : rtrim(request()->fullUrlWithQuery(['page' => null]), '?');
+    // Build clean canonical URL: always https://windowadv.com, never /public/index.php/
+    $cleanPath = request()->getPathInfo();
+    $cleanPath = preg_replace('#^/public/index\.php#', '', $cleanPath);
+    $cleanBase = rtrim(config('app.url'), '/');
+    if ($isPaginated) {
+        $canonicalUrl = $cleanBase . $cleanPath . '?page=' . $currentPage;
+    } else {
+        $canonicalUrl = $cleanBase . $cleanPath;
+    }
+    $canonicalUrl = rtrim($canonicalUrl, '/');
+    if ($canonicalUrl === rtrim($cleanBase, '/')) {
+        $canonicalUrl .= '/';
+    }
 @endphp
 <title>{{ $pageTitle }}</title>
 <meta property="og:title" content="{{ $pageTitle }}">
@@ -29,10 +38,15 @@
 <meta property="og:url" content="{{ $canonicalUrl }}">
 <link rel="canonical" href="{{ $canonicalUrl }}">
 @if($isPaginated)
-<link rel="prev" href="{{ rtrim(request()->fullUrlWithQuery(['page' => $currentPage - 1 == 1 ? null : $currentPage - 1]), '?') }}">
+@php
+    $prevPage = $currentPage - 1;
+    $prevUrl = $prevPage === 1 ? $cleanBase . $cleanPath : $cleanBase . $cleanPath . '?page=' . $prevPage;
+    $prevUrl = rtrim($prevUrl, '/');
+@endphp
+<link rel="prev" href="{{ $prevUrl }}">
 @endif
 @if(isset($services) && method_exists($services, 'hasMorePages') && $services->hasMorePages() || isset($blogs) && method_exists($blogs, 'hasMorePages') && $blogs->hasMorePages() || isset($portofolios) && method_exists($portofolios, 'hasMorePages') && $portofolios->hasMorePages())
-<link rel="next" href="{{ request()->fullUrlWithQuery(['page' => $currentPage + 1]) }}">
+<link rel="next" href="{{ $cleanBase . $cleanPath . '?page=' . ($currentPage + 1) }}">
 @endif
 @hasSection('hreflang')
     @yield('hreflang')

@@ -17,7 +17,7 @@
     "@type": "Organization",
     "name": "{{ $website_settings->title }}",
     "alternateName": "Window Advertising",
-    "url": "{{ url('/') }}",
+    "url": "{{ rtrim(config('app.url'), '/') }}",
     "logo": "{{ asset('android-chrome-512x512.png') }}",
     "image": "{{ asset('front/images/og-image.jpeg') }}",
     "description": "{{ $website_settings->description }}",
@@ -47,7 +47,7 @@
     "@context": "https://schema.org",
     "@type": "AdvertisingAgency",
     "name": "{{ $website_settings->title }}",
-    "url": "{{ url('/') }}",
+    "url": "{{ rtrim(config('app.url'), '/') }}",
     "logo": "{{ asset('android-chrome-512x512.png') }}",
     "image": "{{ asset('front/images/og-image.jpeg') }}",
     "description": "{{ $website_settings->description }}",
@@ -87,11 +87,11 @@
     "@type": "WebSite",
     "name": "{{ $website_settings->title }}",
     "alternateName": "Window Advertising",
-    "url": "{{ url('/') }}",
+    "url": "{{ rtrim(config('app.url'), '/') }}",
     "inLanguage": ["ar", "en"],
     "potentialAction": {
         "@type": "SearchAction",
-        "target": "{{ url('/') }}/{{ app()->getLocale() }}/services?q={search_term_string}",
+        "target": "{{ rtrim(config('app.url'), '/') }}/{{ app()->getLocale() }}/services?q={search_term_string}",
         "query-input": "required name=search_term_string"
     }
 }

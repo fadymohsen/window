@@ -48,3 +48,29 @@ Route::get('/portofolio.php', function () {
 Route::get('{locale}/services/founfing-day-prints', function ($locale) {
     return Redirect::to("/{$locale}/services/founding-day-prints", 301);
 })->where('locale', 'ar|en');
+
+// Redirect locale-less /services/{slug} and /blogs/{slug} to default locale
+Route::get('/services/{slug}', function ($slug) {
+    return Redirect::to('/ar/services/' . $slug, 301);
+})->where('slug', '[a-zA-Z][-a-zA-Z0-9]*');
+
+Route::get('/blogs/{slug}', function ($slug) {
+    return Redirect::to('/ar/blogs/' . $slug, 301);
+})->where('slug', '[a-zA-Z][-a-zA-Z0-9]*');
+
+// Redirect bare /services, /blogs, /about, /contacts, /contact
+Route::get('/services', function () {
+    return Redirect::to('/ar/services', 301);
+});
+Route::get('/blogs', function () {
+    return Redirect::to('/ar/blogs', 301);
+});
+Route::get('/about', function () {
+    return Redirect::to('/ar/about', 301);
+});
+Route::get('/contacts', function () {
+    return Redirect::to('/ar/contact', 301);
+});
+Route::get('/contact', function () {
+    return Redirect::to('/ar/contact', 301);
+});

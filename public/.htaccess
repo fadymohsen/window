@@ -5,6 +5,21 @@
 
     RewriteEngine On
 
+    # Force HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Force non-www
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+    # Redirect /public/index.php/... to clean URL
+    RewriteRule ^public/index\.php/(.*)$ /$1 [L,R=301]
+
+    # Redirect /index.php to /
+    RewriteCond %{THE_REQUEST} \s/index\.php[\s?] [NC]
+    RewriteRule ^index\.php(/.*)?$ /$1 [L,R=301]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
