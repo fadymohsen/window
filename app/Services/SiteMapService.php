@@ -14,18 +14,21 @@ class SiteMapService
         $locales = array_keys(config('laravellocalization.supportedLocales'));
         $sitemap = Sitemap::create();
 
+        $ogImageUrl = asset('front/images/og-image.jpeg');
+
         // Add root URL
         $baseUrl = rtrim(config('app.url'), '/');
         $rootUrl = Url::create($baseUrl . '/')
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-            ->setPriority(1.0);
+            ->setPriority(1.0)
+            ->addImage($ogImageUrl);
         foreach ($locales as $altLocale) {
             $rootUrl->addAlternate($baseUrl . "/{$altLocale}", $altLocale);
         }
         $sitemap->add($rootUrl);
 
         $staticRoutes = [
-            'front.home'           => ['changeFreq' => Url::CHANGE_FREQUENCY_WEEKLY,  'priority' => 1.0],
+            'front.home'           => ['changeFreq' => Url::CHANGE_FREQUENCY_WEEKLY,  'priority' => 1.0, 'image' => $ogImageUrl],
             'front.about'          => ['changeFreq' => Url::CHANGE_FREQUENCY_MONTHLY, 'priority' => 0.8],
             'front.services.index' => ['changeFreq' => Url::CHANGE_FREQUENCY_WEEKLY,  'priority' => 0.9],
             'front.contact.index' => ['changeFreq' => Url::CHANGE_FREQUENCY_MONTHLY, 'priority' => 0.7],
@@ -37,6 +40,10 @@ class SiteMapService
                 $url = Url::create(self::localizedRoute($routeName, [], $locale))
                     ->setChangeFrequency($meta['changeFreq'])
                     ->setPriority($meta['priority']);
+
+                if (!empty($meta['image'])) {
+                    $url->addImage($meta['image']);
+                }
 
                 foreach ($locales as $altLocale) {
                     $url->addAlternate(self::localizedRoute($routeName, [], $altLocale), $altLocale);
@@ -54,6 +61,10 @@ class SiteMapService
                         ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                         ->setPriority(0.7);
 
+                    if (!empty($blog->cover)) {
+                        $url->addImage($blog->display_image);
+                    }
+
                     foreach ($locales as $altLocale) {
                         $url->addAlternate(self::localizedRoute('front.blogs.show', [$blog->slug], $altLocale), $altLocale);
                     }
@@ -70,6 +81,10 @@ class SiteMapService
                         ->setLastModificationDate($service->updated_at)
                         ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                         ->setPriority(0.8);
+
+                    if (!empty($service->image)) {
+                        $url->addImage($service->display_image);
+                    }
 
                     foreach ($locales as $altLocale) {
                         $url->addAlternate(self::localizedRoute('front.services.show', [$service->slug], $altLocale), $altLocale);
