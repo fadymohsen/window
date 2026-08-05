@@ -111,6 +111,11 @@ a.glightbox.porto-image {
   background: transparent;
   padding: 0.5rem 0;
   font-size: 0.875rem;
+  flex-wrap: nowrap;
+}
+.breadcrumb-nav .breadcrumb-item {
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .breadcrumb-nav .breadcrumb-item a {
   color: #f9a11b;
@@ -121,6 +126,10 @@ a.glightbox.porto-image {
 }
 .breadcrumb-nav .breadcrumb-item.active {
   color: #cccccc;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .breadcrumb-nav .breadcrumb-item + .breadcrumb-item::before {
   color: #cccccc;
