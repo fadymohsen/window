@@ -9,6 +9,22 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=3">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="اليوم الوطني السعودي الـ96 — خدمات الدعاية والاحتفال | وكالة ويندو">
+    <meta property="og:description" content="وكالة ويندو للدعاية والإعلان — خبرة 25 عاماً في تنفيذ اليوم الوطني للشركات والجهات الحكومية. ديكورات، هدايا، فعاليات، مجسمات. من الفكرة إلى التنفيذ.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://windowadv.com/national-day-96">
+    <meta property="og:image" content="{{ asset('front/images/national-day-96-og.jpg') }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ar_SA">
+    <meta property="og:site_name" content="وكالة ويندو للدعاية والإعلان">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="اليوم الوطني السعودي الـ96 — خدمات الدعاية والاحتفال | وكالة ويندو">
+    <meta name="twitter:description" content="وكالة ويندو للدعاية والإعلان — خبرة 25 عاماً في تنفيذ اليوم الوطني للشركات والجهات الحكومية.">
+    <meta name="twitter:image" content="{{ asset('front/images/national-day-96-og.jpg') }}">
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
