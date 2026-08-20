@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\Front\LandingPageController;
 use App\Http\Controllers\Front\MainController;
 use App\Http\Controllers\Front\ServicesController;
 use Illuminate\Support\Facades\Redirect;
@@ -21,6 +22,10 @@ Route::name('front.')
         Route::resource('blogs', BlogController::class)->only('index', 'show');
         Route::get('blogs/{last_blog_id}/{limit}', [BlogController::class, 'getMoreBlogs'])->name('blogs.get');
 });
+
+// ─── Landing Pages (Google Ads) ───────────────────────────────────────────────
+Route::get('/national-day-96', [LandingPageController::class, 'nationalDay'])->name('landing.national-day');
+Route::post('/national-day-96/lead', [LandingPageController::class, 'storeNationalDayLead'])->name('landing.national-day.store');
 
 Route::get('/about.php', function () {
     return Redirect::to("/about", 301);
