@@ -149,18 +149,20 @@
     @if($service->content)
     @php
         $fullContent = addAltToImages($service->content, $service->title ?? '');
-        [$contentTop, $contentBottom] = splitContentAfterFirstSection($fullContent);
+        [$contentIntro, $contentRest] = splitContentBeforeFirstHeading($fullContent);
     @endphp
 
+    @if($contentIntro)
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="service-body mt-3">
-                    {!! $contentTop !!}
+                    {!! $contentIntro !!}
                 </div>
             </div>
         </div>
     </div>
+    @endif
 
     @if($portofolios->count() > 0)
     <section id="portofolio" class="py-4 pt-5">
@@ -183,12 +185,12 @@
     </section>
     @endif
 
-    @if($contentBottom)
+    @if($contentRest)
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="service-body mt-3">
-                    {!! $contentBottom !!}
+                    {!! $contentRest !!}
                 </div>
             </div>
         </div>

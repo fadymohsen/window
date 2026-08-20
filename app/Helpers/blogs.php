@@ -74,6 +74,21 @@ function splitContentAfterFirstSection(string $html): array
     return [trim($firstPart), trim($secondPart)];
 }
 
+function splitContentBeforeFirstHeading(string $html): array
+{
+    // Find the first h2/h3 heading position
+    if (!preg_match('/<h[23][\s>]/i', $html, $matches, PREG_OFFSET_CAPTURE)) {
+        return [$html, ''];
+    }
+
+    $splitPos = $matches[0][1];
+
+    $firstPart = substr($html, 0, $splitPos);
+    $secondPart = substr($html, $splitPos);
+
+    return [trim($firstPart), trim($secondPart)];
+}
+
 function addAltToImages(string $html, string $fallbackAlt): string
 {
     return preg_replace_callback('/<img\b([^>]*?)(\s*\/?>)/i', function ($matches) use ($fallbackAlt) {
