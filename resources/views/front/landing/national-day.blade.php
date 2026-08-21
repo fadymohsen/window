@@ -537,6 +537,16 @@
         }
 
         /* ─── Responsive ─── */
+        @media (max-width: 991px) {
+            .stats-row { flex-direction: column; gap: 0; }
+            .stat-item {
+                width: 100%;
+                padding: 14px 16px;
+                border-bottom: 1px solid rgba(0,0,0,0.12);
+            }
+            .stat-item:last-child { border-bottom: none; }
+        }
+
         @media (max-width: 767px) {
             .lp-hero { padding: 40px 0 50px; }
             .nd-slogan { font-size: 1.9rem; }
