@@ -83,7 +83,7 @@
     <section id="blog-header" class="py-2 pb-0">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 px-4 mt-4 my-2 d-flex flex-column align-items-center" style="z-index: 99;">
+                <div class="col-lg-12 px-4 mt-4 my-2 d-flex flex-column align-items-center">
                     <h1 class="text-center">{{ $blog->title ?? '' }}</h1>
                     <a href="{{ route('front.blogs.index') }}" style="color: #f9a11b;">@lang('custom.return')</a>
                 </div>
