@@ -169,7 +169,7 @@
                 </div>
             </div>
             <div class="text-center mt-4 mb-5">
-                <a href="{{ route('front.services.index') }}" class="cta-btn text-decoration-none text-white d-inline-flex align-items-center gap-2">
+                <a href="{{ route('front.services.index') }}" class="cta-btn cta-services text-decoration-none text-white d-inline-flex align-items-center gap-2">
                     @lang('custom.see-all')
                     <i class="fa-solid fa-arrow-{{ app()->getLocale() === 'ar' ? 'left' : 'right' }}"></i>
                 </a>

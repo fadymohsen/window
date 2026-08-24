@@ -304,6 +304,50 @@ html[dir='rtl'] .navbar ul.navbar-nav {
   transition: background-color 0.3s;
 }
 
+/* Services CTA — animated */
+@keyframes cta-pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(250, 168, 25, 0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(250, 168, 25, 0); }
+}
+@keyframes cta-shimmer {
+  0%   { left: -100%; }
+  60%  { left: 130%; }
+  100% { left: 130%; }
+}
+.cta-services {
+  position: relative;
+  overflow: hidden;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 13px 32px !important;
+  border-radius: 8px !important;
+  animation: cta-pulse-glow 2.2s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.cta-services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  animation: cta-shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+.cta-services:hover {
+  transform: translateY(-3px) scale(1.05);
+  background-color: #e08f0e !important;
+  box-shadow: 0 10px 28px rgba(250, 168, 25, 0.55) !important;
+  animation: none;
+}
+.cta-services .fa-arrow-right,
+.cta-services .fa-arrow-left {
+  transition: transform 0.3s ease;
+}
+.cta-services:hover .fa-arrow-right { transform: translateX(6px); }
+.cta-services:hover .fa-arrow-left  { transform: translateX(-6px); }
+
 .whatsapp-cta-form input::placeholder,
 .whatsapp-cta-form textarea::placeholder,
 .whatsapp-cta-form select option[disabled] {
