@@ -162,14 +162,17 @@
   <!-- Services -->
     <section id="services" class="py-5" data-aos="fade-up">
         <div class="container">
-            <div class="title mb-2 mx-auto">
+            <div class="title mb-5 mx-auto">
                 <h2 class="text-center mb-0 text-white">@lang('custom.our-services')</h2>
                 <div class="title-underline-container title-second">
                     <div class="title-underline w-100"></div>
                 </div>
             </div>
-            <div class="text-center mt-3 mb-4">
-                <a href="{{ route('front.services.index') }}" class="cta-btn text-decoration-none text-white">@lang('custom.see-all')</a>
+            <div class="text-center mt-4 mb-5">
+                <a href="{{ route('front.services.index') }}" class="cta-btn text-decoration-none text-white d-inline-flex align-items-center gap-2">
+                    @lang('custom.see-all')
+                    <i class="fa-solid fa-arrow-{{ app()->getLocale() === 'ar' ? 'left' : 'right' }}"></i>
+                </a>
             </div>
             <div class="row row-gap-3">
                 @if ($services->count() == 0)

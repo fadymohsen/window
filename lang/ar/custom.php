@@ -9,7 +9,7 @@ return [
     'vip-clients' => 'عميل مميز',
     'our-services' => 'خـدمـاتـنـا',
     'no-results' => 'لا يـوجـد نـتـائـج',
-    'see-all' => 'عرض جميع الخدمات',
+    'see-all' => 'اكتشف جميع خدماتنا',
     'our-portofolio' => 'أعمالنا السابقة',
     'top-customers' => 'شركاء النجاح',
     'contact-us' => 'احجز استشارتك الآن',

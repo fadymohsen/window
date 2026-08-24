@@ -9,7 +9,7 @@ return [
     'vip-clients' => 'VIP Client',
     'our-services' => 'Our Services',
     'no-results' => 'No Results Found',
-    'see-all' => 'View All Services',
+    'see-all' => 'Explore All Our Services',
     'our-portofolio' => 'Our Previous Work',
     'top-customers' => 'Success Partners',
     'contact-us' => 'Book Your Consultation Now',
