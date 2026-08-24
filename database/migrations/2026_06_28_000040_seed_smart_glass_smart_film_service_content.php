@@ -29,7 +29,7 @@ return new class extends Migration
             ->exists();
 
         $enData = [
-            'title' => 'Smart Glass and Smart Film',
+            'title' => 'Smart Glass & Film',
             'content' => $this->getEnglishContent(),
             'meta_title' => 'Smart Glass and Smart Film in Riyadh | Switchable Glass Saudi Arabia | Window Advertising',
             'meta_description' => 'Smart glass and smart film installation in Riyadh. Window Advertising supplies and installs switchable smart glass and smart film for offices, meeting rooms, retail stores, and architectural applications across Saudi Arabia. Privacy glass and PDLC film for corporate environments. Get a free quote.',

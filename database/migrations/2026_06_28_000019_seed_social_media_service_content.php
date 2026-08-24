@@ -29,7 +29,7 @@ return new class extends Migration
             ->exists();
 
         $enData = [
-            'title' => 'Social Media Management and Marketing in Riyadh',
+            'title' => 'Social Media Marketing',
             'content' => $this->getEnglishContent(),
             'meta_title' => 'Social Media Management in Riyadh | Social Media Marketing Saudi Arabia | Window Advertising',
             'meta_description' => 'Social media management and marketing in Riyadh. Window Advertising creates content, manages accounts, and runs paid campaigns on Instagram, Snapchat, TikTok, and Twitter for companies across Saudi Arabia. Get a free consultation.',
@@ -55,7 +55,7 @@ return new class extends Migration
             ->exists();
 
         $arData = [
-            'title' => 'إدارة وتسويق السوشيال ميديا في الرياض',
+            'title' => 'تسويق السوشيال ميديا',
             'content' => $this->getArabicContent(),
             'meta_title' => 'إدارة سوشيال ميديا في الرياض | تسويق منصات التواصل السعودية | ويندو للإعلان',
             'meta_description' => 'إدارة وتسويق منصات التواصل الاجتماعي في الرياض — ويندو للإعلان يصمم المحتوى ويدير الحسابات ويشغّل الحملات المدفوعة على إنستغرام وسناب تشات وتيك توك وتويتر. دعاية واعلان الرياض. احصل على استشارة مجانية.',

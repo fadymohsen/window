@@ -29,7 +29,7 @@ return new class extends Migration
             ->exists();
 
         $enData = [
-            'title' => 'PVC File with Clip Manufacturing',
+            'title' => 'PVC Clip Files',
             'content' => $this->getEnglishContent(),
             'meta_title' => 'PVC File with Clip in Riyadh | Custom Branded Document Files Saudi Arabia | Window Advertising',
             'meta_description' => 'Custom PVC files with clip and branded document folders in Riyadh. Window Advertising manufactures custom PVC files, clipboard folders, and branded document holders for companies across Saudi Arabia. Corporate gifts and stationery with full-color custom printing. Get a free quote.',
@@ -55,7 +55,7 @@ return new class extends Migration
             ->exists();
 
         $arData = [
-            'title' => 'تصنيع ملفات PVC مع مشبك',
+            'title' => 'ملفات PVC',
             'content' => $this->getArabicContent(),
             'meta_title' => 'ملفات PVC مع مشبك في الرياض | ملفات وثائق مخصصة السعودية | ويندو للإعلان',
             'meta_description' => 'تصنيع ملفات PVC مع مشبك وملفات وثائق مخصصة في الرياض — ويندو للإعلان يصنع ملفات PVC وكلبسات وثائق وأكواد مخصصة للشركات في السعودية. دعاية واعلان الرياض وهدايا دعائية. احصل على عرض سعر.',
