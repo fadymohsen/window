@@ -29,7 +29,7 @@ return new class extends Migration
             ->exists();
 
         $enData = [
-            'title' => 'Website Design and Development',
+            'title' => 'Web Design & Development',
             'content' => $this->getEnglishContent(),
             'meta_title' => 'Website Design in Riyadh | Web Development Saudi Arabia | Window Advertising',
             'meta_description' => 'Professional website design and development in Riyadh. Window Advertising builds corporate websites, landing pages, and e-commerce sites for businesses across Saudi Arabia. Bilingual Arabic-English websites aligned with your brand identity. Get a free consultation.',
@@ -55,7 +55,7 @@ return new class extends Migration
             ->exists();
 
         $arData = [
-            'title' => 'تصميم وتطوير المواقع الإلكترونية',
+            'title' => 'تصميم المواقع',
             'content' => $this->getArabicContent(),
             'meta_title' => 'تصميم مواقع في الرياض | تطوير مواقع السعودية | ويندو للإعلان',
             'meta_description' => 'تصميم وتطوير مواقع احترافية في الرياض — ويندو للإعلان يبني مواقع شركاتية وصفحات هبوط ومتاجر الكترونية للشركات في السعودية. مواقع ثنائية اللغة تعكس هويتك التجارية. دعاية واعلان الرياض. احصل على استشارة.',
