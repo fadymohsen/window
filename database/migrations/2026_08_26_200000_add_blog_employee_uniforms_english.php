@@ -17,7 +17,7 @@ return new class extends Migration
         $enTitle           = 'Employee Uniforms & Corporate Identity Printing: Your Complete Guide with Window Advertising Agency';
         $enMetaTitle       = 'Employee Uniforms & Corporate Identity Printing | Window Agency';
         $enMetaDescription = 'Window Advertising Agency provides complete employee uniform solutions — branded workwear, safety gear printing, hospitality uniforms, and corporate gifts with full brand identity design services in Riyadh, Saudi Arabia.';
-        $enKeywords        = 'advertising and marketing agency,employee gifts,corporate gifts,brand identity design,employee uniforms,custom workwear,safety gear branding,project fencing,construction hoarding,signs and banners,exhibitions and conferences,social media management,website design,annual report design,DTG printing,corporate identity,uniform printing Riyadh';
+        $enKeywords        = 'advertising and marketing agency,employee gifts,corporate gifts,brand identity design,employee uniforms,custom workwear,safety gear branding,project fencing,construction hoarding,signs and banners,exhibitions and conferences,social media management,website design,annual report design,DTF printing,corporate identity,uniform printing Riyadh';
 
         $enExists = DB::table('blog_translations')
             ->where('blog_id', $blogId)
@@ -52,7 +52,7 @@ return new class extends Migration
     {
         return <<<'HTML'
 <blockquote>
-<p><strong>"Don't let your team wear just any t-shirt — your company is what shows."</strong> That's where it all starts at <strong>Window Advertising Agency</strong>. Your team is the face of your company everywhere — in the office, on construction sites, at exhibitions, in restaurants, and on the streets. When your team wears a unified uniform bearing your company's visual identity, you're not just dressing them — you're <strong>turning every employee into a walking billboard</strong> that promotes your brand wherever they go. At Window Agency — specialists in <strong>advertising and marketing</strong> and comprehensive <strong>brand identity design</strong> in Riyadh, Saudi Arabia — we design and produce every type of employee uniform: from DTG-printed t-shirts to branded safety gear, from restaurant aprons and café caps to helmets and field coveralls — all with one consistent identity that reflects your company's professionalism.</p>
+<p><strong>"Don't let your team wear just any t-shirt — your company is what shows."</strong> That's where it all starts at <strong>Window Advertising Agency</strong>. Your team is the face of your company everywhere — in the office, on construction sites, at exhibitions, in restaurants, and on the streets. When your team wears a unified uniform bearing your company's visual identity, you're not just dressing them — you're <strong>turning every employee into a walking billboard</strong> that promotes your brand wherever they go. At Window Agency — specialists in <strong>advertising and marketing</strong> and comprehensive <strong>brand identity design</strong> in Riyadh, Saudi Arabia — we design and produce every type of employee uniform: from DTF-printed t-shirts to branded safety gear, from restaurant aprons and café caps to helmets and field coveralls — all with one consistent identity that reflects your company's professionalism.</p>
 </blockquote>
 
 <h2>Why Employee Uniforms Are an Investment, Not a Cost</h2>
@@ -91,7 +91,7 @@ return new class extends Migration
 </ul>
 
 <blockquote>
-<p><strong>From Our Portfolio:</strong> We executed a complete office uniform project for a leading company — white t-shirts with the company logo printed using high-definition DTG technology, distributed to all employees across their branches. The logo is clear, consistent, and color-fast even after dozens of washes — this is exactly what integrated <strong>brand identity design</strong> means.</p>
+<p><strong>From Our Portfolio:</strong> We executed a complete office uniform project for a leading company — white t-shirts with the company logo printed using high-definition DTF technology, distributed to all employees across their branches. The logo is clear, consistent, and color-fast even after dozens of washes — this is exactly what integrated <strong>brand identity design</strong> means.</p>
 </blockquote>
 
 <h3>2. Safety &amp; Field Uniforms</h3>
@@ -145,7 +145,7 @@ return new class extends Migration
 <tr><th>Technique</th><th>Description</th><th>Best For</th><th>Durability</th><th>Cost</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>DTG (Direct-to-Garment)</strong></td><td>Specialized printer applies ink directly to fabric</td><td>Complex designs with multiple colors</td><td>Very High</td><td>Medium-High</td></tr>
+<tr><td><strong>DTF (Direct-to-Garment)</strong></td><td>Specialized printer applies ink directly to fabric</td><td>Complex designs with multiple colors</td><td>Very High</td><td>Medium-High</td></tr>
 <tr><td><strong>Screen Printing</strong></td><td>Silk templates transfer ink layer by layer</td><td>Large quantities with simple designs</td><td>Excellent</td><td>Low per unit</td></tr>
 <tr><td><strong>Computerized Embroidery</strong></td><td>Computerized needle stitches logo with colored threads</td><td>Logos on polos and dress shirts</td><td>Highest</td><td>High</td></tr>
 <tr><td><strong>Heat Transfer</strong></td><td>Design transferred to fabric using heat</td><td>Colorful designs in small runs</td><td>Good</td><td>Low</td></tr>
@@ -154,19 +154,19 @@ return new class extends Migration
 </table>
 </figure>
 
-<h3>DTG — The Star of Window's Production Floor</h3>
+<h3>DTF — The Star of Window's Production Floor</h3>
 
 <p>Direct-to-Garment printing is our primary technique at Window Agency for t-shirt and clothing printing. Key advantages:</p>
 
 <ul>
 <li><strong>Exceptional color accuracy:</strong> Prints millions of colors with precision rivaling paper printing — your logo appears in full detail with all its color gradients</li>
-<li><strong>No design limitations:</strong> Unlike screen printing which requires a separate template for each color, DTG prints any design regardless of complexity</li>
+<li><strong>No design limitations:</strong> Unlike screen printing which requires a separate template for each color, DTF prints any design regardless of complexity</li>
 <li><strong>Soft feel:</strong> The ink bonds with the fabric without forming a raised layer — the garment is comfortable and the print is seamless</li>
 <li><strong>Suitable for all quantities:</strong> From a single prototype to hundreds of pieces — no need for costly template preparation</li>
 </ul>
 
 <blockquote>
-<p><strong>Window Advantage:</strong> Window's production facility is equipped with the latest industrial DTG machines that print on <strong>both light and dark fabrics</strong> — including black, navy, and dark grey t-shirts. Many print shops are limited to light fabrics only — we print on everything with equal quality.</p>
+<p><strong>Window Advantage:</strong> Window's production facility is equipped with the latest industrial DTF machines that print on <strong>both light and dark fabrics</strong> — including black, navy, and dark grey t-shirts. Many print shops are limited to light fabrics only — we print on everything with equal quality.</p>
 </blockquote>
 
 <h2>From T-Shirt to Project Site: Integrated Identity in the Real World</h2>
@@ -254,7 +254,7 @@ return new class extends Migration
 <li><strong>Study the Work Environment</strong> — We visit your workplace (if needed) to understand practical requirements</li>
 <li><strong>Select Fabrics</strong> — We present fabric samples suited to your work environment and climate</li>
 <li><strong>Design Identity on Uniforms</strong> — Window's design team applies your logo and brand colors</li>
-<li><strong>Choose Printing Technique</strong> — DTG, screen printing, embroidery, or a combination</li>
+<li><strong>Choose Printing Technique</strong> — DTF, screen printing, embroidery, or a combination</li>
 <li><strong>Produce First Sample</strong> — We produce a prototype piece and deliver it to the client</li>
 <li><strong>Review &amp; Adjust</strong> — Any adjustments to size, color, or logo placement</li>
 <li><strong>Final Approval</strong> — Official authorization to begin production</li>
@@ -279,7 +279,7 @@ return new class extends Migration
 <h2>Why Choose Window Agency for Your Employee Uniforms?</h2>
 
 <ul>
-<li><strong>Integrated Factory in Riyadh:</strong> Equipped with the latest industrial DTG machines, multi-color screen printing, and multi-head computerized embroidery</li>
+<li><strong>Integrated Factory in Riyadh:</strong> Equipped with the latest industrial DTF machines, multi-color screen printing, and multi-head computerized embroidery</li>
 <li><strong>Professional Design Team:</strong> Designers specialized in <strong>brand identity design</strong> ensure your logo and colors are applied with precision on every piece</li>
 <li><strong>Extensive Cross-Sector Experience:</strong> We've served construction companies, restaurants, cafés, tech startups, and government entities</li>
 <li><strong>Full-Service Advertising Agency:</strong> Uniforms as part of an integrated identity system that includes <strong>signs and banners</strong>, <strong>project fencing</strong>, <strong>exhibitions and conferences</strong>, <strong>social media management</strong>, <strong>website design</strong>, and <strong>employee gifts</strong></li>
@@ -303,7 +303,7 @@ return new class extends Migration
 <p>We provide office uniforms (t-shirts, polos, dress shirts), field and safety uniforms (safety vests, helmets, coveralls), hospitality uniforms (aprons, chef coats, caps for restaurants and cafés), and event uniforms — all printed or embroidered with your company's visual identity.</p>
 
 <h3>What printing techniques do you use on clothing?</h3>
-<p>We use DTG (Direct-to-Garment) for complex designs, screen printing for large quantities, computerized embroidery for a premium look, heat transfer for colorful small runs, and sublimation for polyester fabrics — we recommend the best technique based on your design and needs.</p>
+<p>We use DTF (Direct-to-Garment) for complex designs, screen printing for large quantities, computerized embroidery for a premium look, heat transfer for colorful small runs, and sublimation for polyester fabrics — we recommend the best technique based on your design and needs.</p>
 
 <h3>Can you print branding on safety equipment?</h3>
 <p>Yes, we print company logos and brand identity on all safety equipment — reflective safety vests, helmets, and coveralls — using heat-resistant and abrasion-proof techniques. This integrates with our <strong>project fencing</strong> service to unify site identity.</p>
