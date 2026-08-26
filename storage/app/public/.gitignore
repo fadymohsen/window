@@ -1,2 +1,8 @@
 *
 !.gitignore
+!blogs/
+!blogs/covers/
+!blogs/covers/*.jpg
+!blogs/covers/*.jpeg
+!blogs/covers/*.png
+!blogs/covers/*.webp
