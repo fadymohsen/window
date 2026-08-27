@@ -17,6 +17,7 @@ Allow: /front/css/
 Allow: /front/js/
 Allow: /front/libs/
 Allow: /front/images/
+Allow: /front/videos/
 Allow: /front/fonts/
 Allow: /storage/
 

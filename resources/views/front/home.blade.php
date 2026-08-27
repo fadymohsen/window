@@ -33,6 +33,7 @@
     "thumbnailUrl": "{{ $website_settings->display_cover }}",
     "uploadDate": "2024-01-01T00:00:00+03:00",
     "contentUrl": "{{ asset('front/videos/window_header.mp4') }}",
+    "url": "{{ LaravelLocalization::getLocalizedURL(app()->getLocale()) }}",
     "publisher": {
         "@type": "Organization",
         "name": "{{ $website_settings->title }}",
