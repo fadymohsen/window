@@ -64,15 +64,9 @@ HTML;
         }
 
         $description = trim($translation->description);
-        $updated = $this->videoEmbed . "\n\n" . $description;
 
-        // Insert before the second <h2> (after hero + first component)
-        if (preg_match_all('/<h2[^>]*>/', $description, $matches, PREG_OFFSET_CAPTURE) && isset($matches[0][1])) {
-            $insertAt = $matches[0][1][1];
-            $updated = substr($description, 0, $insertAt)
-                . $this->videoEmbed . "\n\n"
-                . substr($description, $insertAt);
-        }
+        // Insert before the first <h2> (between cover image and first content component)
+        $updated = $this->videoEmbed . "\n\n" . $description;
 
         DB::table('blog_translations')
             ->where('blog_id', $blogId)
