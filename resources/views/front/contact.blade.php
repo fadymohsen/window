@@ -54,7 +54,7 @@
                     <img class="d-none d-sm-block" src="{{ asset('front/images/muslim-man-browsing-smartphone-app-removebg-preview.png') }}" alt="@lang('custom.contact-us') - {{ $website_settings->title }}" style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);height: 140%;max-width: 100%;">
                 </div>
                 <div class="col-lg-5 px-4 mt-2">
-                    <div class="whatsapp-cta-form p-4 rounded-4" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border: 1px solid rgba(249,161,27,0.3);">
+                    <div class="whatsapp-cta-form p-4 rounded-4" style="background: #2b2b2b; border: 1px solid rgba(249,161,27,0.3);">
                         <h3 class="text-center mb-3" style="color: #f9a11b; font-size: 1.4rem;">
                             {{ app()->getLocale() === 'ar' ? 'احصل على استشارة مجانية' : 'Get a Free Consultation' }}
                         </h3>
@@ -62,16 +62,16 @@
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="wa-name-contact" required
                                     placeholder="{{ app()->getLocale() === 'ar' ? 'الاسم' : 'Your Name' }}"
-                                    style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff;">
+                                    style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff;">
                             </div>
                             <div class="mb-3">
                                 <input type="tel" class="form-control" id="wa-phone-contact" required
                                     placeholder="{{ app()->getLocale() === 'ar' ? 'رقم الجوال' : 'Phone Number' }}"
-                                    style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff;">
+                                    style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff;">
                             </div>
                             <div class="mb-3">
                                 <select class="form-select" id="wa-service-contact" required
-                                    style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff;">
+                                    style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff;">
                                     <option value="" disabled selected>{{ app()->getLocale() === 'ar' ? 'اختر الخدمة' : 'Select Service' }}</option>
                                     <option value="{{ app()->getLocale() === 'ar' ? 'تنظيم فعاليات ومعارض' : 'Events & Exhibitions' }}">{{ app()->getLocale() === 'ar' ? 'تنظيم فعاليات ومعارض' : 'Events & Exhibitions' }}</option>
                                     <option value="{{ app()->getLocale() === 'ar' ? 'لافتات وأحرف بارزة' : 'Signage & Embossed Letters' }}">{{ app()->getLocale() === 'ar' ? 'لافتات وأحرف بارزة' : 'Signage & Embossed Letters' }}</option>
@@ -85,7 +85,7 @@
                             <div class="mb-3">
                                 <textarea class="form-control" id="wa-message-contact" rows="2"
                                     placeholder="{{ app()->getLocale() === 'ar' ? 'تفاصيل إضافية (اختياري)' : 'Additional details (optional)' }}"
-                                    style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; resize: none;"></textarea>
+                                    style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff; resize: none;"></textarea>
                             </div>
                             <button type="submit" class="cta-btn w-100 text-dark fw-bold border-0 d-flex align-items-center justify-content-center gap-2" style="font-size: 1.1rem;">
                                 <i class="fa-brands fa-whatsapp fs-4"></i>
