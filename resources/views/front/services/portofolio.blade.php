@@ -116,7 +116,7 @@
             "name": "{{ app()->getLocale() === 'ar' ? 'لماذا أختار ويندو للدعاية والاعلان لخدمة ' . ($service->title ?? '') . '؟' : 'Why choose Window Advertising for ' . ($service->title ?? '') . '?' }}",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "{{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان شركة رائدة في الرياض بخبرة تفوق 25 عاماً وأكثر من 1000 عميل و3000 مشروع منجز. نتميز بالجودة العالية والالتزام بالمواعيد وأسعار تنافسية في السعودية.' : 'Window Advertising is a leading agency in Riyadh with 25+ years of experience, 1000+ clients, and 3000+ completed projects. We stand out for high quality, on-time delivery, and competitive pricing in Saudi Arabia.' }}"
+                "text": "{{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان شركة رائدة في الرياض بخبرة تفوق 25 عاماً وأكثر من 2000 عميل و5000 مشروع منجز. نتميز بالجودة العالية والالتزام بالمواعيد وأسعار تنافسية في السعودية.' : 'Window Advertising is a leading agency in Riyadh with 25+ years of experience, 2000+ clients, and 5000+ completed projects. We stand out for high quality, on-time delivery, and competitive pricing in Saudi Arabia.' }}"
             }
         }
     ]
@@ -292,7 +292,7 @@
                             </h3>
                             <div id="sfaq3" class="accordion-collapse collapse" data-bs-parent="#serviceFaqAccordion">
                                 <div class="accordion-body">
-                                    {{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان شركة رائدة في الرياض بخبرة تفوق 25 عاماً وأكثر من 1000 عميل و3000 مشروع منجز. نتميز بالجودة العالية والالتزام بالمواعيد وأسعار تنافسية في السعودية.' : 'Window Advertising is a leading agency in Riyadh with 25+ years of experience, 1000+ clients, and 3000+ completed projects. We stand out for high quality, on-time delivery, and competitive pricing in Saudi Arabia.' }}
+                                    {{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان شركة رائدة في الرياض بخبرة تفوق 25 عاماً وأكثر من 2000 عميل و5000 مشروع منجز. نتميز بالجودة العالية والالتزام بالمواعيد وأسعار تنافسية في السعودية.' : 'Window Advertising is a leading agency in Riyadh with 25+ years of experience, 2000+ clients, and 5000+ completed projects. We stand out for high quality, on-time delivery, and competitive pricing in Saudi Arabia.' }}
                                 </div>
                             </div>
                         </div>

@@ -136,7 +136,7 @@ return [
     'faq-q4' => 'Does Window Advertising handle event management?',
     'faq-a4' => 'Yes, we specialize in comprehensive event management including official graduations, corporate events, grand openings, conferences, and exhibition booth design and execution for all sectors.',
     'faq-q5' => 'What makes Window Advertising different from other agencies?',
-    'faq-a5' => 'With over 25 years of experience, we blend traditional Arabic calligraphy artistry with modern design technologies. We have served 1000+ clients, completed 3000+ projects, and maintain 200+ VIP client relationships.',
+    'faq-a5' => 'With over 25 years of experience, we blend traditional Arabic calligraphy artistry with modern design technologies. We have served 2000+ clients, completed 5000+ projects, and maintain 500+ VIP client relationships.',
 
     // Hero
     'hero-tagline' => 'The Best Advertising Agency in Saudi Arabia',

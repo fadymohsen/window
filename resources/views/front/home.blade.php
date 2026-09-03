@@ -135,7 +135,7 @@
                     <img src="{{ asset('front/images/clients_icon.png') }}" height="70" alt="@lang('custom.clients')" loading="lazy">
                 </div>
                 <div>
-                    <p class="mb-0 fs-1"><span class="count-number">1000</span>+</p>
+                    <p class="mb-0 fs-1"><span class="count-number">2000</span>+</p>
                     <p class="mb-0 fs-5">@lang('custom.clients')</p>
                 </div>
             </div>
@@ -144,7 +144,7 @@
                     <img src="{{ asset('front/images/projects_icon.png') }}" height="70" alt="@lang('custom.our-projects')" loading="lazy">
                 </div>
                 <div>
-                    <p class="mb-0 fs-1"><span class="count-number">3000</span>+</p>
+                    <p class="mb-0 fs-1"><span class="count-number">5000</span>+</p>
                     <p class="mb-0 fs-5">@lang('custom.our-projects')</p>
                 </div>
             </div>
@@ -153,7 +153,7 @@
                     <img src="{{ asset('front/images/vip_icon.png') }}" height="70" alt="@lang('custom.vip-clients')" loading="lazy">
                 </div>
                 <div>
-                    <p class="mb-0 fs-1"><span class="count-number">200</span>+</p>
+                    <p class="mb-0 fs-1"><span class="count-number">500</span>+</p>
                     <p class="mb-0 fs-5">@lang('custom.vip-clients')</p>
                 </div>
             </div>  
