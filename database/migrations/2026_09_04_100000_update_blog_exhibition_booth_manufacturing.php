@@ -85,6 +85,15 @@ return new class extends Migration
 
 <p>في وكالة ويندو، <strong>أفضل شركة تصميم وتنفيذ أجنحة وبوثات المعارض في الرياض</strong> — لا نصمّم أجنحة معارض فحسب، بل <strong>نصنعها ونُنفّذها من الصفر</strong> في مصنعنا المجهّز بالكامل، من تقطيع هياكل الألمنيوم وتركيبها إلى تسليم بوث معرض متكامل يليق بحجم استثمارك. سواء كنت تبحث عن <strong>شركة تصميم أجنحة معارض بالرياض</strong>، أو <strong>شركة تنفيذ أجنحة المعارض بالرياض</strong> تتولى المشروع بالكامل، أو حتى <strong>شركة بوثات معارض بالرياض</strong> لمساحة عرض أصغر وأكثر مرونة — فريقنا الأكثر احترافية يغطي كل الاحتياجات تحت سقف واحد.</p>
 
+<div style="max-width: 360px; margin: 24px auto;">
+    <div style="position: relative; padding-bottom: 177.78%; height: 0; border-radius: 12px; overflow: hidden;">
+        <iframe src="https://www.youtube.com/embed/B54k2PmfWYQ" title="Window Advertising Agency"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+    </div>
+</div>
+
 <blockquote><p><strong>ملاحظة مصطلح:</strong> في هذا المقال نستخدم "<strong>أجنحة المعارض</strong>" و"<strong>بوثات المعارض</strong>" و"<strong>بوث معرض</strong>" للإشارة لنفس الخدمة — فالمصطلحات تُستخدم بالتبادل في السوق السعودي. وكالة ويندو تقدّم <strong>تصميم بوثات المعارض بالرياض</strong> و<strong>تصنيع بوثات المعارض بالرياض</strong> و<strong>تنفيذ بوثات المعارض بالرياض</strong> بأعلى معايير الجودة والاحترافية.</p></blockquote>
 
 <h2>لماذا أصبح جناح المعرض (بوث المعرض) استثماراً استراتيجياً وليس تكلفة؟</h2>
@@ -471,6 +480,15 @@ HTML;
 <p>In Saudi Arabia's fast-growing exhibitions and conferences scene — where hundreds of companies compete for visitor attention under one roof — an exhibition booth is no longer just a display space with walls and a table. Today's booth is a <strong>complete identity statement</strong>, a physical interface that translates your brand's personality into a sensory experience visitors carry with them long after the event ends.</p>
 
 <p>At Window Advertising, <strong>the best and most professional exhibition booth design and execution company in Riyadh</strong>, we don't just design exhibition booths — we <strong>manufacture and execute them from scratch</strong> at our own fully-equipped factory, from cutting and assembling aluminum frames to delivering a complete corporate booth that matches the scale of your investment. Whether you're looking for the <strong>best exhibition booth design company in Riyadh</strong>, <strong>the most professional exhibition booth execution company in Riyadh</strong> to run the whole project, or a <strong>top-rated exhibition stand company in Riyadh</strong> for a smaller, more flexible display, our highly skilled team covers every need under one roof.</p>
+
+<div style="max-width: 360px; margin: 24px auto;">
+    <div style="position: relative; padding-bottom: 177.78%; height: 0; border-radius: 12px; overflow: hidden;">
+        <iframe src="https://www.youtube.com/embed/B54k2PmfWYQ" title="Window Advertising Agency"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+    </div>
+</div>
 
 <blockquote><p><strong>A note on terminology:</strong> Throughout this article we use "<strong>exhibition booth</strong>," "<strong>exhibition stand</strong>," "<strong>trade show booth</strong>," and "<strong>booth</strong>" interchangeably — the terms are used this way across the Saudi market. Window Advertising delivers the <strong>best exhibition booth design in Riyadh</strong>, the <strong>most professional exhibition booth manufacturing in Riyadh</strong>, and <strong>top-quality exhibition booth execution in Riyadh</strong> to the same high standard regardless of what you call the format.</p></blockquote>
 
