@@ -64,19 +64,14 @@ HTML;
         }
 
         $description = trim($translation->description);
-        $updated = $this->videoEmbed . $description;
+        $updated = $this->videoEmbed . "\n\n" . $description;
 
-        if (preg_match('/^<([a-zA-Z0-9]+)[^>]*>/', $description, $matches)) {
-            $tag = $matches[1];
-            $closingTag = "</{$tag}>";
-            $closingPos = strpos($description, $closingTag);
-
-            if ($closingPos !== false) {
-                $insertAt = $closingPos + strlen($closingTag);
-                $updated = substr($description, 0, $insertAt)
-                    . "\n\n" . $this->videoEmbed
-                    . substr($description, $insertAt);
-            }
+        // Insert before the second <h2> (after hero + first component)
+        if (preg_match_all('/<h2[^>]*>/', $description, $matches, PREG_OFFSET_CAPTURE) && isset($matches[0][1])) {
+            $insertAt = $matches[0][1][1];
+            $updated = substr($description, 0, $insertAt)
+                . $this->videoEmbed . "\n\n"
+                . substr($description, $insertAt);
         }
 
         DB::table('blog_translations')
