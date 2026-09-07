@@ -27,6 +27,9 @@ Route::name('front.')
 Route::get('/national-day-96', [LandingPageController::class, 'nationalDay'])->name('landing.national-day');
 Route::post('/national-day-96/lead', [LandingPageController::class, 'storeNationalDayLead'])->name('landing.national-day.store');
 
+Route::get('/national-day-offers', [LandingPageController::class, 'nationalDayOffers'])->name('landing.national-day-offers');
+Route::post('/national-day-offers/lead', [LandingPageController::class, 'storeNationalDayOffersLead'])->name('landing.national-day-offers.store');
+
 Route::get('/about.php', function () {
     return Redirect::to("/about", 301);
 });

@@ -15,6 +15,31 @@ class LandingPageController extends Controller
         return view('front.landing.national-day', compact('website_settings'));
     }
 
+    public function nationalDayOffers()
+    {
+        $website_settings = WebsiteSetting::first();
+        return view('front.landing.national-day-offers', compact('website_settings'));
+    }
+
+    public function storeNationalDayOffersLead(Request $request)
+    {
+        $request->validate([
+            'full_name'    => 'required|string|max:255',
+            'phone_number' => 'required|digits_between:7,13',
+            'email'        => 'nullable|email|max:255',
+            'company_name' => 'required|string|max:255',
+        ]);
+
+        Contact::create([
+            'full_name'    => $request->full_name,
+            'phone_number' => $request->phone_number,
+            'email'        => $request->email ?: 'no-email@windowadv.com',
+            'site_url'     => '[ND96-OFFERS] ' . $request->company_name,
+        ]);
+
+        return response()->json(['message' => 'تم إرسال طلبك بنجاح! سيتواصل معك فريقنا في أقرب وقت.']);
+    }
+
     public function storeNationalDayLead(Request $request)
     {
         $request->validate([
