@@ -513,17 +513,14 @@
     <section style="background: var(--lp-dark); padding: 48px 0 0;">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-auto" style="max-width: 360px;">
-                    <div style="position:relative; width:100%; aspect-ratio:9/16; border-radius:16px; overflow:hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.5);">
-                        <iframe
-                            src="https://www.youtube.com/embed/q1ttGcV9sqQ"
-                            title="عروض اليوم الوطني 96 — وكالة ويندو"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                            loading="lazy"
-                            style="position:absolute; top:0; left:0; width:100%; height:100%;"
-                        ></iframe>
+                <div class="col-auto" style="max-width: 360px; width: 100%;">
+                    <div id="yt-player-wrap" style="position:relative; width:100%; aspect-ratio:9/16; border-radius:16px; overflow:hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.5); cursor:pointer; background:#000;">
+                        <img src="https://img.youtube.com/vi/q1ttGcV9sqQ/0.jpg" alt="عروض اليوم الوطني 96" style="width:100%; height:100%; object-fit:cover;">
+                        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.3);">
+                            <div style="width:68px; height:68px; background:rgba(255,0,0,0.9); border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                                <i class="fas fa-play" style="color:#fff; font-size:1.6rem; margin-right:-3px;"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1010,21 +1007,14 @@
             });
         });
 
-        // ─── Lead Form Submission ───
-        var STORE_URL = '{{ route("landing.national-day-offers.store") }}';
-        var CSRF     = $('meta[name="csrf-token"]').attr('content');
+        // ─── Lead Form → WhatsApp ───
+        var WA_NUMBER = '966{{ ltrim($website_settings->phone_number ?? "592945557", "0") }}';
 
         var messages = {
             ar: {
                 nameRequired:    'يرجى إدخال الاسم الكامل',
                 phoneRequired:   'يرجى إدخال رقم جوال صحيح',
                 companyRequired: 'يرجى إدخال اسم الشركة أو الجهة',
-                sending:         '<i class="fas fa-spinner fa-spin me-2"></i> جاري الإرسال...',
-                successTitle:    'تم الإرسال بنجاح!',
-                successText:     'شكراً! سيتواصل معك فريق ويندو في أقرب وقت.',
-                successBtn:      'شكراً',
-                errorTitle:      'خطأ',
-                errorText:       'حدث خطأ، يرجى المحاولة مرة أخرى أو التواصل عبر واتساب.',
                 errorBtn:        'حسناً',
                 warning:         'تنبيه'
             },
@@ -1032,12 +1022,6 @@
                 nameRequired:    'Please enter your full name',
                 phoneRequired:   'Please enter a valid phone number',
                 companyRequired: 'Please enter your company name',
-                sending:         '<i class="fas fa-spinner fa-spin me-2"></i> Sending...',
-                successTitle:    'Sent Successfully!',
-                successText:     'Thank you! Our team will contact you shortly.',
-                successBtn:      'Thanks',
-                errorTitle:      'Error',
-                errorText:       'An error occurred. Please try again or contact us via WhatsApp.',
                 errorBtn:        'OK',
                 warning:         'Notice'
             }
@@ -1046,10 +1030,7 @@
         function msg(key) { return messages[currentLang][key]; }
 
         function submitLead(form) {
-            var $form      = $(form);
-            var $btn       = $form.find('.btn-submit');
-            var $btnText   = $btn.find('.btn-text');
-            var origHtml   = $btnText.html();
+            var $form = $(form);
 
             var fullName    = $.trim($form.find('[name="full_name"]').val());
             var phone       = $.trim($form.find('[name="phone_number"]').val());
@@ -1066,47 +1047,25 @@
                 return Swal.fire({ icon: 'warning', title: msg('warning'), text: msg('companyRequired'), confirmButtonText: msg('errorBtn'), confirmButtonColor: '#006837' });
             }
 
-            $btn.prop('disabled', true);
-            $btnText.html(msg('sending'));
+            var waText = 'السلام عليكم، أبي أستفسر عن عروض اليوم الوطني الـ96\n\n'
+                + 'الاسم: ' + fullName + '\n'
+                + 'الجوال: ' + phone + '\n'
+                + (email ? 'الإيميل: ' + email + '\n' : '')
+                + 'الشركة: ' + companyName;
 
-            $.ajax({
-                url:    STORE_URL,
-                method: 'POST',
-                data: {
-                    _token:       CSRF,
-                    full_name:    fullName,
-                    phone_number: phone,
-                    email:        email || '',
-                    company_name: companyName
-                },
-                success: function () {
-                    Swal.fire({
-                        icon:              'success',
-                        title:             msg('successTitle'),
-                        text:              msg('successText'),
-                        confirmButtonText: msg('successBtn'),
-                        confirmButtonColor: '#006837'
-                    });
-                    $form[0].reset();
-                },
-                error: function (xhr) {
-                    var errors = xhr.responseJSON && xhr.responseJSON.errors;
-                    var errMsg = msg('errorText');
-                    if (errors) {
-                        errMsg = Object.values(errors).map(function(e){ return e[0]; }).join('\n');
-                    }
-                    Swal.fire({ icon: 'error', title: msg('errorTitle'), text: errMsg, confirmButtonText: msg('errorBtn'), confirmButtonColor: '#006837' });
-                },
-                complete: function () {
-                    $btn.prop('disabled', false);
-                    $btnText.html(origHtml);
-                }
-            });
+            var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(waText);
+            window.open(waUrl, '_blank');
+            $form[0].reset();
         }
 
         $('#lead-form-hero, #lead-form-bottom').on('submit', function (e) {
             e.preventDefault();
             submitLead(this);
+        });
+
+        // ─── YouTube Player (click to play) ───
+        $('#yt-player-wrap').on('click', function () {
+            $(this).html('<iframe src="https://www.youtube.com/embed/q1ttGcV9sqQ?autoplay=1" title="عروض اليوم الوطني 96" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>');
         });
 
         // Smooth scroll for anchor CTA
