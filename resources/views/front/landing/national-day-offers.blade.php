@@ -253,13 +253,16 @@
             transition: border-color 0.25s, box-shadow 0.25s;
             margin-bottom: 14px;
             display: block;
+            text-align: right;
         }
         .lp-input:focus {
             outline: none;
             border-color: var(--lp-green);
             box-shadow: 0 0 0 3px rgba(0,104,55,0.12);
         }
-        .lp-input::placeholder { color: #aaa; }
+        .lp-input::placeholder { color: #aaa; text-align: right; }
+        html[data-active-lang="en"] .lp-input::placeholder { text-align: left; }
+        html[data-active-lang="en"] .lp-input { text-align: left; }
 
         .btn-submit {
             width: 100%;
@@ -505,6 +508,27 @@
             </div>
         </div>
     </header>
+
+    <!-- ═══════════════════ VIDEO ═══════════════════ -->
+    <section style="background: var(--lp-dark); padding: 48px 0 0;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-auto" style="max-width: 360px;">
+                    <div style="position:relative; width:100%; aspect-ratio:9/16; border-radius:16px; overflow:hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.5);">
+                        <iframe
+                            src="https://www.youtube.com/embed/q1ttGcV9sqQ"
+                            title="عروض اليوم الوطني 96 — وكالة ويندو"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            loading="lazy"
+                            style="position:absolute; top:0; left:0; width:100%; height:100%;"
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ═══════════════════ HERO ═══════════════════ -->
     <section class="lp-hero">
