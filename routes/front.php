@@ -44,24 +44,67 @@ Route::get('/services.php', function () {
 });
 Route::get('/blog.php', function () {
     $id = request('id');
-    return Redirect::to("/blogs/{$id}", 301);
+    if ($id) {
+        $blog = \App\Models\Blog::find($id);
+        if ($blog) {
+            return Redirect::to("/ar/blogs/{$blog->slug}", 301);
+        }
+    }
+    return Redirect::to("/ar/blogs", 301);
 });
 Route::get('/portofolio.php', function () {
     $id = request('id');
-    return Redirect::to("/services/{$id}", 301);
+    if ($id) {
+        $service = \App\Models\Service::find($id);
+        if ($service) {
+            return Redirect::to("/ar/services/{$service->slug}", 301);
+        }
+    }
+    return Redirect::to("/ar/services", 301);
 });
 Route::get('{locale}/services/founfing-day-prints', function ($locale) {
     return Redirect::to("/{$locale}/services/founding-day-prints", 301);
 })->where('locale', 'ar|en');
 
+// Redirect numeric ID URLs to slug-based URLs (legacy links from old site)
+Route::get('{locale}/services/{id}', function ($locale, $id) {
+    $service = \App\Models\Service::find($id);
+    if ($service) {
+        return Redirect::to("/{$locale}/services/{$service->slug}", 301);
+    }
+    abort(404);
+})->where(['locale' => 'ar|en', 'id' => '[0-9]+']);
+
+Route::get('{locale}/blogs/{id}', function ($locale, $id) {
+    $blog = \App\Models\Blog::find($id);
+    if ($blog) {
+        return Redirect::to("/{$locale}/blogs/{$blog->slug}", 301);
+    }
+    abort(404);
+})->where(['locale' => 'ar|en', 'id' => '[0-9]+']);
+
 // Redirect locale-less /services/{slug} and /blogs/{slug} to default locale
 Route::get('/services/{slug}', function ($slug) {
+    if (is_numeric($slug)) {
+        $service = \App\Models\Service::find($slug);
+        if ($service) {
+            return Redirect::to('/ar/services/' . $service->slug, 301);
+        }
+        abort(404);
+    }
     return Redirect::to('/ar/services/' . $slug, 301);
-})->where('slug', '[a-zA-Z][-a-zA-Z0-9]*');
+})->where('slug', '[a-zA-Z0-9][-a-zA-Z0-9]*');
 
 Route::get('/blogs/{slug}', function ($slug) {
+    if (is_numeric($slug)) {
+        $blog = \App\Models\Blog::find($slug);
+        if ($blog) {
+            return Redirect::to('/ar/blogs/' . $blog->slug, 301);
+        }
+        abort(404);
+    }
     return Redirect::to('/ar/blogs/' . $slug, 301);
-})->where('slug', '[a-zA-Z][-a-zA-Z0-9]*');
+})->where('slug', '[a-zA-Z0-9][-a-zA-Z0-9]*');
 
 // Redirect bare /services, /blogs, /about, /contacts, /contact
 Route::get('/services', function () {

@@ -2,8 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /dashboard/
 Disallow: /_debugbar/
+Allow: /public/index.php
 Disallow: /public/
-Disallow: /index.php
 
 # Block only AJAX load-more endpoints, not content pages
 Disallow: /*/services/*/portofoliols/
