@@ -36,7 +36,7 @@
             <p style="color:rgba(255,255,255,0.85); font-size:0.92rem; line-height:1.7; margin-bottom:22px;">
                 {{ app()->getLocale() === 'ar' ? 'أسعار مميزة على الهدايا، الوشاحات، الطباعة، باقات السوشيال ميديا وأكثر — العروض لفترة محدودة!' : 'Special prices on gifts, scarves, printing, social media packages & more — Limited-time offers!' }}
             </p>
-            <a href="{{ url('/national-day-offers') }}" id="nd96-popup-cta" style="display:inline-block; background:#f9a11b; color:#111; font-weight:800; font-size:1rem; padding:13px 32px; border-radius:10px; text-decoration:none; transition:all 0.25s;">
+            <a href="{{ route('front.national-day-offers') }}" id="nd96-popup-cta" style="display:inline-block; background:#f9a11b; color:#111; font-weight:800; font-size:1rem; padding:13px 32px; border-radius:10px; text-decoration:none; transition:all 0.25s;">
                 {{ app()->getLocale() === 'ar' ? 'اكتشف العروض الآن' : 'Explore Offers Now' }}
                 <i class="fa-solid fa-arrow-{{ app()->getLocale() === 'ar' ? 'left' : 'right' }}" style="margin-{{ app()->getLocale() === 'ar' ? 'right' : 'left' }}:6px;"></i>
             </a>

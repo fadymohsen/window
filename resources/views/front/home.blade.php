@@ -160,7 +160,7 @@
                         </p>
                     </div>
                     <div class="col-lg-4 text-lg-center text-start">
-                        <a href="{{ url('/national-day-offers') }}" class="cta-btn text-dark fw-bold text-decoration-none d-inline-flex align-items-center gap-2" style="font-size: 1.1rem; padding: 14px 28px;">
+                        <a href="{{ route('front.national-day-offers') }}" class="cta-btn text-dark fw-bold text-decoration-none d-inline-flex align-items-center gap-2" style="font-size: 1.1rem; padding: 14px 28px;">
                             {{ app()->getLocale() === 'ar' ? 'اكتشف العروض' : 'Explore Offers' }}
                             <i class="fa-solid fa-arrow-{{ app()->getLocale() === 'ar' ? 'left' : 'right' }}"></i>
                         </a>

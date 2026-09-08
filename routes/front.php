@@ -21,14 +21,18 @@ Route::name('front.')
         Route::resource('contact', ContactController::class)->only('index', 'store');
         Route::resource('blogs', BlogController::class)->only('index', 'show');
         Route::get('blogs/{last_blog_id}/{limit}', [BlogController::class, 'getMoreBlogs'])->name('blogs.get');
+        Route::get('/national-day-offers', [LandingPageController::class, 'nationalDayOffers'])->name('national-day-offers');
+        Route::post('/national-day-offers/lead', [LandingPageController::class, 'storeNationalDayOffersLead'])->name('national-day-offers.store');
 });
 
 // ─── Landing Pages (Google Ads) ───────────────────────────────────────────────
 Route::get('/national-day-96', [LandingPageController::class, 'nationalDay'])->name('landing.national-day');
 Route::post('/national-day-96/lead', [LandingPageController::class, 'storeNationalDayLead'])->name('landing.national-day.store');
 
-Route::get('/national-day-offers', [LandingPageController::class, 'nationalDayOffers'])->name('landing.national-day-offers');
-Route::post('/national-day-offers/lead', [LandingPageController::class, 'storeNationalDayOffersLead'])->name('landing.national-day-offers.store');
+// Redirect old non-localized URL
+Route::get('/national-day-offers', function () {
+    return Redirect::to('/' . app()->getLocale() . '/national-day-offers', 301);
+});
 
 Route::get('/about.php', function () {
     return Redirect::to("/about", 301);
