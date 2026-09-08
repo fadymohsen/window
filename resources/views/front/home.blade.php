@@ -142,6 +142,34 @@
     }
     </script>
 
+  <!-- National Day 96 Offers Banner -->
+    <section id="nd96-offers" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <div class="nd96-banner position-relative overflow-hidden rounded-4 p-4 p-md-5" style="background: linear-gradient(135deg, #003d1e 0%, #006837 50%, #00943e 100%); border: 2px solid rgba(249,161,27,0.4);">
+                <div class="position-absolute top-0 end-0 w-100 h-100" style="background: radial-gradient(ellipse at 90% 20%, rgba(249,161,27,0.15) 0%, transparent 60%); pointer-events:none;"></div>
+                <div class="row align-items-center position-relative" style="z-index:2;">
+                    <div class="col-lg-8 mb-3 mb-lg-0">
+                        <span class="badge mb-3" style="background: #f9a11b; color: #111; font-weight: 800; font-size: 0.85rem; padding: 6px 18px; border-radius: 50px;">
+                            {{ app()->getLocale() === 'ar' ? '🇸🇦 عروض اليوم الوطني الـ96' : '🇸🇦 National Day 96 Offers' }}
+                        </span>
+                        <h2 class="text-white fw-bold mb-2" style="font-size: clamp(1.4rem, 3vw, 2rem);">
+                            {{ app()->getLocale() === 'ar' ? 'عروض اليوم الوطني وصلت من وكالة ويندو!' : 'National Day Offers Are Here from Window Agency!' }}
+                        </h2>
+                        <p class="mb-0" style="color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.8;">
+                            {{ app()->getLocale() === 'ar' ? 'أسعار مميزة على الهدايا، الطباعة، الديكورات، وشاحات، باقات سوشيال ميديا وأكثر — احجز قبل نفاذ الكمية!' : 'Special prices on gifts, printing, decorations, scarves, social media packages & more — Book before they sell out!' }}
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-lg-center text-start">
+                        <a href="{{ url('/national-day-offers') }}" class="cta-btn text-dark fw-bold text-decoration-none d-inline-flex align-items-center gap-2" style="font-size: 1.1rem; padding: 14px 28px;">
+                            {{ app()->getLocale() === 'ar' ? 'اكتشف العروض' : 'Explore Offers' }}
+                            <i class="fa-solid fa-arrow-{{ app()->getLocale() === 'ar' ? 'left' : 'right' }}"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
   <!-- Services -->
     <section id="services" class="py-5" data-aos="fade-up">
         <div class="container">
