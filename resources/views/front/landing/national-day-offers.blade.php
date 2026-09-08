@@ -264,21 +264,55 @@
         html[data-active-lang="en"] .lp-input::placeholder { text-align: left; }
         html[data-active-lang="en"] .lp-input { text-align: left; }
 
-        select.lp-input {
+        /* ─── Interest checklist (multi-select) ─── */
+        .lp-checklist-label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #444;
+            margin-bottom: 6px;
+            text-align: right;
+        }
+        html[data-active-lang="en"] .lp-checklist-label { text-align: left; }
+
+        .lp-checklist-box {
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            max-height: 220px;
+            overflow-y: auto;
+            padding: 8px 12px;
+            margin-bottom: 14px;
+            background: #fff;
+        }
+        .lp-checklist-box:focus-within {
+            border-color: var(--lp-green);
+            box-shadow: 0 0 0 3px rgba(0,104,55,0.12);
+        }
+        .lp-checklist-group-title {
+            font-weight: 800;
+            font-size: 0.76rem;
+            color: #999;
+            margin: 10px 0 4px;
+        }
+        .lp-checklist-group-title:first-child { margin-top: 2px; }
+        .lp-checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 2px;
+            font-size: 0.85rem;
+            color: #333;
             cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: left 14px center;
-            padding-left: 32px;
+            text-align: right;
         }
-        html[data-active-lang="en"] select.lp-input {
-            background-position: right 14px center;
-            padding-left: 14px;
-            padding-right: 32px;
+        html[data-active-lang="en"] .lp-checklist-item { text-align: left; }
+        .lp-checklist-item input[type="checkbox"] {
+            width: 17px;
+            height: 17px;
+            min-width: 17px;
+            accent-color: var(--lp-green);
+            cursor: pointer;
         }
-        select.lp-input:invalid { color: #aaa; }
 
         .btn-submit {
             width: 100%;
@@ -658,7 +692,11 @@
                             <input type="tel"   name="phone_number" class="lp-input" data-ph-ar="رقم الجوال *" data-ph-en="Phone Number *" placeholder="رقم الجوال *" required>
                             <input type="email" name="email"        class="lp-input" data-ph-ar="البريد الإلكتروني (اختياري)" data-ph-en="Email (optional)" placeholder="البريد الإلكتروني (اختياري)">
                             <input type="text"  name="company_name" class="lp-input" data-ph-ar="اسم الشركة أو الجهة *" data-ph-en="Company Name *" placeholder="اسم الشركة أو الجهة *" required>
-                            <select name="interest" class="lp-input lp-interest-select" required></select>
+                            <span class="lp-checklist-label">
+                                <span data-lang="ar">اختر العروض أو الباقات (يمكن اختيار أكثر من واحد) *</span>
+                                <span data-lang="en">Select offers or packages (you can select more than one) *</span>
+                            </span>
+                            <div class="lp-checklist-box lp-interest-checklist"></div>
                             <button type="submit" class="btn-submit">
                                 <span class="btn-text">
                                     <span data-lang="ar">احصل على عرض السعر الآن</span>
@@ -1167,7 +1205,11 @@
                     <input type="tel"   name="phone_number" class="lp-input" data-ph-ar="رقم الجوال *" data-ph-en="Phone Number *" placeholder="رقم الجوال *" required>
                     <input type="email" name="email"        class="lp-input" data-ph-ar="البريد الإلكتروني (اختياري)" data-ph-en="Email (optional)" placeholder="البريد الإلكتروني (اختياري)">
                     <input type="text"  name="company_name" class="lp-input" data-ph-ar="اسم الشركة أو الجهة *" data-ph-en="Company Name *" placeholder="اسم الشركة أو الجهة *" required>
-                    <select name="interest" class="lp-input lp-interest-select" required></select>
+                    <span class="lp-checklist-label">
+                        <span data-lang="ar">اختر العروض أو الباقات (يمكن اختيار أكثر من واحد) *</span>
+                        <span data-lang="en">Select offers or packages (you can select more than one) *</span>
+                    </span>
+                    <div class="lp-checklist-box lp-interest-checklist"></div>
                     <button type="submit" class="btn-submit">
                         <span class="btn-text">
                             <span data-lang="ar">أرسل طلبك الآن — الاستشارة مجانية</span>
@@ -1275,40 +1317,39 @@
             }
         ];
 
-        function renderInterestSelects(lang) {
-            $('.lp-interest-select').each(function () {
-                var $select = $(this);
-                var prevValue = $select.val();
-                $select.empty();
-
-                var $placeholder = $('<option></option>')
-                    .attr('value', '')
-                    .attr('disabled', true)
-                    .prop('selected', !prevValue)
-                    .text(lang === 'ar' ? 'اختر العرض أو الباقة *' : 'Select an Offer or Package *');
-                $select.append($placeholder);
+        function renderInterestChecklists(lang) {
+            $('.lp-interest-checklist').each(function () {
+                var $box = $(this);
+                var prevChecked = $box.find('input[type="checkbox"]:checked').map(function () {
+                    return $(this).val();
+                }).get();
+                $box.empty();
 
                 interestGroups.forEach(function (group) {
-                    var $container = $select;
                     if (group.ar) {
-                        $container = $('<optgroup></optgroup>').attr('label', lang === 'ar' ? group.ar : group.en);
-                        $select.append($container);
+                        $box.append(
+                            $('<div></div>').addClass('lp-checklist-group-title').text(lang === 'ar' ? group.ar : group.en)
+                        );
                     }
                     group.items.forEach(function (item) {
-                        var $opt = $('<option></option>').attr('value', item.ar).text(lang === 'ar' ? item.ar : item.en);
-                        if (item.ar === prevValue) $opt.prop('selected', true);
-                        $container.append($opt);
+                        var $label = $('<label></label>').addClass('lp-checklist-item');
+                        var $checkbox = $('<input>').attr({ type: 'checkbox', name: 'interest[]' }).val(item.ar);
+                        if (prevChecked.indexOf(item.ar) !== -1) $checkbox.prop('checked', true);
+                        $label.append($checkbox).append(document.createTextNode(lang === 'ar' ? item.ar : item.en));
+                        $box.append($label);
                     });
                 });
             });
         }
 
-        renderInterestSelects(currentLang);
+        renderInterestChecklists(currentLang);
 
         // Preselect a package/offer from a CTA button and scroll to the form
         $('[data-interest]').on('click', function () {
             var interest = $(this).data('interest');
-            $('.lp-interest-select').val(interest);
+            $('.lp-interest-checklist input[type="checkbox"]').each(function () {
+                if ($(this).val() === interest) $(this).prop('checked', true);
+            });
         });
 
         $('#lang-toggle').on('click', function () {
@@ -1326,7 +1367,7 @@
                 if (ph) $(this).attr('placeholder', ph);
             });
 
-            renderInterestSelects(currentLang);
+            renderInterestChecklists(currentLang);
         });
 
         // ─── Lead Form → WhatsApp ───
@@ -1337,7 +1378,7 @@
                 nameRequired:    'يرجى إدخال الاسم الكامل',
                 phoneRequired:   'يرجى إدخال رقم جوال صحيح',
                 companyRequired: 'يرجى إدخال اسم الشركة أو الجهة',
-                interestRequired: 'يرجى اختيار العرض أو الباقة',
+                interestRequired: 'يرجى اختيار عرض أو باقة واحدة على الأقل',
                 errorBtn:        'حسناً',
                 warning:         'تنبيه'
             },
@@ -1345,7 +1386,7 @@
                 nameRequired:    'Please enter your full name',
                 phoneRequired:   'Please enter a valid phone number',
                 companyRequired: 'Please enter your company name',
-                interestRequired: 'Please select an offer or package',
+                interestRequired: 'Please select at least one offer or package',
                 errorBtn:        'OK',
                 warning:         'Notice'
             }
@@ -1360,7 +1401,9 @@
             var phone       = $.trim($form.find('[name="phone_number"]').val());
             var email       = $.trim($form.find('[name="email"]').val());
             var companyName = $.trim($form.find('[name="company_name"]').val());
-            var interest    = $.trim($form.find('[name="interest"]').val());
+            var interests   = $form.find('input[name="interest[]"]:checked').map(function () {
+                return $(this).val();
+            }).get();
 
             if (!fullName) {
                 return Swal.fire({ icon: 'warning', title: msg('warning'), text: msg('nameRequired'), confirmButtonText: msg('errorBtn'), confirmButtonColor: '#006837' });
@@ -1371,7 +1414,7 @@
             if (!companyName) {
                 return Swal.fire({ icon: 'warning', title: msg('warning'), text: msg('companyRequired'), confirmButtonText: msg('errorBtn'), confirmButtonColor: '#006837' });
             }
-            if (!interest) {
+            if (!interests.length) {
                 return Swal.fire({ icon: 'warning', title: msg('warning'), text: msg('interestRequired'), confirmButtonText: msg('errorBtn'), confirmButtonColor: '#006837' });
             }
 
@@ -1380,7 +1423,7 @@
                 + 'الجوال: ' + phone + '\n'
                 + (email ? 'الإيميل: ' + email + '\n' : '')
                 + 'الشركة: ' + companyName + '\n'
-                + 'العرض/الباقة المطلوبة: ' + interest;
+                + 'العروض/الباقات المطلوبة:\n- ' + interests.join('\n- ');
 
             var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(waText);
             window.open(waUrl, '_blank');
