@@ -489,8 +489,8 @@
                 <img src="{{ asset('front/images/window-final logo-1.png') }}" alt="وكالة ويندو للدعاية والإعلان" class="lp-logo">
             </a>
             <span class="nd-header-label">
-                <span data-lang="ar">&#127466;&#127462; عروض اليوم الوطني الـ96</span>
-                <span data-lang="en">&#127466;&#127462; National Day 96 Offers</span>
+                <span data-lang="ar">&#127480;&#127462; عروض اليوم الوطني الـ96</span>
+                <span data-lang="en">&#127480;&#127462; National Day 96 Offers</span>
             </span>
             <div class="lp-header-actions">
                 <button class="lang-btn" id="lang-toggle">EN</button>
@@ -567,8 +567,8 @@
                 <!-- Text column -->
                 <div class="col-lg-7 order-2 order-lg-1">
                     <div class="nd-badge">
-                        <span data-lang="ar">&#127466;&#127462; عروض اليوم الوطني الـ96</span>
-                        <span data-lang="en">&#127466;&#127462; National Day 96 Offers</span>
+                        <span data-lang="ar">&#127480;&#127462; عروض اليوم الوطني الـ96</span>
+                        <span data-lang="en">&#127480;&#127462; National Day 96 Offers</span>
                     </div>
                     <div class="nd-slogan">
                         <span data-lang="ar">عروض اليوم الوطني وصلت!</span>
@@ -903,8 +903,8 @@
 
             <div class="lp-form-card">
                 <h3>
-                    <span data-lang="ar">&#127466;&#127462; احجز عرضك الآن</span>
-                    <span data-lang="en">&#127466;&#127462; Book Your Offer Now</span>
+                    <span data-lang="ar">&#127480;&#127462; احجز عرضك الآن</span>
+                    <span data-lang="en">&#127480;&#127462; Book Your Offer Now</span>
                 </h3>
                 <p class="form-sub">
                     <span data-lang="ar">فريقنا سيتواصل معك لتقديم عرض سعر مخصص</span>
