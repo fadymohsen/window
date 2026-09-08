@@ -264,6 +264,22 @@
         html[data-active-lang="en"] .lp-input::placeholder { text-align: left; }
         html[data-active-lang="en"] .lp-input { text-align: left; }
 
+        select.lp-input {
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 14px center;
+            padding-left: 32px;
+        }
+        html[data-active-lang="en"] select.lp-input {
+            background-position: right 14px center;
+            padding-left: 14px;
+            padding-right: 32px;
+        }
+        select.lp-input:invalid { color: #aaa; }
+
         .btn-submit {
             width: 100%;
             background: var(--lp-green);
@@ -642,6 +658,7 @@
                             <input type="tel"   name="phone_number" class="lp-input" data-ph-ar="رقم الجوال *" data-ph-en="Phone Number *" placeholder="رقم الجوال *" required>
                             <input type="email" name="email"        class="lp-input" data-ph-ar="البريد الإلكتروني (اختياري)" data-ph-en="Email (optional)" placeholder="البريد الإلكتروني (اختياري)">
                             <input type="text"  name="company_name" class="lp-input" data-ph-ar="اسم الشركة أو الجهة *" data-ph-en="Company Name *" placeholder="اسم الشركة أو الجهة *" required>
+                            <select name="interest" class="lp-input lp-interest-select" required></select>
                             <button type="submit" class="btn-submit">
                                 <span class="btn-text">
                                     <span data-lang="ar">احصل على عرض السعر الآن</span>
@@ -973,7 +990,7 @@
                                 <span data-lang="en">Competitor research & analysis, plus running ad campaigns</span>
                             </li>
                         </ul>
-                        <a href="#cta-form" class="pkg-btn">
+                        <a href="#cta-form" class="pkg-btn" data-interest="باقة نحقق">
                             <span data-lang="ar">اطلب باقة نحقق</span>
                             <span data-lang="en">Order Achieve Package</span>
                         </a>
@@ -1013,7 +1030,7 @@
                                 <span data-lang="en">SEO to improve your website's visibility in search engines</span>
                             </li>
                         </ul>
-                        <a href="#cta-form" class="pkg-btn">
+                        <a href="#cta-form" class="pkg-btn" data-interest="باقة نتميز">
                             <span data-lang="ar">اطلب باقة نتميز</span>
                             <span data-lang="en">Order Excel Package</span>
                         </a>
@@ -1053,7 +1070,7 @@
                                 <span data-lang="en">Competitor research & analysis</span>
                             </li>
                         </ul>
-                        <a href="#cta-form" class="pkg-btn">
+                        <a href="#cta-form" class="pkg-btn" data-interest="باقة نحلم">
                             <span data-lang="ar">اطلب باقة نحلم</span>
                             <span data-lang="en">Order Dream Package</span>
                         </a>
@@ -1150,6 +1167,7 @@
                     <input type="tel"   name="phone_number" class="lp-input" data-ph-ar="رقم الجوال *" data-ph-en="Phone Number *" placeholder="رقم الجوال *" required>
                     <input type="email" name="email"        class="lp-input" data-ph-ar="البريد الإلكتروني (اختياري)" data-ph-en="Email (optional)" placeholder="البريد الإلكتروني (اختياري)">
                     <input type="text"  name="company_name" class="lp-input" data-ph-ar="اسم الشركة أو الجهة *" data-ph-en="Company Name *" placeholder="اسم الشركة أو الجهة *" required>
+                    <select name="interest" class="lp-input lp-interest-select" required></select>
                     <button type="submit" class="btn-submit">
                         <span class="btn-text">
                             <span data-lang="ar">أرسل طلبك الآن — الاستشارة مجانية</span>
@@ -1224,6 +1242,75 @@
         var currentLang = 'ar';
         var $root = $('#page-root');
 
+        // ─── Interest (Offer / Package) Select Options ───
+        var interestGroups = [
+            {
+                ar: 'باقات السوشيال ميديا', en: 'Social Media Packages',
+                items: [
+                    { ar: 'باقة نحقق', en: 'Achieve Package' },
+                    { ar: 'باقة نتميز', en: 'Excel Package' },
+                    { ar: 'باقة نحلم', en: 'Dream Package' }
+                ]
+            },
+            {
+                ar: 'عروض المنتجات', en: 'Product Offers',
+                items: [
+                    { ar: 'ريلز بشعار شركتك', en: 'Reels with Your Logo' },
+                    { ar: 'بوست اليوم الوطني', en: 'National Day Post' },
+                    { ar: 'علم ريشة بطباعة خاصة', en: 'Custom Feather Flag' },
+                    { ar: 'رول أب اليوم الوطني', en: 'National Day Roll-up Banner' },
+                    { ar: 'نوت بوك اليوم الوطني', en: 'National Day Notebook' },
+                    { ar: 'وشاح اليوم الوطني', en: 'National Day Scarf' },
+                    { ar: 'مكعب دعائي', en: 'Promotional Cube' },
+                    { ar: 'باك دروب للتصوير', en: 'Photo Backdrop' },
+                    { ar: 'كاب بشعار شركتك', en: 'Cap with Your Logo' },
+                    { ar: 'بروش اليوم الوطني', en: 'National Day Brooch' },
+                    { ar: 'مج حراري فاخر', en: 'Premium Thermal Mug' }
+                ]
+            },
+            {
+                items: [
+                    { ar: 'غير ذلك / استفسار عام', en: 'Other / General Inquiry' }
+                ]
+            }
+        ];
+
+        function renderInterestSelects(lang) {
+            $('.lp-interest-select').each(function () {
+                var $select = $(this);
+                var prevValue = $select.val();
+                $select.empty();
+
+                var $placeholder = $('<option></option>')
+                    .attr('value', '')
+                    .attr('disabled', true)
+                    .prop('selected', !prevValue)
+                    .text(lang === 'ar' ? 'اختر العرض أو الباقة *' : 'Select an Offer or Package *');
+                $select.append($placeholder);
+
+                interestGroups.forEach(function (group) {
+                    var $container = $select;
+                    if (group.ar) {
+                        $container = $('<optgroup></optgroup>').attr('label', lang === 'ar' ? group.ar : group.en);
+                        $select.append($container);
+                    }
+                    group.items.forEach(function (item) {
+                        var $opt = $('<option></option>').attr('value', item.ar).text(lang === 'ar' ? item.ar : item.en);
+                        if (item.ar === prevValue) $opt.prop('selected', true);
+                        $container.append($opt);
+                    });
+                });
+            });
+        }
+
+        renderInterestSelects(currentLang);
+
+        // Preselect a package/offer from a CTA button and scroll to the form
+        $('[data-interest]').on('click', function () {
+            var interest = $(this).data('interest');
+            $('.lp-interest-select').val(interest);
+        });
+
         $('#lang-toggle').on('click', function () {
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
             $root.attr('data-active-lang', currentLang);
@@ -1238,6 +1325,8 @@
                 var ph = $(this).data('ph-' + currentLang);
                 if (ph) $(this).attr('placeholder', ph);
             });
+
+            renderInterestSelects(currentLang);
         });
 
         // ─── Lead Form → WhatsApp ───
@@ -1248,6 +1337,7 @@
                 nameRequired:    'يرجى إدخال الاسم الكامل',
                 phoneRequired:   'يرجى إدخال رقم جوال صحيح',
                 companyRequired: 'يرجى إدخال اسم الشركة أو الجهة',
+                interestRequired: 'يرجى اختيار العرض أو الباقة',
                 errorBtn:        'حسناً',
                 warning:         'تنبيه'
             },
@@ -1255,6 +1345,7 @@
                 nameRequired:    'Please enter your full name',
                 phoneRequired:   'Please enter a valid phone number',
                 companyRequired: 'Please enter your company name',
+                interestRequired: 'Please select an offer or package',
                 errorBtn:        'OK',
                 warning:         'Notice'
             }
@@ -1269,6 +1360,7 @@
             var phone       = $.trim($form.find('[name="phone_number"]').val());
             var email       = $.trim($form.find('[name="email"]').val());
             var companyName = $.trim($form.find('[name="company_name"]').val());
+            var interest    = $.trim($form.find('[name="interest"]').val());
 
             if (!fullName) {
                 return Swal.fire({ icon: 'warning', title: msg('warning'), text: msg('nameRequired'), confirmButtonText: msg('errorBtn'), confirmButtonColor: '#006837' });
@@ -1279,12 +1371,16 @@
             if (!companyName) {
                 return Swal.fire({ icon: 'warning', title: msg('warning'), text: msg('companyRequired'), confirmButtonText: msg('errorBtn'), confirmButtonColor: '#006837' });
             }
+            if (!interest) {
+                return Swal.fire({ icon: 'warning', title: msg('warning'), text: msg('interestRequired'), confirmButtonText: msg('errorBtn'), confirmButtonColor: '#006837' });
+            }
 
             var waText = 'السلام عليكم، أبي أستفسر عن عروض اليوم الوطني الـ96\n\n'
                 + 'الاسم: ' + fullName + '\n'
                 + 'الجوال: ' + phone + '\n'
                 + (email ? 'الإيميل: ' + email + '\n' : '')
-                + 'الشركة: ' + companyName;
+                + 'الشركة: ' + companyName + '\n'
+                + 'العرض/الباقة المطلوبة: ' + interest;
 
             var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(waText);
             window.open(waUrl, '_blank');
