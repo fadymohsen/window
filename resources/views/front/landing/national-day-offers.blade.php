@@ -349,6 +349,99 @@
             margin-top: 6px;
         }
 
+        /* ─── Social Media Packages ─── */
+        .lp-packages { background: var(--lp-dark); }
+        .lp-packages .section-title { color: #fff; }
+        .lp-packages .section-sub { color: rgba(255,255,255,0.6); }
+
+        .pkg-col { margin-top: 18px; }
+        .pkg-card {
+            background: var(--lp-card-bg);
+            border-radius: 18px;
+            padding: 34px 22px 26px;
+            text-align: center;
+            height: 100%;
+            border: 2px solid transparent;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .pkg-card.pkg-teal { border-color: rgba(22,163,160,0.5); }
+        .pkg-card.pkg-gold { border-color: rgba(184,134,11,0.5); }
+        .pkg-card.pkg-featured {
+            border-color: #8b5cf6;
+            background: linear-gradient(160deg, #2a1a45 0%, #1a1030 100%);
+            box-shadow: 0 20px 50px rgba(139,92,246,0.35);
+        }
+        @media (min-width: 992px) {
+            .pkg-card.pkg-featured { transform: scale(1.05); z-index: 2; }
+        }
+
+        .pkg-badge-top {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 7px 22px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .pkg-teal .pkg-badge-top { background: #16a3a0; color: #fff; }
+        .pkg-featured .pkg-badge-top { background: #8b5cf6; color: #fff; }
+        .pkg-gold .pkg-badge-top { background: #b8860b; color: #fff; }
+
+        .pkg-price { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 16px 0 2px; }
+        .pkg-price small { font-size: 1.05rem; font-weight: 700; opacity: 0.7; margin-inline-start: 4px; }
+        .pkg-featured .pkg-price { font-size: 2.9rem; }
+
+        .pkg-features { list-style: none; text-align: right; margin: 18px 0 24px; flex-grow: 1; }
+        html[data-active-lang="en"] .pkg-features { text-align: left; }
+        .pkg-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.84rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.6;
+        }
+        .pkg-features li:last-child { border-bottom: none; }
+        .pkg-features i {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+        .pkg-teal .pkg-features i { background: rgba(22,163,160,0.18); color: #2dd4cf; }
+        .pkg-featured .pkg-features i { background: rgba(139,92,246,0.22); color: #b794f6; }
+        .pkg-gold .pkg-features i { background: rgba(184,134,11,0.18); color: #e0ac2b; }
+
+        .pkg-btn {
+            display: block;
+            text-align: center;
+            padding: 13px;
+            border-radius: 9px;
+            font-weight: 800;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+        .pkg-teal .pkg-btn { background: transparent; border: 2px solid #16a3a0; color: #2dd4cf; }
+        .pkg-teal .pkg-btn:hover { background: #16a3a0; color: #fff; }
+        .pkg-featured .pkg-btn { background: #8b5cf6; color: #fff; border: 2px solid #8b5cf6; }
+        .pkg-featured .pkg-btn:hover { background: #7c3aed; color: #fff; }
+        .pkg-gold .pkg-btn { background: transparent; border: 2px solid #b8860b; color: #e0ac2b; }
+        .pkg-gold .pkg-btn:hover { background: #b8860b; color: #fff; }
+
         /* ─── More services ─── */
         .lp-more { background: var(--lp-dark); }
         .lp-more .section-title { color: #fff; }
@@ -827,6 +920,146 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="gold-divider"></div>
+
+    <!-- ═══════════════════ SOCIAL MEDIA PACKAGES ═══════════════════ -->
+    <section class="lp-packages section-wrap">
+        <div class="container">
+            <h2 class="section-title">
+                <span data-lang="ar">عروض اليوم الوطني على باقات السوشيال ميديا</span>
+                <span data-lang="en">National Day Offers on Social Media Packages</span>
+            </h2>
+            <p class="section-sub">
+                <span data-lang="ar">اختر الباقة التي تناسب طموح شركتك واحتفل باليوم الوطني الـ96 بحضور رقمي قوي</span>
+                <span data-lang="en">Choose the package that fits your company's ambition and celebrate National Day 96 with a strong digital presence</span>
+            </p>
+
+            <div class="row g-4 justify-content-center align-items-center">
+
+                <!-- Package 1: نحقق -->
+                <div class="col-md-6 col-lg-4 pkg-col">
+                    <div class="pkg-card pkg-teal">
+                        <span class="pkg-badge-top">
+                            <span data-lang="ar">باقة نحقق</span>
+                            <span data-lang="en">Achieve Package</span>
+                        </span>
+                        <div class="pkg-price">
+                            <span data-lang="ar">2,000 <small>ريال</small></span>
+                            <span data-lang="en">2,000 <small>SAR</small></span>
+                        </div>
+                        <ul class="pkg-features">
+                            <li>
+                                <i class="fas fa-users"></i>
+                                <span data-lang="ar">إدارة 4 منصات سوشيال ميديا</span>
+                                <span data-lang="en">Manage 4 social media platforms</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-calendar-alt"></i>
+                                <span data-lang="ar">خطة نشر ومحتوى لـ 15 بوست</span>
+                                <span data-lang="en">Content & posting plan for 15 posts</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-video"></i>
+                                <span data-lang="ar">10 تصميم + 5 فيديو ريلز</span>
+                                <span data-lang="en">10 designs + 5 reel videos</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chart-line"></i>
+                                <span data-lang="ar">دراسة وتحليل المنافسين وتشغيل حملات إعلانية</span>
+                                <span data-lang="en">Competitor research & analysis, plus running ad campaigns</span>
+                            </li>
+                        </ul>
+                        <a href="#cta-form" class="pkg-btn">
+                            <span data-lang="ar">اطلب باقة نحقق</span>
+                            <span data-lang="en">Order Achieve Package</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package 2: نتميز (Featured) -->
+                <div class="col-md-6 col-lg-4 pkg-col">
+                    <div class="pkg-card pkg-featured">
+                        <span class="pkg-badge-top">
+                            <span data-lang="ar">باقة نتميز</span>
+                            <span data-lang="en">Excel Package</span>
+                        </span>
+                        <div class="pkg-price">
+                            <span data-lang="ar">5,000 <small>ريال</small></span>
+                            <span data-lang="en">5,000 <small>SAR</small></span>
+                        </div>
+                        <ul class="pkg-features">
+                            <li>
+                                <i class="fas fa-users"></i>
+                                <span data-lang="ar">إدارة 5 منصات سوشيال ميديا وخطة نشر ومحتوى لـ 30 بوست</span>
+                                <span data-lang="en">Manage 5 social media platforms with a content & posting plan for 30 posts</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-calendar-alt"></i>
+                                <span data-lang="ar">دراسة وتحليل المنافسين وتشغيل حملات إعلانية مكثفة</span>
+                                <span data-lang="en">Competitor research & analysis with intensive ad campaign management</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-video"></i>
+                                <span data-lang="ar">20 تصميم + 10 فيديو ريلز وتصوير فوتوغرافي وريلز</span>
+                                <span data-lang="en">20 designs + 10 reel videos, plus photography & reels shoot</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-magnifying-glass-chart"></i>
+                                <span data-lang="ar">تحسين ظهور موقعك في محركات البحث SEO</span>
+                                <span data-lang="en">SEO to improve your website's visibility in search engines</span>
+                            </li>
+                        </ul>
+                        <a href="#cta-form" class="pkg-btn">
+                            <span data-lang="ar">اطلب باقة نتميز</span>
+                            <span data-lang="en">Order Excel Package</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Package 3: نحلم -->
+                <div class="col-md-6 col-lg-4 pkg-col">
+                    <div class="pkg-card pkg-gold">
+                        <span class="pkg-badge-top">
+                            <span data-lang="ar">باقة نحلم</span>
+                            <span data-lang="en">Dream Package</span>
+                        </span>
+                        <div class="pkg-price">
+                            <span data-lang="ar">1,000 <small>ريال</small></span>
+                            <span data-lang="en">1,000 <small>SAR</small></span>
+                        </div>
+                        <ul class="pkg-features">
+                            <li>
+                                <i class="fas fa-users"></i>
+                                <span data-lang="ar">إدارة 3 منصات سوشيال ميديا</span>
+                                <span data-lang="en">Manage 3 social media platforms</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-calendar-alt"></i>
+                                <span data-lang="ar">خطة نشر ومحتوى لـ 8 بوستات</span>
+                                <span data-lang="en">Content & posting plan for 8 posts</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-video"></i>
+                                <span data-lang="ar">6 تصميم + 2 فيديو ريلز</span>
+                                <span data-lang="en">6 designs + 2 reel videos</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chart-line"></i>
+                                <span data-lang="ar">دراسة وتحليل المنافسين</span>
+                                <span data-lang="en">Competitor research & analysis</span>
+                            </li>
+                        </ul>
+                        <a href="#cta-form" class="pkg-btn">
+                            <span data-lang="ar">اطلب باقة نحلم</span>
+                            <span data-lang="en">Order Dream Package</span>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
