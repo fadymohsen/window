@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="page-root">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}" id="page-root" {{ app()->getLocale() === 'en' ? 'data-active-lang=en' : '' }}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1281,7 +1281,7 @@
     <script>
     (function ($) {
         // ─── Language Toggle ───
-        var currentLang = 'ar';
+        var currentLang = '{{ app()->getLocale() }}';
         var $root = $('#page-root');
 
         // ─── Interest (Offer / Package) Select Options ───
@@ -1343,6 +1343,15 @@
         }
 
         renderInterestChecklists(currentLang);
+
+        // Initialize lang toggle button text and placeholders for current lang
+        $('#lang-toggle').text(currentLang === 'ar' ? 'EN' : 'AR');
+        if (currentLang !== 'ar') {
+            $('.lp-input').each(function () {
+                var ph = $(this).data('ph-' + currentLang);
+                if (ph) $(this).attr('placeholder', ph);
+            });
+        }
 
         // Preselect a package/offer from a CTA button and scroll to the form
         $('[data-interest]').on('click', function () {
