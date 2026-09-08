@@ -264,7 +264,7 @@
         html[data-active-lang="en"] .lp-input::placeholder { text-align: left; }
         html[data-active-lang="en"] .lp-input { text-align: left; }
 
-        /* ─── Interest checklist (multi-select) ─── */
+        /* ─── Interest dropdown (multi-select) ─── */
         .lp-checklist-label {
             display: block;
             font-size: 0.82rem;
@@ -275,23 +275,86 @@
         }
         html[data-active-lang="en"] .lp-checklist-label { text-align: left; }
 
-        .lp-checklist-box {
-            border: 1.5px solid #ddd;
-            border-radius: 8px;
-            max-height: 220px;
-            overflow-y: auto;
-            padding: 8px 12px;
-            margin-bottom: 14px;
+        .lp-multiselect { position: relative; margin-bottom: 14px; }
+
+        .lp-multiselect-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            margin-bottom: 0;
             background: #fff;
+            text-align: right;
         }
-        .lp-checklist-box:focus-within {
+        html[data-active-lang="en"] .lp-multiselect-toggle { text-align: left; }
+        .lp-multiselect-toggle:hover { border-color: #bbb; }
+        .lp-multiselect.open .lp-multiselect-toggle {
             border-color: var(--lp-green);
             box-shadow: 0 0 0 3px rgba(0,104,55,0.12);
         }
+
+        .lp-multiselect-toggle-text {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #222;
+        }
+        .lp-multiselect-toggle-text.is-placeholder { color: #aaa; }
+
+        .lp-multiselect-count {
+            background: var(--lp-green);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 800;
+            line-height: 1;
+            padding: 4px 8px;
+            border-radius: 50px;
+            flex-shrink: 0;
+        }
+
+        .lp-multiselect-caret {
+            color: #999;
+            font-size: 0.78rem;
+            flex-shrink: 0;
+            transition: transform 0.25s, color 0.25s;
+        }
+        .lp-multiselect.open .lp-multiselect-caret { transform: rotate(180deg); color: var(--lp-green); }
+
+        .lp-multiselect-panel {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            z-index: 60;
+            background: #fff;
+            border: 1.5px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+            max-height: 260px;
+            overflow-y: auto;
+            padding: 10px 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px) scale(0.98);
+            transform-origin: top center;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+            pointer-events: none;
+        }
+        .lp-multiselect.open .lp-multiselect-panel {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        .lp-multiselect-panel::-webkit-scrollbar { width: 6px; }
+        .lp-multiselect-panel::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+
         .lp-checklist-group-title {
             font-weight: 800;
             font-size: 0.76rem;
             color: #999;
+            padding: 0 6px;
             margin: 10px 0 4px;
         }
         .lp-checklist-group-title:first-child { margin-top: 2px; }
@@ -299,13 +362,17 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 2px;
+            padding: 8px 6px;
+            border-radius: 8px;
             font-size: 0.85rem;
             color: #333;
             cursor: pointer;
             text-align: right;
+            transition: background 0.15s;
         }
         html[data-active-lang="en"] .lp-checklist-item { text-align: left; }
+        .lp-checklist-item:hover { background: rgba(0,104,55,0.07); }
+        .lp-checklist-item.is-checked { background: rgba(0,104,55,0.1); color: #0a3d1f; font-weight: 700; }
         .lp-checklist-item input[type="checkbox"] {
             width: 17px;
             height: 17px;
@@ -696,7 +763,14 @@
                                 <span data-lang="ar">اختر العروض أو الباقات (يمكن اختيار أكثر من واحد) *</span>
                                 <span data-lang="en">Select offers or packages (you can select more than one) *</span>
                             </span>
-                            <div class="lp-checklist-box lp-interest-checklist"></div>
+                            <div class="lp-multiselect lp-interest-multiselect">
+                                <button type="button" class="lp-multiselect-toggle lp-input">
+                                    <span class="lp-multiselect-toggle-text is-placeholder"></span>
+                                    <span class="lp-multiselect-count" style="display:none;"></span>
+                                    <i class="fas fa-chevron-down lp-multiselect-caret"></i>
+                                </button>
+                                <div class="lp-multiselect-panel lp-interest-checklist"></div>
+                            </div>
                             <button type="submit" class="btn-submit">
                                 <span class="btn-text">
                                     <span data-lang="ar">احصل على عرض السعر الآن</span>
@@ -1209,7 +1283,14 @@
                         <span data-lang="ar">اختر العروض أو الباقات (يمكن اختيار أكثر من واحد) *</span>
                         <span data-lang="en">Select offers or packages (you can select more than one) *</span>
                     </span>
-                    <div class="lp-checklist-box lp-interest-checklist"></div>
+                    <div class="lp-multiselect lp-interest-multiselect">
+                        <button type="button" class="lp-multiselect-toggle lp-input">
+                            <span class="lp-multiselect-toggle-text is-placeholder"></span>
+                            <span class="lp-multiselect-count" style="display:none;"></span>
+                            <i class="fas fa-chevron-down lp-multiselect-caret"></i>
+                        </button>
+                        <div class="lp-multiselect-panel lp-interest-checklist"></div>
+                    </div>
                     <button type="submit" class="btn-submit">
                         <span class="btn-text">
                             <span data-lang="ar">أرسل طلبك الآن — الاستشارة مجانية</span>
@@ -1334,12 +1415,37 @@
                     group.items.forEach(function (item) {
                         var $label = $('<label></label>').addClass('lp-checklist-item');
                         var $checkbox = $('<input>').attr({ type: 'checkbox', name: 'interest[]' }).val(item.ar);
-                        if (prevChecked.indexOf(item.ar) !== -1) $checkbox.prop('checked', true);
+                        var isChecked = prevChecked.indexOf(item.ar) !== -1;
+                        if (isChecked) { $checkbox.prop('checked', true); $label.addClass('is-checked'); }
                         $label.append($checkbox).append(document.createTextNode(lang === 'ar' ? item.ar : item.en));
                         $box.append($label);
                     });
                 });
             });
+
+            $('.lp-multiselect').each(function () { updateToggleText($(this)); });
+        }
+
+        function updateToggleText($ms) {
+            var $checked = $ms.find('.lp-interest-checklist input[type="checkbox"]:checked');
+            var $toggleText = $ms.find('.lp-multiselect-toggle-text');
+            var $count = $ms.find('.lp-multiselect-count');
+            var count = $checked.length;
+
+            if (!count) {
+                $toggleText
+                    .addClass('is-placeholder')
+                    .text(currentLang === 'ar' ? 'اختر العروض أو الباقات' : 'Select offers or packages');
+                $count.hide();
+                return;
+            }
+
+            var labels = $checked.map(function () {
+                return $(this).closest('.lp-checklist-item').text().trim();
+            }).get();
+
+            $toggleText.removeClass('is-placeholder').text(labels.join(currentLang === 'ar' ? '، ' : ', '));
+            $count.text(count).show();
         }
 
         renderInterestChecklists(currentLang);
@@ -1353,11 +1459,38 @@
             });
         }
 
+        // Toggle dropdown open/close
+        $(document).on('click', '.lp-multiselect-toggle', function (e) {
+            e.stopPropagation();
+            var $ms = $(this).closest('.lp-multiselect');
+            var wasOpen = $ms.hasClass('open');
+            $('.lp-multiselect.open').removeClass('open');
+            if (!wasOpen) $ms.addClass('open');
+        });
+
+        // Close on outside click / Escape
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('.lp-multiselect').length) {
+                $('.lp-multiselect.open').removeClass('open');
+            }
+        });
+        $(document).on('keydown', function (e) {
+            if (e.key === 'Escape') $('.lp-multiselect.open').removeClass('open');
+        });
+
+        // Checkbox check/uncheck: sync row highlight + toggle summary
+        $(document).on('change', '.lp-interest-checklist input[type="checkbox"]', function () {
+            $(this).closest('.lp-checklist-item').toggleClass('is-checked', this.checked);
+            updateToggleText($(this).closest('.lp-multiselect'));
+        });
+
         // Preselect a package/offer from a CTA button and scroll to the form
         $('[data-interest]').on('click', function () {
             var interest = $(this).data('interest');
             $('.lp-interest-checklist input[type="checkbox"]').each(function () {
-                if ($(this).val() === interest) $(this).prop('checked', true);
+                if ($(this).val() === interest && !this.checked) {
+                    $(this).prop('checked', true).trigger('change');
+                }
             });
         });
 
@@ -1437,6 +1570,8 @@
             var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(waText);
             window.open(waUrl, '_blank');
             $form[0].reset();
+            $form.find('.lp-checklist-item').removeClass('is-checked');
+            $form.find('.lp-multiselect').each(function () { updateToggleText($(this)); });
         }
 
         $('#lead-form-hero, #lead-form-bottom').on('submit', function (e) {
