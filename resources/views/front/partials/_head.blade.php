@@ -7,9 +7,11 @@
     $pageSuffix = $isPaginated ? ' - ' . (app()->getLocale() === 'ar' ? 'صفحة ' : 'Page ') . $currentPage : '';
 
     $rawTitle = html_entity_decode(View::yieldContent('meta_title'), ENT_QUOTES, 'UTF-8') ?: ($website_settings->title . ' - ' . html_entity_decode(View::yieldContent('title'), ENT_QUOTES, 'UTF-8'));
+    $rawTitle = str_replace('وينوو', 'ويندو', $rawTitle);
     $pageTitle = mb_strlen($rawTitle . $pageSuffix) > 65 ? mb_substr($rawTitle, 0, 62 - mb_strlen($pageSuffix)) . '...' . $pageSuffix : $rawTitle . $pageSuffix;
 
     $baseDescription = html_entity_decode(View::yieldContent('description'), ENT_QUOTES, 'UTF-8') ?: $website_settings->description;
+    $baseDescription = str_replace('وينوو', 'ويندو', $baseDescription);
     $pageDescription = $isPaginated ? mb_substr($baseDescription, 0, 140) . $pageSuffix : $baseDescription;
 
     // Build clean canonical URL: always https://windowadv.com, never /public/index.php/
