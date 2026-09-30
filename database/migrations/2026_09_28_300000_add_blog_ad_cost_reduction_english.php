@@ -59,7 +59,7 @@ return new class extends Migration
 
 <div style="max-width: 360px; margin: 24px auto;">
     <div style="position: relative; padding-bottom: 177.78%; height: 0; border-radius: 12px; overflow: hidden;">
-        <iframe src="https://www.youtube.com/embed/L3VjGgSP9_o" title="Window Advertising Agency"
+        <iframe src="https://www.youtube.com/embed/YCK9u3w7qhE" title="Window Advertising Agency"
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
