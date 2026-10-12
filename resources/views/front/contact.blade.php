@@ -58,21 +58,31 @@
                         <h3 class="text-center mb-3" style="color: #f9a11b; font-size: 1.4rem;">
                             {{ app()->getLocale() === 'ar' ? 'احصل على استشارة مجانية' : 'Get a Free Consultation' }}
                         </h3>
-                        <form id="whatsapp-form-contact" onsubmit="return sendToWhatsAppContact(event)">
+
+                        {{-- Success / Error alert --}}
+                        <div id="contact-alert" class="alert d-none mb-3" role="alert" style="border-radius:8px;"></div>
+
+                        <form id="contact-email-form">
+                            @csrf
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="wa-name-contact" required
-                                    placeholder="{{ app()->getLocale() === 'ar' ? 'الاسم' : 'Your Name' }}"
+                                <input type="text" class="form-control" name="full_name" id="cf-name" required
+                                    placeholder="{{ app()->getLocale() === 'ar' ? 'الاسم الكامل' : 'Full Name' }}"
                                     style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff;">
                             </div>
                             <div class="mb-3">
-                                <input type="tel" class="form-control" id="wa-phone-contact" required
+                                <input type="email" class="form-control" name="email" id="cf-email" required
+                                    placeholder="{{ app()->getLocale() === 'ar' ? 'البريد الإلكتروني' : 'Email Address' }}"
+                                    style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff;">
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" name="phone_number" id="cf-phone" required
                                     placeholder="{{ app()->getLocale() === 'ar' ? 'رقم الجوال' : 'Phone Number' }}"
                                     style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff;">
                             </div>
                             <div class="mb-3">
-                                <select class="form-select" id="wa-service-contact" required
+                                <select class="form-select" name="service" id="cf-service"
                                     style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff;">
-                                    <option value="" disabled selected>{{ app()->getLocale() === 'ar' ? 'اختر الخدمة' : 'Select Service' }}</option>
+                                    <option value="" selected>{{ app()->getLocale() === 'ar' ? 'اختر الخدمة (اختياري)' : 'Select Service (optional)' }}</option>
                                     <option value="{{ app()->getLocale() === 'ar' ? 'تنظيم فعاليات ومعارض' : 'Events & Exhibitions' }}">{{ app()->getLocale() === 'ar' ? 'تنظيم فعاليات ومعارض' : 'Events & Exhibitions' }}</option>
                                     <option value="{{ app()->getLocale() === 'ar' ? 'لافتات وأحرف بارزة' : 'Signage & Embossed Letters' }}">{{ app()->getLocale() === 'ar' ? 'لافتات وأحرف بارزة' : 'Signage & Embossed Letters' }}</option>
                                     <option value="{{ app()->getLocale() === 'ar' ? 'طباعة ومطبوعات' : 'Printing & Publications' }}">{{ app()->getLocale() === 'ar' ? 'طباعة ومطبوعات' : 'Printing & Publications' }}</option>
@@ -83,13 +93,21 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <textarea class="form-control" id="wa-message-contact" rows="2"
+                                <textarea class="form-control" name="message" id="cf-message" rows="2"
                                     placeholder="{{ app()->getLocale() === 'ar' ? 'تفاصيل إضافية (اختياري)' : 'Additional details (optional)' }}"
                                     style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); color: #fff; resize: none;"></textarea>
                             </div>
-                            <button type="submit" class="cta-btn w-100 text-dark fw-bold border-0 d-flex align-items-center justify-content-center gap-2" style="font-size: 1.1rem;">
-                                <i class="fa-brands fa-whatsapp fs-4"></i>
-                                {{ app()->getLocale() === 'ar' ? 'أرسل عبر واتساب' : 'Send via WhatsApp' }}
+
+                            {{-- Submit via email --}}
+                            <button type="submit" id="cf-submit-btn" class="cta-btn w-100 text-dark fw-bold border-0 d-flex align-items-center justify-content-center gap-2 mb-2" style="font-size: 1.1rem;">
+                                <i class="fa-solid fa-paper-plane fs-5"></i>
+                                {{ app()->getLocale() === 'ar' ? 'أرسل الطلب' : 'Send Request' }}
+                            </button>
+
+                            {{-- WhatsApp shortcut --}}
+                            <button type="button" onclick="sendToWhatsAppContact()" class="btn w-100 fw-bold d-flex align-items-center justify-content-center gap-2" style="background:rgba(37,211,102,0.15);color:#25d366;border:1px solid rgba(37,211,102,0.4);font-size:0.95rem;">
+                                <i class="fa-brands fa-whatsapp fs-5"></i>
+                                {{ app()->getLocale() === 'ar' ? 'أو أرسل عبر واتساب' : 'Or send via WhatsApp' }}
                             </button>
                         </form>
                     </div>
@@ -168,19 +186,62 @@
     </section>
 
 <script>
-    function sendToWhatsAppContact(e) {
+    // ── Email form submission ──────────────────────────────────────────────────
+    document.getElementById('contact-email-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        var name = document.getElementById('wa-name-contact').value;
-        var phone = document.getElementById('wa-phone-contact').value;
-        var service = document.getElementById('wa-service-contact').value;
-        var message = document.getElementById('wa-message-contact').value;
-        var text = '{{ app()->getLocale() === "ar" ? "مرحباً، أرغب في الاستفسار عن خدماتكم" : "Hello, I would like to inquire about your services" }}' + '%0A%0A' +
-            '{{ app()->getLocale() === "ar" ? "الاسم" : "Name" }}: ' + encodeURIComponent(name) + '%0A' +
-            '{{ app()->getLocale() === "ar" ? "الجوال" : "Phone" }}: ' + encodeURIComponent(phone) + '%0A' +
-            '{{ app()->getLocale() === "ar" ? "الخدمة" : "Service" }}: ' + encodeURIComponent(service) +
-            (message ? '%0A' + '{{ app()->getLocale() === "ar" ? "التفاصيل" : "Details" }}: ' + encodeURIComponent(message) : '');
+
+        var form    = this;
+        var btn     = document.getElementById('cf-submit-btn');
+        var alert   = document.getElementById('contact-alert');
+        var isAr    = '{{ app()->getLocale() }}' === 'ar';
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>' + (isAr ? 'جارٍ الإرسال...' : 'Sending...');
+        alert.className = 'alert d-none mb-3';
+
+        var data = new FormData(form);
+
+        fetch('{{ route("front.contact.store") }}', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('[name="_token"]').value,
+                'Accept': 'application/json',
+            },
+            body: data,
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(json) {
+            if (json.message) {
+                alert.className = 'alert alert-success mb-3';
+                alert.textContent = json.message;
+                form.reset();
+            }
+        })
+        .catch(function() {
+            alert.className = 'alert alert-danger mb-3';
+            alert.textContent = isAr ? 'حدث خطأ، يرجى المحاولة مرة أخرى.' : 'Something went wrong, please try again.';
+        })
+        .finally(function() {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-paper-plane fs-5"></i> ' + (isAr ? 'أرسل الطلب' : 'Send Request');
+        });
+    });
+
+    // ── WhatsApp shortcut ──────────────────────────────────────────────────────
+    function sendToWhatsAppContact() {
+        var name    = document.getElementById('cf-name').value;
+        var phone   = document.getElementById('cf-phone').value;
+        var service = document.getElementById('cf-service').value;
+        var message = document.getElementById('cf-message').value;
+        var isAr    = '{{ app()->getLocale() }}' === 'ar';
+
+        var text = (isAr ? 'مرحباً، أرغب في الاستفسار عن خدماتكم' : 'Hello, I would like to inquire about your services') + '%0A%0A' +
+            (isAr ? 'الاسم' : 'Name') + ': ' + encodeURIComponent(name || '-') + '%0A' +
+            (isAr ? 'الجوال' : 'Phone') + ': ' + encodeURIComponent(phone || '-') +
+            (service ? '%0A' + (isAr ? 'الخدمة' : 'Service') + ': ' + encodeURIComponent(service) : '') +
+            (message ? '%0A' + (isAr ? 'التفاصيل' : 'Details') + ': ' + encodeURIComponent(message) : '');
+
         window.open('https://wa.me/966592945557?text=' + text, '_blank');
-        return false;
     }
 </script>
 

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactAdminMail;
+use App\Mail\ContactClientMail;
 use App\Models\Contact;
 use App\Models\WebsiteSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class LandingPageController extends Controller
 {
@@ -30,12 +33,15 @@ class LandingPageController extends Controller
             'company_name' => 'required|string|max:255',
         ]);
 
-        Contact::create([
+        $contact = Contact::create([
             'full_name'    => $request->full_name,
             'phone_number' => $request->phone_number,
             'email'        => $request->email ?: 'no-email@windowadv.com',
             'site_url'     => '[ND96-OFFERS] ' . $request->company_name,
+            'service'      => 'National Day Offers',
         ]);
+
+        $this->sendLeadEmails($contact);
 
         return response()->json(['message' => 'تم إرسال طلبك بنجاح! سيتواصل معك فريقنا في أقرب وقت.']);
     }
@@ -49,13 +55,31 @@ class LandingPageController extends Controller
             'company_name' => 'required|string|max:255',
         ]);
 
-        Contact::create([
+        $contact = Contact::create([
             'full_name'    => $request->full_name,
             'phone_number' => $request->phone_number,
             'email'        => $request->email ?: 'no-email@windowadv.com',
             'site_url'     => '[ND96-LP] ' . $request->company_name,
+            'service'      => 'National Day',
         ]);
 
+        $this->sendLeadEmails($contact);
+
         return response()->json(['message' => 'تم إرسال طلبك بنجاح! سيتواصل معك فريقنا في أقرب وقت.']);
+    }
+
+    private function sendLeadEmails(Contact $contact): void
+    {
+        $adminEmail = optional(WebsiteSetting::first())->email ?? config('mail.from.address');
+
+        try {
+            Mail::to($adminEmail)->send(new ContactAdminMail($contact));
+
+            if ($contact->email && !str_ends_with($contact->email, '@windowadv.com')) {
+                Mail::to($contact->email)->send(new ContactClientMail($contact));
+            }
+        } catch (\Throwable $e) {
+            \Log::error('Lead mail failed: ' . $e->getMessage());
+        }
     }
 }

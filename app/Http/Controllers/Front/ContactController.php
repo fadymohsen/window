@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactAdminMail;
+use App\Mail\ContactClientMail;
 use App\Models\Contact;
+use App\Models\WebsiteSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -30,13 +34,28 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'full_name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'phone_number' => 'required|numeric|digits_between:7,13',
-            'site_url' => 'required|url',
+            'full_name'    => 'required|string|max:255',
+            'email'        => 'required|email|max:255',
+            'phone_number' => 'required|digits_between:7,13',
+            'service'      => 'nullable|string|max:255',
+            'message'      => 'nullable|string|max:2000',
         ]);
 
-        Contact::create($data);
+        $contact = Contact::create($data);
+
+        $adminEmail = optional(WebsiteSetting::first())->email ?? config('mail.from.address');
+
+        try {
+            // Notify admin
+            Mail::to($adminEmail)->send(new ContactAdminMail($contact));
+
+            // Confirm to client (only if email is real)
+            if ($contact->email && !str_ends_with($contact->email, '@windowadv.com')) {
+                Mail::to($contact->email)->send(new ContactClientMail($contact));
+            }
+        } catch (\Throwable $e) {
+            \Log::error('Contact mail failed: ' . $e->getMessage());
+        }
 
         return response()->json(['message' => __('custom.contact-sent-response')]);
     }
