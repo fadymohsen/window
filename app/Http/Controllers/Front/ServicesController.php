@@ -132,9 +132,21 @@ class ServicesController extends Controller
         ],
         'business-prints' => [
             'parentBreadcrumb' => ['name_en' => 'Printing & Publications', 'name_ar' => 'الطباعة والمطبوعات', 'slug' => 'printing'],
-            'relatedSlugs' => ['profile-design-printing', 'business-cards', 'corporate-visual-identity-design'],
+            'relatedSlugs' => ['profile-design-printing', 'annual-report', 'corporate-visual-identity-design'],
             'portfolioHeading_en' => 'Business Prints Portfolio — Riyadh',
             'portfolioHeading_ar' => 'أعمالنا في المطبوعات التجارية بالرياض',
+        ],
+        'annual-report' => [
+            'parentBreadcrumb' => ['name_en' => 'Printing & Publications', 'name_ar' => 'الطباعة والمطبوعات', 'slug' => 'printing'],
+            'relatedSlugs' => ['business-prints', 'profile-design-printing', 'corporate-visual-identity-design'],
+            'portfolioHeading_en' => 'Annual Report Design Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في تصميم التقارير السنوية بالرياض',
+        ],
+        'hoarding-partitions-for-shops' => [
+            'parentBreadcrumb' => ['name_en' => 'Signage & Signs', 'name_ar' => 'اللافتات واللوحات', 'slug' => 'signage'],
+            'relatedSlugs' => ['project-signboards-walls', 'banner-printing-installation', 'wall-stickers'],
+            'portfolioHeading_en' => 'Shop Hoarding & Partitions Portfolio — Riyadh',
+            'portfolioHeading_ar' => 'أعمالنا في هوردنج وساتر المحلات بالرياض',
         ],
         'car-stickers' => [
             'parentBreadcrumb' => ['name_en' => 'Signage & Signs', 'name_ar' => 'اللافتات واللوحات', 'slug' => 'signage'],
