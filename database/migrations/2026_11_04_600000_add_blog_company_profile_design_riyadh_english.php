@@ -56,8 +56,13 @@ return new class extends Migration
 
 <p>A company profile isn't just a file of text and images — it's a complete introductory interface reflecting the company's character and presenting its background, vision, services, and portfolio. A company may have years of experience, but if that capacity isn't presented in a clear, professional file, the client may not grasp it.</p>
 
-<div style="text-align:center;margin:20px 0;">
-<iframe width="315" height="560" src="https://www.youtube.com/embed/d3AbxDt3zTg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div style="max-width: 360px; margin: 24px auto;">
+    <div style="position: relative; padding-bottom: 177.78%; height: 0; border-radius: 12px; overflow: hidden;">
+        <iframe src="https://www.youtube.com/embed/d3AbxDt3zTg" title="Window Advertising Agency"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+    </div>
 </div>
 
 <h2>1. What Is a Company Profile?</h2>
