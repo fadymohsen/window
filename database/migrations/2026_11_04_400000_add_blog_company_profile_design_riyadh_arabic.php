@@ -63,6 +63,10 @@ return new class extends Migration
 
 <p>بروفايل الشركة ليس مجرد ملف يحتوي على صفحات من النصوص والصور، بل واجهة تعريفية وتسويقية متكاملة تعكس شخصية المنشأة، وتوضح نشأتها، وتعرض رؤيتها وخدماتها وسابقة أعمالها. فقد تمتلك الشركة سنوات طويلة من الخبرة ومشروعات متنوعة، ولكن إذا لم تعرض هذه الإمكانات في ملف واضح واحترافي، فقد لا يدرك العميل حقيقة قدراتها.</p>
 
+<div style="text-align:center;margin:20px 0;">
+<iframe width="315" height="560" src="https://www.youtube.com/embed/d3AbxDt3zTg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 <h2>أولًا: ما هو بروفايل الشركة (Company Profile)؟</h2>
 
 <p>بروفايل الشركة هو ملف تعريفي يقدم معلومات منظمة عن المنشأة: من هي، وكيف بدأت، وما الخدمات التي تقدمها، وما الخبرات والمشروعات التي نفذتها، وكيف يمكن التواصل معها. ويُعرف بالإنجليزية باسم Company Profile أو Corporate Profile، أما عملية إعداد تصميمه فتُعرف باسم Company Profile Design.</p>
