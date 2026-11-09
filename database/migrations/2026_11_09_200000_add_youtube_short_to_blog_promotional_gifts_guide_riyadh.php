@@ -10,7 +10,7 @@ return new class extends Migration
     private string $videoEmbed = <<<'HTML'
 <div style="max-width: 360px; margin: 24px auto;">
     <div style="position: relative; padding-bottom: 177.78%; height: 0; border-radius: 12px; overflow: hidden;">
-        <iframe src="https://www.youtube.com/embed/d3AbxDt3zTg" title="Window Advertising Agency"
+        <iframe src="https://www.youtube.com/embed/9GEtU3T-YSk" title="Window Advertising Agency"
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
@@ -59,7 +59,7 @@ HTML;
             ->where('locale', $locale)
             ->first();
 
-        if (!$translation || str_contains($translation->description, 'youtube.com/embed/d3AbxDt3zTg')) {
+        if (!$translation || str_contains($translation->description, 'youtube.com/embed/9GEtU3T-YSk')) {
             return;
         }
 
