@@ -53,7 +53,10 @@
 @hasSection('hreflang')
     @yield('hreflang')
 @endif
-<meta property="og:type" content="website">
+<meta property="og:type" content="@yield('og_type', 'website')">
+@hasSection('article_meta')
+    @yield('article_meta')
+@endif
 
 <meta name="keywords" content="@yield('keywords', $website_settings->keywords)">
 

@@ -37,17 +37,39 @@
 </script>
 @endsection
 
+@section('og_type', 'article')
+
+@section('article_meta')
+<meta property="article:published_time" content="{{ $blog->created_at->toIso8601String() }}">
+<meta property="article:modified_time" content="{{ $blog->updated_at->toIso8601String() }}">
+<meta property="article:author" content="{{ $website_settings->title }}">
+<meta property="article:section" content="{{ __('custom.blog') }}">
+@if($blog->keywords)
+@foreach(explode(',', $blog->keywords) as $tag)
+<meta property="article:tag" content="{{ trim($tag) }}">
+@endforeach
+@endif
+@endsection
+
 @section('page_schema')
+@php
+    $blogDescription = $blog->description ?? '';
+    $plainText = strip_tags($blogDescription);
+    $wordCount = str_word_count($plainText) ?: mb_substr_count($plainText, ' ') + 1;
+@endphp
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "{{ $blog->title ?? '' }}",
-    "description": "{{ $blog->meta_description ?: truncatePostAndRemoveImages($blog->description ?? '') }}",
+    "description": "{{ $blog->meta_description ?: truncatePostAndRemoveImages($blogDescription) }}",
     "image": "{{ $blog->display_image }}",
     "url": "{{ route('front.blogs.show', $blog) }}",
     "datePublished": "{{ $blog->created_at->toIso8601String() }}",
     "dateModified": "{{ $blog->updated_at->toIso8601String() }}",
+    "wordCount": {{ $wordCount }},
+    "articleSection": "{{ __('custom.blog') }}",
+    "keywords": "{{ $blog->keywords ?? '' }}",
     "author": {
         "@type": "Organization",
         "name": "{{ $website_settings->title }}",
@@ -65,9 +87,65 @@
         "@type": "WebPage",
         "@id": "{{ route('front.blogs.show', $blog) }}"
     },
-    "inLanguage": "{{ LaravelLocalization::getCurrentLocale() }}"
+    "isPartOf": {
+        "@type": "WebSite",
+        "name": "{{ $website_settings->title }}",
+        "url": "{{ rtrim(config('app.url'), '/') }}"
+    },
+    "inLanguage": "{{ LaravelLocalization::getCurrentLocale() }}",
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["#blog-header h1", ".blog-body > p:first-of-type", ".blog-body > h2"]
+    }
 }
 </script>
+
+{{-- FAQPage Schema - auto-extracted from blog content --}}
+@php
+    $faqItems = [];
+    if (preg_match_all('/<h3[^>]*>(.*?)<\/h3>\s*<p[^>]*>(.*?)<\/p>/s', $blogDescription, $matches, PREG_SET_ORDER)) {
+        // Only capture Q&A pairs that appear after an FAQ-related heading
+        $faqSectionPos = false;
+        foreach (['الأسئلة الشائعة', 'Frequently Asked', 'FAQ', 'أسئلة شائعة'] as $faqHeading) {
+            $pos = mb_stripos($blogDescription, $faqHeading);
+            if ($pos !== false) {
+                $faqSectionPos = $pos;
+                break;
+            }
+        }
+        if ($faqSectionPos !== false) {
+            $faqContent = mb_substr($blogDescription, $faqSectionPos);
+            if (preg_match_all('/<h3[^>]*>(.*?)<\/h3>\s*<p[^>]*>(.*?)<\/p>/s', $faqContent, $faqMatches, PREG_SET_ORDER)) {
+                foreach ($faqMatches as $m) {
+                    $faqItems[] = [
+                        'question' => strip_tags($m[1]),
+                        'answer' => strip_tags($m[2]),
+                    ];
+                }
+            }
+        }
+    }
+@endphp
+@if(count($faqItems) > 0)
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        @foreach($faqItems as $faq)
+        {
+            "@type": "Question",
+            "name": "{{ $faq['question'] }}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{ $faq['answer'] }}"
+            }
+        }@if(!$loop->last),@endif
+        @endforeach
+    ]
+}
+</script>
+@endif
 @endsection
 
 @section('content')

@@ -31,6 +31,26 @@
 </script>
 @endsection
 
+@section('page_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "{{ __('custom.blog') }}",
+    "itemListElement": [
+        @foreach($blogs as $blogItem)
+        {
+            "@type": "ListItem",
+            "position": {{ $loop->iteration + ($blogs->currentPage() - 1) * $blogs->perPage() }},
+            "name": "{{ $blogItem->title ?? '' }}",
+            "url": "{{ route('front.blogs.show', $blogItem) }}"
+        }@if(!$loop->last),@endif
+        @endforeach
+    ]
+}
+</script>
+@endsection
+
 @section('content')
 
     <x-breadcrumb :items="[
