@@ -5,6 +5,7 @@
 @section('description', $blog->meta_description ?: truncatePostAndRemoveImages($blog->description ?? ''))
 @section('keywords', $blog->keywords ?? '')
 @section('display_image', $blog->display_image)
+@section('citation_date', $blog->created_at->format('Y-m-d'))
 
 @section('hreflang')
 <link rel="alternate" hreflang="en" href="{{ LaravelLocalization::getLocalizedURL('en') }}" />

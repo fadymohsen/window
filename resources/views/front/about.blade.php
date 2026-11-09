@@ -185,6 +185,60 @@
 @endsection
 
 @section('page_schema')
+{{-- AboutPage Schema with expertise signals for AI engines --}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "{{ __('custom.about-meta-title') }}",
+    "description": "{{ __('custom.about-meta-description') }}",
+    "url": "{{ route('front.about') }}",
+    "mainEntity": {
+        "@type": "AdvertisingAgency",
+        "@id": "{{ rtrim(config('app.url'), '/') }}/#organization",
+        "name": "{{ $website_settings->title }}",
+        "alternateName": ["Window Advertising Agency", "ويندو للدعاية والإعلان"],
+        "url": "{{ rtrim(config('app.url'), '/') }}",
+        "foundingDate": "2000",
+        "foundingLocation": {
+            "@type": "Place",
+            "name": "Riyadh, Saudi Arabia",
+            "sameAs": "https://en.wikipedia.org/wiki/Riyadh"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Saudi Arabia",
+            "sameAs": "https://en.wikipedia.org/wiki/Saudi_Arabia"
+        },
+        "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "minValue": 50
+        },
+        "knowsAbout": [
+            "Advertising Agency Services",
+            "Event Management and Conference Organization",
+            "Exhibition Booth Design and Fabrication",
+            "3D Embossed Letters and Signage Manufacturing",
+            "Company Profile Design",
+            "Annual Report Design and Printing",
+            "Corporate Visual Identity and Branding",
+            "Promotional Gifts and Corporate Giveaways",
+            "Large Format Printing",
+            "Digital Marketing and Social Media",
+            "Wayfinding and Directional Signage",
+            "National Day Celebrations and Decorations",
+            "Smart Glass and Privacy Film Solutions"
+        ],
+        "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "Professional Experience",
+            "description": "25+ years of advertising and marketing experience in Saudi Arabia with 5000+ completed projects"
+        }
+    },
+    "inLanguage": "{{ LaravelLocalization::getCurrentLocale() }}"
+}
+</script>
+
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -197,11 +251,7 @@
     "url": "{{ LaravelLocalization::getLocalizedURL(app()->getLocale()) }}",
     "publisher": {
         "@type": "Organization",
-        "name": "{{ $website_settings->title }}",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "{{ asset('android-chrome-512x512.png') }}"
-        }
+        "@id": "{{ rtrim(config('app.url'), '/') }}/#organization"
     }
 }
 </script>

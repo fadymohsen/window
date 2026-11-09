@@ -70,8 +70,21 @@
 @if($isPaginated)
 <meta name="robots" content="noindex, follow">
 @else
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 @endif
+
+{{-- AI Citation Meta Tags --}}
+<meta name="citation_title" content="{{ $pageTitle }}">
+<meta name="citation_author" content="{{ $website_settings->title }}">
+<meta name="citation_language" content="{{ app()->getLocale() }}">
+<meta name="citation_publisher" content="Window Advertising Agency">
+@hasSection('citation_date')
+<meta name="citation_date" content="@yield('citation_date')">
+@endif
+
+{{-- AI & LLM Discovery --}}
+<link rel="author" href="{{ rtrim(config('app.url'), '/') }}/{{ app()->getLocale() }}/about">
+<link rel="me" href="{{ $website_settings->linkedin_url ?? '' }}">
 
 <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=3">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}?v=3">

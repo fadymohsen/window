@@ -9,3 +9,9 @@ Route::get('/sitemap.xml', function () {
         'Content-Type' => 'application/xml',
     ]);
 });
+
+Route::get('/llms.txt', function () {
+    return response()->file(public_path('llms.txt'), [
+        'Content-Type' => 'text/plain; charset=utf-8',
+    ]);
+});
