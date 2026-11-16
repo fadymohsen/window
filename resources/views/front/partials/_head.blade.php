@@ -100,6 +100,7 @@
 .preloader-spinner{width:40px;height:40px;border:3px solid rgba(249,161,27,.3);border-top-color:#f9a11b;border-radius:50%;animation:rotation .8s linear infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 </style>
+<noscript><style>#preloader{display:none!important}</style></noscript>
 <!-- AOS CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"></noscript>
@@ -129,8 +130,10 @@
 <!-- Sweet Alert2 -->
 <link rel="stylesheet" href="{{ asset('front/libs/sweetalert2/sweet.css') }}" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="{{ asset('front/libs/sweetalert2/sweet.css') }}"></noscript>
-<link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.carousel.min.css') }}">
-<link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.carousel.min.css') }}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.carousel.min.css') }}"></noscript>
+<link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.theme.default.min.css') }}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="{{ asset('front/libs/OwlCarousel2-2.3.4/assets/owl.theme.default.min.css') }}"></noscript>
 <!-- Custom CSS -->
 @if(app()->environment('production') && file_exists(public_path('front/css/main.min.css')))
 <link rel="stylesheet" href="{{ asset('front/css/main.min.css') }}?v={{ filemtime(public_path('front/css/main.min.css')) }}">

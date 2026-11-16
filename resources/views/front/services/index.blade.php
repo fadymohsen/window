@@ -20,7 +20,7 @@
         "@type": "ListItem",
         "position": 1,
         "name": "{{ __('custom.home') }}",
-        "item": "{{ url('/') }}"
+        "item": "{{ rtrim(config('app.url'), '/') }}/"
     }, {
         "@type": "ListItem",
         "position": 2,
@@ -62,7 +62,7 @@
         <div class="container">
             <div class="row px-2">
                 <div class="col-lg-12 px-4 mt-2" style="z-index:1;position:relative;">
-                    <img src="{{ asset('front/images/car.png') }}" alt="@lang('custom.our-services') - {{ $website_settings->title }}" style="max-width: 100%;">
+                    <img src="{{ asset('front/images/car.png') }}" alt="@lang('custom.our-services') - {{ $website_settings->title }}" width="2032" height="610" style="max-width: 100%; height: auto;">
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@
         "@type": "ListItem",
         "position": 1,
         "name": "{{ __('custom.home') }}",
-        "item": "{{ url('/') }}"
+        "item": "{{ rtrim(config('app.url'), '/') }}/"
     }, {
         "@type": "ListItem",
         "position": 2,
@@ -54,7 +54,7 @@
                     </p>
                 </div>
                 <div class="col-lg-5 px-5 about-animate">
-                    <video autoplay muted loop playsinline preload="metadata">
+                    <video autoplay muted loop playsinline preload="metadata" poster="{{ asset('front/images/video-poster-about.jpg') }}">
                         <source src="{{ asset('front/videos/window_about.mp4') }}" type="video/mp4">
                     </video>
                 </div>

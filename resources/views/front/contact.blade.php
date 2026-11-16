@@ -20,13 +20,30 @@
         "@type": "ListItem",
         "position": 1,
         "name": "{{ __('custom.home') }}",
-        "item": "{{ url('/') }}"
+        "item": "{{ rtrim(config('app.url'), '/') }}/"
     }, {
         "@type": "ListItem",
         "position": 2,
         "name": "{{ __('custom.contact') }}",
         "item": "{{ route('front.contact.index') }}"
     }]
+}
+</script>
+@endsection
+
+@section('page_schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "{{ __('custom.contacts-meta-title') }}",
+    "description": "{{ __('custom.contacts-meta-description') }}",
+    "url": "{{ route('front.contact.index') }}",
+    "inLanguage": "{{ LaravelLocalization::getCurrentLocale() }}",
+    "mainEntity": {
+        "@type": "AdvertisingAgency",
+        "@id": "{{ rtrim(config('app.url'), '/') }}/#organization"
+    }
 }
 </script>
 @endsection
@@ -51,7 +68,7 @@
             </div>
             <div class="row justify-content-center" style="min-height:35vh;">
                 <div class="col-lg-4 px-4 mt-2" style="position: relative;">
-                    <img class="d-none d-sm-block" src="{{ asset('front/images/muslim-man-browsing-smartphone-app-removebg-preview.png') }}" alt="@lang('custom.contact-us') - {{ $website_settings->title }}" style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);height: 140%;max-width: 100%;">
+                    <img class="d-none d-sm-block" src="{{ asset('front/images/muslim-man-browsing-smartphone-app-removebg-preview.png') }}" alt="@lang('custom.contact-us') - {{ $website_settings->title }}" width="793" height="1134" style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);height: 140%;max-width: 100%;" loading="lazy">
                 </div>
                 <div class="col-lg-5 px-4 mt-2">
                     <div class="whatsapp-cta-form p-4 rounded-4" style="background: #2b2b2b; border: 1px solid rgba(249,161,27,0.3);">

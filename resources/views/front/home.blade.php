@@ -20,7 +20,7 @@
         "@type": "ListItem",
         "position": 1,
         "name": "{{ __('custom.home') }}",
-        "item": "{{ url('/') }}"
+        "item": "{{ rtrim(config('app.url'), '/') }}/"
     }]
 }
 </script>
@@ -49,8 +49,8 @@
 @section('content')
 
     <header class="text-center" id="hero">
-        <img src="{{ asset('front/images/og-image.jpeg') }}" alt="{{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان - شركة دعاية واعلان الرياض' : 'Window Advertising Agency Riyadh' }}" class="d-none" width="1200" height="630">
-        <video autoplay muted loop playsinline preload="metadata">
+        <img src="{{ asset('front/images/og-image.jpeg') }}" alt="{{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان - شركة دعاية واعلان الرياض' : 'Window Advertising Agency Riyadh' }}" class="d-none" width="1200" height="630" fetchpriority="high">
+        <video autoplay muted loop playsinline preload="metadata" poster="{{ asset('front/images/video-poster-home.jpg') }}">
             <source src="{{ asset('front/videos/window_header.mp4') }}" type="video/mp4">
         </video>
         <h1 class="visually-hidden">
@@ -111,37 +111,6 @@
             </div>
         </div>
     </section>
-    <script>
-    function sendToWhatsApp(e) {
-        e.preventDefault();
-        var name = document.getElementById('wa-name').value;
-        var phone = document.getElementById('wa-phone').value;
-        var service = document.getElementById('wa-service').value;
-        var message = document.getElementById('wa-message').value;
-        var text = '{{ app()->getLocale() === "ar" ? "مرحباً، أرغب في الاستفسار عن خدماتكم" : "Hello, I would like to inquire about your services" }}' + '%0A%0A' +
-            '{{ app()->getLocale() === "ar" ? "الاسم" : "Name" }}: ' + encodeURIComponent(name) + '%0A' +
-            '{{ app()->getLocale() === "ar" ? "الجوال" : "Phone" }}: ' + encodeURIComponent(phone) + '%0A' +
-            '{{ app()->getLocale() === "ar" ? "الخدمة" : "Service" }}: ' + encodeURIComponent(service) +
-            (message ? '%0A' + '{{ app()->getLocale() === "ar" ? "التفاصيل" : "Details" }}: ' + encodeURIComponent(message) : '');
-        window.open('https://wa.me/966592945557?text=' + text, '_blank');
-        return false;
-    }
-    function sendToWhatsAppFooter(e) {
-        e.preventDefault();
-        var name = document.getElementById('wa-name-footer').value;
-        var phone = document.getElementById('wa-phone-footer').value;
-        var service = document.getElementById('wa-service-footer').value;
-        var message = document.getElementById('wa-message-footer').value;
-        var text = '{{ app()->getLocale() === "ar" ? "مرحباً، أرغب في الاستفسار عن خدماتكم" : "Hello, I would like to inquire about your services" }}' + '%0A%0A' +
-            '{{ app()->getLocale() === "ar" ? "الاسم" : "Name" }}: ' + encodeURIComponent(name) + '%0A' +
-            '{{ app()->getLocale() === "ar" ? "الجوال" : "Phone" }}: ' + encodeURIComponent(phone) + '%0A' +
-            '{{ app()->getLocale() === "ar" ? "الخدمة" : "Service" }}: ' + encodeURIComponent(service) +
-            (message ? '%0A' + '{{ app()->getLocale() === "ar" ? "التفاصيل" : "Details" }}: ' + encodeURIComponent(message) : '');
-        window.open('https://wa.me/966592945557?text=' + text, '_blank');
-        return false;
-    }
-    </script>
-
   <!-- Services -->
     <section id="services" class="py-5" data-aos="fade-up">
         <div class="container">
@@ -210,7 +179,7 @@
         <div class="container d-flex flex-md-row flex-column justify-content-evenly align-items-center gap-4 text-gr">
             <div class="d-flex align-items-center gap-3">
                 <div>
-                    <img src="{{ asset('front/images/clients_icon.png') }}" height="70" alt="@lang('custom.clients')" loading="lazy">
+                    <img src="{{ asset('front/images/clients_icon.png') }}" width="88" height="70" alt="@lang('custom.clients')" loading="lazy">
                 </div>
                 <div>
                     <p class="mb-0 fs-1"><span class="count-number">2000</span>+</p>
@@ -219,7 +188,7 @@
             </div>
             <div class="d-flex align-items-center gap-3">
                 <div>
-                    <img src="{{ asset('front/images/projects_icon.png') }}" height="70" alt="@lang('custom.our-projects')" loading="lazy">
+                    <img src="{{ asset('front/images/projects_icon.png') }}" width="70" height="70" alt="@lang('custom.our-projects')" loading="lazy">
                 </div>
                 <div>
                     <p class="mb-0 fs-1"><span class="count-number">5000</span>+</p>
@@ -228,7 +197,7 @@
             </div>
             <div class="d-flex align-items-center gap-3">
                 <div>
-                    <img src="{{ asset('front/images/vip_icon.png') }}" height="70" alt="@lang('custom.vip-clients')" loading="lazy">
+                    <img src="{{ asset('front/images/vip_icon.png') }}" width="34" height="70" alt="@lang('custom.vip-clients')" loading="lazy">
                 </div>
                 <div>
                     <p class="mb-0 fs-1"><span class="count-number">500</span>+</p>
@@ -385,4 +354,37 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('custom-js')
+<script>
+    function sendToWhatsApp(e) {
+        e.preventDefault();
+        var name = document.getElementById('wa-name').value;
+        var phone = document.getElementById('wa-phone').value;
+        var service = document.getElementById('wa-service').value;
+        var message = document.getElementById('wa-message').value;
+        var text = '{{ app()->getLocale() === "ar" ? "مرحباً، أرغب في الاستفسار عن خدماتكم" : "Hello, I would like to inquire about your services" }}' + '%0A%0A' +
+            '{{ app()->getLocale() === "ar" ? "الاسم" : "Name" }}: ' + encodeURIComponent(name) + '%0A' +
+            '{{ app()->getLocale() === "ar" ? "الجوال" : "Phone" }}: ' + encodeURIComponent(phone) + '%0A' +
+            '{{ app()->getLocale() === "ar" ? "الخدمة" : "Service" }}: ' + encodeURIComponent(service) +
+            (message ? '%0A' + '{{ app()->getLocale() === "ar" ? "التفاصيل" : "Details" }}: ' + encodeURIComponent(message) : '');
+        window.open('https://wa.me/966592945557?text=' + text, '_blank');
+        return false;
+    }
+    function sendToWhatsAppFooter(e) {
+        e.preventDefault();
+        var name = document.getElementById('wa-name-footer').value;
+        var phone = document.getElementById('wa-phone-footer').value;
+        var service = document.getElementById('wa-service-footer').value;
+        var message = document.getElementById('wa-message-footer').value;
+        var text = '{{ app()->getLocale() === "ar" ? "مرحباً، أرغب في الاستفسار عن خدماتكم" : "Hello, I would like to inquire about your services" }}' + '%0A%0A' +
+            '{{ app()->getLocale() === "ar" ? "الاسم" : "Name" }}: ' + encodeURIComponent(name) + '%0A' +
+            '{{ app()->getLocale() === "ar" ? "الجوال" : "Phone" }}: ' + encodeURIComponent(phone) + '%0A' +
+            '{{ app()->getLocale() === "ar" ? "الخدمة" : "Service" }}: ' + encodeURIComponent(service) +
+            (message ? '%0A' + '{{ app()->getLocale() === "ar" ? "التفاصيل" : "Details" }}: ' + encodeURIComponent(message) : '');
+        window.open('https://wa.me/966592945557?text=' + text, '_blank');
+        return false;
+    }
+</script>
 @endsection
