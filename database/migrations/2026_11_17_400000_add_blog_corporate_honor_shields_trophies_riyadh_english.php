@@ -50,6 +50,13 @@ return new class extends Migration
     private function getEnglishContent(): string
     {
         return <<<'HTML'
+<blockquote>
+<h3>The honor shield is the one thing from the ceremony that stays on the honoree's desk for years</h3>
+<p>The speeches, the applause, and the group photos all end within minutes of a ceremony closing, but the shield the honoree holds stays on their desk or office shelf for years, seen by every visitor and colleague who walks in. That's what makes an honor shield more than a "closing gift" for an event — it's the only physical memory of a one-time moment of recognition.</p>
+</blockquote>
+
+<p>Many organizers of honor ceremonies leave the shield decision until the last minute, ending up with a generic piece that doesn't carry the honoree's name accurately or doesn't match the event's identity. The result: a moment of recognition that took real time and budget to plan gets reduced to a piece that doesn't reflect the true level of appreciation intended.</p>
+
 <div style="max-width: 360px; margin: 24px auto;">
     <div style="position: relative; padding-bottom: 177.78%; height: 0; border-radius: 12px; overflow: hidden;">
         <iframe src="https://www.youtube.com/embed/1RHn1zh2OTw" title="Window Advertising Agency"
@@ -58,13 +65,6 @@ return new class extends Migration
                 allowfullscreen></iframe>
     </div>
 </div>
-
-<blockquote>
-<h3>The honor shield is the one thing from the ceremony that stays on the honoree's desk for years</h3>
-<p>The speeches, the applause, and the group photos all end within minutes of a ceremony closing, but the shield the honoree holds stays on their desk or office shelf for years, seen by every visitor and colleague who walks in. That's what makes an honor shield more than a "closing gift" for an event — it's the only physical memory of a one-time moment of recognition.</p>
-</blockquote>
-
-<p>Many organizers of honor ceremonies leave the shield decision until the last minute, ending up with a generic piece that doesn't carry the honoree's name accurately or doesn't match the event's identity. The result: a moment of recognition that took real time and budget to plan gets reduced to a piece that doesn't reflect the true level of appreciation intended.</p>
 
 <h2>1. What Is an Honor Shield and Why Does Every Ceremony Need One?</h2>
 

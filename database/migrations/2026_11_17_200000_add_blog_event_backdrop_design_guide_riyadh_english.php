@@ -50,6 +50,13 @@ return new class extends Migration
     private function getEnglishContent(): string
     {
         return <<<'HTML'
+<blockquote>
+<h3>A backdrop is the first thing the camera sees and the last thing guests remember</h3>
+<p>Open any photo from a press conference, a graduation ceremony, or a trade show in Riyadh, and the eye goes straight to the background. A backdrop isn't just a printed sheet hung behind a speaker — it's the space where a brand's identity repeats in every photo, every video clip, and every post shared after the event ends. An event without a well-designed backdrop quietly loses a marketing opportunity that would otherwise repeat itself thousands of times.</p>
+</blockquote>
+
+<p>Many companies spend heavily on décor, lighting, and sound, and leave the backdrop as an afterthought. The result is a distorted logo, colors that don't match the brand, or a cluttered design that buries the core message. Yet the backdrop is one of an event's least expensive elements — and one of its most visible, living on in photos that stay online for years.</p>
+
 <div style="max-width: 360px; margin: 24px auto;">
     <div style="position: relative; padding-bottom: 177.78%; height: 0; border-radius: 12px; overflow: hidden;">
         <iframe src="https://www.youtube.com/embed/V27Pd4zrM30" title="Window Advertising Agency"
@@ -58,13 +65,6 @@ return new class extends Migration
                 allowfullscreen></iframe>
     </div>
 </div>
-
-<blockquote>
-<h3>A backdrop is the first thing the camera sees and the last thing guests remember</h3>
-<p>Open any photo from a press conference, a graduation ceremony, or a trade show in Riyadh, and the eye goes straight to the background. A backdrop isn't just a printed sheet hung behind a speaker — it's the space where a brand's identity repeats in every photo, every video clip, and every post shared after the event ends. An event without a well-designed backdrop quietly loses a marketing opportunity that would otherwise repeat itself thousands of times.</p>
-</blockquote>
-
-<p>Many companies spend heavily on décor, lighting, and sound, and leave the backdrop as an afterthought. The result is a distorted logo, colors that don't match the brand, or a cluttered design that buries the core message. Yet the backdrop is one of an event's least expensive elements — and one of its most visible, living on in photos that stay online for years.</p>
 
 <h2>1. What Is a Backdrop and Why Does Every Event Need One?</h2>
 
