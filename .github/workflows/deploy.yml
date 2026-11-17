@@ -10,15 +10,24 @@ jobs:
     steps:
       - name: Trigger deploy webhook
         run: |
-          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
-            -H "Content-Type: application/json" \
-            -H "X-Hub-Signature-256: sha256=$(echo -n '{}' | openssl dgst -sha256 -hmac '${{ secrets.DEPLOY_SECRET }}' | awk '{print $2}')" \
-            -d '{}' \
-            https://windowadv.com/deploy.php)
-          echo "Response: $RESPONSE"
-          if [ "$RESPONSE" = "200" ]; then
-            echo "Deploy triggered successfully"
-          else
-            echo "Deploy failed with status $RESPONSE"
-            exit 1
-          fi
+          for ATTEMPT in 1 2 3; do
+            echo "Attempt $ATTEMPT..."
+            RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+              --connect-timeout 30 \
+              --max-time 120 \
+              -H "Content-Type: application/json" \
+              -H "X-Hub-Signature-256: sha256=$(echo -n '{}' | openssl dgst -sha256 -hmac '${{ secrets.DEPLOY_SECRET }}' | awk '{print $2}')" \
+              -d '{}' \
+              https://windowadv.com/deploy.php)
+            echo "Response: $RESPONSE"
+            if [ "$RESPONSE" = "200" ]; then
+              echo "Deploy triggered successfully"
+              exit 0
+            fi
+            if [ "$ATTEMPT" -lt 3 ]; then
+              echo "Retrying in 10 seconds..."
+              sleep 10
+            fi
+          done
+          echo "Deploy failed after 3 attempts"
+          exit 1
