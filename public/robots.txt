@@ -56,3 +56,7 @@ User-agent: Meta-ExternalAgent
 Allow: /
 
 Sitemap: https://windowadv.com/sitemap.xml
+
+# LLM Discovery
+# https://windowadv.com/llms.txt
+# https://windowadv.com/llms-full.txt

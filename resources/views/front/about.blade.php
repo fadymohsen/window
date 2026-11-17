@@ -235,7 +235,11 @@
             "description": "25+ years of advertising and marketing experience in Saudi Arabia with 5000+ completed projects"
         }
     },
-    "inLanguage": "{{ LaravelLocalization::getCurrentLocale() }}"
+    "inLanguage": "{{ LaravelLocalization::getCurrentLocale() }}",
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["#about h2", "#about .text-gr", "#mission-vision h2", "#mission-vision p"]
+    }
 }
 </script>
 

@@ -173,7 +173,13 @@
         <div class="row">
             <div class="blog-header my-2 mb-3 blog-animate blog-visible">
                 <h2 class="text-center">{{ $blog->meta_title ?: ($blog->title ?? '') }}</h2>
-                <span class="date d-flex justify-content-center"><bdi class="fs-6">{{ $blog->created_at->format('y M D, H:i') }}</bdi></span>
+                <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap mt-2" style="font-size: 0.9rem; color: #999;">
+                    <span><i class="fa-solid fa-calendar-days" style="color: #f9a11b;"></i> <time datetime="{{ $blog->created_at->toIso8601String() }}"><bdi>{{ $blog->created_at->format('Y-m-d') }}</bdi></time></span>
+                    @if($blog->updated_at->gt($blog->created_at->addDay()))
+                    <span><i class="fa-solid fa-pen-to-square" style="color: #f9a11b;"></i> {{ app()->getLocale() === 'ar' ? 'تحديث' : 'Updated' }}: <time datetime="{{ $blog->updated_at->toIso8601String() }}"><bdi>{{ $blog->updated_at->format('Y-m-d') }}</bdi></time></span>
+                    @endif
+                    <span><i class="fa-solid fa-building" style="color: #f9a11b;"></i> {{ $website_settings->title }}</span>
+                </div>
             </div>
             <div class="blog-image col-lg-6 mx-auto blog-animate blog-visible">
                 <img loading="lazy" src="{{ $blog->display_image }}" alt="{{ $blog->title ?? '' }}">
@@ -206,7 +212,7 @@
                             <img src="{{ $related->display_image }}" class="card-img-top" alt="{{ $related->title ?? '' }}" loading="lazy" style="height: 200px; object-fit: cover;">
                             <div class="card-body">
                                 <h3 class="card-title fs-6 fw-bold text-dark">{{ $related->title ?? '' }}</h3>
-                                <span class="text-muted" style="font-size: 0.8rem;"><bdi>{{ $related->created_at->format('Y M d') }}</bdi></span>
+                                <time datetime="{{ $related->created_at->toIso8601String() }}" class="text-muted" style="font-size: 0.8rem;"><bdi>{{ $related->created_at->format('Y M d') }}</bdi></time>
                             </div>
                         </div>
                     </a>

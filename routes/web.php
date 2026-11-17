@@ -19,3 +19,9 @@ Route::get('/llms.txt', function () {
         'Content-Type' => 'text/plain; charset=utf-8',
     ]);
 });
+
+Route::get('/llms-full.txt', function () {
+    return response()->file(public_path('llms-full.txt'), [
+        'Content-Type' => 'text/plain; charset=utf-8',
+    ]);
+});

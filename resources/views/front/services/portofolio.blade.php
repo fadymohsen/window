@@ -2,7 +2,7 @@
 
 @section('title', $service->title ?? '')
 @section('meta_title', $service->meta_title ?: ($service->title ?? ''))
-@section('description', $service->meta_description ?? '')
+@section('description', $service->meta_description ?: mb_substr(strip_tags($service->content ?? ''), 0, 160))
 @section('keywords', $service->meta_keywords ?? '')
 @section('display_image', $service->display_image)
 
@@ -60,7 +60,7 @@
     "@type": "Service",
     "serviceType": "{{ $service->title ?? '' }}",
     "name": "{{ $service->meta_title ?: ($service->title ?? '') }}",
-    "description": "{{ $service->meta_description ?: ($service->title ?? '') }}",
+    "description": "{{ $service->meta_description ?: mb_substr(strip_tags($service->content ?? ''), 0, 160) }}",
     "image": "{{ $service->display_image }}",
     "url": "{{ route('front.services.show', $service) }}",
     "provider": {
@@ -87,6 +87,10 @@
             "@type": "PriceSpecification",
             "description": "Custom pricing based on project requirements. Contact for a free quote."
         }
+    },
+    "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["#services-header h1", ".service-body > p:first-of-type", ".service-body > h2"]
     }
 }
 </script>

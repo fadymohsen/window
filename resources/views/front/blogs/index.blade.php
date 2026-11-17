@@ -35,18 +35,30 @@
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "{{ __('custom.blog') }}",
-    "itemListElement": [
-        @foreach($blogs as $blogItem)
-        {
-            "@type": "ListItem",
-            "position": {{ $loop->iteration + ($blogs->currentPage() - 1) * $blogs->perPage() }},
-            "name": "{{ $blogItem->title ?? '' }}",
-            "url": "{{ route('front.blogs.show', $blogItem) }}"
-        }@if(!$loop->last),@endif
-        @endforeach
-    ]
+    "@type": "CollectionPage",
+    "name": "{{ __('custom.blogs-meta-title') }}",
+    "description": "{{ __('custom.blogs-meta-description') }}",
+    "url": "{{ route('front.blogs.index') }}",
+    "isPartOf": {
+        "@type": "WebSite",
+        "@id": "{{ rtrim(config('app.url'), '/') }}/#website"
+    },
+    "inLanguage": "{{ LaravelLocalization::getCurrentLocale() }}",
+    "mainEntity": {
+        "@type": "ItemList",
+        "name": "{{ __('custom.blog') }}",
+        "numberOfItems": {{ $blogs->total() }},
+        "itemListElement": [
+            @foreach($blogs as $blogItem)
+            {
+                "@type": "ListItem",
+                "position": {{ $loop->iteration + ($blogs->currentPage() - 1) * $blogs->perPage() }},
+                "name": "{{ $blogItem->title ?? '' }}",
+                "url": "{{ route('front.blogs.show', $blogItem) }}"
+            }@if(!$loop->last),@endif
+            @endforeach
+        ]
+    }
 }
 </script>
 @endsection

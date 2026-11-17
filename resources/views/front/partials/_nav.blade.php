@@ -2,7 +2,7 @@
     <div class="container">
         <div>
             <a class="navbar-brand" href="/"><img src="{{ asset('front/images/window-final logo-1.png') }}" alt="{{ $website_settings->title }} - @lang('custom.home')"></a>
-            <a class="navbar-brand" href="/"><img src="{{ asset('front/images/sa-vision-2030.png') }}" alt="Saudi Vision 2030"></a>
+            <a class="navbar-brand" href="/"><picture><source srcset="{{ asset('front/images/sa-vision-2030.webp') }}" type="image/webp"><img src="{{ asset('front/images/sa-vision-2030.png') }}" alt="Saudi Vision 2030"></picture></a>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

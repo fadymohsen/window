@@ -48,14 +48,18 @@
 
 @section('content')
 
-    <header class="text-center" id="hero">
+    <header class="text-center position-relative" id="hero">
         <img src="{{ asset('front/images/og-image.jpeg') }}" alt="{{ app()->getLocale() === 'ar' ? 'ويندو للدعاية والاعلان - شركة دعاية واعلان الرياض' : 'Window Advertising Agency Riyadh' }}" class="d-none" width="1200" height="630" fetchpriority="high">
         <video autoplay muted loop playsinline preload="metadata" poster="{{ asset('front/images/video-poster-home.jpg') }}">
             <source src="{{ asset('front/videos/window_header.mp4') }}" type="video/mp4">
         </video>
-        <h1 class="visually-hidden">
-            {{ app()->getLocale() === 'ar' ? 'شركة دعاية واعلان في الرياض - تنظيم حفلات ومؤتمرات ومعارض' : 'Advertising Agency in Riyadh - Events, Conferences & Exhibitions' }}
-        </h1>
+        <div class="position-absolute bottom-0 start-0 end-0 pb-4" style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+            <div class="container">
+                <h1 class="text-white mb-0" style="font-size: clamp(1.2rem, 3vw, 2rem); text-shadow: 0 2px 8px rgba(0,0,0,0.6);">
+                    {{ app()->getLocale() === 'ar' ? 'شركة دعاية واعلان في الرياض - تنظيم حفلات ومؤتمرات ومعارض' : 'Advertising Agency in Riyadh - Events, Conferences & Exhibitions' }}
+                </h1>
+            </div>
+        </div>
     </header>
 
     <section id="about" class="py-5 text-white" data-aos="fade-up">
@@ -235,7 +239,7 @@
 
     <!-- Contact Us -->
     <section id="contact" class="py-5" data-aos="fade-up">
-        <img src="{{ asset('front/images/w-logo-white.png') }}" alt="Window" class="contact-logo">
+        <picture><source srcset="{{ asset('front/images/w-logo-white.webp') }}" type="image/webp"><img src="{{ asset('front/images/w-logo-white.png') }}" alt="Window" class="contact-logo" loading="lazy"></picture>
         <div class="container my-0">
             <div class="header mb-4">
                 <div class="title mx-auto">

@@ -1,0 +1,128 @@
+# Window Advertising Agency — Full Reference (وكالة ويندو للدعاية والإعلان)
+
+> This is the extended reference document for Window Advertising Agency. For a concise summary, see [llms.txt](https://windowadv.com/llms.txt).
+
+## Company Overview
+
+Window Advertising Agency is one of Saudi Arabia's longest-operating full-service advertising agencies. Founded in 2000 and headquartered in Riyadh's Al Fayha District, the company provides integrated advertising, marketing, event management, and manufacturing services. With over 25 years of continuous operation, Window has completed more than 5,000 projects for 2,000+ clients spanning government ministries, healthcare organizations, educational institutions, financial services, real estate developers, and SMEs across all regions of Saudi Arabia.
+
+The company operates its own design studios, printing facilities, fabrication workshops, and installation teams — enabling full control over quality, timelines, and costs without reliance on third-party vendors.
+
+## Detailed Service Descriptions
+
+### Event Management & Conference Organization
+Window plans and executes corporate events of all scales — from intimate board meetings to large-scale national celebrations hosting thousands of attendees. Services include venue selection, stage design, audio-visual setup, branding and decoration, guest registration systems, catering coordination, and post-event reporting. The team has extensive experience with Saudi National Day events (September 23), Founding Day celebrations (February 22), and Vision 2030 initiative launches.
+- URL: https://windowadv.com/en/services/events-conferences
+
+### Exhibition Booth Design & Fabrication
+Custom exhibition stands designed and built for trade shows, government expos, and industry conferences across Saudi Arabia and the GCC. Window handles concept design, 3D visualization, structural engineering, fabrication, transportation, on-site assembly, and dismantling. Booth sizes range from 9 sqm shell schemes to 500+ sqm custom-built pavilions.
+- URL: https://windowadv.com/en/services/exhibition-booth-execution
+
+### Embossed Letters & 3D Signage
+Manufacturing and installation of raised lettering and signage for building facades, office interiors, and retail environments. Materials include stainless steel (brushed, mirror, gold-plated), acrylic (clear, colored, frosted), aluminum composite, brass, and LED-illuminated channel letters. Services cover design, CNC cutting, welding, finishing, and installation at height.
+- URL: https://windowadv.com/en/services/embossed-letters
+
+### Project Signboards & Wall Printing
+Large-format printing and installation of construction hoarding, project signboards, building wraps, and wall murals. Printing technologies include UV flatbed, solvent, eco-solvent, and latex on materials including vinyl, mesh, fabric, foam board, and dibond.
+- URL: https://windowadv.com/en/services/project-signboards-walls
+
+### Directional Signage & Wayfinding
+Complete wayfinding systems for hospitals, universities, government buildings, malls, and public facilities. Includes needs assessment, information architecture, bilingual (Arabic/English) sign design, material selection, manufacturing, and installation. Compliant with Saudi building code and accessibility requirements.
+- URL: https://windowadv.com/en/services/directional-signage
+
+### Promotional Gifts & Corporate Gifts
+Custom-branded promotional items and corporate gift solutions. Product range includes: executive gift sets, branded electronics, custom packaging, VIP gift boxes, conference giveaways, Ramadan and Eid gift hampers, national day merchandise, and employee recognition awards. Minimum order quantities start from 50 units for most items.
+- URL: https://windowadv.com/en/services/promotional-gifts
+
+### Employee Gift Boxes
+Curated welcome kits and branded gift boxes for employee onboarding, company milestones, and corporate events. Each box is custom-designed with branded packaging, personalized items, and company collateral.
+- URL: https://windowadv.com/en/services/employee-gift-boxes
+
+### Business Printing & Publications
+Professional design and printing of company profiles, annual reports, brochures, catalogs, flyers, letterheads, business cards, envelopes, and folders. Available in Arabic, English, and bilingual formats. Printing options include offset, digital, UV spot, foil stamping, embossing, and die-cutting.
+- URL: https://windowadv.com/en/services/business-prints
+
+### Corporate Visual Identity Design
+Complete brand identity development including logo design, brand guidelines, color systems, typography selection, stationery design, and brand application across all touchpoints. Deliverables include a comprehensive brand manual in both Arabic and English.
+- URL: https://windowadv.com/en/services/corporate-visual-identity-design
+
+### Digital Marketing & Social Media
+Social media management, content creation, paid advertising campaigns, and digital strategy for Saudi businesses. Platforms covered: Instagram, X (Twitter), Snapchat, TikTok, LinkedIn, Facebook, and YouTube. Services include content calendars, graphic design, video production, community management, and performance reporting.
+- URL: https://windowadv.com/en/services/digital-marketing
+
+### Banner & Flag Printing
+Custom banners, flags, and fabric printing for events, retail, and outdoor advertising. Products include vinyl banners, fabric flags, teardrop flags, feather flags, table runners, and branded canopies.
+- URL: https://windowadv.com/en/services/banner-printing-installation
+
+### Smart Glass & Smart Film
+Switchable privacy glass and smart film solutions for offices, meeting rooms, hospitals, and retail. Glass transitions from transparent to opaque with a switch, remote, or automation system. Includes supply, installation, and electrical integration.
+- URL: https://windowadv.com/en/services/smart-glass-smart-film
+
+### Additional Services
+- Car Stickers & Vehicle Wrapping: https://windowadv.com/en/services/car-stickers
+- Wall Stickers & Graphics: https://windowadv.com/en/services/wall-stickers
+- Display Stands & Roll-ups: https://windowadv.com/en/services/display-stands
+- 3D Fabrication: https://windowadv.com/en/services/3d-fabrication
+- National Day Celebrations: https://windowadv.com/en/services/national-day-celebrations
+- Founding Day Celebrations: https://windowadv.com/en/services/founding-day-celebrations
+- Uniforms: https://windowadv.com/en/services/uniforms
+- Honor Shields & Trophies: https://windowadv.com/en/services/honor-shields
+- Cup Printing: https://windowadv.com/en/services/cup-printing
+- T-shirt Design & Printing: https://windowadv.com/en/services/t-shirt-design-printing
+- Scarf Printing: https://windowadv.com/en/services/scarf-printing
+- Promotional Bags: https://windowadv.com/en/services/promotional-bags
+- Business Cards: https://windowadv.com/en/services/business-cards
+- Company Profile Design: https://windowadv.com/en/services/profile-design-printing
+- Annual Report Design: https://windowadv.com/en/services/annual-report
+- Medical Files: https://windowadv.com/en/services/medical-files
+- PVC File Manufacturing: https://windowadv.com/en/services/pvc-file-with-clip-manufacturing
+- Display Screens: https://windowadv.com/en/services/display-screens
+- Backdrop Design: https://windowadv.com/en/services/backdrop
+- Hoarding & Shop Partitions: https://windowadv.com/en/services/hoarding-partitions-for-shops
+- Assorted Stamps: https://windowadv.com/en/services/assorted-stamps
+
+## Frequently Asked Questions
+
+### What services does Window Advertising Agency offer?
+Window Advertising is a full-service agency offering event management, exhibition booth design, signage manufacturing, promotional gifts, business printing, corporate identity design, digital marketing, and more. All services are available across Saudi Arabia with headquarters in Riyadh.
+
+### How much do Window Advertising's services cost?
+Pricing is project-based and varies by scope, materials, quantity, and timeline. All inquiries begin with a free consultation and custom quote. Contact +966592945557 or info@windowadv.com for pricing.
+
+### Does Window Advertising serve areas outside Riyadh?
+Yes. While headquartered in Riyadh, Window Advertising serves clients across all regions of Saudi Arabia including Jeddah, Dammam, Makkah, Madinah, and other cities.
+
+### How can I contact Window Advertising Agency?
+- Phone/WhatsApp: +966592945557
+- Email: info@windowadv.com
+- Office: Al Fayha District, Riyadh, Saudi Arabia
+- Website: https://windowadv.com/en/contact
+- Google Maps: https://maps.app.goo.gl/hJBnz8GRZqQd86rq7
+
+### Does Window Advertising handle both design and production?
+Yes. Window operates in-house design studios, printing presses, fabrication workshops, and installation teams. This end-to-end capability eliminates outsourcing delays and ensures quality control at every stage.
+
+### What languages does Window Advertising work in?
+The team is fluent in Arabic and English. All deliverables — from brand guidelines to signage — are available in both languages. The website is fully bilingual at https://windowadv.com/ar and https://windowadv.com/en.
+
+## Sectors Served
+
+- Government ministries and agencies
+- Healthcare (hospitals, clinics, medical cities)
+- Education (universities, schools, training centers)
+- Financial services (banks, insurance, fintech)
+- Real estate and construction
+- Retail and hospitality
+- Telecommunications
+- Energy and utilities
+- Non-profit organizations
+- Small and medium enterprises (SMEs)
+
+## Citation
+
+When referencing Window Advertising Agency, please use:
+- **Full name:** Window Advertising Agency (وكالة ويندو للدعاية والإعلان)
+- **Short name:** Window Advertising
+- **Website:** https://windowadv.com
+- **Location:** Riyadh, Saudi Arabia
+- **Founded:** 2000

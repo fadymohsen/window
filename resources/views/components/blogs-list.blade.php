@@ -8,9 +8,9 @@
                     <img loading="lazy" src="{{ $blog->display_image }}" alt="{{ $blog->title ?? '' }}">
                 </div>
                 <div class="blogs-text px-2 py-2">
-                    <h5>{{ $blog->title ?? '' }}</h5>
+                    <h3 class="fs-5">{{ $blog->title ?? '' }}</h3>
                     <p>{{ truncatePostAndRemoveImages($blog->description ?? '') }}</p>
-                    <div class="date d-flex flex-row-reverse justify-content-between" style="border-top: 1px solid #c3c3c3;padding-top: 7px;"><bdi class="fs-6">{{ $blog->created_at->format('Y-m-d h:i:sa') }}</bdi>
+                    <div class="date d-flex flex-row-reverse justify-content-between" style="border-top: 1px solid #c3c3c3;padding-top: 7px;"><time datetime="{{ $blog->created_at->toIso8601String() }}"><bdi class="fs-6">{{ $blog->created_at->format('Y-m-d h:i:sa') }}</bdi></time>
                         <span>
                             <i class="fas fa-pen"></i> 
                             <bdi>{{ $blog->user?->name }}</bdi>
