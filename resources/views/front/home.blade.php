@@ -53,13 +53,9 @@
         <video autoplay muted loop playsinline preload="metadata" poster="{{ asset('front/images/video-poster-home.jpg') }}">
             <source src="{{ asset('front/videos/window_header.mp4') }}" type="video/mp4">
         </video>
-        <div class="position-absolute bottom-0 start-0 end-0 pb-4" style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
-            <div class="container">
-                <h1 class="text-white mb-0" style="font-size: clamp(1.2rem, 3vw, 2rem); text-shadow: 0 2px 8px rgba(0,0,0,0.6);">
-                    {{ app()->getLocale() === 'ar' ? 'شركة دعاية واعلان في الرياض - تنظيم حفلات ومؤتمرات ومعارض' : 'Advertising Agency in Riyadh - Events, Conferences & Exhibitions' }}
-                </h1>
-            </div>
-        </div>
+        <h1 class="visually-hidden">
+            {{ app()->getLocale() === 'ar' ? 'شركة دعاية واعلان في الرياض - تنظيم حفلات ومؤتمرات ومعارض' : 'Advertising Agency in Riyadh - Events, Conferences & Exhibitions' }}
+        </h1>
     </header>
 
     <section id="about" class="py-5 text-white" data-aos="fade-up">

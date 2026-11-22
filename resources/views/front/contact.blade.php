@@ -68,9 +68,9 @@
             </div>
             <div class="row justify-content-center" style="min-height:35vh;">
                 <div class="col-lg-4 px-4 mt-2" style="position: relative;">
-                    <picture class="d-none d-sm-block" style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);height: 140%;max-width: 100%;">
+                    <picture class="d-none d-sm-block">
                         <source srcset="{{ asset('front/images/muslim-man-browsing-smartphone-app-removebg-preview.webp') }}" type="image/webp">
-                        <img src="{{ asset('front/images/muslim-man-browsing-smartphone-app-removebg-preview.png') }}" alt="@lang('custom.contact-us') - {{ $website_settings->title }}" width="793" height="1134" style="height: 100%; max-width: 100%;" loading="lazy">
+                        <img src="{{ asset('front/images/muslim-man-browsing-smartphone-app-removebg-preview.png') }}" alt="@lang('custom.contact-us') - {{ $website_settings->title }}" width="793" height="1134" style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);height: 140%;max-width: 100%;" loading="lazy">
                     </picture>
                 </div>
                 <div class="col-lg-5 px-4 mt-2">
