@@ -54,7 +54,7 @@
             <source src="{{ asset('front/videos/window_header.mp4') }}" type="video/mp4">
         </video>
         <h1 class="visually-hidden">
-            {{ app()->getLocale() === 'ar' ? 'شركة دعاية واعلان في الرياض - تنظيم حفلات ومؤتمرات ومعارض' : 'Advertising Agency in Riyadh - Events, Conferences & Exhibitions' }}
+            {{ app()->getLocale() === 'ar' ? 'شركة دعاية وإعلان وتنفيذ إعلاني متكامل بالرياض | وكالة ويندو' : 'Full-Service Advertising Agency in Riyadh | Window Agency' }}
         </h1>
     </header>
 
